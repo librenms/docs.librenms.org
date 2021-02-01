@@ -2194,21 +2194,19 @@ downstream device if able.  If not, the following should fix:</p>
 <p>Upon success, run rancid:</p>
 <p><code>sudo su -c /var/lib/rancid/bin/rancid-run -s /bin/bash -l rancid</code></p>
 <p>Ensure your configs pulled:</p>
-<p>```sudo su - rancid
+<div class="highlight"><pre><span></span><code>sudo su - rancid
 cd librenms/configs/
 ls
-<div class="highlight"><pre><span></span><code>Make sure your config files are there :-)
 </code></pre></div>
-sudo usermod -a -G rancid www-data
-cd /opt/librenms/
-<div class="highlight"><pre><span></span><code>Add Rancid into LibreNMS config.php:
-
-```php
-### Rancid
-$config[&#39;rancid_configs&#39;][]             = &#39;/var/lib/rancid/librenms/configs/&#39;;
-$config[&#39;rancid_repo_type&#39;]             = &#39;svn&#39;;  //&#39;svn&#39; or &#39;git&#39;
-$config[&#39;rancid_ignorecomments&#39;]        = 0;
-</code></pre></div></p>
+<p>Make sure your config files are there :-)</p>
+<div class="highlight"><pre><span></span><code>sudo usermod -a -G rancid librenms
+</code></pre></div>
+<p>Add Rancid into LibreNMS config.php:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">### Rancid</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_configs&#39;</span><span class="p">][]</span>             <span class="o">=</span> <span class="s1">&#39;/var/lib/rancid/librenms/configs/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_repo_type&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s1">&#39;svn&#39;</span><span class="p">;</span>  <span class="c1">//&#39;svn&#39; or &#39;git&#39;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_ignorecomments&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
 <p>Now restart apache
 <code>sudo /etc/init.d/apache2 restart</code></p>
                 
