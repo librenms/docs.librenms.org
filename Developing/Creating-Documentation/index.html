@@ -1763,6 +1763,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#building-docs" class="md-nav__link">
+    Building docs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-docs" class="md-nav__link">
+    Viewing docs
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing docs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-docs-from-another-machine" class="md-nav__link">
+    Viewing docs from another machine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2154,6 +2181,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#building-docs" class="md-nav__link">
+    Building docs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-docs" class="md-nav__link">
+    Viewing docs
+  </a>
+  
+    <nav class="md-nav" aria-label="Viewing docs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-docs-from-another-machine" class="md-nav__link">
+    Viewing docs from another machine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2172,45 +2226,42 @@
                 
                 
                 <h1 id="creating-documentation">Creating Documentation</h1>
-<p>One of the goals of the LibreNMS project is to enable users to get all
-of the help they need from our documentation.</p>
-<p>The documentation is generated with
-<a href="https://www.mkdocs.org/">mkdocs</a>. If you want to build a local copy,
-install <code>mkdocs</code> and <code>mkdocs-material</code>, then run <code>make docs</code>. This
-produces the HTML in <code>docs/out</code> directory.</p>
-<p>Alternatively you can start a webserver at <a href="http://localhost:8000">http://localhost:8000</a> for
-live preview by executing <code>mkdocs serve</code></p>
-<h3 id="writing-docs">Writing docs</h3>
+<p>One of the goals of the LibreNMS project is to enable users to get all of the
+help they need from our documentation.</p>
+<p>The documentation uses the <a href="https://en.wikipedia.org/wiki/Markdown">markdown</a>
+markup language and is generated with <a href="https://www.mkdocs.org/">mkdocs</a>. To edit
+or create markdown you only need a text editor, but it is recommended to build
+your docs before submitting, in order to check them visually. The section on
+this page has instructions for this step.</p>
+<h2 id="writing-docs">Writing docs</h2>
 <p>When you are adding a new feature or extension, we need to have full
 documentation to go along with it. It's quite simple to do this:</p>
 <ul>
-<li>Find the relevant directory to store your new document in, General,
-  Support and Extensions are the most likely choices.</li>
-<li>Think of a descriptive name that's not too long, it should match
-  what they may be looking for or describes the feature.</li>
-<li>Add the new document into the <code>nav</code> section of <code>mkdocs.yml</code> if it
-  needs to appear in the table of contents</li>
-<li>Ensure the first line contains: <code>source: path/to/file.md</code> - don't
-  include the initial <code>doc/</code>.</li>
+<li>Find the relevant directory to store your new document in, General, Support
+  and Extensions are the most likely choices.</li>
+<li>Think of a descriptive name that's not too long, it should match what they may
+  be looking for or describes the feature.</li>
+<li>Add the new document into the <code>nav</code> section of <code>mkdocs.yml</code> if it needs to
+  appear in the table of contents</li>
+<li>Ensure the first line contains: <code>source: path/to/file.md</code> - don't include the
+  initial <code>doc/</code>.</li>
 <li>In the body of the document, be descriptive but keep things simple. Some tips:</li>
-<li>If the document could cover different distros like CentOS and
-    Ubuntu please try and include the information for them all. If
-    that's not possible then at least put a placeholder in asking for contributions.</li>
-<li>Ensure you use the correct formatting for <code>commands</code> and <code>code
-    blocks</code> by wrapping one liners in backticks or blocks in ```.</li>
-<li>Put content into sub-headings where possible to organise the
-    content.</li>
-<li>If you rename a file, please add a redirect in for the old file by
-  using <code>&lt;meta http-equiv="refresh" content="0; url=/NewLocation/" /&gt;</code>
-  within the old file name.</li>
+<li>If the document could cover different distros like CentOS and Ubuntu please
+    try and include the information for them all. If that's not possible then at
+least put a placeholder in asking for contributions.</li>
+<li>Ensure you use the correct formatting for <code>commands</code> and <code>code blocks</code> by
+    wrapping one liners in backticks or blocks in ```.</li>
+<li>Put content into sub-headings where possible to organise the content.</li>
+<li>If you rename a file, please add a redirect in for the old file by using
+  <code>&lt;meta http-equiv="refresh" content="0; url=/NewLocation/" /&gt;</code> within the old
+file name.</li>
 </ul>
-<p>Please ensure you add the document to the relevant section within
-<code>pages</code> of <code>mkdocs.yml</code> so that it's in the correct menu and is built.
-Forgetting this step will result in your document never seeing the
-light of day :)</p>
-<h3 id="formatting-docs">Formatting docs</h3>
-<p>Our docs are based on Markdown using mkdocs which adheres to markdown
-specs and nothing more, because of that we also import a couple of extra libraries:</p>
+<p>Please ensure you add the document to the relevant section within <code>pages</code> of
+<code>mkdocs.yml</code> so that it's in the correct menu and is built.  Forgetting this
+step will result in your document never seeing the light of day :)</p>
+<h2 id="formatting-docs">Formatting docs</h2>
+<p>Our docs are based on Markdown using mkdocs which adheres to markdown specs and
+nothing more, because of that we also import a couple of extra libraries:</p>
 <ul>
 <li>pymdownx.tasklist</li>
 <li>pymdownx.tilde</li>
@@ -2223,10 +2274,61 @@ specs and nothing more, because of that we also import a couple of extra librari
 <li>Code can be placed in `` for single line or ``` for multiline.</li>
 <li><code>#</code> Can be used for main headings which translates to a <code>&lt;h1&gt;</code> tag,
   increasing the <code>#</code>'s will increase the hX tags.</li>
-<li><code>###</code> Can be used for sub-headings which will appear in the TOC to
-  the left.</li>
+<li><code>###</code> Can be used for sub-headings which will appear in the TOC to the left.</li>
 </ul>
 <p><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown CheatSheet Link</a></p>
+<h2 id="building-docs">Building docs</h2>
+<p>This is achieved with <code>mkdocs</code>, a python package. </p>
+<ol>
+<li>Install the required packages. </li>
+</ol>
+<p><div class="highlight"><pre><span></span><code>pip install mkdocs mkdocs-exclude mkdocs-material mkdocs-macros-plugin
+</code></pre></div>
+If you encounter permissions issues, these might be reoslved by using the
+user option, with whatever user you are building as, e.g. <code>-u librenms</code></p>
+<ol>
+<li>
+<p>A configuration file for building LibreNMS docs is already included in the
+distribution: <code>/opt/librenms/mkdocs.yml</code>. The various configuration
+directives are documented
+<a href="https://www.mkdocs.org/user-guide/configuration/">here</a>.</p>
+</li>
+<li>
+<p>Build from the librenms base directory: <code>cd /opt/librenms</code>.</p>
+</li>
+<li>
+<p>Building is simple:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>mkdocs build
+</code></pre></div>
+<p>This will output all the documentation in html format to <code>/opt/librenms/out</code>
+(this folder will be ignored from any commits).</p>
+<h2 id="viewing-docs">Viewing docs</h2>
+<p>mkdocs includes it's own light-weight webserver for this purpose. </p>
+<p>Viewing is as simple as running the following command: </p>
+<div class="highlight"><pre><span></span><code>$ mkdocs serve
+INFO    -  Building documentation...
+&lt;..&gt;
+INFO    -  Documentation built in 12.54 seconds
+&lt;..&gt;
+INFO    -  Serving on http://127.0.0.1:8000
+&lt;..&gt;
+INFO    -  Start watching changes
+</code></pre></div>
+<p>Now you will find the complete set of LibreNMS documentation by opening your
+browser to <code>localhost:8000</code>.</p>
+<p>Note it is not necessary to <code>build</code> before viewing as the <code>serve</code> command
+will do this for you. Also the server will update the documents it is serving
+whenever changes to the markdown are made, such as in another terminal.</p>
+<h3 id="viewing-docs-from-another-machine">Viewing docs from another machine</h3>
+<p>By default the server will only listen for connections from the local machine.
+If you are building on a different machine you can use the following directive
+to listen on all interfaces:</p>
+<div class="highlight"><pre><span></span><code>mkdocs serve --dev-addr=http://0.0.0.0:8000
+</code></pre></div>
+<p>WARNING: this is not a secure webserver, do this at your own risk, with
+appropriate host security and do not leave the server running.</p>
                 
                   
                 
