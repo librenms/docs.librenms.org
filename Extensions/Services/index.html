@@ -943,6 +943,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#service-templates" class="md-nav__link">
+    Service Templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-auto-discovery" class="md-nav__link">
+    Service Auto Discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-templates-auto-discovery" class="md-nav__link">
+    Service Templates Auto Discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
     Setup
   </a>
@@ -966,6 +987,13 @@
         <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     Debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-polling-discovery-options" class="md-nav__link">
+    Related Polling / Discovery Options
   </a>
   
 </li>
@@ -2183,6 +2211,27 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#service-templates" class="md-nav__link">
+    Service Templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-auto-discovery" class="md-nav__link">
+    Service Auto Discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-templates-auto-discovery" class="md-nav__link">
+    Service Templates Auto Discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
     Setup
   </a>
@@ -2206,6 +2255,13 @@
         <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     Debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-polling-discovery-options" class="md-nav__link">
+    Related Polling / Discovery Options
   </a>
   
 </li>
@@ -2245,10 +2301,14 @@
 <ul>
 <li><a href="#setting-up-services">Setting up services</a><ul>
 <li><a href="#nagios-plugins-source">Nagios plugins source</a></li>
+<li><a href="#service-templates">Service Templates</a></li>
+<li><a href="#service-auto-discovery">Service Auto Discovery</a></li>
+<li><a href="#service-templates-auto-discovery">Service Templates Auto Discovery</a></li>
 <li><a href="#setup">Setup</a></li>
 <li><a href="#performance-data">Performance data</a></li>
 <li><a href="#alerting">Alerting</a></li>
 <li><a href="#debug">Debug</a></li>
+<li><a href="#related-polling-discovery-options">Related Polling / Discovery Options</a></li>
 <li><a href="#service-checks-polling-logic">Service checks polling logic</a></li>
 <li><a href="#check_mrpe">CHECK_MRPE</a></li>
 </ul>
@@ -2271,6 +2331,36 @@ the device you are monitoring.</strong></p>
 <p>Note: Plugins will only load if they are prefixed with <code>check_</code>.
 The <code>check_</code> prefix is stripped out when displaying in the "Add Service"
 GUI "Type" dropdown list.</p>
+<h2 id="service-templates">Service Templates</h2>
+<p>Service Templates within LibreNMS provides the same ability as Nagios
+does with Host Groups. Known as Device Groups in LibreNMS.
+They are applied devices that belong to the specified Device Group.</p>
+<p>Use the Apply buttons to manually create or update Services for the Service
+Template.
+Use the Remove buttons to manually remove Services for the Service Template.</p>
+<p>After you Edit a Service Template, and then use Apply, all relevant changes are
+pushed to existing Services previously created.</p>
+<p>You can also enable Service Templates Auto Discovery to have Services
+added / removed / updated on regular discover intervals.</p>
+<p>When a Device is a member of multiple Device Groups, templates from
+all of those Device Groups are applied.</p>
+<p>If a Device is added or removed from a Device Group, when the Apply button
+is used or Auto Discovery runs Services will be added / removed as
+appropriate.</p>
+<p><strong>Service Templates are tied into Device Groups, you need at least
+one Device Group to be able to add Service Templates - You can define a
+dummy one. The Device Group does not need members to add Service Templates.</strong></p>
+<h2 id="service-auto-discovery">Service Auto Discovery</h2>
+<p>To automatically create services for devices with available checks.</p>
+<p>You need to enable the discover services within config.php with the following:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discover_services&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="service-templates-auto-discovery">Service Templates Auto Discovery</h2>
+<p>To automatically create services for devices with configured
+Service Templates.</p>
+<p>You need to enable the discover services within config.php with the following:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discover_services_templates&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="setup">Setup</h2>
 <p>Service checks are now distributable if you run a distributed
 setup. To leverage this, use the <code>dispatch</code> service. Alternatively,
@@ -2361,6 +2451,29 @@ rule would look like:</p>
 <p>then you can run the following command to help troubleshoot services.</p>
 <div class="highlight"><pre><span></span><code>./check-services.php -d
 </code></pre></div>
+<h2 id="related-polling-discovery-options">Related Polling / Discovery Options</h2>
+<p>These settings are related and should be investigated and set accordingly.
+The below values are not defaults or recommended.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_enabled&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_workers&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_frequency&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_down_retry&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_enabled&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_workers&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_frequency&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">3600</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_enabled&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_workers&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_frequency&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+</code></pre></div></p>
 <h2 id="service-checks-polling-logic">Service checks polling logic</h2>
 <p>Service check is skipped when the associated device is not pingable,
 and an appropriate entry is populated in the event log. Service check
