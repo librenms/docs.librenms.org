@@ -2131,7 +2131,7 @@ unix socket.</p>
     <span class="kn">allow</span> <span class="nv">$LibreNMS_IP</span><span class="p">;</span>
     <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
 
-    <span class="kn">proxy_pass</span> <span class="s">unix:/var/run/rrdcached/rrdcached.sock</span><span class="p">;</span>
+    <span class="kn">proxy_pass</span> <span class="s">unix:/run/rrdcached.sock</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Replace <code>$LibreNMS_IP</code> with the ip of the server that will be using
