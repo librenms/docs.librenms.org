@@ -2172,7 +2172,7 @@
 <p>1: Using the command line via ssh you can add a new device by changing
    to the directory of your LibreNMS install and typing (be sure to
    put the correct details).</p>
-<div class="highlight"><pre><span></span><code>./addhost.php [community] [v1|v2c] [port] [udp|udp6|tcp|tcp6]
+<div class="highlight"><pre><span></span><code>./addhost.php <span class="o">[</span>community<span class="o">]</span> <span class="o">[</span>v1<span class="p">|</span>v2c<span class="o">]</span> <span class="o">[</span>port<span class="o">]</span> <span class="o">[</span>udp<span class="p">|</span>udp6<span class="p">|</span>tcp<span class="p">|</span>tcp6<span class="o">]</span>
 </code></pre></div>
 <blockquote>
 <p>Please note that if the community contains special characters such
@@ -2361,7 +2361,7 @@ architecture then the following steps should be all that's needed:</p>
 <li>and import it into your new server (<code>mysql -u root -p librenms &lt; librenms.sql</code>).</li>
 <li>Copy the <code>rrd/</code> folder to the new server.</li>
 <li>Copy the <code>.env</code> and <code>config.php</code> files to the new server.</li>
-<li>Check for modified files (eg specific os, ...) with <code>git status</code> and 
+<li>Check for modified files (eg specific os, ...) with <code>git status</code> and
   migrate them.</li>
 <li>Ensure ownership of the copied files and folders (substitute your
   user if necessary) - <code>chown -R librenms:librenms /opt/librenms</code></li>
@@ -2399,7 +2399,7 @@ adding to /etc/snmp/snmpd.conf :</p>
 <p><code>realStorageUnits 0</code></p>
 <h2 id="what-does-mean-ignore-alert-tag-on-device-component-service-and-port"><a name="faq28"> What does mean \"ignore alert tag\" on device, component, service and port?</a></h2>
 <p>Tag device, component, service and port to ignore alerts. Alert checks will still run.
-However, ignore tag can be read in alert rules. For example on device, if <code>devices.ignore = 0</code> 
+However, ignore tag can be read in alert rules. For example on device, if <code>devices.ignore = 0</code>
 or <code>macros.device = 1</code> condition is is set and ignore alert tag is on,
 the alert rule won't match. The alert rule is ignored.</p>
 <h2 id="how-do-i-clean-up-alerts-from-my-switches-and-routers-about-ports-being-down-or-changing-speed"><a name="network-config-permanent-change"> How do I clean up alerts from my switches and routers about ports being down or changing speed</a></h2>
@@ -2573,28 +2573,29 @@ this new syntax (including the titles).</p>
 </ul>
 <p>You should now see a linear prediction line on the graph.</p>
 <h2 id="how-do-i-move-only-the-db-to-another-server"><a name='move-db-to-another-server'>How do I move only the DB to another server?</a></h2>
-<p>There is already a reference how to move your whole LNMS installation to another server. But the following steps will help you to split up an "All-in-one" installation to one LibreNMS installation with a separate database install. 
+<p>There is already a reference how to move your whole LNMS installation to another server. But the following steps will help you to split up an "All-in-one" installation to one LibreNMS installation with a separate database install.
 *Note: This section assumes you have a MySQL/MariaDB instance</p>
 <ul>
 <li>Stop the apache and mysql service in you LibreNMS installation.</li>
-<li>Edit out all the cron entries in <code>/etc/cron.d/librenms</code>. </li>
+<li>Edit out all the cron entries in <code>/etc/cron.d/librenms</code>.</li>
 <li>Dump your <code>librenms</code>database on your current install by issuing <code>mysqldump librenms -u root -p &gt; librenms.sql</code>.</li>
 <li>Stop and disable the MySQL server on your current install.</li>
 <li>On your new server make sure you create a new database with the standard install command, no need to add a user for localhost though.</li>
 <li>Copy this over to your new database server and import it with <code>mysql -u root -p librenms &lt; librenms.sql</code>.</li>
 <li>Enter to mysql and add permissions with the following two commands:
-<div class="highlight"><pre><span></span><code>GRANT ALL PRIVILEGES ON librenms.* TO &#39;librenms&#39;@&#39;IP_OF_YOUR_LNMS_SERVER&#39; IDENTIFIED BY &#39;PASSWORD&#39; WITH GRANT OPTION;
-GRANT ALL PRIVILEGES ON librenms.* TO &#39;librenms&#39;@&#39;FQDN_OF_YOUR_LNMS_SERVER&#39; IDENTIFIED BY &#39;PASSWORD&#39; WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-exit;
+<div class="highlight"><pre><span></span><code><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">librenms</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;librenms&#39;</span><span class="o">@</span><span class="s1">&#39;IP_OF_YOUR_LNMS_SERVER&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;PASSWORD&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="n">librenms</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;librenms&#39;</span><span class="o">@</span><span class="s1">&#39;FQDN_OF_YOUR_LNMS_SERVER&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;PASSWORD&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
+<span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+<span class="n">exit</span><span class="p">;</span>
 </code></pre></div></li>
 <li>Enable and restart MySQL server.</li>
 <li>Edit your <code>config.php</code> file to point the install to the new database server location.</li>
-<li><strong>Very important</strong>: On your LibreNMS server, inside your install directory is a <code>.env</code> file, in it you need to edit the <code>DBHOST</code> paramater to point to your new server location. </li>
+<li><strong>Very important</strong>: On your LibreNMS server, inside your install directory is a <code>.env</code> file, in it you need to edit the <code>DBHOST</code> paramater to point to your new server location.</li>
 <li>After all this is done, enable all the cron entries again and start apache.</li>
 </ul>
 <h2 id="what-are-the-optional-requirements-message-when-i-add-snmpv3-devices"><a name='optional-requirements-for-snmpv3-sha2-auth'>What are the "optional requirements message" when I add SNMPv3 devices?</a></h2>
-<p>When you add a device via the WebUI you may see a little message stating "Optional requirements are not met so some options are disabled". Do not panic. This simply means your system does not contain <strong>openssl &gt;= 1.1</strong> and <strong>net-snmp &gt;= 5.8</strong>, which are the minimum specifications needed to be able to use AES-192,AES-256 as crypto algorithms and SHA-224|256|384|512 as auth algorithms. </p>
+<p>When you add a device via the WebUI you may see a little message stating "Optional requirements are not met so some options are disabled". Do not panic. This simply means your system does not contain <strong>openssl &gt;= 1.1</strong> and <strong>net-snmp &gt;= 5.8</strong>, which are the minimum specifications needed to be able to use SHA-224|256|384|512 as auth algorithms.
+For crypto algorithms AES-192, AES-256 you need <strong>net-snmp</strong> compiled with <code>--enable-blumenthal-aes</code>.</p>
                 
                   
                 
