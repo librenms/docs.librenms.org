@@ -2330,6 +2330,7 @@ by following the steps under the <code>SNMP Extend</code> heading.</p>
 <li><a href="#pureftpd">PureFTPd</a> - SNMP extend</li>
 <li><a href="#raspberry-pi">Raspberry PI</a> - SNMP extend</li>
 <li><a href="#redis">Redis</a> - SNMP extend</li>
+<li><a href="#rrdcached">RRDCached</a> - SNMP extend</li>
 <li><a href="#sdfs-info">SDFS info</a> - SNMP extend</li>
 <li><a href="#seafile">Seafile</a> - SNMP extend</li>
 <li><a href="#smart">SMART</a> - SNMP extend</li>
@@ -3266,9 +3267,25 @@ the user snmpd is using with <code>ps aux | grep snmpd</code></p>
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
 <div class="highlight"><pre><span></span><code>extend redis /etc/snmp/redis.py
 </code></pre></div>
+<h1 id="rrdcached">RRDCached</h1>
+<p>Install/Setup:
+For Install/Setup Local Librenms RRDCached: Please see <a href="../RRDCached/">RRDCached</a></p>
+<p>Will collect stats by:
+1: Connecting directly to the associated device on port 42217
+2: Monitor thru snmp with SNMP extend, as outlined below
+3: Connecting to the rrdcached server specified by the <code>rrdcached</code> setting</p>
+<p>SNMP extend script to monitor your (remote) RRDCached via snmp</p>
+<h2 id="snmp-extend_41">SNMP Extend</h2>
+<p>1: Download the script onto the desired host. <code>wget
+   https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/rrdcached
+   -O /etc/snmp/rrdcached</code></p>
+<p>2: Make the script executable: <code>chmod +x /etc/snmp/rrdcached</code></p>
+<p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
+<div class="highlight"><pre><span></span><code>extend rrdcached /etc/snmp/rrdcached
+</code></pre></div>
 <h1 id="seafile">Seafile</h1>
 <p>SNMP extend script to monitor your Seafile Server</p>
-<h2 id="snmp-extend_41">SNMP Extend</h2>
+<h2 id="snmp-extend_42">SNMP Extend</h2>
 <p>1: Copy the Python script, seafile.py, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/seafile.py -O
 /etc/snmp/seafile.py</code></p>
@@ -3300,7 +3317,7 @@ hide_monitoring_account = With this Boolean you can hide the Account which you
 </code></pre></div>
 <p><strong>Note:</strong>It is recommended to use a dedicated Administrator account for monitoring.</p>
 <h1 id="smart">SMART</h1>
-<h2 id="snmp-extend_42">SNMP Extend</h2>
+<h2 id="snmp-extend_43">SNMP Extend</h2>
 <ol>
 <li>Copy the Perl script, smart, to the desired host.</li>
 </ol>
@@ -3443,7 +3460,7 @@ Extend</code> heading top of page.</p>
 and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h1 id="ups-nut">UPS-nut</h1>
 <p>A small shell script that exports nut ups status.</p>
-<h2 id="snmp-extend_43">SNMP Extend</h2>
+<h2 id="snmp-extend_44">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups
    nut</a>
    to <code>/etc/snmp/</code> on your host.</p>
@@ -3457,7 +3474,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="ups-apcups">UPS-apcups</h1>
 <p>A small shell script that exports apcacess ups status.</p>
-<h2 id="snmp-extend_44">SNMP Extend</h2>
+<h2 id="snmp-extend_45">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups">ups
    apcups</a>
    to <code>/etc/snmp/</code> on your host.</p>
@@ -3475,7 +3492,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="sdfs-info">SDFS info</h1>
 <p>A small shell script that exportfs SDFS volume info.</p>
-<h2 id="snmp-extend_45">SNMP Extend</h2>
+<h2 id="snmp-extend_46">SNMP Extend</h2>
 <p>1: Download the script onto the desired host (the host must be added
    to LibreNMS devices)</p>
 <div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/sdfsinfo -O /etc/snmp/sdfsinfo
@@ -3490,7 +3507,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="voip-monitor">Voip-monitor</h1>
 <p>Shell script that reports cpu-load/memory/open-files files stats of Voip Monitor</p>
-<h2 id="snmp-extend_46">SNMP Extend</h2>
+<h2 id="snmp-extend_47">SNMP Extend</h2>
 <p>1: Download the script onto the desired host. <code>wget
    https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/voipmon-stats.sh
    -O /etc/snmp/voipmon-stats.sh</code></p>
@@ -3499,7 +3516,7 @@ Extend</code> heading top of page.</p>
 <div class="highlight"><pre><span></span><code>extend voipmon /etc/snmp/voipmon-stats.sh
 </code></pre></div>
 <h1 id="zfs">ZFS</h1>
-<h2 id="snmp-extend_47">SNMP Extend</h2>
+<h2 id="snmp-extend_48">SNMP Extend</h2>
 <p><code>zfs-linux</code> requires python3 &gt;=python3.5.</p>
 <p>The installation steps are:</p>
 <ol>
