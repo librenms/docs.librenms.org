@@ -2322,11 +2322,23 @@ APP_DEBUG=true
 </ol>
 <h3 id="automated-testing">Automated testing</h3>
 <p>LibreNMS uses continuous integration to test code changes to help
-reduce bugs.  This also helps guarantee the changes you  contribute
+reduce bugs.  This also helps guarantee the changes you contribute
 won't be broken in the future. You can find out more in our <a href="../Validating-Code/">Validating Code Documentation</a></p>
+<p>The default database connection for automated testing is <code>testing</code>.</p>
+<p>To override the database parameters for unit tests, configure your
+<code>.env</code> file accordingly. The defaults (from <code>config/database.php</code>)
+are:</p>
+<div class="highlight"><pre><span></span><code>DB_TEST_DRIVER=&quot;mysql&quot;   # PDO driver
+DB_TEST_HOST=&quot;localhost&quot; # hostname or IP address
+DB_TEST_PORT=&quot;&quot;          # port
+DB_TEST_DATABASE=&quot;librenms_phpunit_78hunjuybybh&quot; # database
+DB_TEST_USERNAME=&quot;root&quot;  # username
+DB_TEST_PASSWORD=&quot;&quot;      # password
+DB_TEST_SOCKET=&quot;&quot;        # unix socket path
+</code></pre></div>
 <h3 id="polling-debug-output">Polling debug output</h3>
 <p>You can see detailed info by running your polling code in debug
-mode. If you are looking at a specific</p>
+mode by adding a <code>-d</code> flag.</p>
 <div class="highlight"><pre><span></span><code>./discovery.php -d -h HOSTNAME
 ./poller.php -d -h HOSTNAME
 </code></pre></div>
