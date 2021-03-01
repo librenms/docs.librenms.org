@@ -2114,11 +2114,13 @@
                 
                 
                 <h1 id="distributed-poller">Distributed Poller</h1>
-<p>A normal install contains all parts of LibreNMS:
-- Poller/Discovery/etc workers
-- RRD (Time series data store) *
-- Database *
-- Webserver (Web UI/API) *</p>
+<p>A normal install contains all parts of LibreNMS:</p>
+<ul>
+<li>Poller/Discovery/etc workers</li>
+<li>RRD (Time series data store) *</li>
+<li>Database *</li>
+<li>Webserver (Web UI/API) *</li>
+</ul>
 <p>* may only be installed on one server (however, some can be clustered)</p>
 <p>Distributed Polling allows the workers to be spread across additional 
 servers for horizontal scaling. Distributed polling is not intended for
@@ -2129,10 +2131,12 @@ devices to a single or a group of designated pollers.</p>
 RRDcached.</p>
 <p>It is also a requirement that at least one locking service is in place
 to which all pollers can connect. There are currently three locking 
-mechanisms available
-- memcached
-- redis (preferred)
-- sql locks (default)</p>
+mechanisms available</p>
+<ul>
+<li>memcached</li>
+<li>redis (preferred)</li>
+<li>sql locks (default)</li>
+</ul>
 <p>All of the above locking mechanisms are natively supported in LibreNMS.
 If none are specified, it will default to using SQL.</p>
 <h1 id="requirements-for-distributed-polling">Requirements for distributed polling</h1>
