@@ -544,6 +544,19 @@
     Linux / BSD
   </a>
   
+    <nav class="md-nav" aria-label="Linux / BSD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restrict-the-devices-on-which-the-agent-listens-linux-systemd" class="md-nav__link">
+    Restrict the devices on which the agent listens: Linux systemd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2207,6 +2220,19 @@
     Linux / BSD
   </a>
   
+    <nav class="md-nav" aria-label="Linux / BSD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restrict-the-devices-on-which-the-agent-listens-linux-systemd" class="md-nav__link">
+    Restrict the devices on which the agent listens: Linux systemd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2311,6 +2337,11 @@ monitor. Under the modules section, ensure that unix-agent is enabled.</p>
 <p>9: Then under Applications, enable the apps that you plan to monitor.</p>
 <p>10: Wait for around 10 minutes and you should start seeing data in
 your graphs under Apps for the device.</p>
+<h3 id="restrict-the-devices-on-which-the-agent-listens-linux-systemd">Restrict the devices on which the agent listens: Linux systemd</h3>
+<p>If you want to restrict which network adapter the agent listens on, do the following:</p>
+<p>1: Edit <code>/etc/systemd/system/check_mk.socket</code></p>
+<p>2: Under the <code>[Socket]</code> section, add a new line <code>BindToDevice=</code> and the name of your network adapter.</p>
+<p>3: If the script has already been enabled in systemd, you may need to issue a <code>systemctl daemon-reload</code> and then <code>systemctl restart check_mk.socket</code></p>
 <h2 id="windows">Windows</h2>
 <ol>
 <li>Grab version 1.2.6b5 of the check_mk agent from the check_mk github repo (exe/msi or compile it yourself depending on your usage): https://github.com/tribe29/checkmk/tree/v1.2.6b5/agents/windows</li>
