@@ -2295,6 +2295,13 @@ could also be used with a little modification.</p>
 install run <code>cp /opt/librenms/misc/librenms.service
 /etc/systemd/system/librenms.service &amp;&amp; systemctl enable --now
 librenms.service</code></p>
+<h2 id="systemd-watchdog">systemd-watchdog</h2>
+<p>A systemd unit file can be found in <code>misc/librenms-watchdog.service</code>. To
+install run <code>cp /opt/librenms/misc/librenms-watchdog.service
+/etc/systemd/system/librenms.service &amp;&amp; systemctl enable --now
+librenms.service</code></p>
+<p>This requires: python3-systemd (or python-systemd on older systems)
+or https://pypi.org/project/systemd-python/</p>
 <h2 id="os-specific-instructions">OS-Specific Instructions</h2>
 <h3 id="rhelcentos">RHEL/CentOS</h3>
 <p>To get the LibreNMS service running under python3.4+ on
