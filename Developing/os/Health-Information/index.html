@@ -2461,8 +2461,9 @@ are as follows:</p>
 <li><code>oid</code> (required): This is the name of the table you want to do the snmp walk on.</li>
 <li><code>value</code> (optional): This is the key within the table that contains
   the value. If not provided willuse <code>oid</code></li>
-<li><code>num_oid</code> (optional): If not provided, this parameter should be computed
-  automatically by discovery process. This is the numerical OID that contains
+<li><code>num_oid</code> (required for PullRequests): If not provided, this parameter should be computed
+  automatically by discovery process. This parameter is still required to
+  submit a pull request. This is the numerical OID that contains
   <code>value</code>. This should usually include <code>{{ $index }}</code>.
   In case the index is a string, <code>{{ $index_string }}</code> can be used instead.</li>
 <li><code>divisor</code> (optional): This is the divisor to use against the returned <code>value</code>.</li>
@@ -2533,13 +2534,13 @@ to be skipped during discovery. An example of this is below:</p>
                       <span class="nt">op</span><span class="p">:</span> <span class="s">&#39;!=&#39;</span>
                       <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 </code></pre></div>
-<blockquote>
 <p><code>op</code> can be any of the following operators :</p>
+<blockquote>
 <p>=, !=, ==, !==, &lt;=, &gt;=, &lt;, &gt;,
 starts, ends, contains, regex, in_array, not_starts,
 not_ends, not_contains, not_regex, not_in_array, exists</p>
-<p>Example:</p>
 </blockquote>
+<p>Example:</p>
 <div class="highlight"><pre><span></span><code>                    <span class="nt">skip_values</span><span class="p">:</span>
                     <span class="p p-Indicator">-</span>
                       <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sensorName</span>
@@ -2551,6 +2552,19 @@ not_ends, not_contains, not_regex, not_in_array, exists</p>
                       <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sensorOptionalOID</span>
                       <span class="nt">op</span><span class="p">:</span> <span class="s">&#39;exists&#39;</span>
                       <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        <span class="nt">temperature</span><span class="p">:</span>
+            <span class="nt">data</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span>
+                    <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hwOpticalModuleInfoTable</span>
+                    <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hwEntityOpticalTemperature</span>
+                    <span class="nt">descr</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">$entPhysicalName</span><span class="nv"> </span><span class="s">}}&#39;</span>
+                    <span class="nt">index</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">$index</span><span class="nv"> </span><span class="s">}}&#39;</span>
+                    <span class="nt">skip_values</span><span class="p">:</span>
+                        <span class="p p-Indicator">-</span>
+                            <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hwEntityOpticalMode</span>
+                            <span class="nt">op</span><span class="p">:</span> <span class="s">&#39;=&#39;</span>
+                            <span class="nt">value</span><span class="p">:</span> <span class="s">&#39;1&#39;</span>
 </code></pre></div>
 <p>If you aren't able to use yaml to perform the sensor discovery, you
 will most likely need to use Advanced health discovery.</p>
