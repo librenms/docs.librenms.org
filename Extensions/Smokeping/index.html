@@ -2631,6 +2631,12 @@ it:</p>
 <h3 id="nginx-configuration-ubuntu-debian-and-alike">Nginx Configuration - Ubuntu, Debian and alike</h3>
 <p>This section assumes you have configured LibreNMS with Nginx as
 specified in <a href="../../Installation/Installation-Ubuntu-1804-Nginx/">Configure Nginx</a>.</p>
+<p>Note, you need to install fcgiwrap for CGI wrapper interact with Nginx</p>
+<p><div class="highlight"><pre><span></span><code>apt install fcgiwrap
+</code></pre></div>
+Then configure Nginx with the default configuration</p>
+<div class="highlight"><pre><span></span><code>cp /usr/share/doc/fcgiwrap/examples/nginx.conf /etc/nginx/fcgiwrap.conf
+</code></pre></div>
 <p>Add the following configuration to your <code>/etc/nginx/conf.d/librenms</code> config file.</p>
 <p>The following will configure Nginx to respond to <code>http://yourlibrenms/smokeping</code>:</p>
 <div class="highlight"><pre><span></span><code>#Browsing to `http://librenms.xxx/smokeping/` should bring up the smokeping web interface
