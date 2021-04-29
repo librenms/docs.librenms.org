@@ -2251,7 +2251,7 @@ following system hooks are currently available:</p>
   Overview page. You receive the $device as a parameter, can do your
   work here and display your results in a frame.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    public function device_overview_container($device) {
+<div class="highlight"><pre><span></span><code>    public static function device_overview_container($device) {
         echo(&#39;&lt;div class=&quot;container-fluid&quot;&gt;&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;div class=&quot;panel panel-default panel-condensed&quot;&gt; &lt;div class=&quot;panel-heading&quot;&gt;&lt;strong&gt;&#39;.get_class().&#39; Plugin &lt;/strong&gt; &lt;/div&gt;&#39;);
         echo(&#39;  Example plugin in &quot;Device - Overview&quot; tab &lt;br&gt;&#39;);
         echo(&#39;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&#39;);
@@ -2263,7 +2263,7 @@ following system hooks are currently available:</p>
   enabled. In this function, you can do your work and display your
   results in a frame.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>    public function port_container($device, $port) {
+<div class="highlight"><pre><span></span><code>    public static function port_container($device, $port) {
         echo(&#39;&lt;div class=&quot;container-fluid&quot;&gt;&lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-md-12&quot;&gt; &lt;div class=&quot;panel panel-default panel-condensed&quot;&gt; &lt;div class=&quot;panel-heading&quot;&gt;&lt;strong&gt;&#39;.get_class().&#39; plugin in &quot;Port&quot; tab&lt;/strong&gt; &lt;/div&gt;&#39;);
         echo (&#39;Example display in Port tab&lt;/br&gt;&#39;);
         echo(&#39;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&#39;);
