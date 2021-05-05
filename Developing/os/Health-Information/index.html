@@ -2458,9 +2458,9 @@ For use of multiple MIB files separate them with a colon: <code>mib: NETBOTZV2-M
 <p>The only sensor we have defined here is airflow. The available options
 are as follows:</p>
 <ul>
-<li><code>oid</code> (required): This is the name of the table you want to do the snmp walk on.</li>
+<li><code>oid</code> (required): This is the name of the table you want to snmp walk for data.</li>
 <li><code>value</code> (optional): This is the key within the table that contains
-  the value. If not provided willuse <code>oid</code></li>
+  the value. If not provided will use <code>oid</code></li>
 <li><code>num_oid</code> (required for PullRequests): If not provided, this parameter should be computed
   automatically by discovery process. This parameter is still required to
   submit a pull request. This is the numerical OID that contains
