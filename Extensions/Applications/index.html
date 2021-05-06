@@ -2958,17 +2958,23 @@ with following content:</p>
 you may have to specify 127.0.0.1 instead of localhost. Localhost make
 a MySQL connection via the mysql socket, while 127.0.0.1 make a standard
 IP connection to mysql.</p>
+<p>Note also if you get a mysql error <code>Uncaught TypeError: mysqli_num_rows(): Argument #1</code>,
+this is because you are using a newer mysql version which doesnt support <code>UNBLOCKING</code> for slave statuses,
+so you need to also include the line <code>$chk_options['slave'] = false;</code> into <code>mysql.cnf</code> to skip checking slave statuses</p>
 <h2 id="agent_7">Agent</h2>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already</p>
 <p>and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
 <h2 id="snmp-extend_21">SNMP extend</h2>
-<p>1: Copy the mysql script to the desired host. <code>wget
-https://github.com/librenms/librenms-agent/raw/master/snmp/mysql -O /etc/snmp/mysql</code></p>
-<p>2: Run <code>chmod +x /etc/snmp/mysql</code></p>
-<p>3: Edit your snmpd.conf file and add:</p>
+<p>1: Copy the mysql script to the desired host. 
+<div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/mysql -O /etc/snmp/mysql
+</code></pre></div></p>
+<p>2: Make the file executable
+<div class="highlight"><pre><span></span><code>chmod +x /etc/snmp/mysql
+</code></pre></div></p>
+<p>3: Edit your snmpd.conf file and add:
 <div class="highlight"><pre><span></span><code>extend mysql /etc/snmp/mysql
-</code></pre></div>
+</code></pre></div></p>
 <p>4: Restart snmpd.</p>
 <p>The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under <code>SNMP
