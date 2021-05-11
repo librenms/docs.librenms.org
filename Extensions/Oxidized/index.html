@@ -2218,12 +2218,12 @@ config option within Oxidized.</p>
 working Oxidized setup which is already taking config snapshots for
 your devices. When you have that, you only need the following config
 to enable the display of device configs within the device page itself:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;enabled&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>             <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8888&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.enabled <span class="nb">true</span>
+lnms config:set oxidized.url http://127.0.0.1:8888
 </code></pre></div>
 <p>LibreNMS supports config versioning if Oxidized does.  This is known
 to work with the git output module.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;features&#39;</span><span class="p">][</span><span class="s1">&#39;versioning&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.features.versioning <span class="nb">true</span>
 </code></pre></div>
 <p>Oxidized supports various ways to utilise credentials to login to
 devices, you can specify global username/password within Oxidized,
@@ -2231,10 +2231,10 @@ Group level username/password or per device. LibreNMS currently
 supports sending groups back to Oxidized so that you can then define
 group credentials within Oxidized. To enable this support please
 switch on 'Enable the return of groups to Oxidized':</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;group_support&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.group_support <span class="nb">true</span>
 </code></pre></div>
 <p>You can set a default group that devices will fall back to with:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;default_group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.default_group default
 </code></pre></div>
 <h1 id="selinux">SELinux</h1>
 <p>If you're running SELinux, you'll need to allow httpd to connect
@@ -2265,8 +2265,8 @@ time.</p>
 <p>LibreNMS is able to reload the Oxidized list of nodes, each time a
 device is added to LibreNMS. To do so, edit the option in Global
 Settings&gt;External Settings&gt;Oxidized Integration or add the following
-to your config.php.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;reload_nodes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+to your config.</p>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.reload_nodes <span class="nb">true</span>
 </code></pre></div>
 <h1 id="creating-overrides">Creating overrides</h1>
 <p>To return an override to Oxidized you can do this by providing the
@@ -2279,40 +2279,55 @@ Oxidized as defined.</p>
 key and value, or a 'regex' key and value. The order of matching is:</p>
 <ul>
 <li><code>hostname</code></li>
-<li><code>sysname</code></li>
+<li><code>sysName</code></li>
 <li><code>sysDescr</code></li>
 <li><code>hardware</code></li>
 <li><code>os</code></li>
 <li><code>location</code></li>
 <li><code>ip</code></li>
 </ul>
-<p>To match on the device hostnames or sysnames that contain 'lon-sw' or
-if the location contains 'London' then you would place the following
-within config.php:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;maps&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">][</span><span class="s1">&#39;hostname&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;regex&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/^lon-sw/&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;london-switches&#39;</span><span class="p">);</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;maps&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">][</span><span class="s1">&#39;sysname&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;regex&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/^lon-sw/&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;london-switches&#39;</span><span class="p">);</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;maps&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">][</span><span class="s1">&#39;location&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;regex&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/london/&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;london-switches&#39;</span><span class="p">);</span>
+<p>To match on the device hostnames or sysNames that contain 'lon-sw' or
+if the location contains 'London' then you would set the following:</p>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.group.hostname.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^lon-sw/&quot;, &quot;value&quot;: &quot;london-switches&quot;}&#39;</span>
+lnms config:set oxidized.maps.group.sysName.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^lon-sw/&quot;, &quot;value&quot;: &quot;london-switches&quot;}&#39;</span>
+lnms config:set oxidized.maps.group.location.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/london/&quot;, &quot;value&quot;: &quot;london-switches&quot;}&#39;</span>
 </code></pre></div>
 <p>To match on a device os of edgeos then please use the following:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;maps&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">][</span><span class="s1">&#39;os&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;match&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;edgeos&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;wireless&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.group.os.+ <span class="s1">&#39;{&quot;match&quot;: &quot;edgeos&quot;, &quot;value&quot;: &quot;wireless&quot;}&#39;</span>
 </code></pre></div>
-<p>Matching on OS requires system name of the OS. For example, 'match' =&gt;
-'RouterOS' will not work, while 'match' =&gt; 'routeros' will.</p>
-<p>To override the IP Oxidized uses to poll the device, you can add the
-following within config.php:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;maps&#39;</span><span class="p">][</span><span class="s1">&#39;ip&#39;</span><span class="p">][</span><span class="s1">&#39;sysname&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;regex&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/^my.node/&#39;</span><span class="p">,</span> <span class="s1">&#39;ip&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;192.168.1.10&#39;</span><span class="p">);</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;maps&#39;</span><span class="p">][</span><span class="s1">&#39;ip&#39;</span><span class="p">][</span><span class="s1">&#39;sysname&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;match&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;my-other.node&#39;</span><span class="p">,</span> <span class="s1">&#39;ip&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;192.168.1.20&#39;</span><span class="p">);</span>
+<p>Matching on OS requires system name of the OS. For example, "match": "RouterOS"
+will not work, while "match": "routeros" will.</p>
+<p>To edit an existing map, you must use the index to override it.</p>
+<div class="highlight"><pre><span></span><code>lnms config:get oxidized.maps.os.os
+array <span class="o">(</span>
+  <span class="nv">0</span> <span class="o">=</span>&gt; 
+  array <span class="o">(</span>
+    <span class="s1">&#39;match&#39;</span> <span class="o">=</span>&gt; <span class="s1">&#39;airos-af-ltu&#39;</span>,
+    <span class="s1">&#39;value&#39;</span> <span class="o">=</span>&gt; <span class="s1">&#39;airfiber&#39;</span>,
+  <span class="o">)</span>,
+  <span class="nv">1</span> <span class="o">=</span>&gt; 
+  array <span class="o">(</span>
+    <span class="s1">&#39;match&#39;</span> <span class="o">=</span>&gt; <span class="s1">&#39;airos-af&#39;</span>,
+    <span class="s1">&#39;value&#39;</span> <span class="o">=</span>&gt; <span class="s1">&#39;airfiber&#39;</span>,
+  <span class="o">)</span>,
+<span class="o">)</span>
+
+lnms config:set oxidized.maps.os.os.1 <span class="s1">&#39;{&quot;match&quot;: &quot;airos-af&quot;, &quot;value&quot;: &quot;something-else&quot;}&#39;</span>
+</code></pre></div>
+<p>To override the IP Oxidized uses to poll the device, set the following:</p>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.ip.sysName.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^my.node/&quot;, &quot;value&quot;: &quot;192.168.1.10&quot;}&#39;</span>
+lnms config:set oxidized.maps.ip.sysName.+ <span class="s1">&#39;{&quot;match&quot;: &quot;my-other.node&quot;, &quot;value&quot;: &quot;192.168.1.20&quot;}&#39;</span>
 </code></pre></div>
 <p>This allows extending the configuration further by providing a
 completely flexible model for custom flags and settings, for example,
 below shows the ability to add an ssh_proxy host within Oxidized
 simply by adding the below to your configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;maps&#39;</span><span class="p">][</span><span class="s1">&#39;ssh_proxy&#39;</span><span class="p">][</span><span class="s1">&#39;sysname&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;regex&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/^my.node/&#39;</span><span class="p">,</span> <span class="s1">&#39;ssh_proxy&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;my-ssh-gateway.node&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.ssh_proxy.sysName.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^my.node/&quot;, &quot;value&quot;: &quot;my-ssh-gateway.node&quot;}&#39;</span>
 </code></pre></div>
 <p>Or of course, any custom value that could be needed or wanted can be
 applied, for example, setting a "myAttribute" to "Super cool value"
 for any configured and enabled "routeros" device.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;maps&#39;</span><span class="p">][</span><span class="s1">&#39;myAttribute&#39;</span><span class="p">][</span><span class="s1">&#39;os&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;match&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;routeros&#39;</span><span class="p">,</span> <span class="s1">&#39;myAttribute&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Super cool value&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.myAttribute.os.+ <span class="s1">&#39;{&quot;match&quot;: &quot;routeros&quot;, &quot;value&quot;: &quot;Super cool value&quot;}&#39;</span>
 </code></pre></div>
 <p>Verify the return of groups by querying the API:</p>
 <div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/oxidized
@@ -2329,9 +2344,9 @@ following in your Oxidized config:</p>
 you can edit those devices in Device -&gt; Edit -&gt; Misc and enable
 "Exclude from Oxidized?"</p>
 <p>It's also possible to exclude certain device types and OS' from being
-output via the API. This is currently only possible via config.php:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;ignore_types&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span><span class="s1">&#39;power&#39;</span><span class="p">);</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;oxidized&#39;</span><span class="p">][</span><span class="s1">&#39;ignore_os&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;linux&#39;</span><span class="p">,</span><span class="s1">&#39;windows&#39;</span><span class="p">);</span>
+output via the API.</p>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.ignore_types <span class="s1">&#39;[&quot;server&quot;, &quot;power&quot;]&#39;</span>
+lnms config:set oxidized.ignore_os <span class="s1">&#39;[&quot;linux&quot;, &quot;windows&quot;]&#39;</span>
 </code></pre></div>
 <h1 id="trigger-configuration-backups">Trigger configuration backups</h1>
 <p>Using the Oxidized REST API and <a href="/Extensions/Syslog/#external-hooks">Syslog
