@@ -2268,12 +2268,12 @@ for remote pollers. Here's a diagram of how you can scale LibreNMS
 out:</p>
 <p><img alt="Example Setup" src="https://docs.librenms.org/img/librenms-distributed-diagram.png" /></p>
 <h2 id="architecture">Architecture</h2>
-<p>How you setup the distribution is entirely up to you, you can choose
+<p>How you set the distribution up is entirely up to you. You can choose
 to host the majority of the required services on a single virtual
 machine or server and then a poller to actually query the devices
-being monitored all the way through to having a dedicated server for
+being monitored, all the way through to having a dedicated server for
 each of the individual roles. Below are notes on what you need to
-consider both from the software layer but also connectivity.</p>
+consider both from the software layer, but also connectivity.</p>
 <h3 id="web-api-layer">Web / API Layer</h3>
 <p>This is typically Apache but we have setup guides for both Nginx and
 Lighttpd which should work perfectly fine. There is nothing unique

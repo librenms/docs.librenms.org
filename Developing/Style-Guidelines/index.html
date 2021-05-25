@@ -2299,18 +2299,18 @@ towards LibreNMS. These aren't strict rules but it is in the users
 interest that a consistent well thought out Web UI is available.</p>
 <h3 id="responsiveness">Responsiveness</h3>
 <p>The Web UI is designed to be mobile friendly and for the most part is
-and works well. It's worth spending sometime to read through the
+and works well. It's worth spending some time to read through the
 <a href="http://getbootstrap.com/css/#grid">Bootstrap website</a> to learn more
 about how to keep things responsive.</p>
 <h3 id="navigation-bar">Navigation bar</h3>
 <ul>
 <li>
-<p>Always pick the best location for new links to go, think about where
+<p>Always pick the best location for new links to go; think about where
   users would expect the link to be located and name it so that it's
   obvious what it does.</p>
 </li>
 <li>
-<p>Ensure sub sections within the Navigation are separated correctly
+<p>Ensure sub-sections within the Navigation are separated correctly
   using <code>&lt;li role="presentation" class="divider"&gt;&lt;/li&gt;</code>.</p>
 </li>
 <li>
@@ -2337,7 +2337,7 @@ probably the most common.</p>
 <p>Unless the table being used will only ever display a handful of
 items - yeah that's what we all said, then you need to write your
 table using <a href="http://www.jquery-bootgrid.com/">JQuery Bootgrid</a>. This
-shouldn't take that much more code to do this but provides so much
+shouldn't take that much more code to do it, but provides so much
 flexibility along with stopping the need for retrieving all the data
 from SQL in the first place.</p>
 <p>As an example pull request, see <a href="https://github.com/librenms/librenms/pull/706/files">PR
@@ -2345,9 +2345,9 @@ from SQL in the first place.</p>
 idea of what it's like to convert an existing pure html table to Bootgrid.</p>
 <h3 id="datetime-format">Datetime format</h3>
 <p>When displaying datetimes, please ensure you use the format YYYY-MM-DD
-mm:hh:ss where possible, you shouldn't change the order of this as it
+hh:mm:ss where possible, you shouldn't change the order of this as it
 will be confusing to users. Cutting it short to just display
-YYYY-MM-DD mm:hh is fine :).</p>
+YYYY-MM-DD hh:mm is fine :).</p>
 <p>To keep things consistent we have the following variables which should
 be used rather than to format dates yourself. This has the added
 benefit that users can customise the format:</p>
