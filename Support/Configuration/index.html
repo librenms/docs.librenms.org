@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#directories" class="md-skip">
+        <a href="#cli" class="md-skip">
           Skip to content
         </a>
       
@@ -697,9 +697,38 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Configuration Docs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Configuration Docs
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2207,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,13 +2237,66 @@
                   </a>
                 
                 
-                <p>The options shown below also contain the default values.</p>
-<p>If you would like to alter any of these then please add your config option to <code>config.php</code>.</p>
-<h1 id="directories">Directories</h1>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;install_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/opt/librenms&quot;</span><span class="p">;</span>
+                <p>LibreNMS configuration is a set of key values.</p>
+<p>The config is stored in two places:
+Database: This applies to all pollers and can be set with either <code>lnms config:set</code> or in the Web UI. Database config takes precedence over config.php.
+config.php: This applies to the local poller only.  Configs set here will be disabled in the Web UI to prevent unexpected behaviour.</p>
+<p>The LibreNMS uses dot notation for config items:
+| Database | config.php |
+| -------- | ---------- |
+| <code>snmp.community</code> | <code>$config['snmp']['community']</code> |
+| <code>snmp.community.+</code> | <code>$config['snmp']['community'][]</code> |
+| <code>snmp.v3.0.authalgo</code> | <code>$config['snmp']['v3'][0]['authalgo']</code> |</p>
+<blockquote>
+<p>The documentation has not been updated to reflect using <code>lnms config:set</code> to set config items, but it will work for all settings.  Not all settings have been defined in LibreNMS, but they can still be set with the <code>--ignore-checks</code> option.  Without that option input is checked for correctness, that does not mean it is not possible to set bad values.  Please report missing settings.</p>
+</blockquote>
+<h1 id="cli">CLI</h1>
+<p><code>lnms config:get</code> will fetch the current config settings (composite of database, config.php, and defaults).
+<code>lnms config:set</code> will set the config setting in the database.  Calling <code>lnms config:set</code> on a setting with no value will reset it to the default value.</p>
+<p>If you set up bash completion, you can use tab completion to find config settings.</p>
+<h2 id="examples">Examples</h2>
+<div class="highlight"><pre><span></span><code>lnms config:get snmp.community
+  array <span class="o">(</span>
+    <span class="nv">0</span> <span class="o">=</span>&gt; <span class="s1">&#39;public&#39;</span>,
+  <span class="o">)</span>
+
+lnms config:set snmp.community.+ testing
+
+lnms config:get snmp.community
+  array <span class="o">(</span>
+    <span class="nv">0</span> <span class="o">=</span>&gt; <span class="s1">&#39;public&#39;</span>,
+    <span class="nv">1</span> <span class="o">=</span>&gt; <span class="s1">&#39;testing&#39;</span>,
+  <span class="o">)</span>
+
+lnms config:set snmp.community.0 private
+
+lnms config:get snmp.community
+  array <span class="o">(</span>
+    <span class="nv">0</span> <span class="o">=</span>&gt; <span class="s1">&#39;private&#39;</span>,
+    <span class="nv">1</span> <span class="o">=</span>&gt; <span class="s1">&#39;testing&#39;</span>,
+  <span class="o">)</span>
+
+lnms config:set snmp.community <span class="nb">test</span>
+  Invalid format
+
+lnms config:set snmp.community <span class="s1">&#39;[&quot;test&quot;, &quot;othercommunity&quot;]&#39;</span>
+
+lnms config:get snmp.community
+  array <span class="o">(</span>
+    <span class="nv">0</span> <span class="o">=</span>&gt; <span class="s1">&#39;test&#39;</span>,
+    <span class="nv">1</span> <span class="o">=</span>&gt; <span class="s1">&#39;othercommunity&#39;</span>,
+  <span class="o">)</span>
+
+lnms config:set snmp.community
+
+  Reset snmp.community to the default? <span class="o">(</span>yes/no<span class="o">)</span> <span class="o">[</span>no<span class="o">]</span>:
+  &gt; yes
+
+
+lnms config:get snmp.community --json
+  <span class="o">[</span><span class="s2">&quot;public&quot;</span><span class="o">]</span>
 </code></pre></div>
-<p>Set the installation directory (defaults to /opt/librenms), if you
-clone the GitHub branch to another location ensure you alter this.</p>
+<h1 id="directories">Directories</h1>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;temp_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>The temporary directory is where images and other temporary files are
