@@ -2639,9 +2639,9 @@ Then configure Nginx with the default configuration</p>
 </code></pre></div>
 <p>Add the following configuration to your <code>/etc/nginx/conf.d/librenms</code> config file.</p>
 <p>The following will configure Nginx to respond to <code>http://yourlibrenms/smokeping</code>:</p>
-<div class="highlight"><pre><span></span><code>#Browsing to `http://librenms.xxx/smokeping/` should bring up the smokeping web interface
+<div class="highlight"><pre><span></span><code># Browsing to `http://yourlibrenms/smokeping/` should bring up the smokeping web interface
 
- location = /smokeping/ {
+location = /smokeping/ {
         fastcgi_intercept_errors on;
 
         fastcgi_param   SCRIPT_FILENAME         /usr/lib/cgi-bin/smokeping.cgi;
@@ -2665,15 +2665,15 @@ Then configure Nginx with the default configuration</p>
         fastcgi_pass unix:/var/run/fcgiwrap.socket;
 }
 
-        location ^~ /smokeping/ {
-                alias /usr/share/smokeping/www/;
-                index smokeping.cgi;
-                gzip off;
-        }
+location ^~ /smokeping/ {
+        alias /usr/share/smokeping/www/;
+        index smokeping.cgi;
+        gzip off;
+}
 </code></pre></div>
 <p>After saving the configuration file, verify your Nginx configuration file syntax
 is OK with <code>sudo nginx -t</code>, then restart Nginx with <code>sudo systemctl restart nginx</code></p>
-<p>You should be able to load the Smokeping web interface at <code>http://yourhost/smokeping</code></p>
+<p>You should be able to load the Smokeping web interface at <code>http://yourlibrenms/smokeping</code></p>
 <h4 id="nginx-password-authentication">Nginx Password Authentication</h4>
 <p>You can use the purpose-made htpasswd utility included in the
 apache2-utils package (Nginx password files use the same format as

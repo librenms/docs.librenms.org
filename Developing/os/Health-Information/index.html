@@ -2514,7 +2514,7 @@ well as pre_cached data. The index ($index) and the sub_indexes (in
 case the oid is indexed multiple times) are also available: if
 $index="1.20", then $subindex0="1" and $subindex1="20".</p>
 <p>When referencing an oid in another table the full index will be used to match the other table.
-If this is undesirable, you may use a single sub index by appending the sub index after a colon to 
+If this is undesirable, you may use a single sub index by appending the sub index after a colon to
 the variable name.  Example <code>{{ $ifName:2 }}</code></p>
 <blockquote>
 <p><code>skip_values</code> can also compare items within the OID table against
@@ -2574,7 +2574,7 @@ the discovery code in php.</p>
 <p>The directory structure for sensor information is
 <code>includes/discovery/sensors/$class/$os.inc.php</code>. The format of all of
 the sensors follows the same code format which is to collect sensor information
-via SNMP and then call the <code>discover_sensor()</code> function; with the exception of state 
+via SNMP and then call the <code>discover_sensor()</code> function; with the exception of state
 sensors which requires additional code. Sensor information is commonly found in an ENTITY
 mib supplied by device's vendor in the form of a table. Other mib tables may be used as
 well. Sensor information is first collected by
@@ -2678,7 +2678,7 @@ line walks the cmEntityObject table to get information about the chassis and lin
 this information we extract the model type which will identify which tables in the CM-Facility-Mib
 the ports are populated in. The program then reads the appropriate table into the <code>$pre_cache</code>
 array <code>adva_fsp150_ports</code>. This array will have OID indexies for each port, which we will use
-later to identify our sensor OIDs. </p>
+later to identify our sensor OIDs.</p>
 <div class="highlight"><pre><span></span><code>$pre_cache[&#39;adva_fsp150&#39;] = snmpwalk_cache_multi_oid($device, &#39;cmEntityObjects&#39;, [], &#39;CM-ENTITY-MIB&#39;, null, &#39;-OQUbs&#39;);
 $neType = $pre_cache[&#39;adva_fsp150&#39;][1][&#39;neType&#39;];
 

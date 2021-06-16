@@ -2257,12 +2257,12 @@
 </blockquote>
 <h2 id="configuration">Configuration</h2>
 <p>The following is the configuration that can be used:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_enable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_split_char&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span>   <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat/live/&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_base&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/var/nfsen/&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_suffix&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s2">&quot;_yourdomain_com&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_enable&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_split_char&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span>      <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat/live/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_rrds&#39;</span><span class="p">][]</span>      <span class="o">=</span> <span class="s1">&#39;/var/nfsen/profiles-stat&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_base&#39;</span><span class="p">][]</span>      <span class="o">=</span> <span class="s1">&#39;/var/nfsen/&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_suffix&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="s2">&quot;_yourdomain_com&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>Set <code>$config['nfsen_enable'] = 1;</code> to enable NFSen support.</p>
 <p><code>$config['nfsen_rrds']</code> This value tells us where your NFSen rrd files
@@ -2302,9 +2302,9 @@ problematic to squeeze in, so therefor this chunk is usually removed.</p>
 the same name.</p>
 <h2 id="stats-defaults-and-settings">Stats Defaults and Settings</h2>
 <p>Below are the default settings used with nfdump for stats.</p>
-<p>For more defaulted information on that, please see nfdump(1). 
+<p>For more defaulted information on that, please see nfdump(1).<br />
 The default location for nfdump is <code>/usr/bin/nfdump</code>. If nfdump
-is located elsewhere, set it with 
+is located elsewhere, set it with
 <code>$config['nfdump'] = '/usr/local/bin/nfdump';</code> for example.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_last_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">153600</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_top_max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
@@ -2345,7 +2345,7 @@ top items should be returned.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;nfsen_stat_default&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;srcip&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>The above sets default stat type to use from the drop down.</p>
-<div class="highlight"><pre><span></span><code>record  Flow Records
+<div class="highlight"><pre><span></span><code>record   Flow Records
 ip       Any IP Address
 srcip    SRC IP Address
 dstip    DST IP Address

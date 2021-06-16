@@ -2202,7 +2202,7 @@
 <li>Webserver (Web UI/API) *</li>
 </ul>
 <p>* may only be installed on one server (however, some can be clustered)</p>
-<p>Distributed Polling allows the workers to be spread across additional 
+<p>Distributed Polling allows the workers to be spread across additional
 servers for horizontal scaling. Distributed polling is not intended for
 remote polling.</p>
 <p>Devices can be grouped together into a <code>poller_group</code> to pin these
@@ -2210,7 +2210,7 @@ devices to a single or a group of designated pollers.</p>
 <p>All pollers need to write to the same set of RRD files, preferably via
 RRDcached.</p>
 <p>It is also a requirement that at least one locking service is in place
-to which all pollers can connect. There are currently three locking 
+to which all pollers can connect. There are currently three locking
 mechanisms available</p>
 <ul>
 <li>memcached</li>
@@ -2246,7 +2246,7 @@ unless the group is specified when adding the device.</p>
 <p>Pick one of the following setups, do not use all of them at the same
 time.</p>
 <h2 id="using-redis">Using REDIS</h2>
-<p>In your <code>.env</code> file you will need to specify a redis server, port and 
+<p>In your <code>.env</code> file you will need to specify a redis server, port and
 the driver.</p>
 <div class="highlight"><pre><span></span><code>REDIS_HOST=HOSTNAME or IP
 REDIS_PORT=6379
@@ -2259,7 +2259,7 @@ memcached host and port, and then in your <code>.env</code> file you will need t
 <p><div class="highlight"><pre><span></span><code>CACHE_DRIVER=memcached
 </code></pre></div>
 If you want to use memcached, you will also need to install an additional
-Python 3 python-memcached package. </p>
+Python 3 python-memcached package.</p>
 <h2 id="example-setup">Example Setup</h2>
 <p>Below is an example setup based on a real deployment which at the time
 of writing covers over 2,500 devices and 50,000 ports. The setup is
@@ -2330,7 +2330,7 @@ need to have the same <code>APP_KEY</code> value set in the <code>.env</code> fi
 <h3 id="discovery">Discovery</h3>
 <p>Depending on your setup will depend on how you configure your discovery processes.</p>
 <p><strong>Cron based polling</strong></p>
-<p>It's not necessary to run discovery services on all pollers. In fact, you should 
+<p>It's not necessary to run discovery services on all pollers. In fact, you should
 only run one discovery process per poller group.
 Designate a single poller to run discovery (or a separate server if required).</p>
 <p><strong>Dispatcher service</strong>

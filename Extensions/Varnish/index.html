@@ -2302,13 +2302,13 @@ cache size to 512MB.</p>
 <h1 id="configure-apache-for-varnish">Configure Apache for Varnish</h1>
 <p>Edit librenms.conf and modify the Apache Virtual Host listening port.</p>
 <ul>
-<li>Modify:<code>&lt;VirtualHost *:80&gt;</code> to: <code>&lt;VirtualHost *:8080&gt;</code></li>
+<li>Modify: <code>&lt;VirtualHost *:80&gt;</code> to <code>&lt;VirtualHost *:8080&gt;</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code>vim /etc/httpd/conf.d/librenms.conf
 </code></pre></div>
 <p>Varnish can not share a port with Apache. Change the Apache listening port to 8080.</p>
 <ul>
-<li>Modify:<code>Listen 80</code> to:<code>Listen 8080</code></li>
+<li>Modify: <code>Listen 80</code> to <code>Listen 8080</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code>vim /etc/httpd/conf/httpd.conf
 </code></pre></div>

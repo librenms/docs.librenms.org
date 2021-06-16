@@ -2362,7 +2362,7 @@ to the version  number of your Graylog
 install. Earlier versions than 2.1 use the default port <code>12900</code></p>
 <h2 id="uri">URI</h2>
 <p>If you have altered the default uri for your Graylog setup then you
-can override the default of <code>/api/</code> using 
+can override the default of <code>/api/</code> using
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;base_uri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/somepath/&#39;</span><span class="p">;</span>
 </code></pre></div></p>
 <h2 id="user-credentials">User Credentials</h2>
@@ -2374,27 +2374,27 @@ Graylog, "read" permissions alone are not sufficient.</p>
 self-signed certificate, please make sure that the certificate is
 trusted by your LibreNMS host, otherwise the connection will
 fail. Additionally, the certificate's Common Name (CN) has to match
-the FQDN or IP address specified in 
+the FQDN or IP address specified in
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;server&#39;</span><span class="p">]</span>
 </code></pre></div></p>
 <h2 id="match-any-address">Match Any Address</h2>
 <p>If you want to match the source address of the log entries against any
 IP address of a device instead of only against the primary address and
 the host name to assign the log entries to a device, you can activate
-this function using </p>
+this function using</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;match-any-address&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="recent-devices">Recent Devices</h2>
 <p>There are 2 configuration parameters to influence the behaviour of the
 "Recent Graylog" table on the overview page of the
-devices. </p>
+devices.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;device-page&#39;</span><span class="p">][</span><span class="s1">&#39;rowCount&#39;</span><span class="p">]</span>
 </code></pre></div>
-<p>Sets the maximum number of rows to be displayed (default: 10) </p>
+<p>Sets the maximum number of rows to be displayed (default: 10)</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;device-page&#39;</span><span class="p">][</span><span class="s1">&#39;loglevel&#39;</span><span class="p">]</span>
 </code></pre></div>
 <p>You can set which loglevels that should be displayed on the overview page. (default: 7, min:
-0, max: 7) </p>
+0, max: 7)</p>
 <p><div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;device-page&#39;</span><span class="p">][</span><span class="s1">&#39;loglevel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
 </code></pre></div>
 Shows only entries with a log level less than or equal to 4 (Emergency,

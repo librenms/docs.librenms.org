@@ -2200,16 +2200,16 @@ over rrdcached. If you have rrdcached 1.5.5 or above, you can also
 tune over rrdcached. To enable this set the following config:</p>
 <p><div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdtool_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.5.5&#39;</span><span class="p">;</span>
 </code></pre></div>
-This setting has to be the exact version of rrdtool you are running. </p>
+This setting has to be the exact version of rrdtool you are running.</p>
 <p>NOTE: This feature requires your client version of rrdtool to be 1.5.5
 or newer, in addition to your rrdcached version.</p>
 <h1 id="distributed-poller-support-matrix">Distributed Poller Support Matrix</h1>
 <p>Shared FS: Is a shared filesystem required?</p>
 <p>Features: Supported features in the version indicated.</p>
-<div class="highlight"><pre><span></span><code>          G = Graphs.
-          C = Create RRD files.
-          U = Update RRD files.
-          T = Tune RRD files.
+<div class="highlight"><pre><span></span><code>G = Graphs.
+C = Create RRD files.
+U = Update RRD files.
+T = Tune RRD files.
 </code></pre></div>
 <table>
 <thead>
@@ -2251,7 +2251,7 @@ so you can view the disk I/O usage delta.</p>
 <li><a href="#rrdcached-installation-debian-stretch">RRDCached installation Debian Stretch</a></li>
 <li><a href="#rrdcached-installation-centos-7-or-8">RRDCached installation CentOS 7 or 8</a></li>
 <li><a href="#rrdcached-installation-centos-6">RRDCached installation CentOS 6</a></li>
-<li><a href="#Securing-RRCached">Securing RRCached</a></li>
+<li><a href="#securing-rrcached">Securing RRCached</a></li>
 </ol>
 <h2 id="rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</h2>
 <p>1: Install rrdcached</p>
@@ -2303,7 +2303,7 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 <div class="highlight"><pre><span></span><code>chown librenms:librenms /var/lib/rrdcached/journal/
 </code></pre></div>
 <p>4: Restart the rrdcached service</p>
-<div class="highlight"><pre><span></span><code>    systemctl restart rrdcached.service
+<div class="highlight"><pre><span></span><code>systemctl restart rrdcached.service
 </code></pre></div>
 <p>5: Edit /opt/librenms/config.php to include:</p>
 <p>For local RRDCached server</p>
@@ -2338,7 +2338,7 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 <div class="highlight"><pre><span></span><code>chown librenms:librenms /var/lib/rrdcached/journal/
 </code></pre></div>
 <p>4: Restart the rrdcached service</p>
-<div class="highlight"><pre><span></span><code>    systemctl restart rrdcached.service
+<div class="highlight"><pre><span></span><code>systemctl restart rrdcached.service
 </code></pre></div>
 <p>5: Edit /opt/librenms/config.php to include:</p>
 <p>For local RRDCached server</p>

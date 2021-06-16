@@ -2198,7 +2198,7 @@
 <p>Status: Release Candidate</p>
 </blockquote>
 <p>The LibreNMS dispatcher service (<code>librenms-service.py</code>) is a new method
-of running the poller service at set times. It does not replace the php scripts, 
+of running the poller service at set times. It does not replace the php scripts,
 just the cron entries running them.</p>
 <h1 id="external-requirements">External Requirements</h1>
 <h2 id="a-recent-version-of-python">A recent version of Python</h2>
@@ -2227,7 +2227,7 @@ system. See <a href="https://redis.io/topics/security">https://redis.io/topics/s
 <h2 id="memcached-distributed-polling">Memcached (distributed polling)</h2>
 <p>LibreNMS can still use memcached as a locking mechanism when using
 distributed polling.  So you can configure memcached for this purpose
-unless you have updates disabled. </p>
+unless you have updates disabled.</p>
 <p>See <code>Locking Mechanisms</code> at
 <a href="https://docs.librenms.org/Extensions/Distributed-Poller/">https://docs.librenms.org/Extensions/Distributed-Poller/</a></p>
 <h2 id="mysql">MySQL</h2>
@@ -2292,7 +2292,7 @@ options available.</p>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;distributed_poller_group&#39;</span><span class="p">]</span>              <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>               <span class="c1"># Which group to poll</span>
 </code></pre></div>
 <h3 id="tuning-the-number-of-workers">Tuning the number of workers</h3>
-<p>See https://your_librenms_install/poller </p>
+<p>See https://your_librenms_install/poller</p>
 <p>You want to keep Consumed Worker Seconds comfortably below Maximum Worker Seconds. The closer the values are to each other, the flatter the CPU graph of the poller machine. Meaning that you are utilizing your CPU resources well. As long as Consumed WS stays below Maximum WS and Devices Pending is 0, you should be ok.</p>
 <p>If Consumed WS is below Maximum WS and Devices Pending is &gt; 0, your hardware is not up to the task.</p>
 <p>Maximum WS equals the number of workers multiplied with the number of seconds in the polling period. (default 300)</p>

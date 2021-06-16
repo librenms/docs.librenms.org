@@ -3073,8 +3073,8 @@ Notes:</p>
 </li>
 </ul>
 <p>CLI SNMP v3 Configuration for <em>authPriv</em>
-<div class="highlight"><pre><span></span><code>/snmp community 
-add name=&quot;&lt;COMMUNITY&gt;&quot; addresses=&quot;&lt;ALLOWED-SRC-IPs/NETMASK&gt;&quot; 
+<div class="highlight"><pre><span></span><code>/snmp community
+add name=&quot;&lt;COMMUNITY&gt;&quot; addresses=&quot;&lt;ALLOWED-SRC-IPs/NETMASK&gt;&quot;
 set &quot;&lt;COMMUNITY&gt;&quot; authentication-password=&quot;&lt;AUTH_PASS&gt;&quot; authentication-protocol=MD5
 set &quot;&lt;COMMUNITY&gt;&quot; encryption-password=&quot;&lt;ENCRYP_PASS&gt;&quot; encryption-protocol=AES
 set &quot;&lt;COMMUNITY&gt;&quot; read-access=yes write-access=no security=private
@@ -3292,7 +3292,7 @@ firewall-cmd --reload
 </ol>
 <h4 id="powershell">PowerShell</h4>
 <p>The following example will install SNMP, set the Librenms IP and set a read only community string.<br />
-Replace <code>$IP</code> and <code>$communitystring</code> with your values.  </p>
+Replace <code>$IP</code> and <code>$communitystring</code> with your values.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">Install-WindowsFeature</span> <span class="n">-Name</span> <span class="s1">&#39;SNMP-Service&#39;</span><span class="p">,</span><span class="s1">&#39;RSAT-SNMP&#39;</span>
 <span class="nb">New-ItemProperty</span> <span class="n">-Path</span> <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\services\SNMP\Parameters\PermittedManagers&quot;</span>  <span class="n">-Name</span> <span class="n">2</span> <span class="n">-Value</span> <span class="nv">$IP</span>
 <span class="nb">New-ItemProperty</span> <span class="n">-Path</span> <span class="s2">&quot;HKLM:\SYSTEM\CurrentControlSet\services\SNMP\Parameters\ValidCommunities&quot;</span>  <span class="n">-Name</span> <span class="nv">$communitystring</span> <span class="n">-Value</span> <span class="n">4</span>

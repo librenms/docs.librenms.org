@@ -2544,7 +2544,7 @@ quick. However for devices with a lot of ports and good % of those are
 either deleted or disabled then this approach isn't optimal. So to
 counter this you can enable 'selected port polling' per device within
 the edit device -&gt; misc section or by globally enabling it (<strong>not
-recommended</strong>): <code>$config['polling']['selected_ports'] = true;</code>. 
+recommended</strong>): <code>$config['polling']['selected_ports'] = true;</code>.<br />
 This is truly not recommended, as it has been proven to affect cpu
 usage of your poller negatively. You can also set it for a specific OS:
 <code>$config['os']['ios']['polling']['selected_ports'] = true;</code>.</p>
@@ -2558,10 +2558,10 @@ is run. There are a number of options:</p>
 -e &lt;percentage&gt;                              Enable/disable selected ports polling for devices which would benefit &lt;percentage&gt; from a change
 </code></pre></div>
 If you want to run this script to have it set selected port polling
-on devices where a change of <strong>10% or more is evaluated</strong>, run it with 
-<code>./scripts/collect-port-polling.php -e 10</code>. But note: it will not 
+on devices where a change of <strong>10% or more is evaluated</strong>, run it with
+<code>./scripts/collect-port-polling.php -e 10</code>. But note: it will not
 blindly use only the 10%. There is a second condition that the change
-has to be more than one second in polling time. </p>
+has to be more than one second in polling time.</p>
 <h2 id="web-interface">Web interface</h2>
 <h3 id="http2">HTTP/2</h3>
 <p>If you are running https then you should enable http/2 support in
@@ -2570,11 +2570,11 @@ whatever web server you use:</p>
 ssl http2;</code> in the Virtualhost config.</p>
 <p>For Apache (2.4.17 an above) set <code>Protocols h2 http/1.1</code> in the Virtualhost config.</p>
 <h2 id="php-opcache">PHP-opcache</h2>
-<p>A lot of performance can be gained from setting up <code>php-opcache</code> correctly. </p>
+<p>A lot of performance can be gained from setting up <code>php-opcache</code> correctly.</p>
 <p><strong>Note: Memory based caching with PHP cli will increase memory usage and slow things down. File based caching is not as fast as memory based and is more likely to have stale cache issues.</strong></p>
 <p>Some distributions allow separate cli, mod_php and php-fpm configurations, we can use this to set the optimal config.</p>
 <h3 id="for-web-servers-using-mod_php-and-php-fpm">For web servers using mod_php and php-fpm</h3>
-<p>Update your web PHP opcache.ini.  Possible locations: <code>/etc/php/7.2/fpm/conf.d/opcache.ini</code>, <code>/etc/php.d/opcache.ini</code>, or <code>/etc/php/conf.d/opcache.ini</code> </p>
+<p>Update your web PHP opcache.ini.  Possible locations: <code>/etc/php/7.2/fpm/conf.d/opcache.ini</code>, <code>/etc/php.d/opcache.ini</code>, or <code>/etc/php/conf.d/opcache.ini</code>.</p>
 <div class="highlight"><pre><span></span><code>zend_extension=opcache
 opcache.enable=1
 opcache.memory_consumption=256
@@ -2583,7 +2583,7 @@ opcache.memory_consumption=256
 <h3 id="for-pollers">For pollers</h3>
 <p>Create a cache directory that is writable by the librenms user first:
 <code>sudo mkdir -p /tmp/cache &amp;&amp; sudo chmod 775 /tmp/cache &amp;&amp; sudo chown -R librenms /tmp/cache</code></p>
-<p>Update your PHP opcache.ini.  Possible locations: <code>/etc/php/7.2/cli/conf.d/opcache.ini</code>, <code>/etc/php.d/opcache.ini</code>, or <code>/etc/php/conf.d/opcache.ini</code> </p>
+<p>Update your PHP opcache.ini.  Possible locations: <code>/etc/php/7.2/cli/conf.d/opcache.ini</code>, <code>/etc/php.d/opcache.ini</code>, or <code>/etc/php/conf.d/opcache.ini</code>.</p>
 <div class="highlight"><pre><span></span><code>zend_extension=opcache.so
 opcache.enable=1
 opcache.enable_cli=1
@@ -2592,7 +2592,7 @@ opcache.file_cache_only=0
 opcache.file_cache_consistency_checks=1
 opcache.memory_consumption=256
 </code></pre></div>
-<p>If you are having caching issues, you can clear the file based opcache with <code>rm -rf /tmp/cache</code>. </p>
+<p>If you are having caching issues, you can clear the file based opcache with <code>rm -rf /tmp/cache</code>.</p>
                 
                   
                 

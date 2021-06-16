@@ -2388,12 +2388,12 @@ following:</p>
 successfully. User level 1 is assigned to those accounts so you will
 then need to assign the relevant permissions unless you set
 <code>$config['radius']['userlevel']</code> to be something other than 1.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;hostname&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="s1">&#39;1812&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;secret&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s1">&#39;testing123&#39;</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;users_purge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span><span class="c1">//Purge users who haven&#39;t logged in for 14 days.</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;default_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//Set the default user level when automatically creating a user.</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;hostname&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;port&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="s1">&#39;1812&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;secret&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="s1">&#39;testing123&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;users_purge&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>  <span class="c1">// Purge users who haven&#39;t logged in for 14 days.</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;default_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// Set the default user level when automatically creating a user.</span>
 </code></pre></div>
 <h2 id="old-account-cleanup_1">Old account cleanup</h2>
 <p>Cleanup of old accounts is done by checking the authlog. You will need
@@ -2420,14 +2420,14 @@ for that user which is done in one of two ways:</p>
 <p>This will then assign the userlevel for guest to all authenticated users.</p>
 <h2 id="http-authentication-ad-authorization">HTTP Authentication / AD Authorization</h2>
 <p>Config option: <code>ad-authorization</code></p>
-<p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>active</em>directory</strong>_</p>
+<p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>active_directory</em></strong></p>
 <p>LibreNMS will expect the user to have authenticated via your
 webservice already (e.g. using Kerberos Authentication in Apache) but
 will use Active Directory lookups to determine and assign the
 userlevel of a user. The userlevel will be calculated by using AD
-group membership information as the <strong><em>active</em>directory</strong>_ module
+group membership information as the <strong><em>active_directory</em></strong> module
 does.</p>
-<p>The configuration is the same as for the <strong><em>active</em>directory</strong>_ module
+<p>The configuration is the same as for the <strong><em>active_directory</em></strong> module
 with two extra, optional options: auth_ad_binduser and
 auth_ad_bindpassword. These should be set to a AD user with read
 capabilities in your AD Domain in order to be able to perform
@@ -2517,7 +2517,7 @@ supply environment variables or headers.</p>
 <h2 id="advanced-configuration-options">Advanced Configuration Options</h2>
 <h3 id="user-attribute">User Attribute</h3>
 <p>If for some reason your relying party doesn't store the username in
-<strong><em>REMOTE</em>USER</strong>_, you can override this choice.</p>
+<strong><em>REMOTE_USER</em></strong>, you can override this choice.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;user_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;HTTP_UID&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>Note that the user lookup is a little special - normally headers are
@@ -2553,9 +2553,9 @@ control, this is probably suitable.</p>
 </code></pre></div>
 <p>If your Relying Party is capable of calculating the necessary
 privilege level, you can configure the module to read the privilege
-number straight from an attribute. <strong><em>sso</em>level_attr</strong><em> should contain
+number straight from an attribute. <strong><em>sso_level_attr</em></strong> should contain
 the name of the attribute that the Relying Party exposes to LibreNMS -
-as long as <strong><em>sso</em>mode</strong></em> is correctly set, the mechanism should find
+as long as <strong><em>sso_mode</em></strong> is correctly set, the mechanism should find
 the value.</p>
 <h4 id="group-map">Group Map</h4>
 <p>This is the most flexible (and complex) way of assigning privileges.</p>
@@ -2565,13 +2565,13 @@ the value.</p>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_delimiter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>The mechanism expects to find a delimited list of groups within the
-attribute that <strong><em>sso</em>group_attr</strong>_ points to. This should be an
+attribute that <strong><em>sso_group_attr</em></strong> points to. This should be an
 associative array of group name keys, with  privilege levels as
 values. The mechanism will scan the list and find the <strong><em>highest</em></strong>
 privilege level that the user is entitled to, and assign that value to
 the user.</p>
 <p>This format may be specific to Shibboleth; other relying party
-software may need changes to the mechanism (e.g. <strong><em>mod</em>auth_mellon</strong>_
+software may need changes to the mechanism (e.g. <strong><em>mod_auth_mellon</em></strong>
 may create pseudo arrays).</p>
 <p>There is an optional value for sites with large numbers of groups:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_filter&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s2">&quot;/librenms-(.*)/i&quot;</span><span class="p">;</span>

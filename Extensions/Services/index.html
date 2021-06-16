@@ -2400,7 +2400,7 @@
 perform additional monitoring outside of SNMP. Services can also be used
 in conjunction with your SNMP monitoring for larger monitoring functionality.</p>
 <p><strong>Services must be tied to a device to function properly. A good generic
-option is to use <code>localhost</code>, but it is suggested to attach the check to 
+option is to use <code>localhost</code>, but it is suggested to attach the check to
 the device you are monitoring.</strong></p>
 <h2 id="nagios-plugins-source">Nagios plugins source</h2>
 <p>Plugins come from two main sources:</p>
@@ -2444,8 +2444,8 @@ Service Templates.</p>
 <h2 id="setup">Setup</h2>
 <p>Service checks are now distributable if you run a distributed
 setup. To leverage this, use the <code>dispatch</code> service. Alternatively,
-you could also replace <code>check-services.php</code> with <code>services-wrapper.py</code> in 
-cron instead to run across all polling nodes. </p>
+you could also replace <code>check-services.php</code> with <code>services-wrapper.py</code> in
+cron instead to run across all polling nodes.</p>
 <p>If you need to debug the output of services-wrapper.py then you can
 add <code>-d</code> to the end of the command - it is NOT recommended to do this
 in cron.</p>
@@ -2538,21 +2538,21 @@ The below values are not defaults or recommended.</p>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_workers&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_frequency&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_frequency&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_down_retry&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_poller_down_retry&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_enabled&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_enabled&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_workers&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_workers&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_frequency&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">3600</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_discovery_frequency&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="mi">3600</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_enabled&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_enabled&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_workers&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_workers&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_frequency&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;service_services_frequency&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
 </code></pre></div></p>
 <h2 id="service-checks-polling-logic">Service checks polling logic</h2>
 <p>Service check is skipped when the associated device is not pingable,

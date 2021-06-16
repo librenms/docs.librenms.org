@@ -2395,7 +2395,7 @@ by following the steps under the <code>SNMP Extend</code> heading.</p>
 <li><a href="#ntp-client">NTP Client</a> - SNMP extend</li>
 <li><a href="#ntp-server-aka-ntpd">NTP Server/NTPD</a> - SNMP extend</li>
 <li><a href="#nvidia-gpu">Nvidia GPU</a> - SNMP extend</li>
-<li><a href="#opengridscheduler">Open Grid Scheduler</a> - SNMP extend</li>
+<li><a href="#open-grid-scheduler">Open Grid Scheduler</a> - SNMP extend</li>
 <li><a href="#opensips">Opensips</a> - SNMP extend</li>
 <li><a href="#os-updates">OS Updates</a> - SNMP extend</li>
 <li><a href="#php-fpm">PHP-FPM</a> - SNMP extend</li>
@@ -2408,7 +2408,7 @@ by following the steps under the <code>SNMP Extend</code> heading.</p>
 <li><a href="#powerdns-dnsdist">PowerDNS dnsdist</a> - SNMP extend</li>
 <li><a href="#powermon">PowerMon</a> - SNMP extend</li>
 <li><a href="#proxmox">Proxmox</a> - SNMP extend</li>
-<li><a href="#puppet_agent">Puppet Agent</a> - SNMP extend</li>
+<li><a href="#puppet-agent">Puppet Agent</a> - SNMP extend</li>
 <li><a href="#pureftpd">PureFTPd</a> - SNMP extend</li>
 <li><a href="#raspberry-pi">Raspberry PI</a> - SNMP extend</li>
 <li><a href="#redis">Redis</a> - SNMP extend</li>
@@ -2565,9 +2565,11 @@ via <code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/
 <p>3: Set the variable 'agent' to '1' in the config.</p>
 <h1 id="certificate">Certificate</h1>
 <p>A small python3 script that checks age and remaining validity of certificates</p>
-<p>This script needs following packages on Debian/Ubuntu Systems:
-* python3
-* python3-openssl</p>
+<p>This script needs following packages on Debian/Ubuntu Systems:</p>
+<ul>
+<li>python3</li>
+<li>python3-openssl</li>
+</ul>
 <p>Content of an example /etc/snmp/certificate.json . Please edit with your own settings.
 <div class="highlight"><pre><span></span><code>{&quot;domains&quot;: [
     {&quot;fqdn&quot;: &quot;www.mydomain.com&quot;},
@@ -2645,7 +2647,7 @@ Extend</code> heading top of page.</p>
 </code></pre></div>
 <p>3: Run <code>chmod +x /etc/snmp/docker-stats.sh</code></p>
 <p>4: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<div class="highlight"><pre><span></span><code>extend docker /etc/snmp/docker-stats.sh 
+<div class="highlight"><pre><span></span><code>extend docker /etc/snmp/docker-stats.sh
 </code></pre></div>
 <p>5: Restart snmpd on your host
 <div class="highlight"><pre><span></span><code>systemctl restart snmpd
@@ -2918,19 +2920,19 @@ Extend</code> heading top of page.</p>
 <li>Install your munin scripts into the above directory.</li>
 </ol>
 <p>To create your own custom munin scripts, please see this example:</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash
-if [ &quot;$1&quot; = &quot;config&quot; ]; then
-    echo &#39;graph_title Some title&#39;
-    echo &#39;graph_args --base 1000 -l 0&#39; #not required
-    echo &#39;graph_vlabel Some label&#39;
-    echo &#39;graph_scale no&#39; #not required, can be yes/no
-    echo &#39;graph_category system&#39; #Choose something meaningful, can be anything
-    echo &#39;graph_info This graph shows something awesome.&#39; #Short desc
-    echo &#39;foobar.label Label for your unit&#39; # Repeat these two lines as much as you like
-    echo &#39;foobar.info Desc for your unit.&#39;
-    exit 0
-fi
-echo -n &quot;foobar.value &quot; $(date +%s) #Populate a value, here unix-timestamp
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;config&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s1">&#39;graph_title Some title&#39;</span>
+    <span class="nb">echo</span> <span class="s1">&#39;graph_args --base 1000 -l 0&#39;</span> <span class="c1">#not required</span>
+    <span class="nb">echo</span> <span class="s1">&#39;graph_vlabel Some label&#39;</span>
+    <span class="nb">echo</span> <span class="s1">&#39;graph_scale no&#39;</span> <span class="c1">#not required, can be yes/no</span>
+    <span class="nb">echo</span> <span class="s1">&#39;graph_category system&#39;</span> <span class="c1">#Choose something meaningful, can be anything</span>
+    <span class="nb">echo</span> <span class="s1">&#39;graph_info This graph shows something awesome.&#39;</span> <span class="c1">#Short desc</span>
+    <span class="nb">echo</span> <span class="s1">&#39;foobar.label Label for your unit&#39;</span> <span class="c1"># Repeat these two lines as much as you like</span>
+    <span class="nb">echo</span> <span class="s1">&#39;foobar.info Desc for your unit.&#39;</span>
+    <span class="nb">exit</span> <span class="m">0</span>
+<span class="k">fi</span>
+<span class="nb">echo</span> -n <span class="s2">&quot;foobar.value &quot;</span> <span class="k">$(</span>date +%s<span class="k">)</span> <span class="c1">#Populate a value, here unix-timestamp</span>
 </code></pre></div>
 <h1 id="mysql">MySQL</h1>
 <p>Create the cache directory, '/var/cache/librenms/' and make sure
@@ -2966,7 +2968,7 @@ so you need to also include the line <code>$chk_options['slave'] = false;</code>
 <p>and copy the <code>mysql</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p>Verify it is working by running <code>/usr/lib/check_mk_agent/local/mysql</code></p>
 <h2 id="snmp-extend_21">SNMP extend</h2>
-<p>1: Copy the mysql script to the desired host. 
+<p>1: Copy the mysql script to the desired host.
 <div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/mysql -O /etc/snmp/mysql
 </code></pre></div></p>
 <p>2: Make the file executable
@@ -2985,10 +2987,10 @@ Extend</code> heading top of page.</p>
 configuration responsible for the localhost server:</p>
 <div class="highlight"><pre><span></span><code>location /nginx-status {
     stub_status on;
-    access_log   off;
+    access_log  off;
     allow 127.0.0.1;
     allow ::1;
-    deny all;
+    deny  all;
 }
 </code></pre></div>
 <h2 id="snmp-extend_22">SNMP Extend</h2>
@@ -3308,7 +3310,7 @@ script which method to use. The are several options to assist with testing, see
 <h3 id="initial-setup">Initial setup</h3>
 <ol>
 <li>
-<p>Download the python script onto the host: 
+<p>Download the python script onto the host:
 <div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/powermon-snmp.py -O /usr/local/bin/powermon-snmp.py
 </code></pre></div></p>
 </li>
@@ -3539,9 +3541,24 @@ For Install/Setup Local Librenms RRDCached: Please see <a href="../RRDCached/">R
 <p>3: Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add:</p>
 <div class="highlight"><pre><span></span><code>extend rrdcached /etc/snmp/rrdcached
 </code></pre></div>
+<h1 id="sdfs-info">SDFS info</h1>
+<p>A small shell script that exportfs SDFS volume info.</p>
+<h2 id="snmp-extend_44">SNMP Extend</h2>
+<p>1: Download the script onto the desired host (the host must be added
+   to LibreNMS devices)</p>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/sdfsinfo -O /etc/snmp/sdfsinfo
+</code></pre></div>
+<p>2: Make the script executable (chmod +x /etc/snmp/sdfsinfo)</p>
+<p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
+<div class="highlight"><pre><span></span><code>extend sdfsinfo /etc/snmp/sdfsinfo
+</code></pre></div>
+<p>4: Restart snmpd on your host</p>
+<p>The application should be auto-discovered as described at the top of
+the page. If it is not, please follow the steps set out under <code>SNMP
+Extend</code> heading top of page.</p>
 <h1 id="seafile">Seafile</h1>
 <p>SNMP extend script to monitor your Seafile Server</p>
-<h2 id="snmp-extend_44">SNMP Extend</h2>
+<h2 id="snmp-extend_45">SNMP Extend</h2>
 <p>1: Copy the Python script, seafile.py, to the desired host. <code>wget
 https://github.com/librenms/librenms-agent/raw/master/snmp/seafile.py -O
 /etc/snmp/seafile.py</code></p>
@@ -3573,7 +3590,7 @@ hide_monitoring_account = With this Boolean you can hide the Account which you
 </code></pre></div>
 <p><strong>Note:</strong>It is recommended to use a dedicated Administrator account for monitoring.</p>
 <h1 id="smart">SMART</h1>
-<h2 id="snmp-extend_45">SNMP Extend</h2>
+<h2 id="snmp-extend_46">SNMP Extend</h2>
 <ol>
 <li>Copy the Perl script, smart, to the desired host.</li>
 </ol>
@@ -3711,12 +3728,12 @@ https://github.com/librenms/librenms-agent/raw/master/snmp/unbound -O
 <p>The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
-<h1 id="option-2-agent">Option 2: Agent</h1>
+<h2 id="option-2-agent">Option 2: Agent</h2>
 <p><a href="#agent-setup">Install the agent</a> on this device if it isn't already
 and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h1 id="ups-nut">UPS-nut</h1>
 <p>A small shell script that exports nut ups status.</p>
-<h2 id="snmp-extend_46">SNMP Extend</h2>
+<h2 id="snmp-extend_47">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-nut.sh">ups
    nut</a>
    to <code>/etc/snmp/</code> on your host.</p>
@@ -3730,7 +3747,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h1 id="ups-apcups">UPS-apcups</h1>
 <p>A small shell script that exports apcacess ups status.</p>
-<h2 id="snmp-extend_47">SNMP Extend</h2>
+<h2 id="snmp-extend_48">SNMP Extend</h2>
 <p>1: Copy the <a href="https://github.com/librenms/librenms-agent/blob/master/snmp/ups-apcups">ups
    apcups</a>
    to <code>/etc/snmp/</code> on your host.</p>
@@ -3741,21 +3758,6 @@ Extend</code> heading top of page.</p>
 <p>If 'apcaccess' is not in the PATH enviromental variable snmpd is
 using, you may need to do something like below.</p>
 <div class="highlight"><pre><span></span><code>extend ups-apcups/usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin /etc/snmp/ups-apcups
-</code></pre></div>
-<p>4: Restart snmpd on your host</p>
-<p>The application should be auto-discovered as described at the top of
-the page. If it is not, please follow the steps set out under <code>SNMP
-Extend</code> heading top of page.</p>
-<h1 id="sdfs-info">SDFS info</h1>
-<p>A small shell script that exportfs SDFS volume info.</p>
-<h2 id="snmp-extend_48">SNMP Extend</h2>
-<p>1: Download the script onto the desired host (the host must be added
-   to LibreNMS devices)</p>
-<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/sdfsinfo -O /etc/snmp/sdfsinfo
-</code></pre></div>
-<p>2: Make the script executable (chmod +x /etc/snmp/sdfsinfo)</p>
-<p>3: Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add:</p>
-<div class="highlight"><pre><span></span><code>extend sdfsinfo /etc/snmp/sdfsinfo
 </code></pre></div>
 <p>4: Restart snmpd on your host</p>
 <p>The application should be auto-discovered as described at the top of
