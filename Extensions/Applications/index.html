@@ -3676,7 +3676,7 @@ snmp_access deny all
 <p>2: Restart squid on your host.</p>
 <p>3: Edit your snmpd.conf file and add, making sure you have the same
 community, host, and port as above:</p>
-<div class="highlight"><pre><span></span><code>proxy -v 2c -c public 127.0.0.1:3401 1.3.6.1.4.1.3495
+<div class="highlight"><pre><span></span><code>proxy -v 2c -Cc -c public 127.0.0.1:3401 1.3.6.1.4.1.3495
 </code></pre></div>
 <p>For more advanced information on Squid and SNMP or setting up proxying
 for net-snmp, please see the links below.</p>
