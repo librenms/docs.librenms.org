@@ -2348,6 +2348,9 @@ output via the API.</p>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.ignore_types <span class="s1">&#39;[&quot;server&quot;, &quot;power&quot;]&#39;</span>
 lnms config:set oxidized.ignore_os <span class="s1">&#39;[&quot;linux&quot;, &quot;windows&quot;]&#39;</span>
 </code></pre></div>
+<p>You can also ignore whole groups of devices</p>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.ignore_groups <span class="s1">&#39;[&quot;london-switches&quot;, &quot;default&quot;]&#39;</span>
+</code></pre></div>
 <h1 id="trigger-configuration-backups">Trigger configuration backups</h1>
 <p>Using the Oxidized REST API and <a href="/Extensions/Syslog/#external-hooks">Syslog
 Hooks</a>, Oxidized can trigger
