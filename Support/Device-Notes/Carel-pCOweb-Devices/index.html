@@ -2141,6 +2141,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#accessing-the-pcoweb-card" class="md-nav__link">
+    Accessing the pCOWeb card
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-the-pcoweb-card-snmp-for-librenms" class="md-nav__link">
     Configuring the pCOweb card SNMP for LibreNMS
   </a>
@@ -2148,8 +2155,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pcoweb-card-already-supported" class="md-nav__link">
-    pCOweb card already supported
+  <a href="#supported-devices" class="md-nav__link">
+    Supported devices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unsupported-devices" class="md-nav__link">
+    Unsupported devices
   </a>
   
 </li>
@@ -2223,6 +2237,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#accessing-the-pcoweb-card" class="md-nav__link">
+    Accessing the pCOWeb card
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-the-pcoweb-card-snmp-for-librenms" class="md-nav__link">
     Configuring the pCOweb card SNMP for LibreNMS
   </a>
@@ -2230,8 +2251,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pcoweb-card-already-supported" class="md-nav__link">
-    pCOweb card already supported
+  <a href="#supported-devices" class="md-nav__link">
+    Supported devices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unsupported-devices" class="md-nav__link">
+    Unsupported devices
   </a>
   
 </li>
@@ -2256,19 +2284,21 @@
                 <h1 id="carel-pcoweb-devices">Carel pCOweb Devices</h1>
 <p>The pCOWeb card is used to interface the pCO system to networks that
 use the HVAC protocols based on the Ethernet physical standard such
-the SNMP. The problem with this card is that the implementation is
+as SNMP. The problem with this card is that the implementation is
 based on the final manufacturer of the HVAC (Heating, Ventilation and
 Air Conditioning) and not based on a standard given by Carel. So each
 pCOweb card has a different configuration that needs a different MIB
-depending on the manufacturer implementation.</p>
-<p>The main problem is that LibreNMS will discover this card as pCOweb
+depending on the manufacturers implementation.</p>
+<p>The main problem is that LibreNMS will by default discover this card as pCOweb
 and not as your real manufacturer like it should. A solution was found
 to bypass this issue, but it's LibreNMS independent and you need to
 first configure your pCOWeb through the admin interface.</p>
+<h2 id="accessing-the-pcoweb-card">Accessing the pCOWeb card</h2>
+<p>Log on to the configuration page of the pCOWeb card. The pCOWeb interface is not always found when accessing the ip directly but rather a subdirectory. If you cant directly reach the configuration page try <code>&lt;ip address&gt;/config</code>. The default username and password is <code>admin/fadmin</code>. Modern browsers require you to enter this 2 or 3 times.</p>
 <h2 id="configuring-the-pcoweb-card-snmp-for-librenms">Configuring the pCOweb card SNMP for LibreNMS</h2>
 <p>First you need to configure your SNMP card using the admin
 interface. An SNMP tab in the configuration menu leaves you the choice
-to choose a System OID. This is a little tricky but based on this
+to choose a System OID and a Enterprise OID. This is a little tricky but based on this
 information we defined a "standard" for all implementation of Carel
 products with LibreNMS.</p>
 <p><img alt="pCOweb" src="/img/carelpcowebsystemoid.png" /></p>
@@ -2276,26 +2306,27 @@ products with LibreNMS.</p>
 final manufacturer Enterprise OID. You can find all enterprise OID
 <a href="https://www.iana.org/assignments/enterprise-numbers/enterprise-numbers">following this
 link</a>. This
-will allow us to create a specific support for this device.</p>
+will allow us to create a specific support for this device. Librenms uses this value to detect which HVAC device is connected to the pCOWeb card.</p>
 <p>Example for the Rittal IT Chiller that uses a pCOweb card:</p>
 <ol>
 <li>Base Carel OID : <strong>1.3.6.1.4.1.9839</strong></li>
 <li>Rittal (the manufacturer) base enterprise OID : <strong>2606</strong></li>
 <li>Adding value to identify this device in LibreNMS : <strong>1</strong></li>
 <li>Complete System OID for a Rittal Chiller using a Carel pCOweb card: <strong>1.3.6.1.4.1.9839.2606.1</strong></li>
+<li>Use <strong>9839</strong> as Enterprise OID</li>
 </ol>
-<p>After constructing the correct System OID for your SNMP card, you can
-start the LibreNMS <a href="Developing/Support-New-OS/">new OS implementation</a>
-and use this new OID as sysObjectID for the YAML definition file.</p>
-<h2 id="pcoweb-card-already-supported">pCOweb card already supported</h2>
+<p>The way this works is that the pCOWeb card pretends to be another device. In reality the pCOWeb card just inserts the "enterprise OID" in place of the vendor id in the OID.</p>
+<p>In the table below you can find the values needed for devices which are already supported.</p>
+<h2 id="supported-devices">Supported devices</h2>
 <p>LibreNMS is ready for the devices listed in this table. You only need
-to configure your pCOweb card with the accorded System OID:</p>
+to configure your pCOweb card with the accorded System OID and Enterprise OID:</p>
 <table>
 <thead>
 <tr>
 <th>Manufacturer</th>
 <th>Description</th>
 <th>System OID</th>
+<th>Enterprise OID</th>
 </tr>
 </thead>
 <tbody>
@@ -2303,9 +2334,20 @@ to configure your pCOweb card with the accorded System OID:</p>
 <td>Rittal</td>
 <td>IT Chiller</td>
 <td>1.3.6.1.4.1.9839.2606.1</td>
+<td>9839</td>
+</tr>
+<tr>
+<td>Rittal</td>
+<td>LCP DX 3311</td>
+<td>1.3.6.1.4.1.9839.2606.3311</td>
+<td>9839.2606</td>
 </tr>
 </tbody>
 </table>
+<h2 id="unsupported-devices">Unsupported devices</h2>
+<p>After constructing the correct System OID for your SNMP card, you can
+start the LibreNMS <a href="Developing/Support-New-OS/">new OS implementation</a>
+and use this new OID as sysObjectID for the YAML definition file.</p>
                 
                   
                 
