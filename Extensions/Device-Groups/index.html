@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dynamic-groups" class="md-skip">
+        <a href="#grouping-devices" class="md-skip">
           Skip to content
         </a>
       
@@ -468,8 +468,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dynamic-groups" class="md-nav__link">
+    Dynamic Groups
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic Groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#rule-editor" class="md-nav__link">
     Rule Editor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-groups" class="md-nav__link">
+    Static Groups
   </a>
   
 </li>
@@ -2214,8 +2234,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dynamic-groups" class="md-nav__link">
+    Dynamic Groups
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic Groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#rule-editor" class="md-nav__link">
     Rule Editor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-groups" class="md-nav__link">
+    Static Groups
   </a>
   
 </li>
@@ -2237,11 +2277,12 @@
                   </a>
                 
                 
-                <p>LibreNMS supports grouping your devices together in much the same way
+                <h1 id="grouping-devices">Grouping Devices</h1>
+<p>LibreNMS supports grouping your devices together in much the same way
 as you can configure alerts. This document will hopefully help you get
 started.</p>
-<h1 id="dynamic-groups">Dynamic Groups</h1>
-<h2 id="rule-editor">Rule Editor</h2>
+<h2 id="dynamic-groups">Dynamic Groups</h2>
+<h3 id="rule-editor">Rule Editor</h3>
 <p>The rule is based on the MySQL structure your data is in. Such as <strong>tablename.columnname</strong>.
 If you already know the entity you want, you can browse around inside
 MySQL using <code>show tables</code> and <code>desc &lt;tablename&gt;</code>.</p>
@@ -2254,7 +2295,7 @@ routers of <code>devices.hostname</code> endswith <code>rtr.example.com</code>.<
 <p>If you want to group them by DC, you could use the rule
 <code>devices.hostname</code> regex <code>dc1\..*\.example\.com</code> (Don't forget to
 escape periods in the regex)</p>
-<h1 id="static-groups">Static Groups</h1>
+<h2 id="static-groups">Static Groups</h2>
 <p>You can create static groups (and convert dynamic groups to static) to
 put specific devices in a group. Just select static as the type and
 select the devices you want in the group.</p>

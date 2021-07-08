@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#choosing-a-release" class="md-skip">
           Skip to content
         </a>
       
@@ -421,9 +421,45 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Choosing a release
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Choosing a release
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#development-branch" class="md-nav__link">
+    Development branch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stable-branch" class="md-nav__link">
+    Stable branch
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2214,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#development-branch" class="md-nav__link">
+    Development branch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stable-branch" class="md-nav__link">
+    Stable branch
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,13 +2251,13 @@
                   </a>
                 
                 
-                <h1 id="introduction">Introduction</h1>
+                <h1 id="choosing-a-release">Choosing a release</h1>
 <p>We try to ensure that breaking changes aren't introduced by utilising
 various automated code testing, syntax testing and unit testing along
 with manual code review. However bugs can and do get introduced as
 well as major refactoring to improve the quality of the code base.</p>
 <p>We have two branches available for you to use. The default is the <code>master</code> branch.</p>
-<h1 id="development-branch">Development branch</h1>
+<h2 id="development-branch">Development branch</h2>
 <p>Our <code>master</code> branch is our dev branch, this is actively commited to
 and it's not uncommon for multiple commits to be merged in daily. As
 such sometimes changes will be introduced which will cause unintended
@@ -2211,7 +2269,7 @@ during the merge stages.</p>
 branch by setting <code>$config['update_channel'] = 'master';</code> in
 <code>config.php</code> and ensuring you switch to the master branch with:</p>
 <p><code>cd /opt/librenms &amp;&amp; git checkout master</code></p>
-<h1 id="stable-branch">Stable branch</h1>
+<h2 id="stable-branch">Stable branch</h2>
 <p>With this in mind, we provide a monthly stable release which is
 released on or around  the last Sunday of the month. Code pull
 requests (aside from Bug fixes) are stopped days leading up to the

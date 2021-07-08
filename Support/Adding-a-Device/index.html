@@ -467,18 +467,19 @@
     WebUI
   </a>
   
-    <nav class="md-nav" aria-label="WebUI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ping-only-device" class="md-nav__link">
     Ping Only Device
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-discovery-and-api" class="md-nav__link">
+    Automatic Discovery and API
+  </a>
   
 </li>
       
@@ -2245,18 +2246,19 @@
     WebUI
   </a>
   
-    <nav class="md-nav" aria-label="WebUI">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ping-only-device" class="md-nav__link">
     Ping Only Device
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-discovery-and-api" class="md-nav__link">
+    Automatic Discovery and API
+  </a>
   
 </li>
       
@@ -2284,13 +2286,22 @@ add a device via the <code>cli</code> or by using the <code>WebUI</code>.</p>
 <p>Using the command line via ssh you can add a new device by changing to
 the directory of your LibreNMS install and typing (be sure to put the
 correct details).</p>
+<p>Preferred method:
+<div class="highlight"><pre><span></span><code>./lnms device:add <span class="o">[</span>--v1<span class="p">|</span>--v2c<span class="o">]</span> <span class="o">[</span>-c yourSNMPcommunity<span class="o">]</span> yourhostname
+</code></pre></div></p>
+<p>You can use <code>./lnms device:add --help</code> for a list of available options and defaults.</p>
+<p>Alternative:
 <div class="highlight"><pre><span></span><code>./addhost.php yourhostname <span class="o">[</span>community<span class="o">]</span> <span class="o">[</span>v1<span class="p">|</span>v2c<span class="o">]</span> <span class="o">[</span>port<span class="o">]</span> <span class="o">[</span>udp<span class="p">|</span>udp6<span class="p">|</span>tcp<span class="p">|</span>tcp6<span class="o">]</span>
-</code></pre></div>
+</code></pre></div></p>
 <p>As an example, if your device with the name <code>mydevice.example.com</code> is
 configured to use the community <code>my_company</code> using snmp <code>v2c</code> then you
 would enter:</p>
+<p>Preferred method:
+<div class="highlight"><pre><span></span><code>./lnms device:add --v2c -c my_company mydevice.example.com
+</code></pre></div></p>
+<p>Alternative:
 <div class="highlight"><pre><span></span><code>./addhost.php mydevice.example.com my_company v2c
-</code></pre></div>
+</code></pre></div></p>
 <blockquote>
 <p>Please note that if the community contains special characters such
 as <code>$</code> then you will need to wrap it in <code>'</code>. I.e: <code>'Pa$$w0rd'</code>.</p>
@@ -2305,8 +2316,8 @@ Port defaults to 161.</p>
 to get polling Device data via a specific IP-Address (e.g. Management IP)
 fill out the optional field <code>Overwrite IP</code> with it's IP-Address.</p>
 <p><img alt="Add device" src="/img/webui_add_device.png" /></p>
-<h3 id="ping-only-device">Ping Only Device</h3>
-<p>You can add ping only devices into LibreNMS through the WebUI. When
+<h2 id="ping-only-device">Ping Only Device</h2>
+<p>You can add ping only devices into LibreNMS through the WebUI or CLI. When
 adding the device switch the SNMP button to "off". Device will be
 added into LibreNMS as Ping Only Device and will show ICMP Response Graph.</p>
 <ul>
@@ -2314,8 +2325,10 @@ added into LibreNMS as Ping Only Device and will show ICMP Response Graph.</p>
 <li>Hardware: Optional you can type in whatever you like.</li>
 <li>OS: Optional this will add the Device's OS Icon.</li>
 </ul>
-<p><a href="https://youtu.be/cjuByubg-uk">How to add ping only devices</a></p>
+<p>Via CLI this is done with <code>./lnms device:add [-P|--ping-only] yourhostname</code></p>
 <p><img alt="Ping Only" src="/img/add-ping-only.png" /></p>
+<p>A How-to video can be found here: <a href="https://youtu.be/cjuByubg-uk">How to add ping only devices</a></p>
+<h2 id="automatic-discovery-and-api">Automatic Discovery and API</h2>
 <p>If you would like to add devices automatically then you will probably
 want to read the <a href="../../Extensions/Auto-Discovery/">Auto-discovery
 Setup</a> guide.</p>

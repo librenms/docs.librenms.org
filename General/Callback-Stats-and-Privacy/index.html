@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stats-data-and-your-privacy" class="md-skip">
+        <a href="#submitting-stats" class="md-skip">
           Skip to content
         </a>
       
@@ -457,9 +457,66 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Submitting stats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Submitting stats
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stats-data-and-your-privacy" class="md-nav__link">
+    Stats data and your privacy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-submitted" class="md-nav__link">
+    What is submitted
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-do-with-the-data" class="md-nav__link">
+    What we do with the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    Questions?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-enable-stats-submission" class="md-nav__link">
+    How do I enable stats submission?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2235,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stats-data-and-your-privacy" class="md-nav__link">
+    Stats data and your privacy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-submitted" class="md-nav__link">
+    What is submitted
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-do-with-the-data" class="md-nav__link">
+    What we do with the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    Questions?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-enable-stats-submission" class="md-nav__link">
+    How do I enable stats submission?
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,7 +2293,8 @@
                   </a>
                 
                 
-                <h1 id="stats-data-and-your-privacy">Stats data and your privacy</h1>
+                <h1 id="submitting-stats">Submitting Stats</h1>
+<h2 id="stats-data-and-your-privacy">Stats data and your privacy</h2>
 <p>This document has been put together to explain what LibreNMS does when
 it calls back home to report some anonymous statistics.</p>
 <p>Let's start off by saying, all of the code that processes the data and
@@ -2207,7 +2308,7 @@ call back home, you need to opt into this.</p>
 designed like it has.</p>
 <p>Now onto the bit you're interested in, what is submitted and what we
 do with that data.</p>
-<h1 id="what-is-submitted">What is submitted</h1>
+<h2 id="what-is-submitted">What is submitted</h2>
 <ul>
 <li>All data is anonymous.</li>
 <li>Generic statistics are taken from the database, these include things
@@ -2222,14 +2323,14 @@ do with that data.</p>
 <li>Your IP isn't logged, even via our web service accepting the
   data. We don't need to know who you are so we don't ask.</li>
 </ul>
-<h1 id="what-we-do-with-the-data">What we do with the data</h1>
+<h2 id="what-we-do-with-the-data">What we do with the data</h2>
 <ul>
 <li>We store it, not for long - 3 months at the moment although this could change.</li>
 <li>We use it to generate pretty graphs for people to see.</li>
 <li>We use it to help prioritise issues and features that need to be worked on.</li>
 <li>We use sysDescr and sysObjectID to create unit tests and improve OS discovery</li>
 </ul>
-<h1 id="questions">Questions?</h1>
+<h2 id="questions">Questions?</h2>
 <ul>
 <li><strong>Q.</strong> How often is data submitted? <strong>A.</strong> We submit the data once a
   day according to running daily.sh via cron. If you disable this then
@@ -2250,7 +2351,7 @@ do with that data.</p>
 are doing here, if not, please pop into our <a href="https://t.libren.ms/discord">discord
 server</a> or community forum and ask any
 questions you like.</p>
-<h1 id="how-do-i-enable-stats-submission">How do I enable stats submission?</h1>
+<h2 id="how-do-i-enable-stats-submission">How do I enable stats submission?</h2>
 <p>If you're happy with all of this - please consider switching the call
 back system on, you can do this within the About LibreNMS page within
 your control panel. In the Statistics section you will find a toggle

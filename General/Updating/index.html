@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#manual-update" class="md-skip">
+        <a href="#updating-an-install" class="md-skip">
           Skip to content
         </a>
       
@@ -469,9 +469,52 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Updating an install
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Updating an install
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manual-update" class="md-nav__link">
+    Manual update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-users" class="md-nav__link">
+    Advanced users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling-automatic-updates" class="md-nav__link">
+    Disabling automatic updates
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2221,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manual-update" class="md-nav__link">
+    Manual update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-users" class="md-nav__link">
+    Advanced users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling-automatic-updates" class="md-nav__link">
+    Disabling automatic updates
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,15 +2265,16 @@
                   </a>
                 
                 
-                <p>By default, LibreNMS is set to automatically update. If you have
+                <h1 id="updating-an-install">Updating an Install</h1>
+<p>By default, LibreNMS is set to automatically update. If you have
 disabled this feature then you can perform a manual update.</p>
-<h1 id="manual-update">Manual update</h1>
+<h2 id="manual-update">Manual update</h2>
 <p>If you would like to perform a manual update then you can do this by
 running the following command as the <code>librenms</code> user:</p>
 <p><code>./daily.sh</code></p>
 <p>This will update both the core LibreNMS files but also update the database
 structure if updates are available.</p>
-<h1 id="advanced-users">Advanced users</h1>
+<h2 id="advanced-users">Advanced users</h2>
 <p>If you absolutely must update manually without using <code>./daily.sh</code> then
 you can do so by running the following commands:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> /opt/librenms
@@ -2213,9 +2286,8 @@ php includes/sql-schema/update.php
 <p>You should continue to run daily.sh.  This does database cleanup and
 other processes in addition to updating. You can disable the daily.sh
 update process as described below.</p>
-<h1 id="disabling-automatic-updates">Disabling automatic updates</h1>
-<p>LibreNMS by default performs updates on a daily basis. This can be disabled by setting:</p>
-<p><code>$config['update'] = 0;</code></p>
+<h2 id="disabling-automatic-updates">Disabling automatic updates</h2>
+<p>LibreNMS by default performs updates on a daily basis. This can be disabled in the WebUI Global Settings under System -&gt; Updates, or using lnms: <code>./lnms config:set update false</code></p>
                 
                   
                 
