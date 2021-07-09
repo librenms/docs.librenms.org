@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about" class="md-skip">
+        <a href="#two-factor-authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -721,9 +721,119 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Two-Factor Auth
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Two-Factor Auth
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timebased-one-time-password-totp" class="md-nav__link">
+    Timebased One-Time-Password (TOTP)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counterbased-one-time-password-hotp" class="md-nav__link">
+    Counterbased One-Time-Password (HOTP)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webui" class="md-nav__link">
+    WebUI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    CLI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-administation" class="md-nav__link">
+    User Administation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-user-enrolment" class="md-nav__link">
+    End-User Enrolment
+  </a>
+  
+    <nav class="md-nav" aria-label="End-User Enrolment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-authenticator" class="md-nav__link">
+    Google Authenticator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lastpass-authenticator" class="md-nav__link">
+    LastPass Authenticator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2288,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timebased-one-time-password-totp" class="md-nav__link">
+    Timebased One-Time-Password (TOTP)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counterbased-one-time-password-hotp" class="md-nav__link">
+    Counterbased One-Time-Password (HOTP)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webui" class="md-nav__link">
+    WebUI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    CLI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-administation" class="md-nav__link">
+    User Administation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-user-enrolment" class="md-nav__link">
+    End-User Enrolment
+  </a>
+  
+    <nav class="md-nav" aria-label="End-User Enrolment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-authenticator" class="md-nav__link">
+    Google Authenticator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lastpass-authenticator" class="md-nav__link">
+    LastPass Authenticator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,23 +2399,24 @@
                   </a>
                 
                 
-                <h1 id="about">About</h1>
+                <h1 id="two-factor-authentication">Two-Factor Authentication</h1>
 <p>Over the last couple of years, the primary attack vector for internet
 accounts has been static passwords. Therefore static passwords are no
 longer sufficient to protect unauthorized access to accounts. Two
 Factor Authentication adds a variable part in authentication
 procedures. A user is now required to supply a changing 6-digit
-passcode in addition to it's password to obtain access to the account.</p>
-<p>LibreNMS has a RFC4226 conform implementation of both Time and Counter
+passcode in addition to their password to obtain access to the account.</p>
+<p>LibreNMS has a RFC4226 conformant implementation of both Time and Counter
 based One-Time-Passwords. It also allows the administrator to
 configure a throttle time to enforce after 3 failures exceeded. Unlike
-RFC4226 suggestions, this throttle time will not stack on the amount of failures.</p>
-<h1 id="types">Types</h1>
+RFC4226 suggestions, this throttle time will not stack on the amount of
+failures.</p>
+<h2 id="types">Types</h2>
 <p>In general, these two types do not differ in algorithmic terms.
 The types only differ in the variable being used to derive the passcodes from.
 The underlying HMAC-SHA1 remains the same for both types, security
 advantages or disadvantages of each are discussed further down.</p>
-<h2 id="timebased-one-time-password-totp">Timebased One-Time-Password (TOTP)</h2>
+<h3 id="timebased-one-time-password-totp">Timebased One-Time-Password (TOTP)</h3>
 <p>Like the name suggests, this type uses the current Time or a subset of
 it to generate the passcodes. These passcodes solely rely on the
 secrecy of their Secretkey in order to provide passcodes. An attacker
@@ -2217,7 +2424,7 @@ only needs to guess that Secretkey and the other variable part is any
 given time, presumably the time upon login. RFC4226 suggests a
 resynchronization attempt in case the passcode mismatches, providing
 the attacker a range of up to +/- 3 Minutes to create passcodes.</p>
-<h2 id="counterbased-one-time-password-totp">Counterbased One-Time-Password (TOTP)</h2>
+<h3 id="counterbased-one-time-password-hotp">Counterbased One-Time-Password (HOTP)</h3>
 <p>This type uses an internal counter that needs to be in sync with the
 server's counter to successfully authenticate the passcodes. The main
 advantage over timebased OTP is the attacker doesn't only need to know
@@ -2225,16 +2432,33 @@ the Secretkey but also the server's Counter in order to create valid
 passcodes. RFC4226 suggests a resynchronization attempt in case the
 passcode mismatches, providing the attacker a range of up to +4
 increments from the actual counter to create passcodes.</p>
-<h1 id="configuration">Configuration</h1>
+<h2 id="configuration">Configuration</h2>
+<h3 id="webui">WebUI</h3>
+<p>Enable 'Two-Factor' Via Global Settings in the Web UI under
+Authentication -&gt; General Authentication Settings.</p>
+<p>Optionally enter a throttle timer in seconds. This will unlock an account 
+after this time once it has failed 3 attempt to authenticate. Set to 0 (default) 
+to disable this feature, meaning accounts will remain locked after 3 attempts 
+and will need an administrator to clear.</p>
+<h3 id="cli">CLI</h3>
 <p>Enable Two-Factor:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;twofactor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
-</code></pre></div>
+<p><code>./lnms config:set twofactor true</code></p>
 <p>Set throttle-time (in seconds):</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;twofactor_lock&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-</code></pre></div>
-<h1 id="usage">Usage</h1>
-<p>These steps imply that TwoFactor has been enabled in your <code>config.php</code></p>
-<p>Create a Two-Factor key:</p>
+<p><code>./lnms config:set twofactor_lock 300</code></p>
+<h2 id="user-administation">User Administation</h2>
+<p>If Two-Factor is enabled, the Settings -&gt; Manage Users grid will show a '2FA' column 
+containing a green tick for users with active 2FA.</p>
+<p>There is no functionality to mandate 2FA for users.</p>
+<p>If a user has failed 3 attempts, their account can be unlocked or 2FA disabled by 
+editing the user from the Manage Users table.</p>
+<p>If a throttle timer is set, it will unlock accounts after this time. If set to the 
+default of 0, accounts will need to be manually unlocked by an administrator after 3 
+failed attempts.</p>
+<p>Locked accounts will report to the user stating to wait for the throttle time period,
+or to contact the administrator if no timer set.</p>
+<h2 id="end-user-enrolment">End-User Enrolment</h2>
+<p>These steps imply that Two-Factor has been enabled system wide as above under Configuration.</p>
+<p>2FA is enabled by each user once they are logged in normally:</p>
 <ul>
 <li>Go to 'My Settings' (/preferences/)</li>
 <li>Choose TwoFactor type</li>
@@ -2242,12 +2466,21 @@ increments from the actual counter to create passcodes.</p>
 <li>If your browser didn't reload, reload manually</li>
 <li>Scan provided QR or click on 'Manual' to see the Key</li>
 </ul>
-<h2 id="google-authenticator">Google Authenticator</h2>
+<h3 id="google-authenticator">Google Authenticator</h3>
 <p>Installation guides for Google Authenticator can be found <a href="https://support.google.com/accounts/answer/1066447?hl=en">here</a>.</p>
 <p>Usage:</p>
 <ul>
-<li>Create a key like described above</li>
-<li>Scan provided QR or click on 'Manual' and type down the Secret</li>
+<li>Create a key as described above</li>
+<li>Scan provided QR or click on 'Manual' and enter the Secret</li>
+<li>On next login, enter the passcode that the App provides</li>
+</ul>
+<h3 id="lastpass-authenticator">LastPass Authenticator</h3>
+<p>LastPass Authenticator is confirmed to work with Timebased One-Time Passwords (TOTP).</p>
+<p>Installation guide for LastPass Authenticator can be found <a href="https://support.logmeininc.com/lastpass/help/lastpass-authenticator-lp030014">here</a>.</p>
+<p>Usage:</p>
+<ul>
+<li>Create a Timerbased key as described above</li>
+<li>Click Add (+) and scan provided QR or click on 'NO QR CODE?' and enter naming details and the Secret</li>
 <li>On next login, enter the passcode that the App provides</li>
 </ul>
                 
