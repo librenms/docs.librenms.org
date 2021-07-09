@@ -757,9 +757,100 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          RRDCached
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         RRDCached
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-poller-support-matrix" class="md-nav__link">
+    Distributed Poller Support Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-manual-for" class="md-nav__link">
+    Installation Manual for
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Manual for">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-ubuntu-16" class="md-nav__link">
+    RRDCached installation Ubuntu 16
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-debian-buster" class="md-nav__link">
+    RRDCached installation Debian Buster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-debian-stretch" class="md-nav__link">
+    RRDCached installation Debian Stretch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-centos-7-or-8" class="md-nav__link">
+    RRDCached installation CentOS 7 or 8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-centos-6" class="md-nav__link">
+    RRDCached installation CentOS 6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify" class="md-nav__link">
+    Verify
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#securing-rrcached" class="md-nav__link">
+    Securing RRCached
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2269,83 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-poller-support-matrix" class="md-nav__link">
+    Distributed Poller Support Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-manual-for" class="md-nav__link">
+    Installation Manual for
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Manual for">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-ubuntu-16" class="md-nav__link">
+    RRDCached installation Ubuntu 16
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-debian-buster" class="md-nav__link">
+    RRDCached installation Debian Buster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-debian-stretch" class="md-nav__link">
+    RRDCached installation Debian Stretch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-centos-7-or-8" class="md-nav__link">
+    RRDCached installation CentOS 7 or 8
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rrdcached-installation-centos-6" class="md-nav__link">
+    RRDCached installation CentOS 6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify" class="md-nav__link">
+    Verify
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#securing-rrcached" class="md-nav__link">
+    Securing RRCached
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2203,7 +2371,7 @@ tune over rrdcached. To enable this set the following config:</p>
 This setting has to be the exact version of rrdtool you are running.</p>
 <p>NOTE: This feature requires your client version of rrdtool to be 1.5.5
 or newer, in addition to your rrdcached version.</p>
-<h1 id="distributed-poller-support-matrix">Distributed Poller Support Matrix</h1>
+<h2 id="distributed-poller-support-matrix">Distributed Poller Support Matrix</h2>
 <p>Shared FS: Is a shared filesystem required?</p>
 <p>Features: Supported features in the version indicated.</p>
 <div class="highlight"><pre><span></span><code>G = Graphs.
@@ -2244,7 +2412,7 @@ T = Tune RRD files.
 </table>
 <p>It is recommended that you monitor your LibreNMS server with LibreNMS
 so you can view the disk I/O usage delta.</p>
-<h1 id="installation-manual-for">Installation Manual for</h1>
+<h2 id="installation-manual-for">Installation Manual for</h2>
 <ol>
 <li><a href="#rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</a></li>
 <li><a href="#rrdcached-installation-debian-buster">RRDCached installation Debian Buster</a></li>
@@ -2253,7 +2421,7 @@ so you can view the disk I/O usage delta.</p>
 <li><a href="#rrdcached-installation-centos-6">RRDCached installation CentOS 6</a></li>
 <li><a href="#securing-rrcached">Securing RRCached</a></li>
 </ol>
-<h2 id="rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</h2>
+<h3 id="rrdcached-installation-ubuntu-16">RRDCached installation Ubuntu 16</h3>
 <p>1: Install rrdcached</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install rrdcached
 </code></pre></div>
@@ -2280,7 +2448,7 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 <p>5: Edit <code>/opt/librenms/config.php</code> to include:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;unix:/run/rrdcached.sock&quot;</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="rrdcached-installation-debian-buster">RRDCached installation Debian Buster</h2>
+<h3 id="rrdcached-installation-debian-buster">RRDCached installation Debian Buster</h3>
 <p>(rrdcached 1.7.1)</p>
 <p>1: Install rrdcached</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install rrdcached
@@ -2315,7 +2483,7 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IPADDRESS:42217&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>NOTE: change IPADDRESS to the ip the rrdcached server is listening on.</p>
-<h2 id="rrdcached-installation-debian-stretch">RRDCached installation Debian Stretch</h2>
+<h3 id="rrdcached-installation-debian-stretch">RRDCached installation Debian Stretch</h3>
 <p>(rrdcached 1.6.0)</p>
 <p>1: Install rrdcached</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install rrdcached
@@ -2350,7 +2518,7 @@ BASE_OPTIONS=&quot;-B -F -R&quot;
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;IPADDRESS:42217&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>NOTE: change IPADDRESS to the ip the rrdcached server is listening on.</p>
-<h2 id="rrdcached-installation-centos-7-or-8">RRDCached installation CentOS 7 or 8</h2>
+<h3 id="rrdcached-installation-centos-7-or-8">RRDCached installation CentOS 7 or 8</h3>
 <p>1: Create <code>/etc/systemd/system/rrdcached.service</code> with this content:</p>
 <div class="highlight"><pre><span></span><code>[Unit]
 Description=Data caching daemon for rrdtool
@@ -2370,7 +2538,7 @@ WantedBy=default.target
 <p>3: Edit <code>/opt/librenms/config.php</code> to include:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;unix:/run/rrdcached.sock&quot;</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="rrdcached-installation-centos-6">RRDCached installation CentOS 6</h2>
+<h3 id="rrdcached-installation-centos-6">RRDCached installation CentOS 6</h3>
 <p>This example is based on a fresh LibreNMS install, on a minimal CentOS 6 installation.
 In this example, we'll use the Repoforge repository.</p>
 <div class="highlight"><pre><span></span><code>rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
@@ -2403,13 +2571,13 @@ service rrdcached start
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrdcached&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s2">&quot;unix:/run/rrdcached.sock&quot;</span><span class="p">;</span>
 </code></pre></div>
-<h1 id="verify">Verify</h1>
+<h2 id="verify">Verify</h2>
 <p>Check to see if the graphs are being drawn in LibreNMS. This might take a few minutes.
 After at least one poll cycle (5 mins), check the LibreNMS disk I/O performance delta.
 Disk I/O can be found under the menu Devices&gt;All Devices&gt;<a href="../../Installation/Installation-CentOS-7-Apache/">localhost
 hostname</a>&gt;Health&gt;Disk I/O.</p>
 <p>Depending on many factors, you should see the Ops/sec drop by ~30-40%.</p>
-<h1 id="securing-rrcached">Securing RRCached</h1>
+<h2 id="securing-rrcached">Securing RRCached</h2>
 <p>Please see <a href="../RRDCached-Security/">RRDCached Security</a></p>
                 
                   

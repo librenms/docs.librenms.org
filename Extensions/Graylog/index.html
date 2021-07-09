@@ -1014,6 +1014,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#domain-and-hostname-handling" class="md-nav__link">
+    Domain and hostname handling
+  </a>
+  
+    <nav class="md-nav" aria-label="Domain and hostname handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ios-cisco" class="md-nav__link">
+    IOS (Cisco)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#junos-juniper-networks" class="md-nav__link">
+    JunOS (Juniper Networks)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#panos-palo-alto-networks" class="md-nav__link">
+    PanOS (Palo Alto Networks)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2304,6 +2338,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#domain-and-hostname-handling" class="md-nav__link">
+    Domain and hostname handling
+  </a>
+  
+    <nav class="md-nav" aria-label="Domain and hostname handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ios-cisco" class="md-nav__link">
+    IOS (Cisco)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#junos-juniper-networks" class="md-nav__link">
+    JunOS (Juniper Networks)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#panos-palo-alto-networks" class="md-nav__link">
+    PanOS (Palo Alto Networks)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2403,20 +2471,21 @@ Alert, Critical, Error, Warning).</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;graylog&#39;</span><span class="p">][</span><span class="s1">&#39;loglevel&#39;</span><span class="p">]</span>
 </code></pre></div>
  (applies to  /graylog and /device/device=/tab=logs/section=graylog/ (min: 0, max: 7)</p>
-<h1 id="suppressingenabling-the-domain-part-of-a-hostname-for-specific-platforms">Suppressing/enabling the domain part of a hostname for specific platforms</h1>
+<h2 id="domain-and-hostname-handling">Domain and hostname handling</h2>
+<p>Suppressing/enabling the domain part of a hostname for specific platforms</p>
 <p>You should see if what you get in syslog/Graylog matches up with your
 configured hosts first. If you need to modify the syslog messages from
 specific platforms, this may be of assistance:</p>
-<h2 id="ios-cisco">IOS (Cisco)</h2>
+<h3 id="ios-cisco">IOS (Cisco)</h3>
 <div class="highlight"><pre><span></span><code>router(config)# logging origin-id hostname
 </code></pre></div>
 <p>or</p>
 <div class="highlight"><pre><span></span><code>router(config)# logging origin-id string
 </code></pre></div>
-<h2 id="junos-juniper-networks">JunOS (Juniper Networks)</h2>
+<h3 id="junos-juniper-networks">JunOS (Juniper Networks)</h3>
 <div class="highlight"><pre><span></span><code>set system syslog host yourlogserver.corp log-prefix YOUR_PREFERRED_STRING
 </code></pre></div>
-<h2 id="panos-palo-alto-networks">PanOS (Palo Alto Networks)</h2>
+<h3 id="panos-palo-alto-networks">PanOS (Palo Alto Networks)</h3>
 <div class="highlight"><pre><span></span><code>set deviceconfig setting management hostname-type-in-syslog hostname
 </code></pre></div>
 <p>or</p>

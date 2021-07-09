@@ -781,9 +781,73 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Varnish
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Varnish
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#centos-7-varnish-installation" class="md-nav__link">
+    CentOS 7 Varnish Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-varnish-40-rpm" class="md-nav__link">
+    Install Varnish 4.0 RPM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-varnish" class="md-nav__link">
+    Test Varnish
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-varnish-parameters" class="md-nav__link">
+    Edit Varnish Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-apache-for-varnish" class="md-nav__link">
+    Configure Apache for Varnish
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2242,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#centos-7-varnish-installation" class="md-nav__link">
+    CentOS 7 Varnish Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-varnish-40-rpm" class="md-nav__link">
+    Install Varnish 4.0 RPM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-varnish" class="md-nav__link">
+    Test Varnish
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-varnish-parameters" class="md-nav__link">
+    Edit Varnish Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-apache-for-varnish" class="md-nav__link">
+    Configure Apache for Varnish
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2201,13 +2315,14 @@ server. If an HTTP request can not be responded to by the Varnish
 cache it directs the request to the HTTP Server. This type of HTTP
 caching is called a reverse proxy server. Caching your HTTP server can
 decrease page load times significantly.</p>
-<h1 id="simplified-block-diagram-of-an-apache-http-server-with-varnish-40-reverse-proxy">Simplified block diagram of an Apache HTTP server with Varnish 4.0 Reverse Proxy</h1>
+<h2 id="architecture">Architecture</h2>
+<p>Simplified block diagram of an Apache HTTP server with Varnish 4.0 Reverse Proxy</p>
 <p><img alt="Block Diagram 1" src="/img/varnish_block.png" /></p>
-<h1 id="centos-7-varnish-installation">CentOS 7 Varnish Installation</h1>
+<h2 id="centos-7-varnish-installation">CentOS 7 Varnish Installation</h2>
 <p>In this example we will assume your Apache 2.4.X HTTP server is working and
 configured to process HTTP requests on port 80.  If not, please see
 <a href="../../Installation/Installation-CentOS-7-Apache/">Installing LibreNMS</a></p>
-<h1 id="install-varnish-40-rpm">Install Varnish 4.0 RPM</h1>
+<h2 id="install-varnish-40-rpm">Install Varnish 4.0 RPM</h2>
 <ul>
 <li>Enable the Varnish CentOS 7 repo and install</li>
 </ul>
@@ -2220,7 +2335,7 @@ yum install varnish
 </ul>
 <div class="highlight"><pre><span></span><code>firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span><span class="m">6081</span>/tcp
 </code></pre></div>
-<h1 id="test-varnish">Test Varnish</h1>
+<h2 id="test-varnish">Test Varnish</h2>
 <ul>
 <li>Start Varnish</li>
 </ul>
@@ -2239,7 +2354,7 @@ XID: 3
 
 Varnish cache server
 </code></pre></div>
-<h1 id="edit-varnish-parameters">Edit Varnish Parameters</h1>
+<h2 id="edit-varnish-parameters">Edit Varnish Parameters</h2>
 <p>Now we need to configure Varnish to listen to HTTP requests on port 80 and
 relay those requests to the Apache HTTP server on port 8080 (see block diagram).</p>
 <ul>
@@ -2299,7 +2414,7 @@ cache size to 512MB.</p>
 <span class="c"># Other options, see the man page varnishd(1)</span>
 <span class="n">DAEMON_OPTS</span><span class="o">=</span><span class="s">&quot;-p thread_pool_min=5 -p thread_pool_max=500 -p thread_pool_timeout=300&quot;</span>
 </code></pre></div>
-<h1 id="configure-apache-for-varnish">Configure Apache for Varnish</h1>
+<h2 id="configure-apache-for-varnish">Configure Apache for Varnish</h2>
 <p>Edit librenms.conf and modify the Apache Virtual Host listening port.</p>
 <ul>
 <li>Modify: <code>&lt;VirtualHost *:80&gt;</code> to <code>&lt;VirtualHost *:8080&gt;</code></li>

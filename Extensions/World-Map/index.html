@@ -559,9 +559,79 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          World Map
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         World Map
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#world-map-widget" class="md-nav__link">
+    World Map Widget
+  </a>
+  
+    <nav class="md-nav" aria-label="World Map Widget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#world-map-widget-settings" class="md-nav__link">
+    World Map Widget Settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offline-openstreet-map" class="md-nav__link">
+    Offline OpenStreet Map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-leaflet-config" class="md-nav__link">
+    Additional Leaflet config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geocode-engine-config" class="md-nav__link">
+    Geocode engine config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jquery-mapael-config" class="md-nav__link">
+    Jquery-Mapael config
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2248,62 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#world-map-widget" class="md-nav__link">
+    World Map Widget
+  </a>
+  
+    <nav class="md-nav" aria-label="World Map Widget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#world-map-widget-settings" class="md-nav__link">
+    World Map Widget Settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offline-openstreet-map" class="md-nav__link">
+    Offline OpenStreet Map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-leaflet-config" class="md-nav__link">
+    Additional Leaflet config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geocode-engine-config" class="md-nav__link">
+    Geocode engine config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jquery-mapael-config" class="md-nav__link">
+    Jquery-Mapael config
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2196,7 +2322,7 @@
                 <h1 id="world-map-configuration">World Map Configuration</h1>
 <p>LibreNMS comes with a configurable Geo Map based on World Map Widget
 to visualize where your equipment is located geographically.</p>
-<h1 id="world-map-widget">World Map Widget</h1>
+<h2 id="world-map-widget">World Map Widget</h2>
 <p>World Map Widget, requires you to have properly formatted addresses in
 sysLocation or sysLocation override. As part of the standard poller
 these addresses will be Geocoded by Google and stored in the database.</p>
@@ -2221,7 +2347,7 @@ these addresses will be Geocoded by Google and stored in the database.</p>
 <li>Leaflet (default)</li>
 <li>Jquery-Mapael</li>
 </ul>
-<h1 id="world-map-widget-settings">World Map Widget Settings</h1>
+<h3 id="world-map-widget-settings">World Map Widget Settings</h3>
 <ul>
 <li><em>Initial Latitude / Longitude</em>: The map will be centered on those
   coordinates.</li>
@@ -2233,13 +2359,13 @@ these addresses will be Geocoded by Google and stored in the database.</p>
 </ul>
 <p>Example Settings:</p>
 <p><img alt="Example World Map Settings" src="/img/world-map-widget-settings.png" /></p>
-<h1 id="offline-openstreet-map">Offline OpenStreet Map</h1>
+<h2 id="offline-openstreet-map">Offline OpenStreet Map</h2>
 <p>If you can't access OpenStreet map directly you can run a local <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile
 server</a>. To specify a
 different url you can set:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;tile_url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;localhost.com&#39;</span><span class="p">;</span>
 </code></pre></div>
-<h1 id="additional-leaflet-config">Additional Leaflet config</h1>
+<h2 id="additional-leaflet-config">Additional Leaflet config</h2>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;map&#39;</span><span class="p">][</span><span class="s1">&#39;engine&#39;</span><span class="p">]</span>                                <span class="o">=</span> <span class="s2">&quot;leaflet&quot;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;default_lat&#39;</span><span class="p">]</span>                       <span class="o">=</span> <span class="s2">&quot;51.981074&quot;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;default_lng&#39;</span><span class="p">]</span>                       <span class="o">=</span> <span class="s2">&quot;5.350342&quot;</span><span class="p">;</span>
@@ -2247,7 +2373,7 @@ different url you can set:</p>
 <span class="c1">// Device grouping radius in KM default 80KM</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;leaflet&#39;</span><span class="p">][</span><span class="s1">&#39;group_radius&#39;</span><span class="p">]</span>                      <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
-<h1 id="geocode-engine-config">Geocode engine config</h1>
+<h2 id="geocode-engine-config">Geocode engine config</h2>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;geoloc&#39;</span><span class="p">][</span><span class="s1">&#39;engine&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s2">&quot;google&quot;</span><span class="p">;</span> <span class="c1">// Valid options are google, mapquest or bing</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;geoloc&#39;</span><span class="p">][</span><span class="s1">&#39;api_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span><span class="p">;</span>
 </code></pre></div>
@@ -2260,7 +2386,7 @@ Cons: inaccurate: most addresses are returned as locations at the center of the 
 <p>Bing:<br />
 Pros: free, no credit card required, accurate<br />
 Cons: Microsoft (debatable)</p>
-<h1 id="jquery-mapael-config">Jquery-Mapael config</h1>
+<h2 id="jquery-mapael-config">Jquery-Mapael config</h2>
 <p>Further custom options are available to load different maps of the
 world, set default coordinates of where the map will zoom and the zoom
 level by default. An example of this is:</p>

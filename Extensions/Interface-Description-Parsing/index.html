@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about" class="md-skip">
+        <a href="#interface-description-parsing" class="md-skip">
           Skip to content
         </a>
       
@@ -571,9 +571,72 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Interface Description Parsing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Interface Description Parsing
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    Keywords
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customisation" class="md-nav__link">
+    Customisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-interface-parser" class="md-nav__link">
+    Custom interface parser
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom interface parser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2241,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    Keywords
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customisation" class="md-nav__link">
+    Customisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-interface-parser" class="md-nav__link">
+    Custom interface parser
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom interface parser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,11 +2305,11 @@
                   </a>
                 
                 
-                <h1 id="about">About</h1>
+                <h1 id="interface-description-parsing">Interface Description Parsing</h1>
 <p>Librenms can interpret, display and group certain additional information on ports.
 This is done based on the format that the port description is written
 although it's possible  to customise the parser to be specific for your setup.</p>
-<h1 id="keywords">Keywords</h1>
+<h2 id="keywords">Keywords</h2>
 <p>See <a href="#examples">examples</a> for formats.</p>
 <ul>
 <li><strong>Keywords</strong></li>
@@ -2210,7 +2322,7 @@ although it's possible  to customise the parser to be specific for your setup.</
 <li><code>{}</code> contains <em>your</em> circuit id</li>
 <li><code>[]</code> contains the service type or speed</li>
 </ul>
-<h1 id="examples">Examples</h1>
+<h2 id="examples">Examples</h2>
 <p>Cisco IOS / NXOS / IOSXR:</p>
 <div class="highlight"><pre><span></span><code>interface Gi0/1
 descr Transit: Example Provider (AS65000)
@@ -2228,7 +2340,7 @@ descr Cust: Example Customer [10Mbit] (T1 Telco Y CCID129031) {EXAMP0001}
 # eth1: Core: core.router01 FastEthernet0/0 (Telco X CCID023141)
 # eth2: Peering: Peering Exchange
 </code></pre></div>
-<h1 id="customisation">Customisation</h1>
+<h2 id="customisation">Customisation</h2>
 <p>The following config options can be set to enable more custom types:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;customers_descr&#39;</span><span class="p">][]</span>         <span class="o">=</span> <span class="s1">&#39;cust&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;transit_descr&#39;</span><span class="p">][]</span>           <span class="o">=</span> <span class="s2">&quot;transit&quot;</span><span class="p">;</span>
@@ -2236,12 +2348,12 @@ descr Cust: Example Customer [10Mbit] (T1 Telco Y CCID129031) {EXAMP0001}
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;core_descr&#39;</span><span class="p">][]</span>              <span class="o">=</span> <span class="s2">&quot;core&quot;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;custom_descr&#39;</span><span class="p">][]</span>            <span class="o">=</span> <span class="s2">&quot;something_made_up&quot;</span><span class="p">;</span>
 </code></pre></div>
-<h1 id="custom-interface-parser">Custom interface parser</h1>
+<h2 id="custom-interface-parser">Custom interface parser</h2>
 <p>It's also possible to write your own parser, the existing one is: includes/port-descr-parser.inc.php</p>
 <p>Once you've created your own then you can enable it with:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;port_descr_parser&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;includes/custom/my-port-descr-parser.inc.php&quot;</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="setup">Setup</h2>
+<h3 id="setup">Setup</h3>
 <p>For Unix / Linux based systems, you need to run an additional script
 to support the parsing of interface infor.</p>
 <ul>

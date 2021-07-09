@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about" class="md-skip">
+        <a href="#irc-bot" class="md-skip">
           Skip to content
         </a>
       
@@ -844,18 +844,60 @@
     Configuration &amp; Defaults
   </a>
   
-    <nav class="md-nav" aria-label="Configuration &amp; Defaults">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irc-commands" class="md-nav__link">
+    IRC-Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#irc-commands" class="md-nav__link">
-    IRC-Commands
+  <a href="#server-examples" class="md-nav__link">
+    Server examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-notations" class="md-nav__link">
+    Channel notations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hostmask-authentication" class="md-nav__link">
+    Hostmask authentication
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    Extensions?!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-start-up-script" class="md-nav__link">
+    Systemd start up script
+  </a>
   
 </li>
       
@@ -2231,18 +2273,60 @@
     Configuration &amp; Defaults
   </a>
   
-    <nav class="md-nav" aria-label="Configuration &amp; Defaults">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irc-commands" class="md-nav__link">
+    IRC-Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#irc-commands" class="md-nav__link">
-    IRC-Commands
+  <a href="#server-examples" class="md-nav__link">
+    Server examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#channel-notations" class="md-nav__link">
+    Channel notations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hostmask-authentication" class="md-nav__link">
+    Hostmask authentication
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    Extensions?!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-start-up-script" class="md-nav__link">
+    Systemd start up script
+  </a>
   
 </li>
       
@@ -2263,26 +2347,7 @@
                   </a>
                 
                 
-                <div class="toc">
-<ul>
-<li><a href="#about">About</a><ul>
-<li><a href="#configuration-defaults">Configuration &amp; Defaults</a><ul>
-<li><a href="#irc-commands">IRC-Commands</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#examples">Examples</a><ul>
-<li><a href="#server-examples">Server examples</a></li>
-<li><a href="#channel-notations">Channel notations</a></li>
-<li><a href="#hostmask-authentication">Hostmask authentication</a></li>
-</ul>
-</li>
-<li><a href="#extensions">Extensions?!</a></li>
-<li><a href="#systemd-start-up-script">Systemd start up script</a></li>
-</ul>
-</div>
-<h1 id="about">About</h1>
+                <h1 id="irc-bot">IRC Bot</h1>
 <p>LibreNMS has an easy to use IRC-Interface for basic tasks like viewing
 last log-entry, current device/port status and such.</p>
 <p>By default the IRC-Bot will not start when executed and will return an
@@ -2386,7 +2451,7 @@ commands via a Channel, then it will respond in the Channel.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="irc-commands">IRC-Commands</h3>
+<h2 id="irc-commands">IRC-Commands</h2>
 <table>
 <thead>
 <tr>
@@ -2446,8 +2511,8 @@ commands via a Channel, then it will respond in the Channel.</p>
 </tbody>
 </table>
 <p>( <strong>/!\</strong> All commands are case-<em>insensitive</em> but their arguments are case-<em>sensitive</em>)</p>
-<h1 id="examples">Examples</h1>
-<h2 id="server-examples">Server examples</h2>
+<h2 id="examples">Examples</h2>
+<h3 id="server-examples">Server examples</h3>
 <p>Unencrypted Connection to <code>irc.freenode.org</code>:</p>
 <div class="highlight"><pre><span></span><code>   <span class="o">...</span>
    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;irc.freenode.org&quot;</span><span class="p">;</span>
@@ -2467,7 +2532,7 @@ commands via a Channel, then it will respond in the Channel.</p>
    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_pass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Super Secret Passphrase123&quot;</span><span class="p">;</span>
    <span class="o">...</span>
 </code></pre></div>
-<h2 id="channel-notations">Channel notations</h2>
+<h3 id="channel-notations">Channel notations</h3>
 <p>Channels can be defined using Array-Notation like:</p>
 <div class="highlight"><pre><span></span><code>   <span class="o">...</span>
    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_chan&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;#librenms&quot;</span><span class="p">;</span>
@@ -2480,7 +2545,7 @@ commands via a Channel, then it will respond in the Channel.</p>
    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_chan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;#librenms,#otherchan,#noc&quot;</span><span class="p">;</span>
    <span class="o">...</span>
 </code></pre></div>
-<h2 id="hostmask-authentication">Hostmask authentication</h2>
+<h3 id="hostmask-authentication">Hostmask authentication</h3>
 <div class="highlight"><pre><span></span><code>   <span class="o">...</span>
    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_auth&#39;</span><span class="p">][</span><span class="s1">&#39;admin&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;*!root@nms.host.invalid&quot;</span><span class="p">;</span>
    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;irc_auth&#39;</span><span class="p">][</span><span class="s1">&#39;admin&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s2">&quot;*!*peter@peters.computer.invalid&quot;</span><span class="p">;</span>
@@ -2491,7 +2556,7 @@ commands via a Channel, then it will respond in the Channel.</p>
 be authenticated as the "admin" user in LibreNMS, and clients matching
 the last line will be authenticated as the user "john" in LibreNMS,
 without using .auth and a waiting for a valid token.</p>
-<h1 id="extensions">Extensions?!</h1>
+<h2 id="extensions">Extensions?!</h2>
 <p>The bot is coded in a unified way.
 This makes writing extensions by far less painful.
 Simply add your <code>command</code> to the <code>$config['irc_external']</code> directive
@@ -2516,7 +2581,7 @@ Extensions</a>;</p>
       <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respond</span><span class="p">(</span><span class="s2">&quot;root shouldn&#39;t be online so late!&quot;</span><span class="p">);</span>
    <span class="p">}</span>
 </code></pre></div>
-<h1 id="systemd-start-up-script">Systemd start up script</h1>
+<h2 id="systemd-start-up-script">Systemd start up script</h2>
 <p>Basic systemd start up script to be placed in /etc/systemd/system/ to
 start irc service at boot.</p>
 <p>librenms-irc.service script is located at /opt/librenms/misc/</p>

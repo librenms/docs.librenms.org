@@ -709,6 +709,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#device-dependencies" class="md-nav__link">
+    Device dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    Settings
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2234,6 +2248,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#device-dependencies" class="md-nav__link">
+    Device dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    Settings
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2300,12 +2328,12 @@ proceeding!</p>
 *    *    * * *   librenms    sleep 15 &amp;&amp; /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1
 *    *    * * *   librenms    sleep 45 &amp;&amp; /opt/librenms/alerts.php &gt;&gt; /dev/null 2&gt;&amp;1
 </code></pre></div>
-<h1 id="device-dependencies">Device dependencies</h1>
+<h2 id="device-dependencies">Device dependencies</h2>
 <p>The ping.php script respects device dependencies, but the main poller
 does not (for technical reasons). However, using this script does not
 disable the icmp check in the poller and a child may be reported as
 down before the parent.</p>
-<h1 id="settings">Settings</h1>
+<h2 id="settings">Settings</h2>
 <p><code>ping.php</code> uses much the same settings as the poller fping with one
 exception: retries is used instead of count.
 <code>ping.php</code> does not measure loss and avg response time, only up/down, so

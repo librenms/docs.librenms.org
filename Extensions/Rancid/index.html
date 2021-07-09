@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rancid-integration" class="md-skip">
+        <a href="#rancid" class="md-skip">
           Skip to content
         </a>
       
@@ -991,9 +991,45 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Rancid
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Rancid
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#included-rancid-script" class="md-nav__link">
+    Included Rancid script
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu-rancid-install" class="md-nav__link">
+    Ubuntu Rancid Install
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2214,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#included-rancid-script" class="md-nav__link">
+    Included Rancid script
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu-rancid-install" class="md-nav__link">
+    Ubuntu Rancid Install
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,11 +2251,11 @@
                   </a>
                 
                 
-                <h1 id="rancid-integration">Rancid integration</h1>
+                <h1 id="rancid">Rancid</h1>
 <p>Librenms can generate a list of hosts that can be monitored by
 RANCID. We assume you have currently a running Rancid, and you just
 need to create and update the file 'router.db'</p>
-<h1 id="included-rancid-script">Included Rancid script</h1>
+<h2 id="included-rancid-script">Included Rancid script</h2>
 <p>To generate the config file (maybe even add a cron to schedule
 this). We've assumed a few locations for Rancid, the config file you
 want to call it and where LibreNMS is:</p>
@@ -2212,7 +2270,7 @@ php ./gen_rancid.php &gt; /the/path/where/is/rancid/core/router.db
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rancid_ignorecomments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 <p>After that, you should see some "config" tab on routers that have a rancid update.</p>
-<h1 id="ubuntu-rancid-install">Ubuntu Rancid Install</h1>
+<h2 id="ubuntu-rancid-install">Ubuntu Rancid Install</h2>
 <p>The options shown below also contains the default values.</p>
 <blockquote>
 <p>NOTE - This is Only for Ubuntu 16.04 at this time, and may not work on other distros!</p>

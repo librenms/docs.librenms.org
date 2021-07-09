@@ -889,9 +889,38 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Cleanup Options
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Cleanup Options
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ports-purge" class="md-nav__link">
+    Ports Purge
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2207,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ports-purge" class="md-nav__link">
+    Ports Purge
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2216,7 +2260,7 @@ by default. This option will remove any RRD files that have not been
 updated for the set amount of days automatically - only enable this if
 you are comfortable with that happening. (All active RRD files are
 updated every polling period.)</p>
-<h1 id="ports-purge">Ports Purge</h1>
+<h2 id="ports-purge">Ports Purge</h2>
 <p>Over time as you add devices some interfaces will need to be purged as
 they are set to be ignored or bad interfaces or marked as deleted.</p>
 <p>You can purge all deleted ports from the WebUI (see below) or by

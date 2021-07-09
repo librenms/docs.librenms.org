@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#information" class="md-skip">
+        <a href="#1-minute-polling" class="md-skip">
           Skip to content
         </a>
       
@@ -661,9 +661,38 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          1 Minute Polling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         1 Minute Polling
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#converting-existing-rrd-files" class="md-nav__link">
+    Converting existing RRD files
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2207,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#converting-existing-rrd-files" class="md-nav__link">
+    Converting existing RRD files
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,7 +2237,7 @@
                   </a>
                 
                 
-                <h1 id="information">Information</h1>
+                <h1 id="1-minute-polling">1-Minute Polling</h1>
 <p>We now have support for polling data at intervals to fit your needs.</p>
 <blockquote>
 <p>Please be aware of the following:</p>
@@ -2227,7 +2271,7 @@ for step and heartbeat intervals:</p>
 <li>Heartbeat is how long to wait for data before registering a null
   value, i.e 120 seconds.</li>
 </ul>
-<h1 id="converting-existing-rrd-files">Converting existing RRD files</h1>
+<h2 id="converting-existing-rrd-files">Converting existing RRD files</h2>
 <p>We provide a basic script to convert the default rrd files we generate
 to utilise your configured step and heartbeat values. Please do ensure
 that you backup your RRD files before running this just in case. The

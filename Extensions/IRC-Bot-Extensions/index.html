@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick-guide" class="md-skip">
+        <a href="#irc-bot-extensions" class="md-skip">
           Skip to content
         </a>
       
@@ -829,9 +829,65 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IRC Bot Extensions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         IRC Bot Extensions
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions-and-attributes" class="md-nav__link">
+    Functions and Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions and Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2234,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functions-and-attributes" class="md-nav__link">
+    Functions and Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions and Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,7 +2291,7 @@
                   </a>
                 
                 
-                <h1 id="quick-guide">Quick Guide</h1>
+                <h1 id="irc-bot-extensions">IRC Bot Extensions</h1>
 <p>Okay this is a very quick walk-through in writing your own <code>commands</code> for the IRC-Bot.</p>
 <p>First of all, create a file in <code>includes/ircbot</code>, the file-name should
 be in this format: <code>command.inc.php</code>.</p>
@@ -2212,9 +2310,9 @@ You cannot chain-load external commands.</p>
    <span class="o">...</span>
 </code></pre></div>
 <p>See: <a href="#example">Example</a></p>
-<h1 id="functions-and-attributes">Functions and Attributes</h1>
+<h2 id="functions-and-attributes">Functions and Attributes</h2>
 <p>... that are accessible from within an extension</p>
-<h2 id="functions">Functions</h2>
+<h3 id="functions">Functions</h3>
 <table>
 <thead>
 <tr>
@@ -2276,7 +2374,7 @@ You cannot chain-load external commands.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="attributes">Attributes</h2>
+<h3 id="attributes">Attributes</h3>
 <table>
 <thead>
 <tr>
@@ -2358,7 +2456,7 @@ You cannot chain-load external commands.</p>
 </tr>
 </tbody>
 </table>
-<h1 id="example">Example</h1>
+<h2 id="example">Example</h2>
 <p><code>includes/ircbot/join-ng.inc.php</code></p>
 <div class="highlight"><pre><span></span><code>   <span class="k">if</span><span class="p">(</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">user</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">10</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respond</span><span class="p">(</span><span class="s2">&quot;Sorry only admins can make me join.&quot;</span><span class="p">);</span>

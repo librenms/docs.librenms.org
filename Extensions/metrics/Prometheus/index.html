@@ -1098,9 +1098,59 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Prometheus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Prometheus
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-older-versions-may-work-but-havent-been-tested" class="md-nav__link">
+    Requirements (Older versions may work but haven't been tested
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-dont-get" class="md-nav__link">
+    What you don't get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-prometheus-scrape-config-for-scraping-the-push-gateway" class="md-nav__link">
+    Sample Prometheus Scrape Config (for scraping the Push Gateway)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2180,6 +2230,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-older-versions-may-work-but-havent-been-tested" class="md-nav__link">
+    Requirements (Older versions may work but haven't been tested
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-dont-get" class="md-nav__link">
+    What you don't get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-prometheus-scrape-config-for-scraping-the-push-gateway" class="md-nav__link">
+    Sample Prometheus Scrape Config (for scraping the Push Gateway)
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2200,7 +2286,7 @@
 extensively tested and is still in development All it provides is the
 sending of data to a a Prometheus PushGateway. Please be careful when
 enabling this support you use it at your own risk!</p>
-<h1 id="requirements-older-versions-may-work-but-havent-been-tested">Requirements (Older versions may work but haven't been tested</h1>
+<h2 id="requirements-older-versions-may-work-but-havent-been-tested">Requirements (Older versions may work but haven't been tested</h2>
 <ul>
 <li>Prometheus &gt;= 2.0</li>
 <li>PushGateway &gt;= 0.4.0</li>
@@ -2209,7 +2295,7 @@ enabling this support you use it at your own risk!</p>
 </ul>
 <p>The setup of the above is completely out of scope here and we aren't
 really able to provide any help with this side of things.</p>
-<h1 id="what-you-dont-get">What you don't get</h1>
+<h2 id="what-you-dont-get">What you don't get</h2>
 <ul>
 <li>Pretty graphs, this is why at present you need Grafana. You need to
   build your own graphs within Grafana.</li>
@@ -2218,12 +2304,12 @@ really able to provide any help with this side of things.</p>
 </ul>
 <p>RRD will continue to function as normal so LibreNMS itself should
 continue to function as normal.</p>
-<h1 id="configuration">Configuration</h1>
+<h2 id="configuration">Configuration</h2>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;prometheus&#39;</span><span class="p">][</span><span class="s1">&#39;enable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;prometheus&#39;</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:9091&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;prometheus&#39;</span><span class="p">][</span><span class="s1">&#39;job&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;librenms&#39;</span><span class="p">;</span> <span class="c1"># Optional</span>
 </code></pre></div>
-<h1 id="sample-prometheus-scrape-config-for-scraping-the-push-gateway">Sample Prometheus Scrape Config (for scraping the Push Gateway)</h1>
+<h2 id="sample-prometheus-scrape-config-for-scraping-the-push-gateway">Sample Prometheus Scrape Config (for scraping the Push Gateway)</h2>
 <div class="highlight"><pre><span></span><code>- job_name: pushgateway
   scrape_interval: 300s
   honor_labels: true

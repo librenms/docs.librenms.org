@@ -1086,9 +1086,52 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OpenTSDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         OpenTSDB
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-dont-get" class="md-nav__link">
+    What you don't get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2180,6 +2223,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-dont-get" class="md-nav__link">
+    What you don't get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2198,18 +2270,18 @@
                 <h1 id="enabling-support-for-opentsdb">Enabling support for OpenTSDB</h1>
 <p>This module sends all metrics to OpenTSDB server. You need something
 like Grafana for graphing.</p>
-<h1 id="requirements">Requirements</h1>
+<h2 id="requirements">Requirements</h2>
 <ul>
 <li>OpenTSDB</li>
 <li>Grafana</li>
 </ul>
-<h1 id="what-you-dont-get">What you don't get</h1>
+<h2 id="what-you-dont-get">What you don't get</h2>
 <p>Pretty graphs, this is why at present you need Grafana. You need to
  build your own graphs within Grafana.</p>
 <p>RRD will continue to function normally so LibreNMS itself should
 continue to function normally.</p>
 <p>You can add the following to <code>config.php</code>.</p>
-<h1 id="configuration">Configuration</h1>
+<h2 id="configuration">Configuration</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">// OpenTSDB default configuration</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;opentsdb&#39;</span><span class="p">][</span><span class="s1">&#39;enable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;opentsdb&#39;</span><span class="p">][</span><span class="s1">&#39;host&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">;</span>  <span class="c1">// your OpenTSDB server</span>

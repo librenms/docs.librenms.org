@@ -1015,9 +1015,45 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Proxmox
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Proxmox
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-proxmox-graphs" class="md-nav__link">
+    Enabling Proxmox graphs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-if-you-want-to-use-use-xinetd-instead-of-systemd" class="md-nav__link">
+    Note, if you want to use use xinetd instead of systemd
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2214,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-proxmox-graphs" class="md-nav__link">
+    Enabling Proxmox graphs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-if-you-want-to-use-use-xinetd-instead-of-systemd" class="md-nav__link">
+    Note, if you want to use use xinetd instead of systemd
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2200,7 +2258,7 @@ created. One for each interface on each VM. Possibly, IO graphs will
 be added later on.</p>
 <p>The ultimate goal is to be able to create traffic bills for VMs, no
 matter on which physical machine that VM runs.</p>
-<h1 id="enabling-proxmox-graphs">Enabling Proxmox graphs</h1>
+<h2 id="enabling-proxmox-graphs">Enabling Proxmox graphs</h2>
 <p>To enable Proxmox graphs, do the following:</p>
 <p>In config.php, enable Proxmox:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;enable_proxmox&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -2220,7 +2278,7 @@ systemctl <span class="nb">enable</span> check_mk.socket <span class="o">&amp;&a
 flag for the device you are monitoring. You should now see an
 application in LibreNMS, as well as a new menu-item in the topmenu,
 allowing you to choose which cluster you want to look at.</p>
-<h1 id="note-if-you-want-to-use-use-xinetd-instead-of-systemd">Note, if you want to use use xinetd instead of systemd</h1>
+<h2 id="note-if-you-want-to-use-use-xinetd-instead-of-systemd">Note, if you want to use use xinetd instead of systemd</h2>
 <p>Its possible to use the librenms-agent started by xinetd instead of
 systemd. One use case is if you are forced to use a old Proxmox
 installation. After installing the librenms-agent (see above) please

@@ -583,9 +583,58 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Network Map
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Network Map
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#network-map-configurator" class="md-nav__link">
+    Network Map Configurator
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Map Configurator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurator-output" class="md-nav__link">
+    Configurator Output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2227,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#network-map-configurator" class="md-nav__link">
+    Network Map Configurator
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Map Configurator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurator-output" class="md-nav__link">
+    Configurator Output
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2210,7 +2294,7 @@ worth noting that this could lead to a large network map. Network maps
 for individual devices are available showing the relationship with
 other devices. Also you can Build Device Groups and those Device
 Groups can be drawn with Network Map.</p>
-<h1 id="network-map-configurator">Network Map Configurator</h1>
+<h2 id="network-map-configurator">Network Map Configurator</h2>
 <p><a href="https://visjs.github.io/vis-network/docs/network/">This link</a> will
 show you all the options and explain what they do.</p>
 <p>You may also access the dynamic configuration interface <a href="https://visjs.github.io/vis-network/examples/network/other/configuration.html">example
@@ -2220,12 +2304,12 @@ from within LibreNMS by adding the following to config.php</p>
 <span class="s1">  &quot;configure&quot;: { &quot;enabled&quot;: true},</span>
 <span class="s1">}&#39;</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="note">Note</h2>
+<h3 id="note">Note</h3>
 <p>You may want to disable the automatic page refresh while you're
 tweaking your configuration, as the refresh will reset the dynamic
 configuration UI to the values currently saved in config.php This can
 be done by clicking on the Settings Icon then Refresh Pause.</p>
-<h2 id="configurator-output">Configurator Output</h2>
+<h3 id="configurator-output">Configurator Output</h3>
 <p>Once you've achieved your desired map appearance, click the generate
 options button at the bottom to be given the necessary parameters to
 add to your config.php file. You will need to paste the genrated

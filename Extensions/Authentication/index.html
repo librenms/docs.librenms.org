@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-modules" class="md-skip">
+        <a href="#authentication-options" class="md-skip">
           Skip to content
         </a>
       
@@ -709,9 +709,331 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Authentication Options
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Authentication Options
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-authentication-modules" class="md-nav__link">
+    Available authentication modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-authentication-module" class="md-nav__link">
+    Enable authentication module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-levels-and-user-account-type" class="md-nav__link">
+    User levels and User account type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-for-selinux-users" class="md-nav__link">
+    Note for SELinux users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-authentication" class="md-nav__link">
+    Testing authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-authentication" class="md-nav__link">
+    MySQL Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-directory-authentication" class="md-nav__link">
+    Active Directory Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Directory Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#require-actual-membership-of-the-configured-groups" class="md-nav__link">
+    Require actual membership of the configured groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#old-account-cleanup" class="md-nav__link">
+    Old account cleanup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-configuration" class="md-nav__link">
+    Sample configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-directory-redundancy" class="md-nav__link">
+    Active Directory redundancy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-directory-ldap-filters" class="md-nav__link">
+    Active Directory LDAP filters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap-authentication" class="md-nav__link">
+    LDAP Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="LDAP Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-config" class="md-nav__link">
+    Standard config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-options-usually-not-needed" class="md-nav__link">
+    Additional options (usually not needed)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-bind-user-optional" class="md-nav__link">
+    LDAP bind user (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-server-redundancy" class="md-nav__link">
+    LDAP server redundancy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radius-authentication" class="md-nav__link">
+    Radius Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Radius Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#old-account-cleanup_1" class="md-nav__link">
+    Old account cleanup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-authentication" class="md-nav__link">
+    HTTP Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-authentication-ad-authorization" class="md-nav__link">
+    HTTP Authentication / AD Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-authentication-ldap-authorization" class="md-nav__link">
+    HTTP Authentication / LDAP Authorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewembedded-graphs-without-being-logged-into-librenms" class="md-nav__link">
+    View/embedded graphs without being logged into LibreNMS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-sign-on" class="md-nav__link">
+    Single Sign-on
+  </a>
+  
+    <nav class="md-nav" aria-label="Single Sign-on">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    Basic Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-configuration-options" class="md-nav__link">
+    Advanced Configuration Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Configuration Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-attribute" class="md-nav__link">
+    User Attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-user-createupdate" class="md-nav__link">
+    Automatic User Create/Update
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalisation" class="md-nav__link">
+    Personalisation
+  </a>
+  
+    <nav class="md-nav" aria-label="Personalisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-strategies" class="md-nav__link">
+    Group Strategies
+  </a>
+  
+    <nav class="md-nav" aria-label="Group Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    Static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute" class="md-nav__link">
+    Attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-map" class="md-nav__link">
+    Group Map
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logout-behaviour" class="md-nav__link">
+    Logout Behaviour
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-configuration" class="md-nav__link">
+    Complete Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2178,6 +2500,314 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-authentication-modules" class="md-nav__link">
+    Available authentication modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-authentication-module" class="md-nav__link">
+    Enable authentication module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-levels-and-user-account-type" class="md-nav__link">
+    User levels and User account type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-for-selinux-users" class="md-nav__link">
+    Note for SELinux users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-authentication" class="md-nav__link">
+    Testing authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-authentication" class="md-nav__link">
+    MySQL Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-directory-authentication" class="md-nav__link">
+    Active Directory Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Directory Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#require-actual-membership-of-the-configured-groups" class="md-nav__link">
+    Require actual membership of the configured groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#old-account-cleanup" class="md-nav__link">
+    Old account cleanup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-configuration" class="md-nav__link">
+    Sample configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-directory-redundancy" class="md-nav__link">
+    Active Directory redundancy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-directory-ldap-filters" class="md-nav__link">
+    Active Directory LDAP filters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap-authentication" class="md-nav__link">
+    LDAP Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="LDAP Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-config" class="md-nav__link">
+    Standard config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-options-usually-not-needed" class="md-nav__link">
+    Additional options (usually not needed)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-bind-user-optional" class="md-nav__link">
+    LDAP bind user (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-server-redundancy" class="md-nav__link">
+    LDAP server redundancy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radius-authentication" class="md-nav__link">
+    Radius Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Radius Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#old-account-cleanup_1" class="md-nav__link">
+    Old account cleanup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-authentication" class="md-nav__link">
+    HTTP Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-authentication-ad-authorization" class="md-nav__link">
+    HTTP Authentication / AD Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-authentication-ldap-authorization" class="md-nav__link">
+    HTTP Authentication / LDAP Authorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewembedded-graphs-without-being-logged-into-librenms" class="md-nav__link">
+    View/embedded graphs without being logged into LibreNMS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-sign-on" class="md-nav__link">
+    Single Sign-on
+  </a>
+  
+    <nav class="md-nav" aria-label="Single Sign-on">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    Basic Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-configuration-options" class="md-nav__link">
+    Advanced Configuration Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Configuration Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-attribute" class="md-nav__link">
+    User Attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-user-createupdate" class="md-nav__link">
+    Automatic User Create/Update
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalisation" class="md-nav__link">
+    Personalisation
+  </a>
+  
+    <nav class="md-nav" aria-label="Personalisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-strategies" class="md-nav__link">
+    Group Strategies
+  </a>
+  
+    <nav class="md-nav" aria-label="Group Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    Static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute" class="md-nav__link">
+    Attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-map" class="md-nav__link">
+    Group Map
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logout-behaviour" class="md-nav__link">
+    Logout Behaviour
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-configuration" class="md-nav__link">
+    Complete Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2193,10 +2823,10 @@
                   </a>
                 
                 
-                <h1 id="authentication-modules">Authentication modules</h1>
+                <h1 id="authentication-options">Authentication Options</h1>
 <p>LibreNMS supports multiple authentication modules along with <a href="../Two-Factor-Auth/">Two Factor Auth</a>.
 Here we will provide configuration details for these modules.</p>
-<h1 id="available-authentication-modules">Available authentication modules</h1>
+<h2 id="available-authentication-modules">Available authentication modules</h2>
 <ul>
 <li>
 <p>MySQL: <a href="#mysql-authentication">mysql</a></p>
@@ -2221,14 +2851,14 @@ Here we will provide configuration details for these modules.</p>
 </ul>
 <p>⚠️ <strong>When enabling a new authentication module, the local users will no
 longer be available to log in.</strong></p>
-<h1 id="enable-authentication-module">Enable authentication module</h1>
+<h2 id="enable-authentication-module">Enable authentication module</h2>
 <p>To enable a particular authentication module you need to set this up
 in config.php. Please note that only ONE module can be
 enabled. LibreNMS doesn't support multiple authentication mechanisms at
 the same time.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mysql&quot;</span><span class="p">;</span>
 </code></pre></div>
-<h1 id="user-levels-and-user-account-type">User levels and User account type</h1>
+<h2 id="user-levels-and-user-account-type">User levels and User account type</h2>
 <ul>
 <li>
 <p>1: <strong>Normal User</strong>: You will need to assign device / port
@@ -2247,19 +2877,19 @@ the same time.</p>
 </ul>
 <p><strong>Note</strong> Oxidized configs can often contain sensitive data. Because of
 that only Administrator account type can see configs.</p>
-<h1 id="note-for-selinux-users">Note for SELinux users</h1>
+<h2 id="note-for-selinux-users">Note for SELinux users</h2>
 <p>When using SELinux on the LibreNMS server, you need to allow Apache
 (httpd) to connect LDAP/Active Directory server, this is disabled by
 default. You can use SELinux Booleans to allow network access to LDAP
 resources with this command:</p>
 <div class="highlight"><pre><span></span><code>setsebool -P <span class="nv">httpd_can_connect_ldap</span><span class="o">=</span><span class="m">1</span>
 </code></pre></div>
-<h1 id="testing-authentication">Testing authentication</h1>
+<h2 id="testing-authentication">Testing authentication</h2>
 <p>You can test authentication with this script:</p>
 <div class="highlight"><pre><span></span><code>./scripts/auth_test.php
 </code></pre></div>
 <p>Enable debug output to troubleshoot issues</p>
-<h1 id="mysql-authentication">MySQL Authentication</h1>
+<h2 id="mysql-authentication">MySQL Authentication</h2>
 <p>Config option: <code>mysql</code></p>
 <p>This is default option with LibreNMS so you should have already have the configuration setup in your
 environment file (.env).</p>
@@ -2268,27 +2898,27 @@ DB_DATABASE=DBNAME
 DB_USERNAME=DBUSER
 DB_PASSWORD=&quot;DBPASS&quot;
 </code></pre></div>
-<h1 id="active-directory-authentication">Active Directory Authentication</h1>
+<h2 id="active-directory-authentication">Active Directory Authentication</h2>
 <p>Config option: <code>active_directory</code></p>
 <p>Install <strong>php_ldap</strong>  or <strong>php7.0-ldap</strong>, making sure to install the
 same version as PHP.</p>
 <p>If you have issues with secure LDAP try setting
 <code>$config['auth_ad_check_certificates']</code> to <code>0</code>, this will ignore
 certificate errors.</p>
-<h2 id="require-actual-membership-of-the-configured-groups">Require actual membership of the configured groups</h2>
+<h3 id="require-actual-membership-of-the-configured-groups">Require actual membership of the configured groups</h3>
 <p>If you set <code>$config['auth_ad_require_groupmembership']</code> to 1, the
 authenticated user has to be a member of the specific group.
 Otherwise all users can authenticate, and will be either level 0 or
 you may set <code>$config['auth_ad_global_read']</code> to 1 and all users will
 have read only access unless otherwise specified.</p>
-<h2 id="old-account-cleanup">Old account cleanup</h2>
+<h3 id="old-account-cleanup">Old account cleanup</h3>
 <p>Cleanup of old accounts is done by checking the authlog. You will need
 to set the number of days when old accounts will be purged
 AUTOMATICALLY by daily.sh.</p>
 <p>Please ensure that you set the <code>$config['authlog_purge']</code> value to be
 greater than <code>$config['active_directory']['users_purge']</code> otherwise old
 users won't be removed.</p>
-<h2 id="sample-configuration">Sample configuration</h2>
+<h3 id="sample-configuration">Sample configuration</h3>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;active_directory&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldaps://server.example.com&#39;</span><span class="p">;</span>    <span class="c1">// Set server(s), space separated. Prefix with ldaps:// for ssl</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_domain&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;example.com&#39;</span><span class="p">;</span>
@@ -2307,12 +2937,12 @@ users won't be removed.</p>
 and <code>ad-usergroup</code> with your standard user group. It is <strong>highly
 suggested</strong> to create a bind user, otherwise "remember me", alerting
 users, and the API will not work.</p>
-<h2 id="active-directory-redundancy">Active Directory redundancy</h2>
+<h3 id="active-directory-redundancy">Active Directory redundancy</h3>
 <p>You can set two Active Directory servers by editing the
 <code>$config['auth_ad_url']</code> like this example:</p>
 <div class="highlight"><pre><span></span><code>$config[&#39;auth_ad_url&#39;] = &quot;ldaps://dc1.example.com ldaps://dc2.example.com&quot;;
 </code></pre></div>
-<h2 id="active-directory-ldap-filters">Active Directory LDAP filters</h2>
+<h3 id="active-directory-ldap-filters">Active Directory LDAP filters</h3>
 <p>You can add an LDAP filter to be ANDed with the builtin user filter (<code>(sAMAccountName=$username)</code>).</p>
 <p>The defaults are:</p>
 <div class="highlight"><pre><span></span><code>$config[&#39;auth_ad_user_filter&#39;] = &quot;(objectclass=user)&quot;;
@@ -2321,11 +2951,11 @@ $config[&#39;auth_ad_group_filter&#39;] = &quot;(objectclass=group)&quot;;
 <p>This yields <code>(&amp;(objectclass=user)(sAMAccountName=$username))</code> for the
 user filter and <code>(&amp;(objectclass=group)(sAMAccountName=$group))</code> for
 the group filter.</p>
-<h1 id="ldap-authentication">LDAP Authentication</h1>
+<h2 id="ldap-authentication">LDAP Authentication</h2>
 <p>Config option: <code>ldap</code></p>
 <p>Install <strong>php_ldap</strong> or <strong>php7.0-ldap</strong>, making sure to install the
 same version as PHP.</p>
-<h2 id="standard-config">Standard config</h2>
+<h3 id="standard-config">Standard config</h3>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldap&#39;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_server&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldap.example.com&#39;</span><span class="p">;</span>               <span class="c1">// Set server(s), space separated. Prefix with ldaps:// for ssl</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_suffix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;,ou=People,dc=example,dc=com&#39;</span><span class="p">;</span>   <span class="c1">// appended to usernames</span>
@@ -2334,7 +2964,7 @@ same version as PHP.</p>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">][</span><span class="s1">&#39;pfy&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                <span class="c1">// set pfy group to global read only level</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">][</span><span class="s1">&#39;support&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>            <span class="c1">// set support group as a normal user</span>
 </code></pre></div>
-<h2 id="additional-options-usually-not-needed">Additional options (usually not needed)</h2>
+<h3 id="additional-options-usually-not-needed">Additional options (usually not needed)</h3>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1"># v2 or v3</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">389</span><span class="p">;</span>                    <span class="c1">// 389 or 636 for ssl</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_starttls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">True</span><span class="p">;</span>               <span class="c1">// Enable TLS on port 389</span>
@@ -2347,7 +2977,7 @@ same version as PHP.</p>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_userlist_filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;service=informatique&#39;</span><span class="p">;</span> <span class="c1">// Replace &#39;service=informatique&#39; by your ldap filter to limit the number of responses if you have an ldap directory with thousand of users</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_wildcard_ou&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span> <span class="c1">// Search for user matching user name independently of OU set in auth_ldap_suffix. Useful if your users are in different OU. Bind username, if set, still user auth_ldap_suffix</span>
 </code></pre></div>
-<h2 id="ldap-bind-user-optional">LDAP bind user (optional)</h2>
+<h3 id="ldap-bind-user-optional">LDAP bind user (optional)</h3>
 <p>If your ldap server does not allow anonymous bind, it is highly
 suggested to create a bind user, otherwise "remember me", alerting
 users, and the API will not work.</p>
@@ -2355,7 +2985,7 @@ users, and the API will not work.</p>
 <span class="c1">#$config[&#39;auth_ldap_binddn&#39;] = &#39;CN=John.Smith,CN=Users,DC=MyDomain,DC=com&#39;; // overrides binduser</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_bindpassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="ldap-server-redundancy">LDAP server redundancy</h2>
+<h3 id="ldap-server-redundancy">LDAP server redundancy</h3>
 <p>You can set two LDAP servers by editing the
 <code>$config['auth_ldap_server']</code> like this example:</p>
 <div class="highlight"><pre><span></span><code>$config[&#39;auth_ldap_server&#39;] = &quot;ldaps://dir1.example.com ldaps://dir2.example.com&quot;;
@@ -2383,7 +3013,7 @@ following:</p>
     <span class="s1">&#39;{global_readonly_group}&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;level&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">],</span>
 <span class="p">];</span>
 </code></pre></div>
-<h1 id="radius-authentication">Radius Authentication</h1>
+<h2 id="radius-authentication">Radius Authentication</h2>
 <p>Please note that a mysql user is created for each user the logs in
 successfully. User level 1 is assigned to those accounts so you will
 then need to assign the relevant permissions unless you set
@@ -2395,14 +3025,14 @@ then need to assign the relevant permissions unless you set
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;users_purge&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>  <span class="c1">// Purge users who haven&#39;t logged in for 14 days.</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">][</span><span class="s1">&#39;default_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// Set the default user level when automatically creating a user.</span>
 </code></pre></div>
-<h2 id="old-account-cleanup_1">Old account cleanup</h2>
+<h3 id="old-account-cleanup_1">Old account cleanup</h3>
 <p>Cleanup of old accounts is done by checking the authlog. You will need
 to set the number of days when old accounts will be purged
 AUTOMATICALLY by daily.sh.</p>
 <p>Please ensure that you set the <code>$config['authlog_purge']</code> value to be
 greater than <code>$config['radius']['users_purge']</code> otherwise old users
 won't be removed.</p>
-<h1 id="http-authentication">HTTP Authentication</h1>
+<h2 id="http-authentication">HTTP Authentication</h2>
 <p>Config option: <code>http-auth</code></p>
 <p>LibreNMS will expect the user to have authenticated via your
 webservice already. At this stage it will need to assign a userlevel
@@ -2418,7 +3048,7 @@ for that user which is done in one of two ways:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;http_auth_guest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;guest&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>This will then assign the userlevel for guest to all authenticated users.</p>
-<h2 id="http-authentication-ad-authorization">HTTP Authentication / AD Authorization</h2>
+<h3 id="http-authentication-ad-authorization">HTTP Authentication / AD Authorization</h3>
 <p>Config option: <code>ad-authorization</code></p>
 <p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>active_directory</em></strong></p>
 <p>LibreNMS will expect the user to have authenticated via your
@@ -2443,7 +3073,7 @@ To disable this caching (highly discourage) set this option to 0.</p>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ad_bindpassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ad_bindpassword&quot;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_cache_ttl&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</h2>
+<h3 id="http-authentication-ldap-authorization">HTTP Authentication / LDAP Authorization</h3>
 <p>Config option: <code>ldap-authorization</code></p>
 <p>This module is a combination of <strong><em>http-auth</em></strong> and <strong><em>ldap</em></strong></p>
 <p>LibreNMS will expect the user to have authenticated via your
@@ -2457,11 +3087,11 @@ The default value is 300 seconds.
 To disabled this caching (highly discourage) set this option to 0.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_cache_ttl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 </code></pre></div>
-<h1 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h1>
+<h2 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h2>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;allow_unauth_graphs_cidr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;127.0.0.1/32&#39;</span><span class="p">);</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;allow_unauth_graphs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </code></pre></div>
-<h1 id="single-sign-on">Single Sign-on</h1>
+<h2 id="single-sign-on">Single Sign-on</h2>
 <p>The single sign-on mechanism is used to integrate with third party
 authentication providers that are managed outside of LibreNMS - such
 as ADFS, Shibboleth, EZProxy, BeyondCorp, and others. A large number
@@ -2479,7 +3109,7 @@ this documentation.</p>
 about validating the configuration - if it finds that certain values
 in the configuration are not set, it will reject access rather than
 try and guess.</p>
-<h2 id="basic-configuration">Basic Configuration</h2>
+<h3 id="basic-configuration">Basic Configuration</h3>
 <p>To get up and running, all you need to do is configure the following values:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="s2">&quot;sso&quot;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;mode&#39;</span><span class="p">]</span>           <span class="o">=</span> <span class="s2">&quot;env&quot;</span><span class="p">;</span>
@@ -2496,7 +3126,7 @@ try and guess.</p>
 <p>This happens to mimic the behaviour of <a href="#http-auth">http-auth</a>, so if
 this is the kind of setup you want, you're probably better of just
 going and using that mechanism.</p>
-<h2 id="security">Security</h2>
+<h3 id="security">Security</h3>
 <p>If there is a proxy involved (e.g. EZProxy, Azure AD Application
 Proxy, NGINX, mod_proxy) it's <strong><em>essential</em></strong> that you have some means
 in place to prevent headers being injected between the proxy and the
@@ -2514,8 +3144,8 @@ whitelist with should contain the source addresses of your proxies:</p>
 <p>This configuration item should contain an array with a list of IP
 addresses or CIDR prefixes that are allowed to connect to LibreNMS and
 supply environment variables or headers.</p>
-<h2 id="advanced-configuration-options">Advanced Configuration Options</h2>
-<h3 id="user-attribute">User Attribute</h3>
+<h3 id="advanced-configuration-options">Advanced Configuration Options</h3>
+<h4 id="user-attribute">User Attribute</h4>
 <p>If for some reason your relying party doesn't store the username in
 <strong><em>REMOTE_USER</em></strong>, you can override this choice.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;user_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;HTTP_UID&#39;</span><span class="p">;</span>
@@ -2525,7 +3155,7 @@ prefixed with <strong><em>HTTP_</em></strong>, however this is not the case for 
 user - it's a special case. If you're using something different you
 need to figure out of the <strong><em>HTTP_</em></strong> prefix is required or not
 yourself.</p>
-<h3 id="automatic-user-createupdate">Automatic User Create/Update</h3>
+<h4 id="automatic-user-createupdate">Automatic User Create/Update</h4>
 <p>These are enabled by default:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;create_users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;update_users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
@@ -2542,12 +3172,12 @@ to add additional information to the user's database entry:</p>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;realname_attr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;displayName&quot;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;descr_attr&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s2">&quot;unscoped-affiliation</span>
 </code></pre></div>
-<h3 id="group-strategies">Group Strategies</h3>
-<h4 id="static">Static</h4>
+<h4 id="group-strategies">Group Strategies</h4>
+<h5 id="static">Static</h5>
 <p>As used above, <strong><em>static</em></strong> gives every single user the same privilege
 level. If you're working with a small team, or don't need access
 control, this is probably suitable.</p>
-<h4 id="attribute">Attribute</h4>
+<h5 id="attribute">Attribute</h5>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_strategy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;attribute&quot;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;level_attr&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="s2">&quot;entitlement&quot;</span><span class="p">;</span>
 </code></pre></div>
@@ -2557,7 +3187,7 @@ number straight from an attribute. <strong><em>sso_level_attr</em></strong> shou
 the name of the attribute that the Relying Party exposes to LibreNMS -
 as long as <strong><em>sso_mode</em></strong> is correctly set, the mechanism should find
 the value.</p>
-<h4 id="group-map">Group Map</h4>
+<h5 id="group-map">Group Map</h5>
 <p>This is the most flexible (and complex) way of assigning privileges.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_strategy&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s2">&quot;map&quot;</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_attr&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="s2">&quot;member&quot;</span><span class="p">;</span>
@@ -2577,7 +3207,7 @@ may create pseudo arrays).</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_filter&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s2">&quot;/librenms-(.*)/i&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>This filter causes the mechanism to only consider groups matching a regular expression.</p>
-<h3 id="logout-behaviour">Logout Behaviour</h3>
+<h4 id="logout-behaviour">Logout Behaviour</h4>
 <p>LibreNMS has no capability to log out a user authenticated via Single
 Sign-On - that responsibility falls to the Relying Party.</p>
 <p>If your Relying Party has a magic URL that needs to be called to end a
@@ -2585,7 +3215,7 @@ session, you can configure LibreNMS to direct the user to it:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;post_logout_action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/Shibboleth.sso/Logout&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>This option functions independently of the Single Sign-on mechanism.</p>
-<h2 id="complete-configuration">Complete Configuration</h2>
+<h3 id="complete-configuration">Complete Configuration</h3>
 <p>This configuration works on my deployment with a Shibboleth relying
 party, injecting environment variables, with the IDP supplying a list
 of groups.</p>
