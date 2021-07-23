@@ -2397,6 +2397,11 @@ set, the global default will be used.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;iosxe&#39;</span><span class="p">][</span><span class="s1">&#39;disabled_sensors_regex&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/PEM Iout/&#39;</span><span class="p">;</span>
 </code></pre></div>
 <ul>
+<li>Filter all 'power' sensors with description matching regexp <code>'/ Power [TR]x /'</code> for Operating System iosxr.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">][</span><span class="s1">&#39;iosxr&#39;</span><span class="p">][</span><span class="s1">&#39;disabled_sensors_regex&#39;</span><span class="p">][</span><span class="s1">&#39;power&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;/ Power [TR]x /&#39;</span><span class="p">;</span>
+</code></pre></div>
+<ul>
 <li>Ignore all temperature sensors</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;disabled_sensors&#39;</span><span class="p">][</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
