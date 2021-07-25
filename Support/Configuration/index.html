@@ -3609,23 +3609,7 @@ these are not provided by the vendor, the guess method can be disabled:</p>
 <h2 id="authentication_1">Authentication</h2>
 <p>Please refer to <a href="../../Extensions/Authentication/">Authentication</a></p>
 <h2 id="cleanup-options">Cleanup options</h2>
-<p>These options rely on daily.sh running from cron as per the installation instructions.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;syslog_purge&#39;</span><span class="p">]</span>                                   <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;eventlog_purge&#39;</span><span class="p">]</span>                                 <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;authlog_purge&#39;</span><span class="p">]</span>                                  <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_perf_purge&#39;</span><span class="p">]</span>                              <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;alert_log_purge&#39;</span><span class="p">]</span>                                <span class="o">=</span> <span class="mi">365</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;port_fdb_purge&#39;</span><span class="p">]</span>                                 <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrd_purge&#39;</span><span class="p">]</span>                                      <span class="o">=</span> <span class="mi">90</span><span class="p">;</span><span class="c1">// Not set by default</span>
-</code></pre></div>
-<p>These options will ensure data within LibreNMS over X days old is
-automatically purged. You can alter these individually. values are in days.</p>
-<blockquote>
-<p>NOTE: Please be aware that <code>$config['rrd_purge']</code> is <em>NOT</em> set by
-default. This option will remove any old data within  the rrd
-directory automatically - only enable this if you are comfortable
-with that happening.</p>
-</blockquote>
+<p>Please refer to <a href="../Cleanup-options/">Cleanup Options</a></p>
 <h2 id="syslog-options">Syslog options</h2>
 <p>Please refer to <a href="../../Extensions/Syslog/">Syslog</a></p>
 <h2 id="virtualization">Virtualization</h2>

@@ -2256,13 +2256,17 @@ eventlogs, Syslogs and performance data etc. Your LibreNMS install
 could become quite large so it becomes necessary to clean up those
 entries. With Cleanup Options, you can stay in control.</p>
 <p>These options rely on <code>daily.sh</code> running from cron as per the installation instructions.</p>
-<p>Cleanup Options are set in <code>config.php</code></p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;syslog_purge&#39;</span><span class="p">]</span>                              <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;eventlog_purge&#39;</span><span class="p">]</span>                            <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<p>You can adjust the config in Global Setting -&gt; System -&gt; Cleanup.</p>
+<p>Cleanup Options can also be set in <code>config.php</code></p>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;eventlog_purge&#39;</span><span class="p">]</span>                            <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;syslog_purge&#39;</span><span class="p">]</span>                              <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;route_purge&#39;</span><span class="p">]</span>                               <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;alert_log_purge&#39;</span><span class="p">]</span>                           <span class="o">=</span> <span class="mi">365</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;authlog_purge&#39;</span><span class="p">]</span>                             <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ports_fdb_purge&#39;</span><span class="p">]</span>                           <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;device_perf_purge&#39;</span><span class="p">]</span>                         <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrd_purge&#39;</span><span class="p">]</span>                                 <span class="o">=</span> <span class="mi">90</span><span class="p">;</span><span class="c1">// Not set by default</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ports_purge&#39;</span><span class="p">]</span>                               <span class="o">=</span> <span class="k">true</span><span class="p">;</span><span class="c1">// Set to false by default</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;rrd_purge&#39;</span><span class="p">]</span>                                 <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;ports_purge&#39;</span><span class="p">]</span>                               <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 <p>These options will ensure data within LibreNMS over X days old is
 automatically purged. You can alter these individually, values are in
