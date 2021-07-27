@@ -6872,6 +6872,10 @@ and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/loc
 <p>The application should be auto-discovered as described at the top of
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
+<p>Optionally if you have multiple UPS or your UPS is not named APCUPS you can specify it's name as an argument into <code>/etc/snmp/ups-nut.sh</code>
+<div class="highlight"><pre><span></span><code>extend ups-nut /etc/snmp/ups-nut.sh ups1
+extend ups-nut /etc/snmp/ups-nut.sh ups2
+</code></pre></div></p>
 <h2 id="ups-apcups">UPS-apcups</h2>
 <p>A small shell script that exports apcacess ups status.</p>
 <h3 id="snmp-extend_48">SNMP Extend</h3>
