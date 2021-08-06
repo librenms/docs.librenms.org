@@ -2240,6 +2240,7 @@
 <li><a href="#faq31">Why does modifying 'Default Alert Template' fail?</a></li>
 <li><a href="#faq32">Why would alert un-mute itself</a></li>
 <li><a href="#faq33">How do I change the Device Type?</a></li>
+<li><a href="#faq34">Editing large device groups gives error messages</a></li>
 <li><a href="#faq-where-do-i-update-my-database-credentials">Where do I update my database credentials?</a></li>
 <li><a href="#my-reverse-proxy-is-not-working">My reverse proxy is not working</a></li>
 <li><a href="#my-alerts-aren't-being-delivered-on-time">My alerts aren't being delivered on time</a></li>
@@ -2623,6 +2624,9 @@ to change, then click on the Gear Icon -&gt; Edit. If you would like to
 define custom types, we suggest using <a href="/Extensions/Device-Groups/">Device
 Groups</a>. They will be listed in the
 menu similarly to device types.</p>
+<h2 id="editing-large-device-groups-gives-error-messages"><a name="faq34"> Editing large device groups gives error messages</a></h2>
+<p>If the device group contains large amount of devices, editing it from the UI might cause errors on the form even when all the data seems correct. This is caused by PHP's <code>max_input_vars</code>-variable. You should be able to confirm that this is the case by inspecting the PHP's error logs.</p>
+<p>With the basic installation on Ubuntu 20.04 LTS with Nginx and PHP 7.4 FPM this value can be tuned by editing the file <code>/etc/php/7.4/fpm/php.ini</code> and adjusting the value of <code>max_input_vars</code> to be at least the size of the large group. In larger installations a value such as <code>10000</code> should suffice.</p>
 <h2 id="where-do-i-update-my-database-credentials"><a name="faq-where-do-i-update-my-database-credentials">Where do I update my database credentials?</a></h2>
 <p>If you've changed your database credentials then you will need to
 update LibreNMS with those new details.
