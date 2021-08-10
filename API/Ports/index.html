@@ -1249,8 +1249,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get_port_info" class="md-nav__link">
-    get_port_info
+  <a href="#ports_with_associated_mac" class="md-nav__link">
+    ports_with_associated_mac
   </a>
   
 </li>
@@ -2255,8 +2255,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get_port_info" class="md-nav__link">
-    get_port_info
+  <a href="#ports_with_associated_mac" class="md-nav__link">
+    ports_with_associated_mac
   </a>
   
 </li>
@@ -2356,16 +2356,118 @@ the <code>columns</code> parameter to avoid pulling too much data.</p>
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="get_port_info"><code>get_port_info</code></h3>
-<p>Get all info for a particular port.</p>
-<p>Route: <code>/api/v0/ports/:portid</code></p>
+<h3 id="ports_with_associated_mac"><code>ports_with_associated_mac</code></h3>
+<p>Search for ports matching the search mac.</p>
+<p>Route: <code>/api/v0/ports/mac/:search?filter=first</code></p>
 <ul>
-<li>portid must be an integer</li>
+<li>search a mac address in fdb and print the ports ordered by the mac count of the associated port.</li>
 </ul>
 <p>Input:</p>
 <p>-</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/323
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/mac/00:11:22:33:44:55
+curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/mac/001122.334455?filter=first
+curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/mac/001122334455?filter=first
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;port_id&quot;</span><span class="p">:</span> <span class="s2">&quot;323&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;55&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;port_descr_type&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;port_descr_descr&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;port_descr_circuit&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;port_descr_speed&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;port_descr_notes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;ifDescr&quot;</span><span class="p">:</span> <span class="s2">&quot;GigabitEthernet0/0/0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifName&quot;</span><span class="p">:</span> <span class="s2">&quot;Gi0/0/0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;portName&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;ifIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifSpeed&quot;</span><span class="p">:</span> <span class="s2">&quot;1000000000&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifConnectorPresent&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifPromiscuousMode&quot;</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifHighSpeed&quot;</span><span class="p">:</span> <span class="s2">&quot;1000&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOperStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOperStatus_prev&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;ifAdminStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifAdminStatus_prev&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;ifDuplex&quot;</span><span class="p">:</span> <span class="s2">&quot;fullDuplex&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifMtu&quot;</span><span class="p">:</span> <span class="s2">&quot;1560&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifType&quot;</span><span class="p">:</span> <span class="s2">&quot;ethernetCsmacd&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifAlias&quot;</span><span class="p">:</span> <span class="s2">&quot;ASR Interconnect Trunk&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifPhysAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;84bf20853e00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifHardType&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;ifLastChange&quot;</span><span class="p">:</span> <span class="s2">&quot;42407358&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifVlan&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifTrunk&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifVrf&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;counter_in&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;counter_out&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;ignore&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;disabled&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;detailed&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;deleted&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;pagpOperationMode&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpPortState&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpPartnerDeviceId&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpPartnerLearnMethod&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpPartnerIfIndex&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpPartnerGroupIfIndex&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpPartnerDeviceName&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpEthcOperationMode&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpDeviceId&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;pagpGroupIfIndex&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;ifInUcastPkts&quot;</span><span class="p">:</span> <span class="s2">&quot;128518576&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInUcastPkts_prev&quot;</span><span class="p">:</span> <span class="s2">&quot;128517284&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInUcastPkts_delta&quot;</span><span class="p">:</span> <span class="s2">&quot;1292&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInUcastPkts_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutUcastPkts&quot;</span><span class="p">:</span> <span class="s2">&quot;128510560&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutUcastPkts_prev&quot;</span><span class="p">:</span> <span class="s2">&quot;128509268&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutUcastPkts_delta&quot;</span><span class="p">:</span> <span class="s2">&quot;1292&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutUcastPkts_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInErrors&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInErrors_prev&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInErrors_delta&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInErrors_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutErrors&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutErrors_prev&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutErrors_delta&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutErrors_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInOctets&quot;</span><span class="p">:</span> <span class="s2">&quot;12827393730&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInOctets_prev&quot;</span><span class="p">:</span> <span class="s2">&quot;12827276736&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInOctets_delta&quot;</span><span class="p">:</span> <span class="s2">&quot;116994&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifInOctets_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;387&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutOctets&quot;</span><span class="p">:</span> <span class="s2">&quot;14957481766&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutOctets_prev&quot;</span><span class="p">:</span> <span class="s2">&quot;14957301765&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutOctets_delta&quot;</span><span class="p">:</span> <span class="s2">&quot;180001&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ifOutOctets_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;596&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;poll_time&quot;</span><span class="p">:</span> <span class="s2">&quot;1483779150&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;poll_prev&quot;</span><span class="p">:</span> <span class="s2">&quot;1483778848&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;poll_period&quot;</span><span class="p">:</span> <span class="s2">&quot;302&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+
+
+<span class="err">###</span> <span class="err">`ge</span><span class="kc">t</span><span class="err">_por</span><span class="kc">t</span><span class="err">_i</span><span class="kc">nf</span><span class="err">o`</span>
+
+<span class="err">Ge</span><span class="kc">t</span> <span class="err">all</span> <span class="err">i</span><span class="kc">nf</span><span class="err">o</span> <span class="kc">f</span><span class="err">or</span> <span class="err">a</span> <span class="err">par</span><span class="kc">t</span><span class="err">icular</span> <span class="err">por</span><span class="kc">t</span><span class="err">.</span>
+
+<span class="err">Rou</span><span class="kc">te</span><span class="p">:</span> <span class="err">`/api/v</span><span class="mi">0</span><span class="err">/por</span><span class="kc">ts</span><span class="err">/</span><span class="p">:</span><span class="err">por</span><span class="kc">t</span><span class="err">id`</span>
+
+<span class="mi">-</span> <span class="err">por</span><span class="kc">t</span><span class="err">id</span> <span class="err">mus</span><span class="kc">t</span> <span class="err">be</span> <span class="err">a</span><span class="kc">n</span> <span class="err">i</span><span class="kc">nte</span><span class="err">ger</span>
+
+<span class="err">I</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="p">:</span>
+
+  <span class="mi">-</span>
+
+<span class="err">Example</span><span class="p">:</span>
+
+<span class="err">```curl</span>
+<span class="err">curl</span> <span class="mi">-</span><span class="err">H</span> <span class="err">&#39;X</span><span class="mi">-</span><span class="err">Au</span><span class="kc">t</span><span class="err">h</span><span class="mi">-</span><span class="err">Toke</span><span class="kc">n</span><span class="p">:</span> <span class="err">YOURAPITOKENHERE&#39;</span> <span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="err">//libre</span><span class="kc">n</span><span class="err">ms.org/api/v</span><span class="mi">0</span><span class="err">/por</span><span class="kc">ts</span><span class="err">/</span><span class="mi">323</span>
 </code></pre></div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
