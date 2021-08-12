@@ -1561,7 +1561,14 @@
     Examples HTML
   </a>
   
-    <nav class="md-nav" aria-label="Examples HTML">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-models-for-optional-data" class="md-nav__link">
+    Using models for optional data
+  </a>
+  
+    <nav class="md-nav" aria-label="Using models for optional data">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2476,7 +2483,14 @@
     Examples HTML
   </a>
   
-    <nav class="md-nav" aria-label="Examples HTML">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-models-for-optional-data" class="md-nav__link">
+    Using models for optional data
+  </a>
+  
+    <nav class="md-nav" aria-label="Using models for optional data">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2814,6 +2828,22 @@ emails</p>
 config.php. Allow_unauth_graphs_cidr is optional, but more secure.</p>
 <div class="highlight"><pre><span></span><code>$config[&#39;allow_unauth_graphs_cidr&#39;] = array(&#39;127.0.0.1/32&#39;);
 $config[&#39;allow_unauth_graphs&#39;] = true;
+</code></pre></div>
+<h2 id="using-models-for-optional-data">Using models for optional data</h2>
+<p>If some value does not exist withing the <code>$faults[]</code>-array, you may query fields from the database using Laravel models. You may use models to query additional values and use them on the template by placing the model and the value to search for within the braces. For example, ISIS-alerts do have a <code>port_id</code> value associated with the alert but <code>ifName</code> is not directly accessible from the <code>$faults[]</code>-array. If the name of the port was needed, it's value could be queried using a template such as:</p>
+<div class="highlight"><pre><span></span><code>{{ $alert-&gt;title }}
+Severity: {{ $alert-&gt;severity }}
+@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
+Timestamp: {{ $alert-&gt;timestamp }}
+Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
+@if ($alert-&gt;faults) Faults:
+@foreach ($alert-&gt;faults as $key =&gt; $value)
+  Local interface: {{ \App\Models\Port::find($value[&#39;port_id&#39;])-&gt;ifName }}
+  Adjacent IP: {{ $value[&#39;isisISAdjIPAddrAddress&#39;] }}
+  Adjacent state: {{ $value[&#39;isisISAdjState&#39;] }}
+
+@endforeach
+@endif
 </code></pre></div>
 <h4 id="service-alert">Service Alert</h4>
 <div class="highlight"><pre><span></span><code>&lt;div style=&quot;font-family:Helvetica;&quot;&gt;
