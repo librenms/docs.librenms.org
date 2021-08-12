@@ -1297,6 +1297,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#edit_bgp_descr" class="md-nav__link">
+    edit_bgp_descr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#list_cbgp" class="md-nav__link">
     list_cbgp
   </a>
@@ -2304,6 +2311,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#edit_bgp_descr" class="md-nav__link">
+    edit_bgp_descr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#list_cbgp" class="md-nav__link">
     list_cbgp
   </a>
@@ -2463,6 +2477,24 @@ curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/bgp
         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="edit_bgp_descr"><code>edit_bgp_descr</code></h3>
+<p>This is a POST type request
+Set the BGP session description by ID</p>
+<p>Route: <code>/api/v0/bgp/:id</code></p>
+<p>Input:</p>
+<ul>
+<li>id = The id of the BGP Peer Session.</li>
+<li>bgp_descr = The description for the bgpPeerDescr field on the BGP Session.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>curl -v -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; --data &#39;{&quot;bgp_descr&quot;: &quot;Your description here&quot;}&#39; https://librenms.org/api/v0/bgp/4
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;BGP description for peer X.X.X.X on device 1 updated to Your description here&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="list_cbgp"><code>list_cbgp</code></h3>
