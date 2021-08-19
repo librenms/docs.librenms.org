@@ -2450,6 +2450,9 @@ to change more than a few. These modules can be enabled or disabled
 per-device in the webui and per os or globally in config.php. Usually,
 a poller module will not work if it's corresponding discovery module
 is not enabled.</p>
+<p>You should avoid setting these to false in the OS definitions unless it has a
+significant negative impact on polling.  Setting modules in the definition
+reduces user control of modules.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">poller_modules</span><span class="p">:</span>
     <span class="nt">bgp-peers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">discovery_modules</span><span class="p">:</span>

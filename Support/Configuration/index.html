@@ -3346,11 +3346,21 @@ can disable this with the following config:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;allow_duplicate_sysName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="global-poller-and-discovery-modules">Global poller and discovery modules</h2>
-<p>Generally, it is a better to set these <a href="../../Developing/os/Settings/#poller-and-discovery-modules">per
-OS</a> or
-device.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;discovery_modules&#39;</span><span class="p">][</span><span class="s1">&#39;arp-table&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
-<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;poller_modules&#39;</span><span class="p">][</span><span class="s1">&#39;bgp-peers&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<p>Enable or disable discovery or poller modules.</p>
+<p>This setting has an order of precedence Device &gt; OS &gt; Global.
+So if the module is set at a more specific level, it will override the
+less specific settings.</p>
+<p>Global:</p>
+<div class="highlight"><pre><span></span><code>lnms config:set discovery_modules.arp-table <span class="nb">false</span>
+
+lnms config:set discovery_modules.entity-state <span class="nb">true</span>
+lnms config:set poller_modules.entity-state <span class="nb">true</span>
+</code></pre></div>
+<p>Per OS:</p>
+<div class="highlight"><pre><span></span><code>lnms config:set os.ios.discovery_modules.arp-table <span class="nb">false</span>
+
+lnms config:set os.ios.discovery_modules.entity-state <span class="nb">true</span>
+lnms config:set os.ios.poller_modules.entity-state <span class="nb">true</span>
 </code></pre></div>
 <h2 id="snmp-settings">SNMP Settings</h2>
 <p>Default SNMP options including retry and timeout settings and also
