@@ -913,6 +913,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#port-group" class="md-nav__link">
+    Port Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#external-integration" class="md-nav__link">
     External integration
   </a>
@@ -2786,6 +2793,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#port-group" class="md-nav__link">
+    Port Group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#external-integration" class="md-nav__link">
     External integration
   </a>
@@ -3443,6 +3457,11 @@ lnms config:set enable_ports_adsl <span class="nb">true</span>
 lnms config:set enable_ports_poe <span class="nb">false</span>
 </code></pre></div>
 <p>Enable / disable additional port statistics.</p>
+<h2 id="port-group">Port Group</h2>
+<p>Assign a new discovered Port automatically to Port Group with this Port Group ID
+(0 means no Port Group assignment)</p>
+<div class="highlight"><pre><span></span><code><span class="nx">lnms</span> <span class="nx">config</span><span class="o">:</span><span class="nx">set</span> <span class="nx">default_port_group</span> <span class="mi">0</span>
+</code></pre></div>
 <h2 id="external-integration">External integration</h2>
 <h3 id="rancid">Rancid</h3>
 <div class="highlight"><pre><span></span><code>lnms config:set rancid_configs.+ /var/lib/rancid/network/configs/
