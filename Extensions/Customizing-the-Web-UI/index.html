@@ -907,8 +907,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-device-menu-entry" class="md-nav__link">
-    Custom device menu entry
+  <a href="#custom-device-menu-action" class="md-nav__link">
+    Custom device menu action
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom device menu action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launching-windows-programs-from-the-librenms-device-menu" class="md-nav__link">
+    Launching Windows programs from the LibreNMS device menu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-the-primary-device-menu-action" class="md-nav__link">
+    Setting the primary device menu action
   </a>
   
 </li>
@@ -2240,8 +2260,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-device-menu-entry" class="md-nav__link">
-    Custom device menu entry
+  <a href="#custom-device-menu-action" class="md-nav__link">
+    Custom device menu action
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom device menu action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launching-windows-programs-from-the-librenms-device-menu" class="md-nav__link">
+    Launching Windows programs from the LibreNMS device menu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-the-primary-device-menu-action" class="md-nav__link">
+    Setting the primary device menu action
   </a>
   
 </li>
@@ -2286,15 +2326,135 @@
     &lt;/ul&gt;
 &lt;/li&gt;
 </code></pre></div>
-<h2 id="custom-device-menu-entry">Custom device menu entry</h2>
+<h2 id="custom-device-menu-action">Custom device menu action</h2>
 <p>You can add custom external links in the menu on the device page.</p>
 <p>This feature allows you to easily link applications to related
 systems, as shown in the example of Open-audIT.</p>
-<p>The Links value is parsed by Laravel Blade's templating engine so you
-can use Device variables such as <code>hostname</code>, <code>sysName</code> and more.</p>
-<p><code>config.php:</code></p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">][</span><span class="s1">&#39;links&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://atssrv/open-audit/index/devices/{{ $device[\&#39;sysName\&#39;] }}&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Open-AudIT&#39;</span><span class="p">];</span>
+<p>The url value is parsed by the <a href="https://laravel.com/docs/blade">Laravel Blade</a> templating engine. You
+can access device variables such as <code>$device-&gt;hostname</code>, <code>$device-&gt;sysName</code> and use full PHP.</p>
+<div class="admonition setting">
+<p class="admonition-title">webui/device</p>
+<div class="highlight"><pre><span></span><code>lnms config:set html.device.links.+ <span class="s1">&#39;{&quot;url&quot;: &quot;http://atssrv/open-audit/index/devices/{{ $device-&gt;sysName }}&quot;, &quot;title&quot;: &quot;Open-AudIT&quot;}&#39;</span>
 </code></pre></div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>Url blade template resulting in valid url. Required.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title text displayed in the menu. Required.</td>
+</tr>
+<tr>
+<td>icon</td>
+<td><a href="https://fontawesome.com/v4.7/icons/">Font Awesome icon</a> class. Default: fa-external-link</td>
+</tr>
+<tr>
+<td>external</td>
+<td>Open link in new window. Default: true</td>
+</tr>
+<tr>
+<td>action</td>
+<td>Show as action on device list. Default: false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="launching-windows-programs-from-the-librenms-device-menu">Launching Windows programs from the LibreNMS device menu</h3>
+<p>You can launch windows programs from links in LibreNMS, but it does take
+some registry entries on the client device</p>
+<div class="highlight"><pre><span></span><code>[HKEY_CLASSES_ROOT\winbox]
+@=&quot;URL:winbox Protocol&quot;
+&quot;URL Protocol&quot;=&quot;&quot;
+[HKEY_CLASSES_ROOT\winbox\shell]
+[HKEY_CLASSES_ROOT\winbox\shell\open]
+[HKEY_CLASSES_ROOT\winbox\shell\open\command]
+@=&quot;c:\winbox.exe&quot; &quot;%1&quot;
+</code></pre></div>
+<p>Now we can use that in the device menu entry to open winbox</p>
+<div class="admonition setting">
+<p class="admonition-title">webui/device</p>
+<div class="highlight"><pre><span></span><code>lnms config:set html.device.links.+ <span class="s1">&#39;{&quot;url&quot;: &quot;winbox://{{ $device-&gt;ip }}&quot;, &quot;title&quot;: &quot;Winbox&quot;}&#39;</span>
+</code></pre></div>
+</div>
+<h2 id="setting-the-primary-device-menu-action">Setting the primary device menu action</h2>
+<p>You can change the icon that is clickable in the device without having to open the dropdown menu.
+The primary button is edit device by default.</p>
+<p>Web UI <span class="setting-link">/webui/device</span></p>
+<div class="admonition setting">
+<p class="admonition-title">webui/device</p>
+<div class="highlight"><pre><span></span><code>lnms config:set html.device.primary_link web
+</code></pre></div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>edit</td>
+<td>Edit device</td>
+</tr>
+<tr>
+<td>web</td>
+<td>Connect to the device via https/http</td>
+</tr>
+<tr>
+<td>ssh</td>
+<td>launch ssh:// protocol to the device, make sure you have a handler registered</td>
+</tr>
+<tr>
+<td>telnet</td>
+<td>launch telnet:// protocol to the device</td>
+</tr>
+<tr>
+<td>capture</td>
+<td>Link to the device capture page</td>
+</tr>
+<tr>
+<td>custom1</td>
+<td>Custom Link 1</td>
+</tr>
+<tr>
+<td>custom2</td>
+<td>Custom Link 2</td>
+</tr>
+<tr>
+<td>custom3</td>
+<td>Custom Link 3</td>
+</tr>
+<tr>
+<td>custom4</td>
+<td>Custom Link 4</td>
+</tr>
+<tr>
+<td>custom5</td>
+<td>Custom Link 5</td>
+</tr>
+<tr>
+<td>custom6</td>
+<td>Custom Link 6</td>
+</tr>
+<tr>
+<td>custom7</td>
+<td>Custom Link 7</td>
+</tr>
+<tr>
+<td>custom8</td>
+<td>Custom Link 8</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
