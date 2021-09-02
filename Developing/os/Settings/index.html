@@ -2462,8 +2462,8 @@ reduces user control of modules.</p>
 <h4 id="disable-snmpbulkwalk">Disable snmpbulkwalk</h4>
 <p>Some devices have buggy snmp implementations and don't respond well to
 the more efficient snmpbulkwalk. To disable snmpbulkwalk and only use
-snmpwalk for an os set the following.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">nobulk</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+snmpwalk for an OS set the following.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">snmp_bulk</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 <h4 id="limit-the-oids-per-snmpget">Limit the oids per snmpget</h4>
 <div class="highlight"><pre><span></span><code><span class="nt">snmp_max_oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
