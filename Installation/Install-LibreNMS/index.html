@@ -2930,6 +2930,7 @@ systemctl restart php7.3-fpm
 <h3 id="configure-the-contexts-needed-by-librenms">Configure the contexts needed by LibreNMS</h3>
 <div class="highlight"><pre><span></span><code>semanage fcontext -a -t httpd_sys_content_t &#39;/opt/librenms/html(/.*)?&#39;
 semanage fcontext -a -t httpd_sys_rw_content_t &#39;/opt/librenms/(logs|rrd|storage)(/.*)?&#39;
+semanage fcontext -a -t bin_t &#39;/opt/librenms/librenms-service.py&#39;
 restorecon -RFvv /opt/librenms
 setsebool -P httpd_can_sendmail=1
 setsebool -P httpd_execmem 1
