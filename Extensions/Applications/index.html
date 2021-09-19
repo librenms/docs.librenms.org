@@ -997,6 +997,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#megaraid" class="md-nav__link">
+    MegaRAID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#memcached" class="md-nav__link">
     Memcached
   </a>
@@ -3935,6 +3942,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#megaraid" class="md-nav__link">
+    MegaRAID
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#memcached" class="md-nav__link">
     Memcached
   </a>
@@ -4823,6 +4837,7 @@ by following the steps under the <code>SNMP Extend</code> heading.</p>
 <li><a href="#mailcow-dockerized-postfix">Mailcow-dockerized postfix</a> - SNMP extend</li>
 <li><a href="#mailscanner">Mailscanner</a> - SNMP extend</li>
 <li><a href="#mdadm">Mdadm</a> - SNMP extend</li>
+<li><a href="#megaraid">MegaRAID</a> - SNMP extend</li>
 <li><a href="#memcached">Memcached</a> - SNMP extend</li>
 <li><a href="#munin">Munin</a> - Agent</li>
 <li><a href="#mysql">MySQL</a> - SNMP extend, Agent</li>
@@ -5647,6 +5662,21 @@ Extend</code> heading top of page.</p>
 <p>The application should be auto-discovered as described at the
 top of the page. If it is not, please follow the steps set out
 under <code>SNMP Extend</code> heading top of page.</p>
+<h2 id="megaraid">MegaRAID</h2>
+<p>This software from Broadcom/LSI let you monitor MegaRAID controller.</p>
+<ol>
+<li>
+<p>Download the <a href="https://docs.broadcom.com/docs/1211132411799">external software</a> and follow the included install instructions.</p>
+</li>
+<li>
+<p>Add the following line to your snmpd.conf file (usually /etc/snmp/snmpd.conf)
+<div class="highlight"><pre><span></span><code>pass .1.3.6.1.4.1.3582 /usr/sbin/lsi_mrdsnmpmain
+</code></pre></div></p>
+</li>
+<li>
+<p>Restart snmpd on your host</p>
+</li>
+</ol>
 <h2 id="memcached">Memcached</h2>
 <h3 id="snmp-extend_20">SNMP Extend</h3>
 <ol>
