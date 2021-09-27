@@ -740,6 +740,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pre-load-configuration" class="md-nav__link">
+    Pre-load configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#directories" class="md-nav__link">
     Directories
   </a>
@@ -2620,6 +2627,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pre-load-configuration" class="md-nav__link">
+    Pre-load configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#directories" class="md-nav__link">
     Directories
   </a>
@@ -3082,6 +3096,16 @@ lnms config:get snmp.community
       <span class="s2">&quot;public&quot;</span>
   <span class="o">]</span>
 </code></pre></div>
+<h2 id="pre-load-configuration">Pre-load configuration</h2>
+<p>This feature is primarily for docker images and other automation.
+When installing LibreNMS for the first time with a new database you can place yaml key value files
+in <code>database/seeders/config</code> to pre-populate the config database.</p>
+<p>Example snmp.yaml
+<div class="highlight"><pre><span></span><code><span class="nt">snmp.community</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">public</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">private</span>
+<span class="nt">snmp.max_repeaters</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
+</code></pre></div></p>
 <h2 id="directories">Directories</h2>
 <div class="highlight"><pre><span></span><code>lnms config:set temp_dir /tmp
 </code></pre></div>
