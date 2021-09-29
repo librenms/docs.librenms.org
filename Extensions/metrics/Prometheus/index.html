@@ -2341,16 +2341,18 @@ continue to function as normal.</p>
 the configured value.</p>
 <p>For instance without setting this option metric names will be something 
 like this:</p>
-<p>OUTUCASTPKTS
+<div class="highlight"><pre><span></span><code>OUTUCASTPKTS
 ifOutUcastPkts_rate
 INOCTETS
-ifInErrors_rate</p>
+ifInErrors_rate
+</code></pre></div>
 <p>Configuring a prefix name, for example 'librenms', instead caused those 
 metrics to be exposed with the following names:</p>
-<p>librenms_OUTUCASTPKTS
+<div class="highlight"><pre><span></span><code>librenms_OUTUCASTPKTS
 librenms_ifOutUcastPkts_rate
 librenms_INOCTETS
-librenms_ifInErrors_rate</p>
+librenms_ifInErrors_rate
+</code></pre></div>
 <h2 id="sample-prometheus-scrape-config-for-scraping-the-push-gateway">Sample Prometheus Scrape Config (for scraping the Push Gateway)</h2>
 <div class="highlight"><pre><span></span><code>- job_name: pushgateway
   scrape_interval: 300s
