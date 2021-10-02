@@ -3206,13 +3206,18 @@ the value.</p>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_level_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;librenms-admins&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;librenms-readers&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;librenms-billingcontacts&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">];</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;sso&#39;</span><span class="p">][</span><span class="s1">&#39;group_delimiter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">;</span>
 </code></pre></div>
-<p>The mechanism expects to find a delimited list of groups within the
+<p>This mechanism expects to find a delimited list of groups within the
 attribute that <strong><em>sso_group_attr</em></strong> points to. This should be an
-associative array of group name keys, with  privilege levels as
+associative array of group name keys, with privilege levels as
 values. The mechanism will scan the list and find the <strong><em>highest</em></strong>
 privilege level that the user is entitled to, and assign that value to
 the user.</p>
-<p>This format may be specific to Shibboleth; other relying party
+<p>If there are no matches between the user's groups and the
+<strong><em>sso_group_level_map</em></strong>, the user will be assigned the privilege level
+specified in the <strong><em>sso_static_level</em></strong> variable, with a default of 0 (no access).
+This feature can be used to provide a default access level (such as read-only)
+to all authenticated users.</p>
+<p>Additionally, this format may be specific to Shibboleth; other relying party
 software may need changes to the mechanism (e.g. <strong><em>mod_auth_mellon</em></strong>
 may create pseudo arrays).</p>
 <p>There is an optional value for sites with large numbers of groups:</p>
@@ -3224,7 +3229,11 @@ may create pseudo arrays).</p>
 Sign-On - that responsibility falls to the Relying Party.</p>
 <p>If your Relying Party has a magic URL that needs to be called to end a
 session, you can configure LibreNMS to direct the user to it:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;post_logout_action&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/Shibboleth.sso/Logout&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example for Shibboleth</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_logout_handler&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/Shibboleth.sso/Logout&#39;</span><span class="p">;</span>
+
+<span class="c1"># Example for oauth2-proxy</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_logout_handler&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/oauth2/sign_out&#39;</span><span class="p">;</span>
 </code></pre></div>
 <p>This option functions independently of the Single Sign-on mechanism.</p>
 <h3 id="complete-configuration">Complete Configuration</h3>
