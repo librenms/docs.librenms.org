@@ -2216,6 +2216,11 @@ restrict access to the install via a firewall or VPN.</p>
 <p>It is also highly recommended that the Web interface is protected with
 an SSL certificate such as ones provided by <a href="http://www.letsencrypt.org">LetsEncrypt</a>.</p>
 <p>Please ensure you keep your install <a href="../Updating/">up to date</a>.</p>
+<h2 id="trusted-proxies">Trusted Proxies</h2>
+<p>When using a reverse proxy, you may restrict the hosts allowed to forward
+headers to LibreNMS. By default this allows all proxies, due to legacy reasons.</p>
+<p>Set APP_TRUSTED_PROXIES in your .env to an empty string or the urls to
+the proxies allowed to forward.</p>
 <h1 id="reporting-vulnerabilities">Reporting vulnerabilities</h1>
 <p>Like anyone, we appreciate the work people put in to find flaws in
 software and welcome anyone to do so with LibreNMS, this will lead to
