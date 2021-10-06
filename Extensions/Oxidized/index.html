@@ -2386,11 +2386,17 @@ config option within Oxidized.</p>
 working Oxidized setup which is already taking config snapshots for
 your devices. When you have that, you only need the following config
 to enable the display of device configs within the device page itself:</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.enabled <span class="nb">true</span>
 lnms config:set oxidized.url http://127.0.0.1:8888
 </code></pre></div>
 <p>LibreNMS supports config versioning if Oxidized does.  This is known
 to work with the git output module.</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.features.versioning <span class="nb">true</span>
 </code></pre></div>
 <p>Oxidized supports various ways to utilise credentials to login to
@@ -2399,10 +2405,29 @@ Group level username/password or per device. LibreNMS currently
 supports sending groups back to Oxidized so that you can then define
 group credentials within Oxidized. To enable this support please
 switch on 'Enable the return of groups to Oxidized':</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.group_support <span class="nb">true</span>
 </code></pre></div>
 <p>You can set a default group that devices will fall back to with:</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.default_group default
+</code></pre></div>
+<p>You can ignore specific groups</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.ignore_groups <span class="s1">&#39;[&quot;badgroup&quot;, &quot;nobackup&quot;]&#39;</span>
+</code></pre></div>
+<p>One trick you can do to ignore all ungrouped devices is set both of these settings</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.default_group nobackup
+lnms config:set oxidized.ignore_groups.+ nobackup
 </code></pre></div>
 <h2 id="selinux">SELinux</h2>
 <p>If you're running SELinux, you'll need to allow httpd to connect
@@ -2434,6 +2459,9 @@ time.</p>
 device is added to LibreNMS. To do so, edit the option in Global
 Settings&gt;External Settings&gt;Oxidized Integration or add the following
 to your config.</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.reload_nodes <span class="nb">true</span>
 </code></pre></div>
 <h2 id="creating-overrides">Creating overrides</h2>
@@ -2456,16 +2484,25 @@ key and value, or a 'regex' key and value. The order of matching is:</p>
 </ul>
 <p>To match on the device hostnames or sysNames that contain 'lon-sw' or
 if the location contains 'London' then you would set the following:</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.group.hostname.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^lon-sw/&quot;, &quot;value&quot;: &quot;london-switches&quot;}&#39;</span>
 lnms config:set oxidized.maps.group.sysName.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^lon-sw/&quot;, &quot;value&quot;: &quot;london-switches&quot;}&#39;</span>
 lnms config:set oxidized.maps.group.location.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/london/&quot;, &quot;value&quot;: &quot;london-switches&quot;}&#39;</span>
 </code></pre></div>
 <p>To match on a device os of edgeos then please use the following:</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.group.os.+ <span class="s1">&#39;{&quot;match&quot;: &quot;edgeos&quot;, &quot;value&quot;: &quot;wireless&quot;}&#39;</span>
 </code></pre></div>
 <p>Matching on OS requires system name of the OS. For example, "match": "RouterOS"
 will not work, while "match": "routeros" will.</p>
 <p>To edit an existing map, you must use the index to override it.</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:get oxidized.maps.os.os
 array <span class="o">(</span>
   <span class="nv">0</span> <span class="o">=</span>&gt;
@@ -2483,6 +2520,9 @@ array <span class="o">(</span>
 lnms config:set oxidized.maps.os.os.1 <span class="s1">&#39;{&quot;match&quot;: &quot;airos-af&quot;, &quot;value&quot;: &quot;something-else&quot;}&#39;</span>
 </code></pre></div>
 <p>To override the IP Oxidized uses to poll the device, set the following:</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.ip.sysName.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^my.node/&quot;, &quot;value&quot;: &quot;192.168.1.10&quot;}&#39;</span>
 lnms config:set oxidized.maps.ip.sysName.+ <span class="s1">&#39;{&quot;match&quot;: &quot;my-other.node&quot;, &quot;value&quot;: &quot;192.168.1.20&quot;}&#39;</span>
 </code></pre></div>
@@ -2490,11 +2530,17 @@ lnms config:set oxidized.maps.ip.sysName.+ <span class="s1">&#39;{&quot;match&qu
 completely flexible model for custom flags and settings, for example,
 below shows the ability to add an ssh_proxy host within Oxidized
 simply by adding the below to your configuration:</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.ssh_proxy.sysName.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^my.node/&quot;, &quot;value&quot;: &quot;my-ssh-gateway.node&quot;}&#39;</span>
 </code></pre></div>
 <p>Or of course, any custom value that could be needed or wanted can be
 applied, for example, setting a "myAttribute" to "Super cool value"
 for any configured and enabled "routeros" device.</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.myAttribute.os.+ <span class="s1">&#39;{&quot;match&quot;: &quot;routeros&quot;, &quot;value&quot;: &quot;Super cool value&quot;}&#39;</span>
 </code></pre></div>
 <p>Verify the return of groups by querying the API:</p>
@@ -2513,10 +2559,16 @@ you can edit those devices in Device -&gt; Edit -&gt; Misc and enable
 "Exclude from Oxidized?"</p>
 <p>It's also possible to exclude certain device types and OS' from being
 output via the API.</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.ignore_types <span class="s1">&#39;[&quot;server&quot;, &quot;power&quot;]&#39;</span>
 lnms config:set oxidized.ignore_os <span class="s1">&#39;[&quot;linux&quot;, &quot;windows&quot;]&#39;</span>
 </code></pre></div>
 <p>You can also ignore whole groups of devices</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+</div>
 <div class="highlight"><pre><span></span><code>lnms config:set oxidized.ignore_groups <span class="s1">&#39;[&quot;london-switches&quot;, &quot;default&quot;]&#39;</span>
 </code></pre></div>
 <h2 id="trigger-configuration-backups">Trigger configuration backups</h2>
