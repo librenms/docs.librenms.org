@@ -2206,11 +2206,86 @@
                 
                 
                 <h1 id="developing-for-the-plugin-system">Developing for the Plugin System</h1>
-<p>This will most likely be deprecated in favour of adding the possible
-extensions to the core code base.</p>
-<p>This documentation will hopefully give you a basis for how to write a
-plugin for LibreNMS. A test plugin is included in LibreNMS distribution.</p>
-<h1 id="generic-structure">Generic structure</h1>
+<p>With plugins you can extend LibreNMS with special functions that are
+specific to your setup or are not relevant or interesting for all community members.</p>
+<p>You are able to intervene in defined places in the behavior of
+the website, without it coming to problems with future updates.</p>
+<p>This documentation will give you a basis for writing a plugin for
+LibreNMS. An example plugin is included in the LibreNMS distribution.</p>
+<h1 id="version-2-plugin-system-structure">Version 2 Plugin System structure</h1>
+<p>Plugins in version 2 need to be installed into app/Plugins</p>
+<p>The structure of a plugin is follows:</p>
+<div class="highlight"><pre><span></span><code>app/Plugins
+            /PluginName
+                       /DeviceOverview.php
+                       /Menu.php
+                       /Page.php
+                       /PortTab.php
+                       /Settings.php
+                       /resources/views
+                                       /device-overview.blade.php
+                                       /menu.blade.php
+                                       /page.blade.php
+                                       /port-tab.blade.php
+                                       /settings.blade.php
+</code></pre></div>
+<p>The above structure is checked before a plugin can be installed.</p>
+<p>All file/folder names are case sensitive and must match the structure.</p>
+<p>Only the blade files that are really needed need to be created. A plugin manager
+will then load a hook that has a basic functionality.</p>
+<p>If you want to customize the basic behavior of the hooks, you can create a
+class in 'app/Plugins/PluginName' and overload the hook methods.</p>
+<ul>
+<li>device-overview.blade.php :: This is called in the Device
+  Overview page. You receive the $device as a object per default, you can do your
+  work here and display your results in a frame.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-12&quot;&gt;
+        &lt;div class=&quot;panel panel-default panel-condensed&quot;&gt;
+            &lt;div class=&quot;panel-heading&quot;&gt;
+                &lt;strong&gt;{{ $title }}&lt;/strong&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;panel-body&quot;&gt;
+                &lt;div class=&quot;row&quot;&gt;
+                    &lt;div class=&quot;col-sm-12&quot;&gt;
+                         {{ $device-&gt;hostname }}
+                 &lt;!-- Do you stuff here --&gt;
+                    &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div>
+<ul>
+<li>
+<p>port-tab.blade.php :: This is called in the Port page,
+  in the "Plugins" menu_option that will appear when your plugin gets
+  enabled. In this blade, you can do your work and display your
+  results in a frame.</p>
+</li>
+<li>
+<p>menu.blade.php :: For a menu entry </p>
+</li>
+<li>
+<p>page.blade.pho :: Here is a good place to add a own LibreNMS page without dependence with a device. A good place to create your own lists with special requirements and behavior.</p>
+</li>
+<li>
+<p>settings.blade.php :: If you need your own settings and variables, you can have a look in the ExamplePlugin.</p>
+</li>
+</ul>
+<p>If you want to change the behavior, you can customize the hooks methods. Just as an example, you could imagine that the device-overview.blade.php should only be displayed when the device is in maintanence mode. Of course the method is more for a permission concept but it gives you the idea.</p>
+<div class="highlight"><pre><span></span><code>abstract class DeviceOverviewHook
+{
+    ...
+    public function authorize(User $user, Device $device, array $settings): bool
+    {
+        return $device-&gt;isUnderMaintenance();
+    }
+    ...
+</code></pre></div>
+<h1 id="version-1-plugin-system-structure-legacy-verion">Version 1 Plugin System structure (legacy verion)</h1>
 <p>Plugins need to be installed into html/plugins</p>
 <p>The structure of a plugin is follows:</p>
 <div class="highlight"><pre><span></span><code>html/plugins
