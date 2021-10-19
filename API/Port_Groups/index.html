@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#get_portgroups" class="md-skip">
+        <a href="#get_port_groups" class="md-skip">
           Skip to content
         </a>
       
@@ -1259,29 +1259,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get_portgroups" class="md-nav__link">
-    get_portgroups
+  <a href="#get_port_groups" class="md-nav__link">
+    get_port_groups
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add_portgroup" class="md-nav__link">
-    add_portgroup
+  <a href="#get_ports_by_group" class="md-nav__link">
+    get_ports_by_group
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#assign_portgroup" class="md-nav__link">
-    assign_portgroup
+  <a href="#add_port_group" class="md-nav__link">
+    add_port_group
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remove_portgroup" class="md-nav__link">
-    remove_portgroup
+  <a href="#assign_port_group" class="md-nav__link">
+    assign_port_group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove_port_group" class="md-nav__link">
+    remove_port_group
   </a>
   
 </li>
@@ -2241,29 +2248,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#get_portgroups" class="md-nav__link">
-    get_portgroups
+  <a href="#get_port_groups" class="md-nav__link">
+    get_port_groups
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add_portgroup" class="md-nav__link">
-    add_portgroup
+  <a href="#get_ports_by_group" class="md-nav__link">
+    get_ports_by_group
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#assign_portgroup" class="md-nav__link">
-    assign_portgroup
+  <a href="#add_port_group" class="md-nav__link">
+    add_port_group
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remove_portgroup" class="md-nav__link">
-    remove_portgroup
+  <a href="#assign_port_group" class="md-nav__link">
+    assign_port_group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove_port_group" class="md-nav__link">
+    remove_port_group
   </a>
   
 </li>
@@ -2287,13 +2301,11 @@
                 
                   <h1>Port_Groups</h1>
                 
-                <h3 id="get_portgroups"><code>get_portgroups</code></h3>
+                <h3 id="get_port_groups"><code>get_port_groups</code></h3>
 <p>List all port groups.</p>
-<p>Route: <code>/api/v0/portgroups</code></p>
-<p>Input (JSON):</p>
-<p>-</p>
+<p>Route: <code>/api/v0/port_groups</code></p>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/portgroups
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/port_groups
 </code></pre></div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span>
@@ -2311,7 +2323,37 @@
     <span class="p">}</span>
 <span class="p">]</span>
 </code></pre></div>
-<h3 id="add_portgroup"><code>add_portgroup</code></h3>
+<h3 id="get_ports_by_group"><code>get_ports_by_group</code></h3>
+<p>List all ports matching the group provided.</p>
+<p>Route: <code>/api/v0/port_groups/:name</code></p>
+<ul>
+<li>name Is the name of the port group which can be obtained using
+  <a href="#function-get_port_groups"><code>get_port_groups</code></a>. Please ensure that
+  the name is urlencoded if it needs to be (i.e Linux Servers would
+  need to be urlencoded.</li>
+</ul>
+<p>Params:</p>
+<ul>
+<li>full: set to any value to return all data for the devices in a given group</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/port_groups/Billable
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;port_id&quot;</span><span class="p">:</span> <span class="mi">1376</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;port_id&quot;</span><span class="p">:</span> <span class="mi">2376</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="add_port_group"><code>add_port_group</code></h3>
 <p>Add a new port group. Upon success, the ID of the new port group is returned
 and the HTTP response code is <code>201</code>.</p>
 <p>Route: <code>/api/v0/port_groups</code></p>
@@ -2335,7 +2377,7 @@ and the HTTP response code is <code>201</code>.</p>
     <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Port group New Port Group created&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="assign_portgroup"><code>assign_portgroup</code></h3>
+<h3 id="assign_port_group"><code>assign_port_group</code></h3>
 <p>Assign a Port Group to a list of Ports</p>
 <p>Route: <code>/api/v0/port_groups/:port_group_id/assign</code></p>
 <p>Input (JSON):</p>
@@ -2352,7 +2394,7 @@ and the HTTP response code is <code>201</code>.</p>
     <span class="nt">&quot;Port Ids 4, 34, 25, 983 have been added to Port Group Id 3&quot;</span><span class="p">:</span> <span class="mi">200</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="remove_portgroup"><code>remove_portgroup</code></h3>
+<h3 id="remove_port_group"><code>remove_port_group</code></h3>
 <p>Remove a Port Group from a list of Ports</p>
 <p>Route: <code>/api/v0/port_groups/:port_group_id/remove</code></p>
 <p>Input (JSON):</p>
