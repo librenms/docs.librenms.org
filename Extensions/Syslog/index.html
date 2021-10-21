@@ -730,6 +730,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hpearuba-procurve" class="md-nav__link">
+    HPE/Aruba Procurve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
     Windows
   </a>
@@ -807,6 +814,13 @@
           <li class="md-nav__item">
   <a href="#allied-telesis-alliedware-plus_1" class="md-nav__link">
     Allied Telesis Alliedware Plus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hpearuba-procurve_1" class="md-nav__link">
+    HPE/Aruba Procurve
   </a>
   
 </li>
@@ -2550,6 +2564,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hpearuba-procurve" class="md-nav__link">
+    HPE/Aruba Procurve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
     Windows
   </a>
@@ -2627,6 +2648,13 @@
           <li class="md-nav__item">
   <a href="#allied-telesis-alliedware-plus_1" class="md-nav__link">
     Allied Telesis Alliedware Plus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hpearuba-procurve_1" class="md-nav__link">
+    HPE/Aruba Procurve
   </a>
   
 </li>
@@ -2947,6 +2975,14 @@ log host x.x.x.x level notices program imish // Useful for seeing all commands e
 log host x.x.x.x level notices program imi // Required for Oxidized Syslog hook log message.
 log host source &lt;eth0&gt;
 </code></pre></div>
+<h3 id="hpearuba-procurve">HPE/Aruba Procurve</h3>
+<div class="highlight"><pre><span></span><code>configure
+logging severity warning
+logging facility local6
+logging librenms.ip control-descr “LibreNMS”
+logging notify running-config-change
+write memory
+</code></pre></div>
 <p>If you have permitted udp and tcp 514 through any firewall then that
 should be all you need. Logs should start appearing and displayed
 within the LibreNMS web UI.</p>
@@ -2993,6 +3029,9 @@ x.x.x.x level notices program imi</code> may also be required depending on
 configuration. This is to ensure the syslog hook log message gets sent
 to the syslog server.</p>
 <div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;awplus&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/IMI.+.Startup-config saved on/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
+</code></pre></div>
+<h3 id="hpearuba-procurve_1">HPE/Aruba Procurve</h3>
+<div class="highlight"><pre><span></span><code>$config[&#39;os&#39;][&#39;procurve&#39;][&#39;syslog_hook&#39;][] = Array(&#39;regex&#39; =&gt; &#39;/Running Config Change/&#39;, &#39;script&#39; =&gt; &#39;/opt/librenms/scripts/syslog-notify-oxidized.php&#39;);
 </code></pre></div>
 <h2 id="configuration-options">Configuration Options</h2>
 <h3 id="matching-syslogs-to-hosts-with-different-names">Matching syslogs to hosts with different names</h3>
