@@ -13,14 +13,14 @@
         <meta name="author" content="LibreNMS">
       
       
-        <link rel="canonical" href="https://docs.librenms.org/Installation/Install-LibreNMS/">
+        <link rel="canonical" href="https://docs.librenms.org/Installation/Installation-Debian-11-Nginx/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
     
     
       
-        <title>Install LibreNMS - LibreNMS Docs</title>
+        <title>Installation Debian 11 Nginx - LibreNMS Docs</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-librenms" class="md-skip">
+        <a href="#install-required-packages" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Install LibreNMS
+              Installation Debian 11 Nginx
             
           </span>
         </div>
@@ -310,14 +310,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         2. Installing
@@ -345,216 +343,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Install LibreNMS
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Install-LibreNMS/" class="md-nav__link">
         Install LibreNMS
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prepare-linux-server" class="md-nav__link">
-    Prepare Linux Server
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-required-packages" class="md-nav__link">
-    Install Required Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-librenms-user" class="md-nav__link">
-    Add librenms user
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#download-librenms" class="md-nav__link">
-    Download LibreNMS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-permissions" class="md-nav__link">
-    Set permissions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-php-dependencies" class="md-nav__link">
-    Install PHP dependencies
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-timezone" class="md-nav__link">
-    Set timezone
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-mariadb" class="md-nav__link">
-    Configure MariaDB
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-php-fpm" class="md-nav__link">
-    Configure PHP-FPM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-web-server" class="md-nav__link">
-    Configure Web Server
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#selinux" class="md-nav__link">
-    SELinux
-  </a>
-  
-    <nav class="md-nav" aria-label="SELinux">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configure-the-contexts-needed-by-librenms" class="md-nav__link">
-    Configure the contexts needed by LibreNMS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#allow-fping" class="md-nav__link">
-    Allow fping
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#allow-access-through-firewall" class="md-nav__link">
-    Allow access through firewall
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-lnms-command-completion" class="md-nav__link">
-    Enable lnms command completion
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-snmpd" class="md-nav__link">
-    Configure snmpd
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cron-job" class="md-nav__link">
-    Cron job
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy-logrotate-config" class="md-nav__link">
-    Copy logrotate config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-installer" class="md-nav__link">
-    Web installer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-steps" class="md-nav__link">
-    Final steps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-the-first-device" class="md-nav__link">
-    Add the first device
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    Troubleshooting
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-next" class="md-nav__link">
-    What next?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#closing" class="md-nav__link">
-    Closing
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2386,188 +2179,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prepare-linux-server" class="md-nav__link">
-    Prepare Linux Server
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-required-packages" class="md-nav__link">
-    Install Required Packages
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-librenms-user" class="md-nav__link">
-    Add librenms user
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#download-librenms" class="md-nav__link">
-    Download LibreNMS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-permissions" class="md-nav__link">
-    Set permissions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-php-dependencies" class="md-nav__link">
-    Install PHP dependencies
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-timezone" class="md-nav__link">
-    Set timezone
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-mariadb" class="md-nav__link">
-    Configure MariaDB
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-php-fpm" class="md-nav__link">
-    Configure PHP-FPM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-web-server" class="md-nav__link">
-    Configure Web Server
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#selinux" class="md-nav__link">
-    SELinux
-  </a>
-  
-    <nav class="md-nav" aria-label="SELinux">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configure-the-contexts-needed-by-librenms" class="md-nav__link">
-    Configure the contexts needed by LibreNMS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#allow-fping" class="md-nav__link">
-    Allow fping
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#allow-access-through-firewall" class="md-nav__link">
-    Allow access through firewall
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-lnms-command-completion" class="md-nav__link">
-    Enable lnms command completion
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-snmpd" class="md-nav__link">
-    Configure snmpd
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cron-job" class="md-nav__link">
-    Cron job
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy-logrotate-config" class="md-nav__link">
-    Copy logrotate config
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#web-installer" class="md-nav__link">
-    Web installer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-steps" class="md-nav__link">
-    Final steps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-the-first-device" class="md-nav__link">
-    Add the first device
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    Troubleshooting
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-next" class="md-nav__link">
-    What next?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#closing" class="md-nav__link">
-    Closing
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2578,137 +2189,47 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Installation/Install-LibreNMS.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/librenms/librenms/edit/master/doc/Installation/Installation-Debian-11-Nginx.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="install-librenms">Install LibreNMS</h1>
-<h2 id="prepare-linux-server">Prepare Linux Server</h2>
-<p>You should have an installed Linux server running one of the supported OS.
-Make sure you select your server's OS in the tabbed options below.
-Choice of web server is your preference, NGINX is recommended.</p>
-<p>Connect to the server command line and follow the instructions below.</p>
-<blockquote>
+                <blockquote>
 <p>NOTE: These instructions assume you are the <strong>root</strong> user.  If you
 are not, prepend <code>sudo</code> to the shell commands (the ones that aren't
 at <code>mysql&gt;</code> prompts) or temporarily become a user with root
 privileges with <code>sudo -s</code> or <code>sudo -i</code>.</p>
 </blockquote>
 <p><strong>Please note the minimum supported PHP version is 7.3</strong></p>
-<h2 id="install-required-packages">Install Required Packages</h2>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Ubuntu 20.04</label><div class="tabbed-content">
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">NGINX</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>apt install software-properties-common
-add-apt-repository universe
-apt update
-apt install acl curl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.4-cli php7.4-curl php7.4-fpm php7.4-gd php7.4-gmp php7.4-json php7.4-mbstring php7.4-mysql php7.4-snmp php7.4-xml php7.4-zip rrdtool snmp snmpd whois unzip python3-pymysql python3-dotenv python3-redis python3-setuptools python3-systemd
+<h1 id="install-required-packages">Install Required Packages</h1>
+<div class="highlight"><pre><span></span><code>apt install acl curl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.4-cli php7.4-curl php7.4-fpm php7.4-gd php7.4-json php7.4-mbstring php7.4-mysql php7.4-snmp php7.4-xml php7.4-zip python-memcache python-mysqldb rrdtool snmp snmpd whois python3-pymysql python3-dotenv python3-redis python3-setuptools
 </code></pre></div>
-</div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Apache</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>apt install software-properties-common
-add-apt-repository universe
-apt update
-apt install acl curl apache2 composer fping git graphviz imagemagick libapache2-mod-fcgid mariadb-client mariadb-server mtr-tiny nmap php7.4-cli php7.4-curl php7.4-fpm php7.4-gd php7.4-gmp php7.4-json php7.4-mbstring php7.4-mysql php7.4-snmp php7.4-xml php7.4-zip rrdtool snmp snmpd whois python3-pymysql python3-dotenv python3-redis python3-setuptools python3-systemd
+<h1 id="add-librenms-user">Add librenms user</h1>
+<div class="highlight"><pre><span></span><code>useradd librenms -d /opt/librenms -M -r
+usermod -a -G librenms www-data
 </code></pre></div>
-</div>
-</div>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">CentOS 8</label><div class="tabbed-content">
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">NGINX</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>dnf -y install epel-release
-dnf module reset php
-dnf module enable php:7.3
-dnf install bash-completion cronie fping git ImageMagick mariadb-server mtr net-snmp net-snmp-utils nginx nmap php-fpm php-cli php-common php-curl php-gd php-gmp php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd python3 python3-PyMySQL python3-redis python3-memcached python3-pip python3-systemd rrdtool unzip
+<h1 id="download-librenms">Download LibreNMS</h1>
+<div class="highlight"><pre><span></span><code> <span class="nb">cd</span> /opt
+ git clone https://github.com/librenms/librenms.git
 </code></pre></div>
-</div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Apache</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>dnf -y install epel-release
-dnf module reset php
-dnf module enable php:7.3
-dnf install bash-completion cronie fping git httpd ImageMagick mariadb-server mtr net-snmp net-snmp-utils nmap php-fpm php-cli php-common php-curl php-gd php-gmp php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd python3 python3-PyMySQL python3-redis python3-memcached python3-pip python3-systemd rrdtool unzip
-</code></pre></div>
-</div>
-</div>
-</div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Debian 11</label><div class="tabbed-content">
-<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">NGINX</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>apt install acl curl composer fping git graphviz imagemagick mariadb-client mariadb-server mtr-tiny nginx-full nmap php7.4-cli php7.4-curl php7.4-fpm php7.4-gd php7.4-gmp php7.4-json php7.4-mbstring php7.4-mysql php7.4-snmp php7.4-xml php7.4-zip python3-dotenv python3-pymysql python3-redis python3-setuptools python3-systemd rrdtool snmp snmpd whois
-</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<h2 id="add-librenms-user">Add librenms user</h2>
-<div class="highlight"><pre><span></span><code>useradd librenms -d /opt/librenms -M -r -s &quot;$(which bash)&quot;
-</code></pre></div>
-<h2 id="download-librenms">Download LibreNMS</h2>
-<div class="highlight"><pre><span></span><code>cd /opt
-git clone https://github.com/librenms/librenms.git
-</code></pre></div>
-<h2 id="set-permissions">Set permissions</h2>
+<h1 id="set-permissions">Set permissions</h1>
 <div class="highlight"><pre><span></span><code>chown -R librenms:librenms /opt/librenms
-chmod 771 /opt/librenms
+chmod <span class="m">770</span> /opt/librenms
 setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 </code></pre></div>
-<h2 id="install-php-dependencies">Install PHP dependencies</h2>
-<p><div class="highlight"><pre><span></span><code>su - librenms
+<h1 id="install-php-dependencies">Install PHP dependencies</h1>
+<div class="highlight"><pre><span></span><code>su - librenms
 ./scripts/composer_wrapper.php install --no-dev
-exit
+<span class="nb">exit</span>
 </code></pre></div>
-Sometime when there is a proxy used to gain internet access, the above script may fail. The workaround is to install the <code>composer</code> package manually. For a global installation:
-<div class="highlight"><pre><span></span><code>wget https://getcomposer.org/composer-stable.phar
-mv composer-stable.phar /usr/bin/composer
-chmod +x /usr/bin/composer
-</code></pre></div></p>
-<h2 id="set-timezone">Set timezone</h2>
-<p>See <a href="https://php.net/manual/en/timezones.php">https://php.net/manual/en/timezones.php</a> for a list of supported
-timezones.  Valid examples are: "America/New_York", "Australia/Brisbane", "Etc/UTC".
-Ensure date.timezone is set in php.ini to your preferred time zone.</p>
-<div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Ubuntu 20.04</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/php/7.4/fpm/php.ini
-vi /etc/php/7.4/cli/php.ini
-</code></pre></div>
-</div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">CentOS 8</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/php.ini
-</code></pre></div>
-</div>
-<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">Debian 11</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/php/7.4/fpm/php.ini
-vi /etc/php/7.4/cli/php.ini
-</code></pre></div>
-</div>
-</div>
-<p>Remember to set the system timezone as well.</p>
-<div class="highlight"><pre><span></span><code>timedatectl set-timezone Etc/UTC
-</code></pre></div>
-<h2 id="configure-mariadb">Configure MariaDB</h2>
-<div class="tabbed-set" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Ubuntu 20.04</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/mysql/mariadb.conf.d/50-server.cnf
-</code></pre></div>
-</div>
-<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">CentOS 8</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/my.cnf.d/mariadb-server.cnf
-</code></pre></div>
-</div>
-<input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><label for="__tabbed_6_3">Debian 11</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/mysql/mariadb.conf.d/50-server.cnf
-</code></pre></div>
-</div>
-</div>
-<p>Within the <code>[mysqld]</code> section add:</p>
-<div class="highlight"><pre><span></span><code>innodb_file_per_table=1
-lower_case_table_names=0
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>systemctl enable mariadb
-systemctl restart mariadb
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>mysql -u root
+<h1 id="db-server">DB Server</h1>
+<h2 id="configure-mysql">Configure MySQL</h2>
+<div class="highlight"><pre><span></span><code>service mysql restart
+mysql -uroot -p
 </code></pre></div>
 <blockquote>
-<p>NOTE: Change the 'password' below to something secure.</p>
+<p>NOTE: Please change the 'password' below to something secure.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">librenms</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="n">utf8mb4</span> <span class="k">COLLATE</span> <span class="n">utf8mb4_unicode_ci</span><span class="p">;</span>
 <span class="k">CREATE</span> <span class="k">USER</span> <span class="s1">&#39;librenms&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;password&#39;</span><span class="p">;</span>
@@ -2716,105 +2237,28 @@ systemctl restart mariadb
 <span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
 <span class="n">exit</span>
 </code></pre></div>
-<h2 id="configure-php-fpm">Configure PHP-FPM</h2>
-<div class="tabbed-set" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Ubuntu 20.04</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>cp /etc/php/7.4/fpm/pool.d/www.conf /etc/php/7.4/fpm/pool.d/librenms.conf
-vi /etc/php/7.4/fpm/pool.d/librenms.conf
+<div class="highlight"><pre><span></span><code>nano /etc/mysql/mariadb.conf.d/50-server.cnf
 </code></pre></div>
-</div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">CentOS 8</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>cp /etc/php-fpm.d/www.conf /etc/php-fpm.d/librenms.conf
-vi /etc/php-fpm.d/librenms.conf
+<p>Within the <code>[mysqld]</code> section please add:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">innodb_file_per_table</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">lower_case_table_names</span><span class="o">=</span><span class="m">0</span>
 </code></pre></div>
-</div>
-<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">Debian 11</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>cp /etc/php/7.4/fpm/pool.d/www.conf /etc/php/7.4/fpm/pool.d/librenms.conf
-vi /etc/php/7.4/fpm/pool.d/librenms.conf
+<div class="highlight"><pre><span></span><code>service mysql restart
 </code></pre></div>
-</div>
-</div>
-<p>Change <code>[www]</code> to <code>[librenms]</code>:
-<div class="highlight"><pre><span></span><code>[librenms]
-</code></pre></div></p>
-<p>Change <code>user</code> and <code>group</code> to "librenms":
-<div class="highlight"><pre><span></span><code>user = librenms
-group = librenms
-</code></pre></div></p>
-<p>Change <code>listen</code> to a unique name:
-<div class="highlight"><pre><span></span><code>listen = /run/php-fpm-librenms.sock
-</code></pre></div></p>
-<p>If there are no other PHP web applications on this server, you may remove www.conf to save some resources.
-Feel free to tune the performance settings in librenms.conf to meet your needs.</p>
-<h2 id="configure-web-server">Configure Web Server</h2>
-<div class="tabbed-set" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Ubuntu 20.04</label><div class="tabbed-content">
-<div class="tabbed-set" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">NGINX</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/nginx/conf.d/librenms.conf
+<h1 id="web-server">Web Server</h1>
+<h2 id="configure-and-start-php-fpm">Configure and Start PHP-FPM</h2>
+<p>Ensure date.timezone is set in php.ini to your preferred time zone.
+See <a href="https://php.net/manual/en/timezones.php">https://php.net/manual/en/timezones.php</a> for a list of supported
+timezones.  Valid examples are: "America/New_York",
+"Australia/Brisbane", "Etc/UTC".</p>
+<div class="highlight"><pre><span></span><code>nano /etc/php/7.4/fpm/php.ini
+nano /etc/php/7.4/cli/php.ini
 </code></pre></div>
-<p>Add the following config, edit <code>server_name</code> as required:</p>
-<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
- <span class="kn">listen</span>      <span class="mi">80</span><span class="p">;</span>
- <span class="kn">server_name</span> <span class="s">librenms.example.com</span><span class="p">;</span>
- <span class="kn">root</span>        <span class="s">/opt/librenms/html</span><span class="p">;</span>
- <span class="kn">index</span>       <span class="s">index.php</span><span class="p">;</span>
-
- <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
- <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
- <span class="kn">gzip_types</span> <span class="s">text/css</span> <span class="s">application/javascript</span> <span class="s">text/javascript</span> <span class="s">application/x-javascript</span> <span class="s">image/svg+xml</span> <span class="s">text/plain</span> <span class="s">text/xsd</span> <span class="s">text/xsl</span> <span class="s">text/xml</span> <span class="s">image/x-icon</span><span class="p">;</span>
- <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-  <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php?</span><span class="nv">$query_string</span><span class="p">;</span>
- <span class="p">}</span>
- <span class="kn">location</span> <span class="p">~</span> <span class="sr">[^/]\.php(/|$)</span> <span class="p">{</span>
-  <span class="kn">fastcgi_pass</span> <span class="s">unix:/run/php-fpm-librenms.sock</span><span class="p">;</span>
-  <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(/.+)</span>$<span class="p">;</span>
-  <span class="kn">include</span> <span class="s">fastcgi.conf</span><span class="p">;</span>
- <span class="p">}</span>
- <span class="kn">location</span> <span class="p">~</span> <span class="sr">/\.(?!well-known).*</span> <span class="p">{</span>
-  <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
- <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>service php7.4-fpm restart
 </code></pre></div>
+<h2 id="configure-nginx">Configure NGINX</h2>
 <div class="highlight"><pre><span></span><code>rm /etc/nginx/sites-enabled/default
-systemctl restart nginx
-systemctl restart php7.4-fpm
-</code></pre></div>
-</div>
-<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">Apache</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/apache2/sites-available/librenms.conf
-</code></pre></div>
-<p>Add the following config, edit <code>ServerName</code> as required:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
-  <span class="nb">DocumentRoot</span> <span class="sx">/opt/librenms/html/</span>
-  <span class="nb">ServerName</span>  librenms.example.com
-
-  <span class="nb">AllowEncodedSlashes</span> NoDecode
-  <span class="nt">&lt;Directory</span> <span class="s">&quot;/opt/librenms/html/&quot;</span><span class="nt">&gt;</span>
-    <span class="nb">Require</span> <span class="k">all</span> granted
-    <span class="nb">AllowOverride</span> <span class="k">All</span>
-    <span class="nb">Options</span> FollowSymLinks MultiViews
-  <span class="nt">&lt;/Directory&gt;</span>
-
-  <span class="c"># Enable http authorization headers</span>
-  <span class="nt">&lt;IfModule</span> <span class="s">setenvif_module</span><span class="nt">&gt;</span>
-    <span class="nb">SetEnvIfNoCase</span> ^Authorization$ <span class="s2">&quot;(.+)&quot;</span> HTTP_AUTHORIZATION=$1
-  <span class="nt">&lt;/IfModule&gt;</span>
-
-  <span class="nt">&lt;FilesMatch</span> <span class="s">&quot;.+\.php$&quot;</span><span class="nt">&gt;</span>
-    <span class="nb">SetHandler</span> <span class="s2">&quot;proxy:unix:/run/php-fpm-librenms.sock|fcgi://localhost&quot;</span>
-  <span class="nt">&lt;/FilesMatch&gt;</span>
-<span class="nt">&lt;/VirtualHost&gt;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>a2dissite <span class="m">000</span>-default
-a2enmod proxy_fcgi setenvif rewrite
-a2ensite librenms.conf
-systemctl restart apache2
-systemctl restart php7.4-fpm
-</code></pre></div>
-</div>
-</div>
-</div>
-<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">CentOS 8</label><div class="tabbed-content">
-<div class="tabbed-set" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">NGINX</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/nginx/conf.d/librenms.conf
+nano /etc/nginx/sites-available/librenms.vhost
 </code></pre></div>
 <p>Add the following config, edit <code>server_name</code> as required:</p>
 <div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
@@ -2826,177 +2270,41 @@ systemctl restart php7.4-fpm
  <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
  <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
  <span class="kn">gzip_types</span> <span class="s">text/css</span> <span class="s">application/javascript</span> <span class="s">text/javascript</span> <span class="s">application/x-javascript</span> <span class="s">image/svg+xml</span> <span class="s">text/plain</span> <span class="s">text/xsd</span> <span class="s">text/xsl</span> <span class="s">text/xml</span> <span class="s">image/x-icon</span><span class="p">;</span>
+
+ <span class="kn">proxy_read_timeout</span> <span class="mi">300</span><span class="p">;</span>
+ <span class="kn">proxy_connect_timeout</span> <span class="mi">300</span><span class="p">;</span>
+ <span class="kn">proxy_send_timeout</span> <span class="mi">300</span><span class="p">;</span>
+
  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
   <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php?</span><span class="nv">$query_string</span><span class="p">;</span>
  <span class="p">}</span>
- <span class="kn">location</span> <span class="p">~</span> <span class="sr">[^/]\.php(/|$)</span> <span class="p">{</span>
-  <span class="kn">fastcgi_pass</span> <span class="s">unix:/run/php-fpm-librenms.sock</span><span class="p">;</span>
-  <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(/.+)</span>$<span class="p">;</span>
-  <span class="kn">include</span> <span class="s">fastcgi.conf</span><span class="p">;</span>
+ <span class="kn">location</span> <span class="s">/api/v0</span> <span class="p">{</span>
+  <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/api_v0.php?</span><span class="nv">$query_string</span><span class="p">;</span>
  <span class="p">}</span>
- <span class="kn">location</span> <span class="p">~</span> <span class="sr">/\.(?!well-known).*</span> <span class="p">{</span>
+ <span class="kn">location</span> <span class="p">~</span> <span class="sr">\.php</span> <span class="p">{</span>
+  <span class="kn">include</span> <span class="s">fastcgi.conf</span><span class="p">;</span>
+  <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(/.+)</span>$<span class="p">;</span>
+  <span class="kn">fastcgi_pass</span> <span class="s">unix:/var/run/php/php7.4-fpm.sock</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="kn">location</span> <span class="p">~</span> <span class="sr">/\.ht</span> <span class="p">{</span>
   <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<blockquote>
-<p>NOTE: If this is the only site you are hosting on this server (it
-should be :)) then you will need to disable the default site.</p>
-</blockquote>
-<p>Delete the <code>server</code> section from <code>/etc/nginx/nginx.conf</code></p>
-<div class="highlight"><pre><span></span><code>systemctl enable --now nginx
-systemctl enable --now php-fpm
+<div class="highlight"><pre><span></span><code>ln -s /etc/nginx/sites-available/librenms.vhost /etc/nginx/sites-enabled/librenms.vhost
+service nginx reload
 </code></pre></div>
-</div>
-<input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><label for="__tabbed_10_2">Apache</label><div class="tabbed-content">
-<p>Create the librenms.conf:</p>
-<div class="highlight"><pre><span></span><code>vi /etc/httpd/conf.d/librenms.conf
-</code></pre></div>
-<p>Add the following config, edit <code>ServerName</code> as required:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
-  <span class="nb">DocumentRoot</span> <span class="sx">/opt/librenms/html/</span>
-  <span class="nb">ServerName</span>  librenms.example.com
-
-  <span class="nb">AllowEncodedSlashes</span> NoDecode
-  <span class="nt">&lt;Directory</span> <span class="s">&quot;/opt/librenms/html/&quot;</span><span class="nt">&gt;</span>
-    <span class="nb">Require</span> <span class="k">all</span> granted
-    <span class="nb">AllowOverride</span> <span class="k">All</span>
-    <span class="nb">Options</span> FollowSymLinks MultiViews
-  <span class="nt">&lt;/Directory&gt;</span>
-
-  <span class="c"># Enable http authorization headers</span>
-  <span class="nt">&lt;IfModule</span> <span class="s">setenvif_module</span><span class="nt">&gt;</span>
-    <span class="nb">SetEnvIfNoCase</span> ^Authorization$ <span class="s2">&quot;(.+)&quot;</span> HTTP_AUTHORIZATION=$1
-  <span class="nt">&lt;/IfModule&gt;</span>
-
-  <span class="nt">&lt;FilesMatch</span> <span class="s">&quot;.+\.php$&quot;</span><span class="nt">&gt;</span>
-    <span class="nb">SetHandler</span> <span class="s2">&quot;proxy:unix:/run/php-fpm-librenms.sock|fcgi://localhost&quot;</span>
-  <span class="nt">&lt;/FilesMatch&gt;</span>
-<span class="nt">&lt;/VirtualHost&gt;</span>
-</code></pre></div>
-<blockquote>
-<p>NOTE: If this is the only site you are hosting on this server (it
-should be :)) then you will need to disable the default site. <code>rm -f /etc/httpd/conf.d/welcome.conf</code></p>
-</blockquote>
-<div class="highlight"><pre><span></span><code>systemctl enable --now httpd
-systemctl enable --now php-fpm
-</code></pre></div>
-</div>
-</div>
-</div>
-<input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><label for="__tabbed_8_3">Debian 11</label><div class="tabbed-content">
-<div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">NGINX</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>vi /etc/nginx/sites-enabled/librenms.vhost
-</code></pre></div>
-<p>Add the following config, edit <code>server_name</code> as required:</p>
-<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
- <span class="kn">listen</span>      <span class="mi">80</span><span class="p">;</span>
- <span class="kn">server_name</span> <span class="s">librenms.example.com</span><span class="p">;</span>
- <span class="kn">root</span>        <span class="s">/opt/librenms/html</span><span class="p">;</span>
- <span class="kn">index</span>       <span class="s">index.php</span><span class="p">;</span>
-
- <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
- <span class="kn">gzip</span> <span class="no">on</span><span class="p">;</span>
- <span class="kn">gzip_types</span> <span class="s">text/css</span> <span class="s">application/javascript</span> <span class="s">text/javascript</span> <span class="s">application/x-javascript</span> <span class="s">image/svg+xml</span> <span class="s">text/plain</span> <span class="s">text/xsd</span> <span class="s">text/xsl</span> <span class="s">text/xml</span> <span class="s">image/x-icon</span><span class="p">;</span>
- <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-  <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php?</span><span class="nv">$query_string</span><span class="p">;</span>
- <span class="p">}</span>
- <span class="kn">location</span> <span class="p">~</span> <span class="sr">[^/]\.php(/|$)</span> <span class="p">{</span>
-  <span class="kn">fastcgi_pass</span> <span class="s">unix:/run/php-fpm-librenms.sock</span><span class="p">;</span>
-  <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(/.+)</span>$<span class="p">;</span>
-  <span class="kn">include</span> <span class="s">fastcgi.conf</span><span class="p">;</span>
- <span class="p">}</span>
- <span class="kn">location</span> <span class="p">~</span> <span class="sr">/\.(?!well-known).*</span> <span class="p">{</span>
-  <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
- <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>rm /etc/nginx/sites-enabled/default
-systemctl reload nginx
-systemctl restart php7.4-fpm
-</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<h2 id="selinux">SELinux</h2>
-<div class="tabbed-set" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">Ubuntu 20.04</label><div class="tabbed-content">
-<p>SELinux not enabled by default</p>
-</div>
-<input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><label for="__tabbed_12_2">CentOS 8</label><div class="tabbed-content">
-<p>Install the policy tool for SELinux:</p>
-<div class="highlight"><pre><span></span><code>dnf install policycoreutils-python-utils
-</code></pre></div>
-<h3 id="configure-the-contexts-needed-by-librenms">Configure the contexts needed by LibreNMS</h3>
-<div class="highlight"><pre><span></span><code>semanage fcontext -a -t httpd_sys_content_t &#39;/opt/librenms/html(/.*)?&#39;
-semanage fcontext -a -t httpd_sys_rw_content_t &#39;/opt/librenms/(logs|rrd|storage)(/.*)?&#39;
-semanage fcontext -a -t bin_t &#39;/opt/librenms/librenms-service.py&#39;
-restorecon -RFvv /opt/librenms
-setsebool -P httpd_can_sendmail=1
-setsebool -P httpd_execmem 1
-chcon -t httpd_sys_rw_content_t /opt/librenms/.env
-</code></pre></div>
-<h3 id="allow-fping">Allow fping</h3>
-<p>Create the file http_fping.tt with the following contents. You can
-create this file anywhere, as it is a throw-away file. The last step
-in this install procedure will install the module in the proper
-location.</p>
-<div class="highlight"><pre><span></span><code>module http_fping 1.0;
-
-require {
-type httpd_t;
-class capability net_raw;
-class rawip_socket { getopt create setopt write read };
-}
-
-#============= httpd_t ==============
-allow httpd_t self:capability net_raw;
-allow httpd_t self:rawip_socket { getopt create setopt write read };
-</code></pre></div>
-<p>Then run these commands</p>
-<div class="highlight"><pre><span></span><code>checkmodule -M -m -o http_fping.mod http_fping.tt
-semodule_package -o http_fping.pp -m http_fping.mod
-semodule -i http_fping.pp
-</code></pre></div>
-<p>Additional SELinux problems may be found by executing the following command</p>
-<div class="highlight"><pre><span></span><code>audit2why &lt; /var/log/audit/audit.log
-</code></pre></div>
-</div>
-<input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><label for="__tabbed_12_3">Debian 11</label><div class="tabbed-content">
-<p>SELinux not enabled by default</p>
-</div>
-</div>
-<h2 id="allow-access-through-firewall">Allow access through firewall</h2>
-<div class="tabbed-set" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">Ubuntu 20.04</label><div class="tabbed-content">
-<p>Firewall not enabled by default</p>
-</div>
-<input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><label for="__tabbed_13_2">CentOS 8</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>firewall-cmd --zone public --add-service http --add-service https
-firewall-cmd --permanent --zone public --add-service http --add-service https
-</code></pre></div>
-</div>
-<input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><label for="__tabbed_13_3">Debian 11</label><div class="tabbed-content">
-<p>Firewall not enabled by default</p>
-</div>
-</div>
-<h2 id="enable-lnms-command-completion">Enable lnms command completion</h2>
-<p>This feature grants you the opportunity to use tab for completion on lnms commands as you would
-for normal linux commands.</p>
-<div class="highlight"><pre><span></span><code>ln -s /opt/librenms/lnms /usr/bin/lnms
-cp /opt/librenms/misc/lnms-completion.bash /etc/bash_completion.d/
-</code></pre></div>
-<h2 id="configure-snmpd">Configure snmpd</h2>
+<h1 id="configure-snmpd">Configure snmpd</h1>
 <div class="highlight"><pre><span></span><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>vi /etc/snmp/snmpd.conf
+chmod <span class="m">600</span> /etc/snmp/snmpd.conf
+nano /etc/snmp/snmpd.conf
 </code></pre></div>
 <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p>
 <div class="highlight"><pre><span></span><code>curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
 chmod +x /usr/bin/distro
-systemctl enable snmpd
-systemctl restart snmpd
+service snmpd restart
 </code></pre></div>
-<h2 id="cron-job">Cron job</h2>
+<h1 id="cron-job">Cron job</h1>
 <div class="highlight"><pre><span></span><code>cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms
 </code></pre></div>
 <blockquote>
@@ -3008,15 +2316,15 @@ created in the upcoming steps. Review the following URL after you
 finished librenms install steps:
 <a href="https://docs.librenms.org/Support/Configuration/#proxy-support">https://docs.librenms.org/Support/Configuration/#proxy-support</a></p>
 </blockquote>
-<h2 id="copy-logrotate-config">Copy logrotate config</h2>
+<h1 id="copy-logrotate-config">Copy logrotate config</h1>
 <p>LibreNMS keeps logs in <code>/opt/librenms/logs</code>. Over time these can
 become large and be rotated out.  To rotate out the old logs you can
 use the provided logrotate config file:</p>
 <div class="highlight"><pre><span></span><code>cp /opt/librenms/misc/librenms.logrotate /etc/logrotate.d/librenms
 </code></pre></div>
-<h2 id="web-installer">Web installer</h2>
+<h1 id="web-installer">Web installer</h1>
 <p>Now head to the web installer and follow the on-screen instructions.</p>
-<p><a href="http://librenms.example.com/install">http://librenms.example.com/install</a></p>
+<p><a href="http://librenms.example.com/install.php">http://librenms.example.com/install.php</a></p>
 <p>The web installer might prompt you to create a <code>config.php</code> file in
 your librenms install location manually, copying the content displayed
 on-screen to the file. If you have to do this, please remember to set
@@ -3024,23 +2332,25 @@ the permissions on config.php after you copied the on-screen contents
 to the file. Run:</p>
 <div class="highlight"><pre><span></span><code>chown librenms:librenms /opt/librenms/config.php
 </code></pre></div>
-<h2 id="final-steps">Final steps</h2>
+<h1 id="final-steps">Final steps</h1>
 <p>That's it!  You now should be able to log in to
 <a href="http://librenms.example.com/">http://librenms.example.com/</a>.  Please note that we have not covered
- HTTPS setup in this example, so your LibreNMS install is not secure
- by default.  Please do not expose it to the public Internet unless
- you have configured HTTPS and taken appropriate web server hardening
- steps.</p>
-<h2 id="add-the-first-device">Add the first device</h2>
-<p>We now suggest that you add localhost as your first device from within the WebUI.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>If you ever have issues with your install, run validate.php:</p>
-<div class="highlight"><pre><span></span><code>sudo su - librenms
+HTTPS setup in this example, so your LibreNMS install is not secure by
+default.  Please do not expose it to the public Internet unless you
+have configured HTTPS and taken appropriate web server hardening
+steps.</p>
+<h1 id="add-the-first-device">Add the first device</h1>
+<p>We now suggest that you add localhost as your first device from within
+the WebUI.</p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p>If you ever have issues with your install, run validate.php as root in
+the librenms directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /opt/librenms
 ./validate.php
 </code></pre></div>
 <p>There are various options for getting help listed on the LibreNMS web
 site: <a href="https://www.librenms.org/#support">https://www.librenms.org/#support</a></p>
-<h2 id="what-next">What next?</h2>
+<h1 id="what-next">What next?</h1>
 <p>Now that you've installed LibreNMS, we'd suggest that you have a read
 of a few other docs to get you going:</p>
 <ul>
@@ -3049,7 +2359,7 @@ of a few other docs to get you going:</p>
 <li><a href="../../Extensions/Device-Groups/">Device Groups</a></li>
 <li><a href="../../Extensions/Auto-Discovery/">Auto discovery</a></li>
 </ul>
-<h2 id="closing">Closing</h2>
+<h1 id="closing">Closing</h1>
 <p>We hope you enjoy using LibreNMS. If you do, it would be great if you
 would consider opting into the stats system we have, please see <a href="../../General/Callback-Stats-and-Privacy/">this
 page</a> on
@@ -3074,39 +2384,6 @@ can also <a href="https://t.libren.ms/donations">back LibreNMS on Open Collectiv
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              How to install LibreNMS
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../Images/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              LibreNMS VMs
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
