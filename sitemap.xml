@@ -515,5 +515,9 @@
      <loc>https://docs.librenms.org/Support/Device-Notes/Openwrt/</loc>
      <lastmod>2021-10-26</lastmod>
      <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.librenms.org/Support/Device-Notes/Routeros/</loc>
+     <lastmod>2021-10-26</lastmod>
+     <changefreq>daily</changefreq>
     </url>
 </urlset>
