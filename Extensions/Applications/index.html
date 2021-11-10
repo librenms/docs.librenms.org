@@ -5852,6 +5852,9 @@ so you need to also include the line <code>$chk_options['slave'] = false;</code>
 </code></pre></div></p>
 </li>
 <li>
+<p>Edit /etc/snmp/mysql to set your MySQL connection constants or declare them in /etc/snmp/mysql.cnf (new file)</p>
+</li>
+<li>
 <p>Edit your snmpd.conf file and add:
 <div class="highlight"><pre><span></span><code>extend mysql /etc/snmp/mysql
 </code></pre></div></p>
