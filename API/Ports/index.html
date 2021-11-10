@@ -1263,6 +1263,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#get_port_info" class="md-nav__link">
+    get_port_info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_port_ip_info" class="md-nav__link">
     get_port_ip_info
   </a>
@@ -2288,6 +2295,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#get_port_info" class="md-nav__link">
+    get_port_info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get_port_ip_info" class="md-nav__link">
     get_port_ip_info
   </a>
@@ -2512,24 +2526,17 @@ curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/por
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span>
-
-
-<span class="err">###</span> <span class="err">`ge</span><span class="kc">t</span><span class="err">_por</span><span class="kc">t</span><span class="err">_i</span><span class="kc">nf</span><span class="err">o`</span>
-
-<span class="err">Ge</span><span class="kc">t</span> <span class="err">all</span> <span class="err">i</span><span class="kc">nf</span><span class="err">o</span> <span class="kc">f</span><span class="err">or</span> <span class="err">a</span> <span class="err">par</span><span class="kc">t</span><span class="err">icular</span> <span class="err">por</span><span class="kc">t</span><span class="err">.</span>
-
-<span class="err">Rou</span><span class="kc">te</span><span class="p">:</span> <span class="err">`/api/v</span><span class="mi">0</span><span class="err">/por</span><span class="kc">ts</span><span class="err">/</span><span class="p">:</span><span class="err">por</span><span class="kc">t</span><span class="err">id`</span>
-
-<span class="mi">-</span> <span class="err">por</span><span class="kc">t</span><span class="err">id</span> <span class="err">mus</span><span class="kc">t</span> <span class="err">be</span> <span class="err">a</span><span class="kc">n</span> <span class="err">i</span><span class="kc">nte</span><span class="err">ger</span>
-
-<span class="err">I</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="p">:</span>
-
-  <span class="mi">-</span>
-
-<span class="err">Example</span><span class="p">:</span>
-
-<span class="err">```curl</span>
-<span class="err">curl</span> <span class="mi">-</span><span class="err">H</span> <span class="err">&#39;X</span><span class="mi">-</span><span class="err">Au</span><span class="kc">t</span><span class="err">h</span><span class="mi">-</span><span class="err">Toke</span><span class="kc">n</span><span class="p">:</span> <span class="err">YOURAPITOKENHERE&#39;</span> <span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="err">//libre</span><span class="kc">n</span><span class="err">ms.org/api/v</span><span class="mi">0</span><span class="err">/por</span><span class="kc">ts</span><span class="err">/</span><span class="mi">323</span>
+</code></pre></div>
+<h3 id="get_port_info"><code>get_port_info</code></h3>
+<p>Get all info for a particular port.</p>
+<p>Route: <code>/api/v0/ports/:portid</code></p>
+<ul>
+<li>portid must be an integer</li>
+</ul>
+<p>Input:</p>
+<p>-</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/323
 </code></pre></div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
