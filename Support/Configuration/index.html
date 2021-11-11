@@ -3164,6 +3164,7 @@ lnms config:set fping6 fping6
 lnms config:set fping_options.timeout <span class="m">500</span>
 lnms config:set fping_options.count <span class="m">3</span>
 lnms config:set fping_options.interval <span class="m">500</span>
+lnms config:set fping_options.tos <span class="m">184</span>
 </code></pre></div>
 <p><code>fping</code> configuration options:</p>
 <ul>
@@ -3174,6 +3175,7 @@ lnms config:set fping_options.interval <span class="m">500</span>
   to each target.</li>
 <li><code>interval</code> (<code>fping</code> parameter <code>-p</code>): Time in milliseconds that fping
   waits between successive packets to an individual target.</li>
+<li><code>tos</code> (<code>fping</code>parameter <code>-O</code>): Set the type of service flag (TOS). Value can be either decimal or hexadecimal (0xh) format. Can be used to ensure that ping packets are queued in following QOS mecanisms in the network. Table is accessible in the <a href="https://en.wikipedia.org/wiki/Type_of_service">TOS Wikipedia page</a>.</li>
 </ul>
 <blockquote>
 <p>NOTE: Setting a higher timeout value than the interval value can
