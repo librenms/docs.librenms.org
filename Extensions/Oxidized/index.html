@@ -2389,7 +2389,9 @@ Settings in the External Settings section of Global Settings. Enable
 it and enter the url to your oxidized instance.</p>
 <p>To have devices automatically added, you will need to configure
 oxidized to pull them from LibreNMS <a href="#feeding-oxidized">Feeding
-Oxidized</a></p>
+Oxidized</a> Note: this means devices will be controlled by
+the LibreNMS API, and not router.db, passwords will still need to be in the
+oxidized config file.</p>
 <p>LibreNMS will automatically map the OS to the Oxidized model name if
 they don't match. this means you shouldn't need to use the model_map
 config option within Oxidized.</p>
