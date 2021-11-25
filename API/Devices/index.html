@@ -1448,6 +1448,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#list_parents_of_host" class="md-nav__link">
+    list_parents_of_host
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2700,6 +2707,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#list_parents_of_host" class="md-nav__link">
+    list_parents_of_host
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3529,6 +3543,7 @@ as you wish and submit it back to edit components.</p>
 <li>ipv6: search by IPv6 address (compressed or uncompressed)</li>
 <li>location: search by location</li>
 <li>hostname: search by hostname</li>
+<li>device_id: exact match by device-id</li>
 <li>query: If searching by, then this will be used as the input.</li>
 </ul>
 <p>Example:</p>
@@ -3815,6 +3830,26 @@ they don't match.</p>
     <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;All device dependencies have been removed&quot;</span>
 <span class="p">}</span>
 </code></pre></div></p>
+<h3 id="list_parents_of_host"><code>list_parents_of_host</code></h3>
+<p>This is not a seperate API call.  Instead, you obtain the list of parents
+from <code>list_devices</code>.  See that entry point for more detailed information.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; &#39;http://librenms.org/api/v0/devices?type=device_id&amp;query=34&#39;
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="err">...</span>
+            <span class="nt">&quot;dependency_parent_id&quot;</span><span class="p">:</span> <span class="s2">&quot;98,99&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;dependency_parent_hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;HOSTNAME1,HOSTNAME2&quot;</span><span class="p">,</span>
+            <span class="err">...</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
                 
                   
                 
