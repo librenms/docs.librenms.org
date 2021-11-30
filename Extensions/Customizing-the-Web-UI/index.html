@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#customizing-the-web-ui" class="md-skip">
           Skip to content
         </a>
       
@@ -877,9 +877,65 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Customizing the Web UI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Customizing the Web UI
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#custom-menu-entry" class="md-nav__link">
+    Custom menu entry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-device-menu-action" class="md-nav__link">
+    Custom device menu action
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom device menu action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launching-windows-programs-from-the-librenms-device-menu" class="md-nav__link">
+    Launching Windows programs from the LibreNMS device menu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-the-primary-device-menu-action" class="md-nav__link">
+    Setting the primary device menu action
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2202,6 +2258,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#custom-menu-entry" class="md-nav__link">
+    Custom menu entry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-device-menu-action" class="md-nav__link">
+    Custom device menu action
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom device menu action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launching-windows-programs-from-the-librenms-device-menu" class="md-nav__link">
+    Launching Windows programs from the LibreNMS device menu
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-the-primary-device-menu-action" class="md-nav__link">
+    Setting the primary device menu action
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2217,10 +2315,159 @@
                   </a>
                 
                 
-                <h1 id="macro-syntax-error"><em>Macro Syntax Error</em></h1>
-<p><em>Line 64 in Markdown file:</em> <strong>expected token 'end of print statement', got '='</strong> 
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;URL Protocol&quot;</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-</code></pre></div></p>
+                <h1 id="customizing-the-web-ui">Customizing the Web UI</h1>
+<h2 id="custom-menu-entry">Custom menu entry</h2>
+<p>Create the file <code>resources/views/menu/custom.blade.php</code></p>
+<p>Example contents:</p>
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;dropdown&quot;&gt;
+    &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-hover=&quot;dropdown&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;fa fa-star fa-fw fa-lg fa-nav-icons hidden-md&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;hidden-sm&quot;&gt;Custom Menu&lt;/span&gt;&lt;/a&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        @admin
+            &lt;li&gt;&lt;a href=&quot;plugins/Weathermap/output/history/index.html&quot;&gt;&lt;i class=&quot;fa fa-film fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Weathermap Animation&lt;/a&gt;&lt;/li&gt;
+            &lt;li role=&quot;presentation&quot; class=&quot;divider&quot;&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-database fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-smile-o fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-anchor fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-plug fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-code-fork fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 5&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-truck fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 63&lt;/a&gt;&lt;/li&gt;
+        @else
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;You need admin rights to see this&lt;/a&gt;&lt;/li&gt;
+        @endadmin
+    &lt;/ul&gt;
+&lt;/li&gt;
+</code></pre></div>
+<h2 id="custom-device-menu-action">Custom device menu action</h2>
+<p>You can add custom external links in the menu on the device page.</p>
+<p>This feature allows you to easily link applications to related
+systems, as shown in the example of Open-audIT.</p>
+<p>The url value is parsed by the <a href="https://laravel.com/docs/blade">Laravel Blade</a> templating engine. You
+can access device variables such as <code>$device-&gt;hostname</code>, <code>$device-&gt;sysName</code> and use full PHP.</p>
+<div class="admonition setting">
+<p class="admonition-title">settings/webui/device</p>
+<div class="highlight"><pre><span></span><code>lnms config:set html.device.links.+ <span class="s1">&#39;{&quot;url&quot;: &quot;http://atssrv/open-audit/index/devices/{{ $device-&gt;sysName }}&quot;, &quot;title&quot;: &quot;Open-AudIT&quot;}&#39;</span>
+</code></pre></div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>Url blade template resulting in valid url. Required.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>Title text displayed in the menu. Required.</td>
+</tr>
+<tr>
+<td>icon</td>
+<td><a href="https://fontawesome.com/v4.7/icons/">Font Awesome icon</a> class. Default: fa-external-link</td>
+</tr>
+<tr>
+<td>external</td>
+<td>Open link in new window. Default: true</td>
+</tr>
+<tr>
+<td>action</td>
+<td>Show as action on device list. Default: false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="launching-windows-programs-from-the-librenms-device-menu">Launching Windows programs from the LibreNMS device menu</h3>
+<p>You can launch windows programs from links in LibreNMS, but it does take
+some registry entries on the client device. Save the following as winbox.reg, 
+edit for your winbox.exe path and double click to add to your registry.</p>
+<div class="highlight"><pre><span></span><code>Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\winbox]
+@=&quot;URL:Winbox Protocol&quot;
+&quot;URL Protocol&quot;=&quot;&quot;
+[HKEY_CLASSES_ROOT\winbox\shell]
+[HKEY_CLASSES_ROOT\winbox\shell\open]
+[HKEY_CLASSES_ROOT\winbox\shell\open\command]
+@=&quot;C:\Windows\System32\WindowsPowerShell1.0\powershell.exe -Command &quot;$val=&#39;%l&#39;; $val = $val.TrimEnd(&#39;/&#39;);if ($val.StartsWith(&#39;winbox://&#39; { $val = $val.SubString(9) }; &amp; &#39;C:\Program Files\winbox64.exe&#39; &quot;$val&quot;&quot;&quot;
+</code></pre></div>
+<p>Now we can use that in the device menu entry to open winbox.</p>
+<div class="admonition setting">
+<p class="admonition-title">settings/webui/device</p>
+<div class="highlight"><pre><span></span><code>lnms config:set html.device.links.+ <span class="s1">&#39;{&quot;url&quot;: &quot;winbox://{{ $device-&gt;hostname }}&quot;, &quot;title&quot;: &quot;Winbox&quot;}&#39;</span>
+</code></pre></div>
+</div>
+<h2 id="setting-the-primary-device-menu-action">Setting the primary device menu action</h2>
+<p>You can change the icon that is clickable in the device without having to open the dropdown menu.
+The primary button is edit device by default.</p>
+<div class="admonition setting">
+<p class="admonition-title">settings/webui/device</p>
+<div class="highlight"><pre><span></span><code>lnms config:set html.device.primary_link web
+</code></pre></div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>edit</td>
+<td>Edit device</td>
+</tr>
+<tr>
+<td>web</td>
+<td>Connect to the device via https/http</td>
+</tr>
+<tr>
+<td>ssh</td>
+<td>launch ssh:// protocol to the device, make sure you have a handler registered</td>
+</tr>
+<tr>
+<td>telnet</td>
+<td>launch telnet:// protocol to the device</td>
+</tr>
+<tr>
+<td>capture</td>
+<td>Link to the device capture page</td>
+</tr>
+<tr>
+<td>custom1</td>
+<td>Custom Link 1</td>
+</tr>
+<tr>
+<td>custom2</td>
+<td>Custom Link 2</td>
+</tr>
+<tr>
+<td>custom3</td>
+<td>Custom Link 3</td>
+</tr>
+<tr>
+<td>custom4</td>
+<td>Custom Link 4</td>
+</tr>
+<tr>
+<td>custom5</td>
+<td>Custom Link 5</td>
+</tr>
+<tr>
+<td>custom6</td>
+<td>Custom Link 6</td>
+</tr>
+<tr>
+<td>custom7</td>
+<td>Custom Link 7</td>
+</tr>
+<tr>
+<td>custom8</td>
+<td>Custom Link 8</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
