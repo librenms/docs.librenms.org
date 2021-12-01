@@ -5290,6 +5290,11 @@ Extend</code> heading top of page.</p>
 </code></pre></div></p>
 </li>
 <li>
+<p>If your run Debian, you need to add the Debian-snmp user to the docker group
+<div class="highlight"><pre><span></span><code>usermod -a -G docker Debian-snmp
+</code></pre></div></p>
+</li>
+<li>
 <p>Restart snmpd on your host
 <div class="highlight"><pre><span></span><code>systemctl restart snmpd
 </code></pre></div></p>
