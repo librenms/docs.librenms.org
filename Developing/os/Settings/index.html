@@ -2477,6 +2477,12 @@ the more efficient snmpbulkwalk. To disable snmpbulkwalk and only use
 snmpwalk for an OS set the following.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">snmp_bulk</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
+<p>If only some specific OIDs fail with snmpbulkwalk. You can disable just those OIDs.
+This needs to match exactly the OID being walked by LibreNMS. MIB::oid is preferred to prevent name collisions.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">oids</span><span class="p">:</span>
+    <span class="nt">no_bulk</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">UCD-SNMP-MIB::laLoadInt</span>
+</code></pre></div>
 <h4 id="limit-the-oids-per-snmpget">Limit the oids per snmpget</h4>
 <div class="highlight"><pre><span></span><code><span class="nt">snmp_max_oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
 </code></pre></div>
