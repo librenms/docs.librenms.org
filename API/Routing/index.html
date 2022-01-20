@@ -1366,6 +1366,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#list_mpls_services" class="md-nav__link">
+    list_mpls_services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_mpls_saps" class="md-nav__link">
+    list_mpls_saps
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2392,6 +2406,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#list_mpls_services" class="md-nav__link">
+    list_mpls_services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list_mpls_saps" class="md-nav__link">
+    list_mpls_saps
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2794,6 +2822,84 @@ curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/rou
             <span class="nt">&quot;mplsVpnVrfDescription&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
             <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span>
         <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="list_mpls_services"><code>list_mpls_services</code></h3>
+<p>List MPLS services</p>
+<p>Route: <code>/api/v0/routing/mpls/services</code></p>
+<p>Input:</p>
+<ul>
+<li>hostname = Either the devices hostname or id</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/routing/mpls/services
+curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/routing/mpls/services?hostname=host.example.com
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;mpls_services&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;svc_id&quot;</span><span class="p">:</span> <span class="mi">1671</span><span class="p">,</span>
+            <span class="nt">&quot;svc_oid&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+            <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="nt">&quot;svcRowStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;svcType&quot;</span><span class="p">:</span> <span class="s2">&quot;tls&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;svcCustId&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;svcAdminStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;svcOperStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;svcDescription&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;svcMtu&quot;</span><span class="p">:</span> <span class="mi">9008</span><span class="p">,</span>
+            <span class="nt">&quot;svcNumSaps&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;svcNumSdps&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;svcLastMgmtChange&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nt">&quot;svcLastStatusChange&quot;</span><span class="p">:</span> <span class="mi">168</span><span class="p">,</span>
+            <span class="nt">&quot;svcVRouterId&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;svcTlsMacLearning&quot;</span><span class="p">:</span> <span class="s2">&quot;enabled&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;svcTlsStpAdminStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;disabled&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;svcTlsStpOperStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;svcTlsFdbTableSize&quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span>
+            <span class="nt">&quot;svcTlsFdbNumEntries&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;host.example.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="list_mpls_saps"><code>list_mpls_saps</code></h3>
+<p>List MPLS SAPs</p>
+<p>Route: <code>/api/v0/routing/mpls/saps</code></p>
+<p>Input:</p>
+<ul>
+<li>hostname = Either the devices hostname or id</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/routing/mpls/saps
+curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/routing/mpls/saps?hostname=host.example.com
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;saps&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;sap_id&quot;</span><span class="p">:</span> <span class="mi">1935</span><span class="p">,</span>
+            <span class="nt">&quot;svc_id&quot;</span><span class="p">:</span> <span class="mi">1660</span><span class="p">,</span>
+            <span class="nt">&quot;svc_oid&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="nt">&quot;sapPortId&quot;</span><span class="p">:</span> <span class="mi">16108921125</span><span class="p">,</span>
+            <span class="nt">&quot;ifName&quot;</span><span class="p">:</span> <span class="s2">&quot;1/1/c2/1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;device_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="nt">&quot;sapEncapValue&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sapRowStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sapType&quot;</span><span class="p">:</span> <span class="s2">&quot;epipe&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sapDescription&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sapAdminStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sapOperStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sapLastMgmtChange&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nt">&quot;sapLastStatusChange&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;hostname=host.example.com&quot;</span>
+         <span class="p">}</span>
     <span class="p">],</span>
     <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
