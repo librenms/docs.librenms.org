@@ -2468,7 +2468,14 @@ is the preferred method for detection.  Other options are available:</p>
 <li><code>sysDescr_regex</code> Please avoid use of this. Checks if the sysDescr
   matches one of the regex statements under this item</li>
 <li><code>snmpget</code> Do not use this unless none of the other methods
-  work. Fetch an oid and compare it against a value.</li>
+  work. Fetch an oid and compare it against a value.
+<div class="highlight"><pre><span></span><code><span class="nt">discovery</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span>
+      <span class="nt">snmpget</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">oid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;someoid&gt;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;[&quot;=&quot;,&quot;!=&quot;,&quot;==&quot;,&quot;!==&quot;,&quot;&lt;=&quot;,&quot;&gt;=&quot;,&quot;&lt;&quot;,&quot;&gt;&quot;,&quot;starts&quot;,&quot;ends&quot;,&quot;contains&quot;,&quot;regex&quot;,&quot;not_starts&quot;,&quot;not_ends&quot;,&quot;not_contains&quot;,&quot;not_regex&quot;,&quot;in_array&quot;,&quot;not_in_array&quot;,&quot;exists&quot;]&gt;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;&#39;string&#39; | boolean&gt;</span>
+</code></pre></div></li>
 <li><code>_except</code> You can add this to any of the above to exclude that
   element. As an example:</li>
 </ul>
