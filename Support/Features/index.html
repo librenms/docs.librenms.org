@@ -9,14 +9,13 @@
         <meta name="description" content="LibreNMS user and developer documentation">
       
       
-      
         <meta name="author" content="LibreNMS">
       
       
         <link rel="canonical" href="https://docs.librenms.org/Support/Features/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
     
     
       
@@ -24,10 +23,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
         
       
     
@@ -37,21 +40,32 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css">
     
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css">
     
       <link rel="stylesheet" href="../../librenms.css">
     
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","docs.librenms.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-79149977-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
     
     
   </head>
@@ -62,10 +76,9 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -82,7 +95,10 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+    
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="LibreNMS Docs" class="md-header__button md-logo" aria-label="LibreNMS Docs" data-md-component="logo">
       
@@ -114,19 +130,22 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -143,8 +162,7 @@
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -156,11 +174,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -185,8 +206,7 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/librenms/librenms/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -205,6 +225,36 @@
 
   
   
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          General
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          General
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
@@ -213,70 +263,10 @@
     </li>
   
 
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      <label class="md-nav__link" for="__nav_2">
-        1. General
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="1. General" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          1. General
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../General/Acknowledgement/" class="md-nav__link">
-        Acknowledgements
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../General/Changelog/" class="md-nav__link">
-        Changelog
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../General/CODE_OF_CONDUCT/" class="md-nav__link">
-        Code of Conduct
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
     
@@ -285,6 +275,7 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
       
         
       
@@ -299,7 +290,9 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -312,9 +305,197 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vendors" class="md-nav__link">
-    Vendors
+  <a href="#supported-vendors" class="md-nav__link">
+    Supported Vendors
   </a>
+  
+    <nav class="md-nav" aria-label="Supported Vendors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    A
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    B
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e" class="md-nav__link">
+    E
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    F
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g" class="md-nav__link">
+    G
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h" class="md-nav__link">
+    H
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    I
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j" class="md-nav__link">
+    J
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    K
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l" class="md-nav__link">
+    L
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m" class="md-nav__link">
+    M
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    N
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o" class="md-nav__link">
+    O
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p" class="md-nav__link">
+    P
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    Q
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    R
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    S
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t" class="md-nav__link">
+    T
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#u" class="md-nav__link">
+    U
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    V
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w" class="md-nav__link">
+    W
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    X
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#z" class="md-nav__link">
+    Z
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -325,8 +506,24 @@
     </li>
   
 
+            
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../General/Changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
@@ -337,6 +534,21 @@
     </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../General/Acknowledgement/" class="md-nav__link">
+        3rd Party Libraries
+      </a>
+    </li>
+  
+
+            
           
         </ul>
       </nav>
@@ -352,80 +564,44 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
-      <label class="md-nav__link" for="__nav_3">
-        2. Installing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="2. Installing" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Installing
           <span class="md-nav__icon md-icon"></span>
-          2. Installing
+        </label>
+      
+      <nav class="md-nav" aria-label="Installing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Installing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Installation/" class="md-nav__link">
-        How to install LibreNMS
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
     <li class="md-nav__item">
       <a href="../../Installation/Install-LibreNMS/" class="md-nav__link">
-        Install LibreNMS
+        Installing LibreNMS
       </a>
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Installation/Images/" class="md-nav__link">
-        LibreNMS VMs
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Installation/Migrating-from-Observium/" class="md-nav__link">
-        Migrating from Observium
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
+              
   
   
   
@@ -433,20 +609,191 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
       
-      <label class="md-nav__link" for="__nav_4">
-        3. Getting started
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="3. Getting started" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Other Methods
           <span class="md-nav__icon md-icon"></span>
-          3. Getting started
+        </label>
+      
+      <nav class="md-nav" aria-label="Other Methods" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Other Methods
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Images/" class="md-nav__link">
+        Virtual machines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          Older guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Older guides" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Older guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Installation-CentOS-6-Apache-Nginx/" class="md-nav__link">
+        RHEL / CentOS 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Installation-CentOS-7-Apache/" class="md-nav__link">
+        RHEL / CentOS 7 - Apache
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Installation-CentOS-7-Nginx/" class="md-nav__link">
+        RHEL / CentOS 7 - Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Installation-Ubuntu-1604-Apache/" class="md-nav__link">
+        Ubuntu 16.04 - Apache
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Installation-Ubuntu-1604-Nginx/" class="md-nav__link">
+        Ubuntu 16.04 - Nginx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Installation-Ubuntu-1804-Apache/" class="md-nav__link">
+        Ubuntu 18.04 - Apache
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Installation-Ubuntu-1804-Nginx/" class="md-nav__link">
+        Ubuntu 18.04 - Nginx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
@@ -457,8 +804,60 @@
     </li>
   
 
+            
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../General/Updating/" class="md-nav__link">
+        Updating
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Getting started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Getting started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
@@ -469,8 +868,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -481,8 +882,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -493,18 +896,21 @@
     </li>
   
 
+            
           
             
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../General/Updating/" class="md-nav__link">
-        Updating an install
+      <a href="../../Installation/Migrating-from-Observium/" class="md-nav__link">
+        Migrating from Observium
       </a>
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -520,23 +926,30 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="__nav_5">
-        4. Basic Setup
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="4. Basic Setup" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Setup
           <span class="md-nav__icon md-icon"></span>
-          4. Basic Setup
+        </label>
+      
+      <nav class="md-nav" aria-label="Setup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Setup
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -547,20 +960,10 @@
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Agent-Setup/" class="md-nav__link">
-        Check_MK Setup
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -571,68 +974,24 @@
     </li>
   
 
+            
           
             
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../Extensions/Dell-OpenManage/" class="md-nav__link">
-        Dell OpenManage
+      <a href="../../Extensions/Agent-Setup/" class="md-nav__link">
+        Check_MK Setup
       </a>
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/World-Map/" class="md-nav__link">
-        World Map
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Interface-Description-Parsing/" class="md-nav__link">
-        Interface Description Parsing
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Network-Map/" class="md-nav__link">
-        Network Map
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Syslog/" class="md-nav__link">
-        Syslog
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -643,29 +1002,66 @@
     </li>
   
 
+            
           
             
+              
   
   
   
     <li class="md-nav__item">
-      <a href="../../Extensions/Supermicro/" class="md-nav__link">
-        Supermicro
+      <a href="../../Extensions/Interface-Description-Parsing/" class="md-nav__link">
+        Interface Description Parsing
       </a>
     </li>
   
 
+            
           
-        </ul>
-      </nav>
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Network-Map/" class="md-nav__link">
+        Network Map
+      </a>
     </li>
   
 
-    
-      
-      
-      
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Syslog/" class="md-nav__link">
+        Syslog
+      </a>
+    </li>
+  
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/World-Map/" class="md-nav__link">
+        World Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
@@ -673,20 +1069,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" type="checkbox" id="__nav_4_9" >
       
-      <label class="md-nav__link" for="__nav_6">
-        5. Advanced Setup
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="5. Advanced Setup" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_9">
+          Advanced Setup
           <span class="md-nav__icon md-icon"></span>
-          5. Advanced Setup
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced Setup" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_9">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced Setup
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -697,44 +1098,10 @@
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Fast-Ping-Check/" class="md-nav__link">
-        Fast Ping Checking
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Environment-Variables/" class="md-nav__link">
-        Environment Variables
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Configuration/" class="md-nav__link">
-        Configuration Docs
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -745,20 +1112,10 @@
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Two-Factor-Auth/" class="md-nav__link">
-        Two-Factor Auth
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -769,152 +1126,10 @@
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Distributed-Poller/" class="md-nav__link">
-        Scaling LibreNMS
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/RRDCached/" class="md-nav__link">
-        RRDCached
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Galera-Cluster/" class="md-nav__link">
-        Galera Database Cluster
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Sub-Directory/" class="md-nav__link">
-        Sub-directory Support
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Varnish/" class="md-nav__link">
-        Varnish
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Dispatcher-Service/" class="md-nav__link">
-        Dispatcher Service (RC)
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/RRDTune/" class="md-nav__link">
-        RRDTune
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/IRC-Bot/" class="md-nav__link">
-        IRC Bot
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/IRC-Bot-Extensions/" class="md-nav__link">
-        IRC Bot Extensions
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/SNMP-Proxy/" class="md-nav__link">
-        SNMP Proxy
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/SNMP-Trap-Handler/" class="md-nav__link">
-        SNMP Trap Handler
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Customizing-the-Web-UI/" class="md-nav__link">
-        Customizing the Web UI
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -925,8 +1140,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -937,6 +1154,238 @@
     </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Configuration/" class="md-nav__link">
+        Configuration Docs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Customizing-the-Web-UI/" class="md-nav__link">
+        Customizing the Web UI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Dispatcher-Service/" class="md-nav__link">
+        Dispatcher Service (RC)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment-Variables/" class="md-nav__link">
+        Environment Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Fast-Ping-Check/" class="md-nav__link">
+        Fast Ping Checking
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Galera-Cluster/" class="md-nav__link">
+        Galera Database Cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/IRC-Bot-Extensions/" class="md-nav__link">
+        IRC Bot Extensions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/IRC-Bot/" class="md-nav__link">
+        IRC Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/RRDCached/" class="md-nav__link">
+        RRDCached
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/RRDTune/" class="md-nav__link">
+        RRDTune
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Distributed-Poller/" class="md-nav__link">
+        Scaling LibreNMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/SNMP-Proxy/" class="md-nav__link">
+        SNMP Proxy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/SNMP-Trap-Handler/" class="md-nav__link">
+        SNMP Trap Handler
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Sub-Directory/" class="md-nav__link">
+        Sub-directory Support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Two-Factor-Auth/" class="md-nav__link">
+        Two-Factor Auth
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Varnish/" class="md-nav__link">
+        Varnish
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
           
         </ul>
       </nav>
@@ -952,506 +1401,70 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_7">
-        6. 3rd Party Integration
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="6. 3rd Party Integration" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Alerting
           <span class="md-nav__icon md-icon"></span>
-          6. 3rd Party Integration
+        </label>
+      
+      <nav class="md-nav" aria-label="Alerting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Alerting
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Gateone/" class="md-nav__link">
-        Gateone
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Graylog/" class="md-nav__link">
-        Graylog
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Services/" class="md-nav__link">
-        Nagios Plugins
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/NFSen/" class="md-nav__link">
-        NFSen
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Oxidized/" class="md-nav__link">
-        Oxidized
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Rancid/" class="md-nav__link">
-        Rancid
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/PeeringDB/" class="md-nav__link">
-        PeeringDB
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Proxmox/" class="md-nav__link">
-        Proxmox
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_9" type="checkbox" id="__nav_7_9" >
-      
-      <label class="md-nav__link" for="__nav_7_9">
-        Storing Metrics
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Storing Metrics" data-md-level="2">
-        <label class="md-nav__title" for="__nav_7_9">
-          <span class="md-nav__icon md-icon"></span>
-          Storing Metrics
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Metric-Storage/" class="md-nav__link">
-        Intro
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/metrics/Graphite/" class="md-nav__link">
-        Graphite
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/metrics/InfluxDB/" class="md-nav__link">
-        InfluxDB
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/metrics/OpenTSDB/" class="md-nav__link">
-        OpenTSDB
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/metrics/Prometheus/" class="md-nav__link">
-        Prometheus
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Smokeping/" class="md-nav__link">
-        Smokeping
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Extensions/Weathermap/" class="md-nav__link">
-        Weathermap
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      <label class="md-nav__link" for="__nav_8">
-        7. API
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="7. API" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          7. API
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/" class="md-nav__link">
-        Using the API
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Devices/" class="md-nav__link">
-        Devices
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/DeviceGroups/" class="md-nav__link">
-        DeviceGroups
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Ports/" class="md-nav__link">
-        Ports
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/PortGroups/" class="md-nav__link">
-        PortGroups
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Port_Groups/" class="md-nav__link">
-        Port_Groups
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Alerts/" class="md-nav__link">
-        Alerts
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Routing/" class="md-nav__link">
-        Routing
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Switching/" class="md-nav__link">
-        Switching
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Inventory/" class="md-nav__link">
-        Inventory
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Bills/" class="md-nav__link">
-        Bills
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/ARP/" class="md-nav__link">
-        ARP
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Services/" class="md-nav__link">
-        Services
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/System/" class="md-nav__link">
-        System
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Logs/" class="md-nav__link">
-        Logs
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../API/Locations/" class="md-nav__link">
-        Locations
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
-      
-      <label class="md-nav__link" for="__nav_9">
-        8. Alerting
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="8. Alerting" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
-          <span class="md-nav__icon md-icon"></span>
-          8. Alerting
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
+              
   
   
   
     <li class="md-nav__item">
       <a href="../../Alerting/" class="md-nav__link">
-        Intro
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Alerting/Introduction/" class="md-nav__link">
         Introduction
       </a>
     </li>
   
 
+            
           
             
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setup" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
@@ -1462,8 +1475,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1474,8 +1489,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1486,8 +1503,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1498,8 +1517,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1510,8 +1531,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1522,8 +1545,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1534,8 +1559,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1546,6 +1573,14 @@
     </li>
   
 
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
           
         </ul>
       </nav>
@@ -1561,23 +1596,635 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
-      <label class="md-nav__link" for="__nav_10">
-        9. Getting help
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="9. Getting help" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          3rd Party Integration
           <span class="md-nav__icon md-icon"></span>
-          9. Getting help
+        </label>
+      
+      <nav class="md-nav" aria-label="3rd Party Integration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          3rd Party Integration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1">
+          Integrations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrations" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Integrations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Gateone/" class="md-nav__link">
+        Gateone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Graylog/" class="md-nav__link">
+        Graylog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Services/" class="md-nav__link">
+        Nagios Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/NFSen/" class="md-nav__link">
+        NFSen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Oxidized/" class="md-nav__link">
+        Oxidized
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/PeeringDB/" class="md-nav__link">
+        PeeringDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Proxmox/" class="md-nav__link">
+        Proxmox
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Rancid/" class="md-nav__link">
+        Rancid
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Smokeping/" class="md-nav__link">
+        Smokeping
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Weathermap/" class="md-nav__link">
+        Weathermap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1_11" type="checkbox" id="__nav_6_1_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_1_11">
+          Storing Metrics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storing Metrics" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_1_11">
+          <span class="md-nav__icon md-icon"></span>
+          Storing Metrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Metric-Storage/" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/metrics/Graphite/" class="md-nav__link">
+        Graphite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/metrics/InfluxDB/" class="md-nav__link">
+        InfluxDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/metrics/OpenTSDB/" class="md-nav__link">
+        OpenTSDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/metrics/Prometheus/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/" class="md-nav__link">
+        Using the API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Endpoints
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Endpoints" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Endpoints
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Alerts/" class="md-nav__link">
+        Alerts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/ARP/" class="md-nav__link">
+        ARP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Bills/" class="md-nav__link">
+        Bills
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/DeviceGroups/" class="md-nav__link">
+        DeviceGroups
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Devices/" class="md-nav__link">
+        Devices
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Inventory/" class="md-nav__link">
+        Inventory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Locations/" class="md-nav__link">
+        Locations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Logs/" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Port_Groups/" class="md-nav__link">
+        Port_Groups
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/PortGroups/" class="md-nav__link">
+        PortGroups
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Ports/" class="md-nav__link">
+        Ports
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Routing/" class="md-nav__link">
+        Routing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Services/" class="md-nav__link">
+        Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/Switching/" class="md-nav__link">
+        Switching
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API/System/" class="md-nav__link">
+        System
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Getting help
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting help" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Getting help
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
   
@@ -1588,8 +2235,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1600,8 +2249,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1612,8 +2263,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1624,8 +2277,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1636,8 +2291,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1648,8 +2305,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1660,8 +2319,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1672,8 +2333,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1684,20 +2347,10 @@
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SSL-Configuration/" class="md-nav__link">
-        SSL Configuration
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -1708,8 +2361,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1720,6 +2375,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1735,35 +2391,56 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
-      <label class="md-nav__link" for="__nav_11">
-        10. Contributing + Developing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="10. Contributing + Developing" data-md-level="1">
-        <label class="md-nav__title" for="__nav_11">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Contributing + Developing
           <span class="md-nav__icon md-icon"></span>
-          10. Contributing + Developing
+        </label>
+      
+      <nav class="md-nav" aria-label="Contributing + Developing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing + Developing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
-    <li class="md-nav__item">
-      <a href="../../Developing/" class="md-nav__link">
-        Contributing
-      </a>
-    </li>
-  
-
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_1" type="checkbox" id="__nav_9_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_1">
+          Contributing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contributing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_1">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1774,8 +2451,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1786,32 +2465,10 @@
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Developing/Code-Guidelines/" class="md-nav__link">
-        Code Guidelines
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Developing/Style-Guidelines/" class="md-nav__link">
-        Style Guidelines
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -1822,8 +2479,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1834,8 +2493,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1846,20 +2507,10 @@
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Developing/Licensing/" class="md-nav__link">
-        Licensing
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -1870,8 +2521,17 @@
     </li>
   
 
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
           
             
+              
   
   
   
@@ -1879,20 +2539,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_11" type="checkbox" id="__nav_11_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_2" type="checkbox" id="__nav_9_2" >
       
-      <label class="md-nav__link" for="__nav_11_11">
-        Support for a new OS
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_2">
+          Support for a new OS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Support for a new OS" data-md-level="2">
-        <label class="md-nav__title" for="__nav_11_11">
+        <label class="md-nav__title" for="__nav_9_2">
           <span class="md-nav__icon md-icon"></span>
           Support for a new OS
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -1903,8 +2568,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1915,8 +2582,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1927,8 +2596,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1939,8 +2610,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1951,8 +2624,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1963,8 +2638,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1975,8 +2652,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1987,8 +2666,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1999,14 +2680,17 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2017,8 +2701,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2029,32 +2715,10 @@
     </li>
   
 
+            
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Developing/Merging-Pull-Requests/" class="md-nav__link">
-        Merging Pull Requests
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Developing/Creating-Release/" class="md-nav__link">
-        Creating Release
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -2065,6 +2729,68 @@
     </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_6" type="checkbox" id="__nav_9_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9_6">
+          Developer notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer notes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developer notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developing/Merging-Pull-Requests/" class="md-nav__link">
+        Merging Pull Requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Developing/Creating-Release/" class="md-nav__link">
+        Creating Release
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
           
         </ul>
       </nav>
@@ -2080,23 +2806,30 @@
   
   
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
-      <label class="md-nav__link" for="__nav_12">
-        11. Misc
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="11. Misc" data-md-level="1">
-        <label class="md-nav__title" for="__nav_12">
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Miscellaneous
           <span class="md-nav__icon md-icon"></span>
-          11. Misc
+        </label>
+      
+      <nav class="md-nav" aria-label="Miscellaneous" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Miscellaneous
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+              
   
   
   
@@ -2107,8 +2840,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2119,8 +2854,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2128,44 +2865,25 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_3" type="checkbox" id="__nav_12_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" type="checkbox" id="__nav_10_3" >
       
-      <label class="md-nav__link" for="__nav_12_3">
-        Device Notes
-        <span class="md-nav__icon md-icon"></span>
-      </label>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10_3">
+          Device Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <nav class="md-nav" aria-label="Device Notes" data-md-level="2">
-        <label class="md-nav__title" for="__nav_12_3">
+        <label class="md-nav__title" for="__nav_10_3">
           <span class="md-nav__icon md-icon"></span>
           Device Notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Device-Notes/" class="md-nav__link">
-        Intro
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Device-Notes/Carel-pCOweb-Devices/" class="md-nav__link">
-        Carel pCOweb
-      </a>
-    </li>
-  
-
-          
-            
+              
   
   
   
@@ -2176,8 +2894,38 @@
     </li>
   
 
+            
           
             
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Device-Notes/Carel-pCOweb-Devices/" class="md-nav__link">
+        Carel pCOweb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Dell-OpenManage/" class="md-nav__link">
+        Dell OpenManage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
   
@@ -2188,8 +2936,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -2200,12 +2950,28 @@
     </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Extensions/Supermicro/" class="md-nav__link">
+        Supermicro
+      </a>
+    </li>
+  
+
+            
           
         </ul>
       </nav>
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -2225,7 +2991,9 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -2238,9 +3006,197 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vendors" class="md-nav__link">
-    Vendors
+  <a href="#supported-vendors" class="md-nav__link">
+    Supported Vendors
   </a>
+  
+    <nav class="md-nav" aria-label="Supported Vendors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    A
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    B
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    C
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e" class="md-nav__link">
+    E
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    F
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g" class="md-nav__link">
+    G
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h" class="md-nav__link">
+    H
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    I
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#j" class="md-nav__link">
+    J
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    K
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l" class="md-nav__link">
+    L
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m" class="md-nav__link">
+    M
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    N
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o" class="md-nav__link">
+    O
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p" class="md-nav__link">
+    P
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    Q
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    R
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    S
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t" class="md-nav__link">
+    T
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#u" class="md-nav__link">
+    U
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v" class="md-nav__link">
+    V
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w" class="md-nav__link">
+    W
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    X
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#z" class="md-nav__link">
+    Z
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2256,12 +3212,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/librenms/librenms/edit/master/doc/Support/Features.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="features">Features</h1>
+<a href="https://github.com/librenms/librenms/edit/master/doc/Support/Features.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="features">Features</h1>
 <p>Here's a brief list of supported features, some might be missing. If
 you think something is missing, feel free to ask us.</p>
 <ul>
@@ -2282,171 +3238,745 @@ you think something is missing, feel free to ask us.</p>
 <li>API</li>
 <li>Auto Updating</li>
 </ul>
-<h2 id="vendors">Vendors</h2>
-<p>Here's a brief list of supported vendors, some might be missing.
+<h2 id="supported-vendors">Supported Vendors</h2>
+<p>Here's a list of supported vendors, some might be missing.
 If you are unsure of whether your device is supported or not, feel free to ask us.</p>
+<!---
+
+Generate this list with:
+
+rg --pcre2 "^text: *([\"']?)(.+)\1" --replace '$2' --no-filename includes/definitions/*yaml| sort --ignore-case --unique | awk '{\
+  if (last != tolower(substr($0, 0, 1))) {\
+    print "\n### "toupper(substr($0,0,1))"\n* "$0; last = tolower(substr($1, 0, 1))\
+  } else {\
+    print "* "$0\
+  }\
+}'
+
+-->
+
+<h3 id="3">3</h3>
 <ul>
 <li>3Com</li>
-<li>ADTRAN</li>
-<li>Acceidan</li>
-<li>Aerohive</li>
-<li>AKCP</li>
-<li>Alcatel-Lucent</li>
-<li>Allied Telesis</li>
-<li>APC</li>
-<li>Apple</li>
-<li>Areca</li>
-<li>Arista</li>
-<li>Aruba</li>
+</ul>
+<h3 id="a">A</h3>
+<ul>
+<li>A10 Networks</li>
+<li>Acano OS</li>
+<li>Accedian AEN</li>
+<li>Adtran AOS</li>
+<li>ADVA FSP150CC</li>
+<li>ADVA FSP3000 R7</li>
+<li>ADVA OptiSwitch</li>
+<li>Advantech</li>
+<li>Aerohive HiveOS</li>
+<li>Airconsole Server</li>
+<li>AIX</li>
+<li>AKCP SensorProbe</li>
+<li>Alcatel OmniPCX</li>
+<li>Alcatel-Lucent Enterprise Stellar Wireless OS (AWOS)</li>
+<li>Alcatel-Lucent OS</li>
+<li>Alcoma</li>
+<li>ALGCOM DC UPS</li>
+<li>Allied Telesis Wireless (TQ)</li>
+<li>Alliedware</li>
+<li>Alliedware Plus</li>
+<li>Allworx VoIP</li>
+<li>Alpha Comp@s</li>
+<li>Alpha FXM</li>
+<li>AlteonOS</li>
+<li>Alvarion Breeze</li>
+<li>Anue</li>
+<li>AnyOS</li>
+<li>APC Environmental Monitoring Unit</li>
+<li>APC ePDU</li>
+<li>APC Management Module</li>
+<li>APC MGE UPS</li>
+<li>Apex Lynx</li>
+<li>Apex Plus</li>
+<li>Apple AirPort</li>
+<li>Apple OS X</li>
+<li>Aprisa</li>
+<li>ApsoluteOS</li>
+<li>ArbOS</li>
+<li>Areca RAID Subsystem</li>
+<li>Arista EOS</li>
+<li>Arista MOS</li>
+<li>Array Networks</li>
+<li>Arris Apex</li>
+<li>Arris CMTS</li>
+<li>Arris D5 Universal EdgeQAM</li>
+<li>ARRIS DOCSIS</li>
+<li>Arris Satellite Receiver</li>
+<li>Aruba Clearpass</li>
+<li>Aruba Instant</li>
+<li>ArubaOS</li>
+<li>ArubaOS-CX</li>
+<li>Ascom</li>
+<li>Asentria SiteBoss</li>
+<li>AsusWRT Merlin</li>
+<li>Aten PDU</li>
 <li>Audiocodes</li>
-<li>Avaya</li>
+<li>Automatic Transfer Switch</li>
+<li>Avaya Scopia</li>
+<li>AvediaPlayer Receivers</li>
+<li>AvediaStream Encoder</li>
+<li>Aviat WTM</li>
 <li>Avocent</li>
-<li>AVTECH</li>
-<li>Axis</li>
-<li>Barracuda</li>
-<li>BCM963</li>
-<li>BDCom</li>
-<li>Bintec</li>
-<li>Bluecat</li>
-<li>BNT</li>
-<li>Brocade</li>
-<li>Brother</li>
+<li>Avtech Environment Sensor</li>
+<li>AXIS Audio Appliances</li>
+<li>AXIS Network Camera</li>
+<li>AXIS Network Document Server</li>
+</ul>
+<h3 id="b">B</h3>
+<ul>
+<li>Barco Clickshare</li>
+<li>Barracuda Email Security Gateway</li>
+<li>Barracuda Load Balancer</li>
+<li>Barracuda NG Firewall</li>
+<li>Barracuda Web Application Firewall</li>
+<li>BDCOM(tm) Software</li>
+<li>BeagleBoard</li>
+<li>Benu</li>
+<li>Bintec Be.IP Plus</li>
+<li>Bintec Smart Router</li>
+<li>BKtel</li>
+<li>Blade Network Technologies</li>
+<li>BladeShelter PDU by PowerTek</li>
+<li>Blue Coat PacketShaper</li>
+<li>Blue Coat SSL Visibility</li>
+<li>Bluecat Networks</li>
+<li>BlueCoat ProxySG</li>
+<li>Broadcom BCM963xx</li>
+<li>Brocade FabricOS</li>
+<li>Brocade IronWare</li>
+<li>Brocade NOS</li>
+<li>Brocade ServerIron</li>
+<li>Brother Printer</li>
+<li>BTI SA-800</li>
 <li>Buffalo</li>
+</ul>
+<h3 id="c">C</h3>
+<ul>
+<li>C&amp;C Power Commander plus</li>
 <li>Calix</li>
+<li>Calix B6 System</li>
+<li>Calix EXA</li>
+<li>Calix Legacy</li>
 <li>Cambium</li>
-<li>Canon</li>
-<li>Canopy</li>
-<li>Check Point</li>
-<li>Cisco</li>
+<li>Cambium CMM</li>
+<li>Cambium CMM4</li>
+<li>Cambium cnPilot</li>
+<li>Cambium cnPilot Router</li>
+<li>Cambium epmp</li>
+<li>Cambium PTP 250</li>
+<li>Cambium PTP 300/500</li>
+<li>Cambium PTP 600</li>
+<li>Cambium PTP 650</li>
+<li>Cambium PTP 670</li>
+<li>Cambium PTP 800</li>
+<li>Canon Printer</li>
+<li>Carel pCOWeb</li>
+<li>cdata</li>
+<li>Ceragon CeraOS</li>
+<li>CET TSI Controller</li>
+<li>Chatsworth PDU</li>
+<li>Check Point GAiA</li>
+<li>CheckPoint SecurePlatform</li>
+<li>Ciena SAOS</li>
+<li>Ciena Service Delivery Switch</li>
+<li>Ciena Waveserver</li>
+<li>Ciena Z-Series</li>
+<li>cirpack</li>
+<li>Cisco ACE</li>
+<li>Cisco ACS</li>
+<li>Cisco APIC</li>
+<li>Cisco ASA</li>
+<li>Cisco AsyncOS</li>
+<li>Cisco Catalyst 1900</li>
+<li>Cisco CatOS</li>
+<li>Cisco EPC</li>
+<li>Cisco FTD</li>
+<li>Cisco FX-OS</li>
+<li>Cisco Identity Services Engine</li>
+<li>Cisco Integrated Management Controller</li>
+<li>Cisco Intrusion Prevention System</li>
+<li>Cisco IOS</li>
+<li>Cisco IOS-XE</li>
+<li>Cisco IOS-XR</li>
+<li>Cisco ME1200</li>
+<li>Cisco NX-OS</li>
+<li>Cisco ONS</li>
+<li>Cisco PIX-OS</li>
+<li>Cisco SAN-OS</li>
+<li>Cisco Satellite Receiver</li>
+<li>Cisco SCE</li>
+<li>Cisco Services Ready Platform</li>
 <li>Cisco Small Business</li>
-<li>Citrix</li>
-<li>Cometsystem</li>
-<li>Comware</li>
-<li>D-Link</li>
+<li>Cisco Unified Communications Manager</li>
+<li>Cisco Voice Gateway</li>
+<li>Cisco WAAS</li>
+<li>Cisco Wireless Access Point</li>
+<li>Cisco WLC</li>
+<li>Citrix Netscaler</li>
+<li>Comet System Web Sensor</li>
+<li>Comtrol Industrial Switch</li>
+<li>Controlbox TH-332B</li>
+<li>CoreOS</li>
+<li>Corero CMS</li>
+<li>Coriant TNMS</li>
+<li>CradlePoint WiPipe</li>
+<li>CTC Union</li>
+<li>Cumulus Linux</li>
+<li>CXR Networks TS</li>
+<li>Cyberoam UTM</li>
+<li>Cyberpower</li>
+</ul>
+<h3 id="d">D</h3>
+<ul>
+<li>D-Link Access Point</li>
+<li>D-Link Switch</li>
+<li>Dahua NVR</li>
+<li>Dantel Webmon</li>
+<li>Dantherm</li>
+<li>Dasan NOS</li>
 <li>Datacom</li>
-<li>Deliberant</li>
-<li>Dell</li>
-<li>Delta Power Solutions</li>
-<li>DEVELOP</li>
+<li>dd-wrt</li>
+<li>DDN Storage</li>
+<li>Deliberant OS</li>
+<li>Dell DRAC</li>
+<li>Dell EMC Networking OS10 Enterprise</li>
+<li>Dell EqualLogic</li>
+<li>Dell Laser</li>
+<li>Dell Networking OS</li>
+<li>Dell PowerConnect</li>
+<li>Dell PowerVault</li>
+<li>Dell PowerVault MD</li>
+<li>Dell Rack PDU</li>
+<li>Dell Remote Console</li>
+<li>Dell Storage</li>
+<li>Dell UPS</li>
+<li>Delta Orion Controller</li>
+<li>Delta UPS</li>
+<li>Develop Printer</li>
+<li>DHCPatriot</li>
+<li>Digipower</li>
+<li>Digital China Networks</li>
 <li>DKT Comega</li>
-<li>Eaton</li>
+<li>DPS Telecom NetGuardian</li>
+<li>DragonflyBSD</li>
+<li>Dragonwave Harmony Enhanced</li>
+<li>Dragonwave Horizon Compact</li>
+<li>Dragonwave Horizon Compact Plus</li>
+<li>Dragonwave Horizon Duo</li>
+<li>DrayTek</li>
+<li>DVB Modulator &amp; Ampiflier</li>
+<li>DVB-T Transmitter</li>
+</ul>
+<h3 id="e">E</h3>
+<ul>
+<li>E3 Meter</li>
+<li>E3 Meter DataConcentrator</li>
+<li>Eagle-I</li>
+<li>East</li>
+<li>Eaton ATS</li>
+<li>Eaton Matrix</li>
+<li>Eaton MGE PDU</li>
+<li>Eaton PDU</li>
+<li>Eaton UPS</li>
+<li>EDFA</li>
+<li>Edgecore</li>
+<li>EdgeOS</li>
+<li>EdgeSwitch</li>
 <li>EDS</li>
-<li>EMC</li>
-<li>Engenius</li>
+<li>EfficientIP SOLIDserver</li>
+<li>Ekinops Optical</li>
+<li>Eltek Valere</li>
+<li>Eltek Valere eNexus</li>
+<li>Eltek WebPower</li>
+<li>Eltex OLT</li>
+<li>Eltex-MES21xx</li>
+<li>Eltex-MES23xx</li>
+<li>EMC Data Domain</li>
+<li>EMC Flare OS</li>
+<li>EMC Isilon OneFS</li>
+<li>Emerson Energy System</li>
+<li>Emerson Netsure</li>
+<li>Endian</li>
+<li>EndRun</li>
+<li>EnGenius Access Point</li>
+<li>enLogic PDU</li>
 <li>Enterasys</li>
-<li>Epson</li>
-<li>Extreme Networks</li>
-<li>F5</li>
-<li>Fastback Networks</li>
-<li>Fiberstore</li>
-<li>FiberHome</li>
-<li>Force10</li>
-<li>Fortinet</li>
+<li>Epson Printer</li>
+<li>Epson Projector</li>
+<li>Ericsson 6600 series</li>
+<li>Ericsson IPOS</li>
+<li>Ericsson LG iPECS UCP</li>
+<li>Ericsson MINI-LINK</li>
+<li>Ericsson Traffic Node</li>
+<li>EricssonLG IPECS ES</li>
+<li>Etherwan Managed Switch</li>
+<li>EUROstor RAID Subsystem</li>
+<li>Exagrid</li>
+<li>Exalt ExtendAir</li>
+<li>Exinda</li>
+<li>Extrahop Appliance</li>
+<li>Extreme BOSS</li>
+<li>Extreme SLX-OS</li>
+<li>Extreme VOSS</li>
+<li>Extreme Wireless Convergence</li>
+<li>Extreme XOS</li>
+<li>Extremeware</li>
+</ul>
+<h3 id="f">F</h3>
+<ul>
+<li>F5 Big IP</li>
+<li>Fiberhome</li>
+<li>FiberHome Switch</li>
+<li>Fibernet XMUX 4+</li>
+<li>Fiberstore GBN</li>
+<li>Fiberstore Switch</li>
+<li>Firebrick</li>
+<li>Force10 FTOS</li>
+<li>Fortinet FortiAuthenticator</li>
+<li>Fortinet Fortigate</li>
+<li>Fortinet FortiMail</li>
+<li>Fortinet FortiSandbox</li>
+<li>Fortinet FortiSwitch</li>
+<li>Fortinet FortiVoice</li>
+<li>Fortinet FortiWeb</li>
+<li>Fortinet FortiWLC</li>
+<li>FortiOS</li>
+<li>Foundry Networking</li>
 <li>FreeBSD</li>
-<li>Gamatronic</li>
-<li>Hikvision</li>
-<li>HP</li>
-<li>Huawei</li>
-<li>HW group</li>
-<li>IBM</li>
+<li>FreshTomato</li>
+<li>FS.COM monitored pdu</li>
+<li>Fujitsu</li>
+<li>Fujitsu ETERNUS</li>
+<li>FUJITSU iRMC</li>
+<li>Fujitsu NAS</li>
+<li>FusionHub</li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li>Gamatronic UPS Stack</li>
+<li>Gandi Packet Journey</li>
+<li>GE Digital Energy UPS</li>
+<li>GE MDS Orbit network Operating System</li>
+<li>GE Pulsar</li>
+<li>Geist PDU</li>
+<li>Geist Watchdog</li>
+<li>Generex UPS SNMP adapter</li>
+<li>Generic</li>
+<li>Generic Device</li>
+<li>Gestetner Printer</li>
+<li>GigaVUE</li>
+<li>Glass Way WDM EYDFA</li>
+<li>Grandstream HT</li>
+<li>Greenbone OS</li>
+<li>Gude Expert Transfer Switch</li>
+<li>gwd</li>
+</ul>
+<h3 id="h">H</h3>
+<ul>
+<li>Halon</li>
+<li>Hanwha Techwin</li>
+<li>HAProxy ALOHA</li>
+<li>Helios IP</li>
+<li>Hikvision Camera</li>
+<li>Hikvision NVR</li>
+<li>Hillstone StoneOs</li>
+<li>Himoinsa Generator Sets</li>
+<li>Hirschmann Railswitch</li>
+<li>Hitachi Storage Virtualization Operating System (SVOS)</li>
+<li>HP Blade Management</li>
+<li>HP MSM</li>
+<li>HP PDU Management Module</li>
+<li>HP Print server</li>
+<li>HP ProCurve</li>
+<li>HP UPS</li>
+<li>HP Virtual Connect</li>
+<li>HPE 3PAR</li>
+<li>HPE Comware</li>
+<li>HPE Integrated Lights Out</li>
+<li>HPE iPDU</li>
+<li>HPE Managed Power Distribution Unit</li>
+<li>HPE MSA</li>
+<li>HPE OpenVMS</li>
+<li>HPE StoreEver MSL</li>
+<li>Huawei iBMC Management Console</li>
+<li>Huawei OceanStor</li>
+<li>Huawei SmartAX</li>
+<li>Huawei SmartAX MDU</li>
+<li>Huawei SMU</li>
+<li>Huawei UPS</li>
+<li>Huawei VRP</li>
+<li>HWg Poseidon</li>
+<li>HWg STE</li>
+<li>HWg STE2</li>
+<li>HWg WLD</li>
+<li>Hytera Repeater</li>
+</ul>
+<h3 id="i">I</h3>
+<ul>
+<li>IBM AMM</li>
+<li>IBM DPI</li>
+<li>IBM i</li>
+<li>IBM IMM</li>
+<li>IBM Networking Operating System</li>
+<li>IBM Tape Library</li>
+<li>iBoot PDU</li>
+<li>Icotera OS</li>
+<li>ICT Digital Series Power Supply</li>
+<li>ICT Distribution Series</li>
+<li>ICT Modular Power System</li>
+<li>ICT Sine Wave Inverter</li>
+<li>Ifotec</li>
+<li>IgniteNet FusionSwitch</li>
+<li>IgniteNet HeliOS</li>
+<li>Illustra Network Camera</li>
+<li>Imco Power</li>
+<li>Imco Power LS110</li>
+<li>Infinera Groove</li>
+<li>Infinera PON</li>
+<li>Infinera XTM</li>
 <li>Infoblox</li>
-<li>iPoMan</li>
-<li>ITWatchDogs</li>
-<li>Juniper</li>
-<li>Konica Minolta</li>
-<li>Kyocera</li>
-<li>Lantronix</li>
-<li>Lenovo</li>
-<li>Lexmark</li>
+<li>Ingrasys iPoMan</li>
+<li>Innovaphone ISDN</li>
+<li>Inteno GW</li>
+<li>IONODES</li>
+<li>IP Office Firmware</li>
+<li>ITWatchDogs Goose</li>
+</ul>
+<h3 id="j">J</h3>
+<ul>
+<li>Jacarta InterSeptor</li>
+<li>Janitza</li>
+<li>Janitza UMG96</li>
+<li>Juniper EX2500</li>
+<li>Juniper JunOS</li>
+<li>Juniper JunOSe</li>
+<li>Juniper JWOS</li>
+<li>Juniper MSS</li>
+<li>Juniper ScreenOS</li>
+</ul>
+<h3 id="k">K</h3>
+<ul>
+<li>Kemp Loadbalancer</li>
+<li>Konica-Minolta Printer</li>
+<li>KTI</li>
+<li>Kyocera Mita Printer</li>
+</ul>
+<h3 id="l">L</h3>
+<ul>
+<li>Lancom OS</li>
+<li>Lanier Printer</li>
+<li>LANTIME v6</li>
+<li>Lantronix SLC</li>
+<li>Lantronix UDS</li>
+<li>Last Mile Gear CTM</li>
+<li>Lenovo Cloud Network Operating System</li>
+<li>LenovoEMC</li>
+<li>Lexmark Printer</li>
 <li>Liebert</li>
-<li>LigoWave</li>
+<li>LigoWave Infinity</li>
+<li>LigoWave LigoOS</li>
+<li>Linksys Smart Switch</li>
 <li>Linux</li>
-<li>Maipu</li>
+<li>LogMaster</li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li>m0n0wall</li>
+<li>Maipu MyPower</li>
+<li>Marathon UPS</li>
+<li>McAfee SIEM Nitro</li>
+<li>Mcafee Web Gateway</li>
+<li>MegaTec NetAgent II</li>
 <li>Mellanox</li>
-<li>Meraki</li>
-<li>MGE</li>
-<li>Microsemi</li>
-<li>Mikrotik</li>
-<li>MRVLD</li>
-<li>Multimatic</li>
+<li>Meraki AP</li>
+<li>Meraki MX Appliance</li>
+<li>Meraki Switch</li>
+<li>Microsemi PowerDsine Midspan PoE</li>
+<li>Microsemi Synchronization Supply Unit</li>
+<li>Microsoft Windows</li>
+<li>Mikrotik RouterOS</li>
+<li>Mikrotik SwOS</li>
+<li>Mimosa</li>
+<li>Minkels RMS</li>
+<li>Mirth Connect</li>
+<li>Mitel Standard Linux</li>
+<li>MobileIron</li>
+<li>Motorola DOCSIS Cable Modem</li>
+<li>Motorola Netopia</li>
+<li>Moxa</li>
+<li>MRV LambdaDriver</li>
+<li>MRV OptiDriver</li>
+</ul>
+<h3 id="n">N</h3>
+<ul>
+<li>NEC Univerge</li>
 <li>NetApp</li>
+<li>NetBotz Environment Sensor</li>
 <li>NetBSD</li>
-<li>NETGEAR</li>
-<li>NetMan</li>
+<li>Netgear ProSafe</li>
+<li>NetMan Plus</li>
+<li>NetModule</li>
 <li>Netonix</li>
-<li>Netopia</li>
-<li>NetVision</li>
-<li>NetWare</li>
-<li>Nokia</li>
-<li>NRG</li>
-<li>OKI</li>
+<li>NetScaler SD-WAN</li>
+<li>Network Management Unit</li>
+<li>Nexans</li>
+<li>Nimble OS</li>
+<li>NOKIA ISAM</li>
+<li>Nokia SR OS (TiMOS)</li>
+<li>Novell Netware</li>
+<li>NRG Printer</li>
+<li>NTI</li>
+<li>NVT Phybridge</li>
+</ul>
+<h3 id="o">O</h3>
+<ul>
+<li>OKI Printer</li>
+<li>Omnitron iConverter</li>
+<li>OneAccess</li>
+<li>Open Access Netspire</li>
+<li>Open-E</li>
 <li>OpenBSD</li>
-<li>Oracle</li>
-<li>PacketShaper</li>
-<li>Palo Alto Networks</li>
-<li>Papouch</li>
+<li>Opengear</li>
+<li>OpenIndiana</li>
+<li>OpenSystems</li>
+<li>OpenWrt</li>
+<li>OPNsense</li>
+<li>Oracle ILOM</li>
+<li>Orvaldi UPS</li>
+</ul>
+<h3 id="p">P</h3>
+<ul>
+<li>Packetflux SiteMonitor</li>
+<li>Packetlight</li>
+<li>Panasonic KX-NS Series</li>
+<li>Panduit PDU</li>
+<li>PanOS</li>
+<li>Papouch QUIDO</li>
+<li>Papouch TME</li>
+<li>Paradyne (by Zhone)</li>
+<li>Patton SmartNode</li>
+<li>PBI Digital Decoder</li>
 <li>PBN</li>
+<li>PBN P2P CP100 Series Platform</li>
+<li>Pegasus</li>
+<li>Pepwave</li>
 <li>Perle</li>
-<li>Powercode</li>
-<li>Powerwalker</li>
-<li>Prestige</li>
+<li>pfSense</li>
+<li>Pica8 OS</li>
+<li>Ping only</li>
+<li>PLANET</li>
+<li>Powercode BMU</li>
+<li>PowerWalker UPS</li>
+<li>PowerWalker VFI</li>
+<li>Prime Infrastructure</li>
+<li>Procera Networks</li>
 <li>Proxim</li>
-<li>Proxmox</li>
+<li>proxmox pve</li>
+<li>Pulse Secure</li>
+</ul>
+<h3 id="q">Q</h3>
+<ul>
+<li>QNAP TurboNAS</li>
+<li>QTECH</li>
 <li>Quanta</li>
+<li>QuantaStor</li>
+</ul>
+<h3 id="r">R</h3>
+<ul>
 <li>Radlan</li>
-<li>Raritan</li>
-<li>Redback</li>
-<li>Ricoh</li>
+<li>RADWIN</li>
+<li>Raisecom ROAP</li>
+<li>Raisecom ROS</li>
+<li>Raritan EMX</li>
+<li>Raritan KVM</li>
+<li>Raritan PDU</li>
+<li>RAy</li>
+<li>RAy3</li>
+<li>RecoveryOS</li>
+<li>Red Lion Sixnet</li>
+<li>Redback Networks SmartEdge</li>
+<li>Redlion N-Tron</li>
+<li>Ribbon GSX</li>
+<li>Ribbon SBC</li>
+<li>Ricoh Printer</li>
+<li>Riello UPS</li>
+<li>Rittal CMC</li>
+<li>Rittal CMC III PU</li>
+<li>Rittal IT Chiller</li>
+<li>Rittal LCP</li>
+<li>Rittal LCP DX Chiller</li>
 <li>Riverbed</li>
-<li>Ruckus</li>
+<li>Rohde &amp; Schwarz</li>
+<li>Ruckus Wireless HotZone</li>
+<li>Ruckus Wireless SmartZone</li>
+<li>Ruckus Wireless Unleashed</li>
+<li>Ruckus Wireless ZoneDirector</li>
+<li>Ruijie Networks</li>
+</ul>
+<h3 id="s">S</h3>
+<ul>
+<li>SAF CFM</li>
+<li>SAF Integra B</li>
+<li>SAF Integra E</li>
+<li>SAF Integra W</li>
+<li>SAF Integra X</li>
 <li>SAF Tehnika</li>
-<li>Samsung</li>
-<li>Siklu</li>
-<li>Sentry3</li>
-<li>Solaris</li>
+<li>Sagem ADR IONOS</li>
+<li>Samsung Printer</li>
+<li>Savin Printer</li>
+<li>Schleifenbauer SPDM</li>
+<li>Schneider PowerLogic</li>
+<li>SCS KS</li>
+<li>Sensatronics EM1</li>
+<li>Sensatronics ITTM</li>
+<li>ServersCheck</li>
+<li>ServerTech Sentry3</li>
+<li>ServerTech Sentry4</li>
+<li>Sharp Printer</li>
+<li>SIAE Alfoplus 80HD</li>
+<li>Siemens Ruggedcom Switches (ROS)</li>
+<li>Siemens SCALANCE</li>
+<li>Siklu Wireless</li>
+<li>Silver Peak VXOA</li>
+<li>Sinetica UPS</li>
+<li>SM-OS</li>
+<li>SmartOptics DCP-M Series</li>
+<li>SmartOptics M-Series</li>
+<li>SmartOptics T-Series</li>
+<li>snr</li>
+<li>snr-erd</li>
+<li>Socomec Net Vision</li>
+<li>Socomec PDU</li>
 <li>SonicWALL</li>
-<li>SpeedTouch</li>
-<li>Supermicro</li>
-<li>Symbol</li>
-<li>Telco Systems</li>
-<li>TPLink</li>
+<li>Sophos UTM Firewall</li>
+<li>Sophos XG</li>
+<li>Stormshield NS-BSD</li>
+<li>Sub10 Systems</li>
+<li>Sun OpenSolaris</li>
+<li>Sun Solaris</li>
+<li>Supermicro Switch</li>
+<li>Symbol AP</li>
+<li>SyncServer</li>
+<li>Synology DSM</li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li>Tait Infra93 Series</li>
+<li>Tandberg Magnum</li>
+<li>technicolor TG MediaAcces</li>
+<li>Tegile IntelliFlash</li>
+<li>Telco Systems BiNOS</li>
+<li>Telco Systems BiNOX</li>
+<li>Teldat</li>
+<li>TelePresence Codec</li>
+<li>TelePresence Conductor</li>
+<li>Teleste Luminato</li>
+<li>Teltonika RutOS</li>
+<li>teltonika rutos</li>
+<li>Teltonika RutOS RUTX Series</li>
+<li>Teradici PCoIP</li>
+<li>Terra</li>
+<li>Thomson DOCSIS Cable Modem</li>
+<li>Thomson Speedtouch</li>
+<li>Tomato</li>
+<li>TopVision</li>
+<li>Toshiba Printer</li>
+<li>Toshiba RemotEye4</li>
+<li>TP-Link JetStream</li>
+<li>TP-Link Switch</li>
+<li>Transition</li>
 <li>Tranzeo</li>
-<li>Tripp Lite</li>
-<li>Ubiquiti</li>
-<li>Viprinet</li>
-<li>VMware</li>
-<li>VRP</li>
+<li>TRENDnet Switch</li>
+<li>Tripp Lite PowerAlert</li>
+<li>TrueNAS</li>
+<li>TSC Printer</li>
+<li>Tycon Systems TPDIN</li>
+</ul>
+<h3 id="u">U</h3>
+<ul>
+<li>Ubiquiti AirFiber</li>
+<li>Ubiquiti AirFiber LTU</li>
+<li>Ubiquiti AirOS</li>
+<li>Ubiquiti Edgepower</li>
+<li>Ubiquiti UniFi</li>
+<li>Ubiquoss PON</li>
+<li>Ucopia</li>
+<li>UniPing</li>
+</ul>
+<h3 id="v">V</h3>
+<ul>
+<li>Vanguard ApplicationsWare</li>
+<li>Vertiv PDU</li>
+<li>Video Communication Server</li>
+<li>Viprinux</li>
+<li>Viptela</li>
+<li>Vivotek Camera</li>
+<li>VMware ESXi</li>
+<li>VMware SD-WAN</li>
+<li>VMware vCenter</li>
+<li>Voswall</li>
+<li>Vubiq Networks</li>
 <li>Vyatta</li>
 <li>VyOS</li>
-<li>Watchguard</li>
-<li>WebPower</li>
-<li>Windows</li>
-<li>Xerox</li>
-<li>Xirrus</li>
-<li>ZTE</li>
-<li>ZyXEL</li>
 </ul>
-                
-                  
-                
-              
-              
-                
-
+<h3 id="w">W</h3>
+<ul>
+<li>Watchguard Fireware</li>
+<li>Waystream iBOS</li>
+<li>Web-Thermo-Hygrometer</li>
+<li>WebPower</li>
+<li>West Mountain RMCU</li>
+<li>WISI Tangram</li>
+<li>WTI MPC</li>
+<li>WTI POWER</li>
+</ul>
+<h3 id="x">X</h3>
+<ul>
+<li>Xerox Printer</li>
+<li>Xirrus ArrayOS</li>
+</ul>
+<h3 id="z">Z</h3>
+<ul>
+<li>ZebraNet</li>
+<li>Zhone MXK</li>
+<li>Zmtel Greenpacket</li>
+<li>ZTE ZXA10</li>
+<li>ZTE ZXR10</li>
+<li>ZXDSL</li>
+<li>ZyXEL AC</li>
+<li>ZyXEL DSLAM</li>
+<li>ZyXEL Ethernet Switch</li>
+<li>ZyXEL IES MSAN</li>
+<li>ZyXEL IES-5000 DSLAM</li>
+<li>ZyXEL NWA</li>
+<li>ZyXEL Prestige</li>
+<li>ZyXEL ZyWALL</li>
+</ul>
 
               
             </article>
           </div>
         </div>
         
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../General/CODE_OF_CONDUCT/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2455,19 +3985,20 @@ If you are unsure of whether your device is supported or not, feel free to ask u
               <span class="md-footer__direction">
                 Previous
               </span>
-              Code of Conduct
+              Home
             </div>
           </div>
         </a>
       
       
-        <a href="../../General/Welcome-to-Observium-users/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../../General/Changelog/" class="md-footer__link md-footer__link--next" aria-label="Next: Changelog" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Welcome to Observium users
+              Changelog
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -2479,14 +4010,15 @@ If you are unsure of whether your device is supported or not, feel free to ask u
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
@@ -2496,10 +4028,10 @@ If you are unsure of whether your device is supported or not, feel free to ask u
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.tracking", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
       
         <script src="../../js/docs-install-tab.js"></script>
       
