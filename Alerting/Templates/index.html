@@ -1333,15 +1333,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#temperature-sensors" class="md-nav__link">
-    Temperature Sensors
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#value-sensors" class="md-nav__link">
-    Value Sensors
+  <a href="#value-sensors-temperature-humidity-fanspeed" class="md-nav__link">
+    Value Sensors (Temperature, Humidity, Fanspeed, ...)
   </a>
   
 </li>
@@ -3020,15 +3013,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#temperature-sensors" class="md-nav__link">
-    Temperature Sensors
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#value-sensors" class="md-nav__link">
-    Value Sensors
+  <a href="#value-sensors-temperature-humidity-fanspeed" class="md-nav__link">
+    Value Sensors (Temperature, Humidity, Fanspeed, ...)
   </a>
   
 </li>
@@ -3324,7 +3310,6 @@ Timestamp: {{ $alert-&gt;timestamp }}
 Location: {{ $alert-&gt;location }}
 Description: {{ $alert-&gt;description }}
 Features: {{ $alert-&gt;features }}
-Purpose: {{ $alert-&gt;purpose }}
 Notes: {{ $alert-&gt;notes }}
 
 Server: {{ $alert-&gt;sysName }}
@@ -3333,51 +3318,33 @@ Mount Point: {{ $value[&#39;storage_descr&#39;] }}
 Percent Utilized: {{ $value[&#39;storage_perc&#39;] }}
 @endforeach
 </code></pre></div>
-<h4 id="temperature-sensors">Temperature Sensors</h4>
+<h4 id="value-sensors-temperature-humidity-fanspeed">Value Sensors (Temperature, Humidity, Fanspeed, ...)</h4>
 <div class="highlight"><pre><span></span><code>{{ $alert-&gt;title }}
 
 Device Name: {{ $alert-&gt;hostname }}
 Severity: {{ $alert-&gt;severity }}
 Timestamp: {{ $alert-&gt;timestamp }}
 Uptime: {{ $alert-&gt;uptime_short }}
-@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
-Location: {{ $alert-&gt;location }}
-Description: {{ $alert-&gt;description }}
-Features: {{ $alert-&gt;features }}
-Purpose: {{ $alert-&gt;purpose }}
-Notes: {{ $alert-&gt;notes }}
-
-Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
-@if ($alert-&gt;faults) Faults:
-@foreach ($faults as $key =&gt; $value)
-#{{ $key }}: Temperature: {{ $value[&#39;sensor_current&#39;] }} °C
-** @php echo ($value[&#39;sensor_current&#39;]-$value[&#39;sensor_limit&#39;]); @endphp°C over limit
-Previous Measurement: {{ $value[&#39;sensor_prev&#39;] }} °C
-High Temperature Limit: {{ $value[&#39;sensor_limit&#39;] }} °C
-@endforeach
+@if ($alert-&gt;state == 0)
+Time elapsed: {{ $alert-&gt;elapsed }}
 @endif
-</code></pre></div>
-<h4 id="value-sensors">Value Sensors</h4>
-<div class="highlight"><pre><span></span><code>{{ $alert-&gt;title }}
-
-Device Name: {{ $alert-&gt;hostname }}
-Severity: {{ $alert-&gt;severity }}
-Timestamp: {{ $alert-&gt;timestamp }}
-Uptime: {{ $alert-&gt;uptime_short }}
-@if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
 Location: {{ $alert-&gt;location }}
 Description: {{ $alert-&gt;description }}
 Features: {{ $alert-&gt;features }}
-Purpose: {{ $alert-&gt;purpose }}
 Notes: {{ $alert-&gt;notes }}
 
-Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @endif
-@if ($alert-&gt;faults) Faults:
+Rule: {{ $alert-&gt;name ?? $alert-&gt;rule }}
+@if ($alert-&gt;faults)
+Faults:
 @foreach ($alert-&gt;faults as $key =&gt; $value)
-#{{ $key }}: Sensor {{ $value[&#39;sensor_current&#39;] }}
-** @php echo ($value[&#39;sensor_current&#39;]-$value[&#39;sensor_limit&#39;]); @endphp over limit
-Previous Measurement: {{ $value[&#39;sensor_prev&#39;] }}
-Limit: {{ $value[&#39;sensor_limit&#39;] }}
+@php($unit = __(&quot;sensors.${value[&quot;sensor_class&quot;]}.unit&quot;))
+#{{ $key }}: {{ $value[&#39;sensor_descr&#39;] ?? &#39;Sensor&#39; }}
+
+Current: {{ $value[&#39;sensor_current&#39;].$unit }}
+Previous: {{ $value[&#39;sensor_prev&#39;].$unit }}
+Limit: {{ $value[&#39;sensor_limit&#39;].$unit }}
+Over Limit: {{ round($value[&#39;sensor_current&#39;]-$value[&#39;sensor_limit&#39;], 2).$unit }}
+
 @endforeach
 @endif
 </code></pre></div>
