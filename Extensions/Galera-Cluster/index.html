@@ -1045,6 +1045,61 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#install-and-configure-galera" class="md-nav__link">
+    Install and Configure Galera
+  </a>
+  
+    <nav class="md-nav" aria-label="Install and Configure Galera">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-galera4-and-mariadb-server" class="md-nav__link">
+    Install Galera4 and MariaDB Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-galera-config" class="md-nav__link">
+    Create Galera Config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-librenms-env" class="md-nav__link">
+    Edit LibreNMS .env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-galera-cluster-for-the-first-time" class="md-nav__link">
+    Starting Galera Cluster for the first time.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galera-cluster-status" class="md-nav__link">
+    Galera Cluster Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restarting-the-entire-cluster" class="md-nav__link">
+    Restarting the Entire Cluster
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2826,6 +2881,61 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#install-and-configure-galera" class="md-nav__link">
+    Install and Configure Galera
+  </a>
+  
+    <nav class="md-nav" aria-label="Install and Configure Galera">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-galera4-and-mariadb-server" class="md-nav__link">
+    Install Galera4 and MariaDB Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-galera-config" class="md-nav__link">
+    Create Galera Config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-librenms-env" class="md-nav__link">
+    Edit LibreNMS .env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-galera-cluster-for-the-first-time" class="md-nav__link">
+    Starting Galera Cluster for the first time.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galera-cluster-status" class="md-nav__link">
+    Galera Cluster Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restarting-the-entire-cluster" class="md-nav__link">
+    Restarting the Entire Cluster
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2856,12 +2966,12 @@ randomly choose a working node to read and write requests to. </p>
 <li>It's recommended that all servers be similar in hardware performance, cluster performance can be affected by the slowest server in the cluster. </li>
 <li>Backup the database before starting, and backing up the database regularly is still recommended even in a working cluster environment.</li>
 </ul>
-<h1 id="install-and-configure-galera">Install and Configure Galera</h1>
-<h2 id="install-galera4-and-mariadb-server">Install Galera4 and MariaDB Server</h2>
+<h2 id="install-and-configure-galera">Install and Configure Galera</h2>
+<h3 id="install-galera4-and-mariadb-server">Install Galera4 and MariaDB Server</h3>
 <p>These can be obtained from your OS package manager. For example in Ubuntu.
 <div class="highlight"><pre><span></span><code>sudo apt-get install mariadb-server mariadb-client galera-4
 </code></pre></div></p>
-<h2 id="create-galera-config">Create Galera Config</h2>
+<h3 id="create-galera-config">Create Galera Config</h3>
 <p>Create a new file /etc/mysql/conf.d/galera.conf on each node</p>
 <p><div class="highlight"><pre><span></span><code>[mysqld]
 binlog_format=ROW
@@ -2889,7 +2999,7 @@ Change the following values for your environment.
 * wsrep_cluster_name - Name of cluster, should be the same for all nodes
 * wsrep_node_address - IP address of this node.
 * wsrep_node_name - Name of this node.</p>
-<h2 id="edit-librenms-env">Edit LibreNMS .env</h2>
+<h3 id="edit-librenms-env">Edit LibreNMS .env</h3>
 <p>LibreNMS supports up to 9 galera nodes, you define these nodes in the .env file. For each node we have the ability to define if this librenms installation/poller is able to write, read or both to that node. 
 The galera nodes you define here can be the same or differnt for each librenms poller. If you have a poller you only want to write/read to one galera node, you would simply add one DB_HOST, and omit all the rest. This allows you to precisely control what galera nodes a librenms poller is reading and or writing too. </p>
 <ul>
@@ -2923,7 +3033,7 @@ The above .env on a librenms installation/poller would communicate to each galer
 <li>192.168.1.38 - Read Only</li>
 <li>192.168.1.39 - Read Only</li>
 </ul>
-<h2 id="starting-galera-cluster-for-the-first-time">Starting Galera Cluster for the first time.</h2>
+<h3 id="starting-galera-cluster-for-the-first-time">Starting Galera Cluster for the first time.</h3>
 <p>1) Shutdown MariaDB server on ALL nodes.
     <div class="highlight"><pre><span></span><code>sudo systemctl stop mariadb-server
 </code></pre></div>
@@ -2933,7 +3043,7 @@ The above .env on a librenms installation/poller would communicate to each galer
 3) Start the rest of the nodes normally.
     <div class="highlight"><pre><span></span><code>sudo systemctl start mariadb-server
 </code></pre></div></p>
-<h2 id="galera-cluster-status">Galera Cluster Status</h2>
+<h3 id="galera-cluster-status">Galera Cluster Status</h3>
 <p>To see some stats on how the Galera cluster is preforming run the following.</p>
 <p><div class="highlight"><pre><span></span><code>lnms db
 </code></pre></div>
@@ -2976,7 +3086,7 @@ In the database run following mysql query
 </tr>
 </tbody>
 </table>
-<h2 id="restarting-the-entire-cluster">Restarting the Entire Cluster</h2>
+<h3 id="restarting-the-entire-cluster">Restarting the Entire Cluster</h3>
 <p>In a cluster environment, steps should be taken to ensure that ALL nodes are not offline at the same time. Failed nodes can recover without issue as long as one node remains online.
 In the event that ALL nodes are offline, the following should be done to ensure you are starting the cluster with the most up-to-date database. To do this login to each node and running the following</p>
 <div class="highlight"><pre><span></span><code>sudo cat /var/lib/data/grastate.dat

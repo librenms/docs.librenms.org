@@ -2110,6 +2110,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#poller-wrapper" class="md-nav__link">
+    Poller Wrapper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poller-config" class="md-nav__link">
+    Poller config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-based-poller-config" class="md-nav__link">
+    OS based Poller config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poller-modules" class="md-nav__link">
+    Poller modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    Running
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2824,6 +2866,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#poller-wrapper" class="md-nav__link">
+    Poller Wrapper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poller-config" class="md-nav__link">
+    Poller config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-based-poller-config" class="md-nav__link">
+    OS based Poller config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poller-modules" class="md-nav__link">
+    Poller modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    Running
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2873,14 +2957,14 @@ run. This includes things like rrd updates, SQL queries and response
 from snmp.</p>
 <p><code>-v</code> Enables verbose debugging output with all data in tact.</p>
 <p><code>-m</code> This enables you to specify the module you want to run for poller.</p>
-<h1 id="poller-wrapper">Poller Wrapper</h1>
+<h2 id="poller-wrapper">Poller Wrapper</h2>
 <p>We have a <code>poller-wrapper.py</code> script by <a href="https://github.com/job">Job
 Snijders</a>. This script is currently the
 default.</p>
 <p>If you need to debug the output of poller-wrapper.py then you can add
 <code>-d</code> to the end of the command - it is NOT recommended to do this in
 cron.</p>
-<h1 id="poller-config">Poller config</h1>
+<h2 id="poller-config">Poller config</h2>
 <p>These are the default poller config items. You can globally disable a
 module by setting it to 0. If you just want to
 disable it for one device then you can do this within the WebUI Device
@@ -2976,13 +3060,13 @@ configured to be ignored by config options.</p>
 <p><code>availability</code>: Device Availability Calculation.</p>
 <p><code>cisco-asa-firewall</code>: Cisco ASA firewall support.</p>
 <p><code>mib</code>: Support for generic MIB parsing.</p>
-<h1 id="running">Running</h1>
+<h2 id="running">Running</h2>
 <p>Here are some examples of running poller from within your install directory.</p>
 <div class="highlight"><pre><span></span><code>./poller.php -h localhost
 
 ./poller.php -h localhost -m ports
 </code></pre></div>
-<h1 id="debugging">Debugging</h1>
+<h2 id="debugging">Debugging</h2>
 <p>To provide debugging output you will need to run the poller process
 with the <code>-d</code> flag. You can do this either against
 all modules, single or multiple modules:</p>

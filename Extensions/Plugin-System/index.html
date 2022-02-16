@@ -2503,9 +2503,54 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Plugin System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Plugin System
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-2-plugin-system-structure" class="md-nav__link">
+    Version 2 Plugin System structure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-1-plugin-system-structure-legacy-verion" class="md-nav__link">
+    Version 1 Plugin System structure (legacy verion)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-hooks" class="md-nav__link">
+    System Hooks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2780,6 +2825,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-2-plugin-system-structure" class="md-nav__link">
+    Version 2 Plugin System structure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-1-plugin-system-structure-legacy-verion" class="md-nav__link">
+    Version 1 Plugin System structure (legacy verion)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-hooks" class="md-nav__link">
+    System Hooks
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2802,7 +2876,7 @@ specific to your setup or are not relevant or interesting for all community memb
 the website, without it coming to problems with future updates.</p>
 <p>This documentation will give you a basis for writing a plugin for
 LibreNMS. An example plugin is included in the LibreNMS distribution.</p>
-<h1 id="version-2-plugin-system-structure">Version 2 Plugin System structure</h1>
+<h2 id="version-2-plugin-system-structure">Version 2 Plugin System structure</h2>
 <p>Plugins in version 2 need to be installed into app/Plugins</p>
 <p>The structure of a plugin is follows:</p>
 <div class="highlight"><pre><span></span><code>app/Plugins
@@ -2875,7 +2949,7 @@ class in 'app/Plugins/PluginName' and overload the hook methods.</p>
     }
     ...
 </code></pre></div>
-<h1 id="version-1-plugin-system-structure-legacy-verion">Version 1 Plugin System structure (legacy verion)</h1>
+<h2 id="version-1-plugin-system-structure-legacy-verion">Version 1 Plugin System structure (legacy verion)</h2>
 <p>Plugins need to be installed into html/plugins</p>
 <p>The structure of a plugin is follows:</p>
 <div class="highlight"><pre><span></span><code>html/plugins
@@ -2912,7 +2986,7 @@ class Test {
 
 ?&gt;
 </code></pre></div>
-<h1 id="system-hooks">System Hooks</h1>
+<h2 id="system-hooks">System Hooks</h2>
 <p>System hooks are called as functions within your plugin class. The
 following system hooks are currently available:</p>
 <ul>

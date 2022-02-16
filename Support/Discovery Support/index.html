@@ -2096,6 +2096,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#discovery-wrapper" class="md-nav__link">
+    Discovery wrapper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovery-config" class="md-nav__link">
+    Discovery config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-based-discovery-config" class="md-nav__link">
+    OS based Discovery config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovery-modules" class="md-nav__link">
+    Discovery modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    Running
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2824,6 +2866,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#discovery-wrapper" class="md-nav__link">
+    Discovery wrapper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovery-config" class="md-nav__link">
+    Discovery config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-based-discovery-config" class="md-nav__link">
+    OS based Discovery config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovery-modules" class="md-nav__link">
+    Discovery modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    Running
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2871,7 +2955,7 @@ run. This includes things like rrd updates, SQL queries and response
 from snmp.</p>
 <p><code>-v</code> Enables verbose debugging output with all data in tact.</p>
 <p><code>-m</code> This enables you to specify the module you want to run for discovery.</p>
-<h1 id="discovery-wrapper">Discovery wrapper</h1>
+<h2 id="discovery-wrapper">Discovery wrapper</h2>
 <p>We have a <code>discovery-wrapper.py</code> script which is based on
 <code>poller-wrapper.py</code> by <a href="https://github.com/job">Job Snijders</a>. This
 script is currently the default.</p>
@@ -2882,7 +2966,7 @@ in cron.</p>
 <p><code>33  */6   * * *   librenms    /opt/librenms/discovery-wrapper.py 1 &gt;&gt; /dev/null 2&gt;&amp;1</code></p>
 <p>With:</p>
 <p><code>33  */6   * * *   librenms    /opt/librenms/discovery.php -h all &gt;&gt; /dev/null 2&gt;&amp;1</code></p>
-<h1 id="discovery-config">Discovery config</h1>
+<h2 id="discovery-config">Discovery config</h2>
 <p>These are the default discovery config items. You can globally disable
 a module by setting it to 0. If you just want to disable it for one
 device then you can do this within the WebUI -&gt; Device -&gt; Settings -&gt;
@@ -2973,13 +3057,13 @@ device, with history data.</p>
 <p><code>ucd-diskio</code>: Disk I/O support.</p>
 <p><code>services</code>: *Nix services support.</p>
 <p><code>charge</code>: APC Charge detection and support.</p>
-<h1 id="running">Running</h1>
+<h2 id="running">Running</h2>
 <p>Here are some examples of running discovery from within your install directory.</p>
 <div class="highlight"><pre><span></span><code>./discovery.php -h localhost
 
 ./discovery.php -h localhost -m ports
 </code></pre></div>
-<h1 id="debugging">Debugging</h1>
+<h2 id="debugging">Debugging</h2>
 <p>To provide debugging output you will need to run the discovery process
 with the <code>-d</code> flag. You can do this either against all modules, single
 or multiple modules:</p>

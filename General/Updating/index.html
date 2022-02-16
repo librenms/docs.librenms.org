@@ -2887,11 +2887,19 @@ git pull
 php includes/sql-schema/update.php
 ./validate.php
 </code></pre></div>
-<p>You should continue to run daily.sh.  This does database cleanup and
-other processes in addition to updating. You can disable the daily.sh
-update process as described below.</p>
 <h2 id="disabling-automatic-updates">Disabling automatic updates</h2>
-<p>LibreNMS by default performs updates on a daily basis. This can be disabled in the WebUI Global Settings under System -&gt; Updates, or using lnms: <code>./lnms config:set update false</code></p>
+<p>LibreNMS by default performs updates on a daily basis.<br />
+This can be disabled in the WebUI Global Settings under System -&gt; Updates, or using lnms</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You should never remove daily.sh from the cronjob!<br />
+This does database cleanup and other processes in addition to updating.</p>
+</div>
+<div class="admonition setting">
+<p class="admonition-title">settings/system/updates</p>
+<div class="highlight"><pre><span></span><code>lnms config:set update <span class="nb">false</span>
+</code></pre></div>
+</div>
 
               
             </article>

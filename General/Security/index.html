@@ -2614,9 +2614,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Security information
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Security information
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#securing-your-install" class="md-nav__link">
+    Securing your install
+  </a>
+  
+    <nav class="md-nav" aria-label="Securing your install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trusted-proxies" class="md-nav__link">
+    Trusted Proxies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-vulnerabilities" class="md-nav__link">
+    Reporting vulnerabilities
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2780,6 +2831,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#securing-your-install" class="md-nav__link">
+    Securing your install
+  </a>
+  
+    <nav class="md-nav" aria-label="Securing your install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trusted-proxies" class="md-nav__link">
+    Trusted Proxies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-vulnerabilities" class="md-nav__link">
+    Reporting vulnerabilities
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2800,18 +2886,18 @@
 make it into the software along with the history of the code base we
 inherited. It's how we deal with identified vulnerabilities that
 should show that we take things seriously.</p>
-<h1 id="securing-your-install">Securing your install</h1>
+<h2 id="securing-your-install">Securing your install</h2>
 <p>As with any system of this nature, we highly recommend that you
 restrict access to the install via a firewall or VPN.</p>
 <p>It is also highly recommended that the Web interface is protected with
 an SSL certificate such as ones provided by <a href="http://www.letsencrypt.org">LetsEncrypt</a>.</p>
 <p>Please ensure you keep your install <a href="../Updating/">up to date</a>.</p>
-<h2 id="trusted-proxies">Trusted Proxies</h2>
+<h3 id="trusted-proxies">Trusted Proxies</h3>
 <p>When using a reverse proxy, you may restrict the hosts allowed to forward
 headers to LibreNMS. By default this allows all proxies, due to legacy reasons.</p>
 <p>Set APP_TRUSTED_PROXIES in your .env to an empty string or the urls to
 the proxies allowed to forward.</p>
-<h1 id="reporting-vulnerabilities">Reporting vulnerabilities</h1>
+<h2 id="reporting-vulnerabilities">Reporting vulnerabilities</h2>
 <p>Like anyone, we appreciate the work people put in to find flaws in
 software and welcome anyone to do so with LibreNMS, this will lead to
 better quality and more secure software for everyone.</p>
