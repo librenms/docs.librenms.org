@@ -2045,6 +2045,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#update_device_port_notes" class="md-nav__link">
+    update_device_port_notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rename_device" class="md-nav__link">
     rename_device
   </a>
@@ -3262,6 +3269,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#update_device_port_notes" class="md-nav__link">
+    update_device_port_notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rename_device" class="md-nav__link">
     rename_device
   </a>
@@ -4290,6 +4304,26 @@ they don't match.</p>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device notes has been updated&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<h3 id="update_device_port_notes"><code>update_device_port_notes</code></h3>
+<p>Update a device port notes field in the devices_attrs database.</p>
+<p>Route: <code>/api/v0/devices/:hostname/port/:portid</code></p>
+<ul>
+<li>hostname can be either the device hostname or id</li>
+<li>portid needs to be the port unique id (int).</li>
+</ul>
+<p>Input (JSON):
+- notes: The string data to populate on the port notes field.</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>curl -X PATCH -d &#39;{&quot;notes&quot;: &quot;This port is in a scheduled maintenance with the provider.&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices/localhost/port/5
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Port notes field has been updated&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">]</span><span class="w"></span>
 </code></pre></div>
