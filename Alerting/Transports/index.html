@@ -3540,6 +3540,14 @@ single notice in case an issue occurs.</p>
 <p>It is possible to configure as many label values as required in
 Alertmanager Options section. Every label and its value should be
 entered as a new line.</p>
+<p>Labels can be a fixed string or a dynamic variable from the alert.
+To set a dynamic variable your label must start with extra_ then
+complete with the name of your label (only characters, figures and
+underscore are allowed here). The value must be the name of
+the variable you want to get (you can see all the variables in 
+Alerts-&gt;Notifications by clicking on the Details icon of your alert when it is pending).
+If the variable's name does not match with an existing value the 
+label's value will be the string you provided just as it was a fixed string.</p>
 <p>Multiple Alertmanager URLs (comma separated) are supported. Each
 URL will be tried and the search will stop at the first success.</p>
 <p><a href="https://prometheus.io/docs/alerting/alertmanager/">Alertmanager Docs</a></p>
@@ -3558,7 +3566,7 @@ URL will be tried and the search will stop at the first success.</p>
 </tr>
 <tr>
 <td>Alertmanager Options:</td>
-<td>source=librenms <br/> customlabel=value</td>
+<td>source=librenms <br/> customlabel=value <br/> extra_dynamic_value=variable_name</td>
 </tr>
 </tbody>
 </table>
