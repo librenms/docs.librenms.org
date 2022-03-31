@@ -3550,6 +3550,8 @@ If the variable's name does not match with an existing value the
 label's value will be the string you provided just as it was a fixed string.</p>
 <p>Multiple Alertmanager URLs (comma separated) are supported. Each
 URL will be tried and the search will stop at the first success.</p>
+<p>Basic HTTP authentication with a username and a password is supported.
+If you let those value blank, no authentication will be used.</p>
 <p><a href="https://prometheus.io/docs/alerting/alertmanager/">Alertmanager Docs</a></p>
 <p><strong>Example:</strong></p>
 <table>
@@ -3563,6 +3565,14 @@ URL will be tried and the search will stop at the first success.</p>
 <tr>
 <td>Alertmanager URL(s)</td>
 <td>http://alertmanager1.example.com,http://alertmanager2.example.com</td>
+</tr>
+<tr>
+<td>Alertmanager Username</td>
+<td>myUsername</td>
+</tr>
+<tr>
+<td>Alertmanager Password</td>
+<td>myPassword</td>
 </tr>
 <tr>
 <td>Alertmanager Options:</td>
