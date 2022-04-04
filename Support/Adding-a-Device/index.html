@@ -2914,22 +2914,14 @@ fill out the optional field <code>Overwrite IP</code> with it's IP-Address.</p>
 <p>Using the command line via ssh you can add a new device by changing to
 the directory of your LibreNMS install and typing (be sure to put the
 correct details).</p>
-<p>Preferred method:
-<div class="highlight"><pre><span></span><code>./lnms device:add <span class="o">[</span>--v1<span class="p">|</span>--v2c<span class="o">]</span> <span class="o">[</span>-c yourSNMPcommunity<span class="o">]</span> yourhostname
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>./lnms device:add yourhostname <span class="o">[</span>--v1<span class="p">|</span>--v2c<span class="o">]</span> <span class="o">[</span>-c yourSNMPcommunity<span class="o">]</span>
+</code></pre></div>
 <p>You can use <code>./lnms device:add --help</code> for a list of available options and defaults.</p>
-<p>Alternative:
-<div class="highlight"><pre><span></span><code>./addhost.php yourhostname <span class="o">[</span>community<span class="o">]</span> <span class="o">[</span>v1<span class="p">|</span>v2c<span class="o">]</span> <span class="o">[</span>port<span class="o">]</span> <span class="o">[</span>udp<span class="p">|</span>udp6<span class="p">|</span>tcp<span class="p">|</span>tcp6<span class="o">]</span>
-</code></pre></div></p>
 <p>As an example, if your device with the name <code>mydevice.example.com</code> is
 configured to use the community <code>my_company</code> using snmp <code>v2c</code> then you
 would enter:</p>
-<p>Preferred method:
 <div class="highlight"><pre><span></span><code>./lnms device:add --v2c -c my_company mydevice.example.com
-</code></pre></div></p>
-<p>Alternative:
-<div class="highlight"><pre><span></span><code>./addhost.php mydevice.example.com my_company v2c
-</code></pre></div></p>
+</code></pre></div>
 <blockquote>
 <p>Please note that if the community contains special characters such
 as <code>$</code> then you will need to wrap it in <code>'</code>. I.e: <code>'Pa$$w0rd'</code>.</p>

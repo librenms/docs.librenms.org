@@ -3536,10 +3536,10 @@
 <h3 id="how-do-i-add-a-device"><a name="faq2"> How do I add a device?</a></h3>
 <p>You have two options for adding a new device into LibreNMS.</p>
 <p>1: Using the command line via ssh you can add a new device by changing
-   to the directory of your LibreNMS install and typing (be sure to
-   put the correct details).</p>
-<div class="highlight"><pre><span></span><code>./addhost.php <span class="o">[</span>community<span class="o">]</span> <span class="o">[</span>v1<span class="p">|</span>v2c<span class="o">]</span> <span class="o">[</span>port<span class="o">]</span> <span class="o">[</span>udp<span class="p">|</span>udp6<span class="p">|</span>tcp<span class="p">|</span>tcp6<span class="o">]</span>
+   to the directory of your LibreNMS install and typing:</p>
+<div class="highlight"><pre><span></span><code>lnms device:add <span class="o">[</span>hostname or ip<span class="o">]</span>
 </code></pre></div>
+<p>To see all options run: <code>lnms device:add -h</code></p>
 <blockquote>
 <p>Please note that if the community contains special characters such
 as <code>$</code> then you will need to wrap it in <code>'</code>. I.e: <code>'Pa$$w0rd'</code>.</p>
