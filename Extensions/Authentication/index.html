@@ -1083,6 +1083,33 @@
     HTTP Authentication / LDAP Authorization
   </a>
   
+    <nav class="md-nav" aria-label="HTTP Authentication / LDAP Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-config_1" class="md-nav__link">
+    Standard config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-options-usually-not-needed_1" class="md-nav__link">
+    Additional options (usually not needed)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-bind-user-optional_1" class="md-nav__link">
+    LDAP bind user (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3297,6 +3324,33 @@
     HTTP Authentication / LDAP Authorization
   </a>
   
+    <nav class="md-nav" aria-label="HTTP Authentication / LDAP Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-config_1" class="md-nav__link">
+    Standard config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-options-usually-not-needed_1" class="md-nav__link">
+    Additional options (usually not needed)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-bind-user-optional_1" class="md-nav__link">
+    LDAP bind user (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3591,7 +3645,11 @@ same version as PHP.</p>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uid=&#39;</span><span class="p">;</span>               <span class="c1">// prepended to usernames</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_group&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;cn=groupname,ou=groups,dc=example,dc=com&#39;</span><span class="p">;</span> <span class="c1">// generic group with level 0</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupmemberattr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;memberUid&#39;</span><span class="p">;</span> <span class="c1">// attribute to use to see if a user is a member of a group</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupmembertype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;username&#39;</span><span class="p">;</span>  <span class="c1">// username type to find group members by, either username (default), fulldn or puredn</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_uid_attribute&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uidnumber&#39;</span><span class="p">;</span>   <span class="c1">// attribute for unique id</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                   <span class="c1">// time to wait before giving up (or trying the next server)</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_emailattr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mail&#39;</span><span class="p">;</span>            <span class="c1">// attribute for email address</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_attr.uid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uid&#39;</span><span class="p">;</span>              <span class="c1">// attribute to check username against</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_debug&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>                 <span class="c1">// enable for verbose debug messages</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_userdn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>                 <span class="c1">// Uses a users full DN as the value of the member attribute in a group instead of member: username. (it’s member: uid=username,ou=groups,dc=domain,dc=com)</span>
 <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_userlist_filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;service=informatique&#39;</span><span class="p">;</span> <span class="c1">// Replace &#39;service=informatique&#39; by your ldap filter to limit the number of responses if you have an ldap directory with thousand of users</span>
@@ -3701,11 +3759,39 @@ webservice already (e.g. using Kerberos Authentication in Apache) but
 will use LDAP to determine and assign the userlevel of a user. The
 userlevel will be calculated by using LDAP group membership
 information as the <strong><em>ldap</em></strong> module does.</p>
-<p>The configuration is the same as for the <strong><em>ldap</em></strong> module with one extra option: auth_ldap_cache_ttl.
+<p>The configuration is similar to the <strong><em>ldap</em></strong> module with one extra option: auth_ldap_cache_ttl.
 This option allows to control how long user information (user_exists, userid, userlevel) are cached within the PHP Session.
 The default value is 300 seconds.
 To disabled this caching (highly discourage) set this option to 0.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_cache_ttl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+<h4 id="standard-config_1">Standard config</h4>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_mechanism&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldap-authorization&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_server&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldap.example.com&#39;</span><span class="p">;</span>               <span class="c1">// Set server(s), space separated. Prefix with ldaps:// for ssl</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_suffix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;,ou=People,dc=example,dc=com&#39;</span><span class="p">;</span>   <span class="c1">// appended to usernames</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupbase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ou=groups,dc=example,dc=com&#39;</span><span class="p">;</span> <span class="c1">// all groups must be inside this</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">][</span><span class="s1">&#39;admin&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>             <span class="c1">// set admin group to admin level</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">][</span><span class="s1">&#39;pfy&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>                <span class="c1">// set pfy group to global read only level</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groups&#39;</span><span class="p">][</span><span class="s1">&#39;support&#39;</span><span class="p">][</span><span class="s1">&#39;level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>            <span class="c1">// set support group as a normal user</span>
+</code></pre></div>
+<h4 id="additional-options-usually-not-needed_1">Additional options (usually not needed)</h4>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1"># v2 or v3</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_port&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">389</span><span class="p">;</span>                    <span class="c1">// 389 or 636 for ssl</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_starttls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">True</span><span class="p">;</span>               <span class="c1">// Enable TLS on port 389</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uid=&#39;</span><span class="p">;</span>               <span class="c1">// prepended to usernames</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_group&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;cn=groupname,ou=groups,dc=example,dc=com&#39;</span><span class="p">;</span> <span class="c1">// generic group with level 0</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupmemberattr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;memberUid&#39;</span><span class="p">;</span> <span class="c1">// attribute to use to see if a user is a member of a group</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_groupmembertype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;username&#39;</span><span class="p">;</span>  <span class="c1">// username type to find group members by, either username (default), fulldn or puredn</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_emailattr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mail&#39;</span><span class="p">;</span>            <span class="c1">// attribute for email address</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_attr.uid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;uid&#39;</span><span class="p">;</span>              <span class="c1">// attribute to check username against</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_userlist_filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;service=informatique&#39;</span><span class="p">;</span> <span class="c1">// Replace &#39;service=informatique&#39; by your ldap filter to limit the number of responses if you have an ldap directory with thousand of users</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_cache_ttl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="ldap-bind-user-optional_1">LDAP bind user (optional)</h4>
+<p>If your ldap server does not allow anonymous bind, it is highly
+suggested to create a bind user, otherwise "remember me", alerting
+users, and the API will not work.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_binduser&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ldapbind&#39;</span><span class="p">;</span> <span class="c1">// will use auth_ldap_prefix and auth_ldap_suffix</span>
+<span class="c1">#$config[&#39;auth_ldap_binddn&#39;] = &#39;CN=John.Smith,CN=Users,DC=MyDomain,DC=com&#39;; // overrides binduser</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;auth_ldap_bindpassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="viewembedded-graphs-without-being-logged-into-librenms">View/embedded graphs without being logged into LibreNMS</h2>
 <div class="highlight"><pre><span></span><code><span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;allow_unauth_graphs_cidr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;127.0.0.1/32&#39;</span><span class="p">);</span>
