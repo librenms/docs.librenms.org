@@ -2548,6 +2548,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#json-application-test-writing-using-scriptsjson-app-toolphp" class="md-nav__link">
+    JSON Application Test Writing Using ./scripts/json-app-tool.php
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3052,6 +3059,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#json-application-test-writing-using-scriptsjson-app-toolphp" class="md-nav__link">
+    JSON Application Test Writing Using ./scripts/json-app-tool.php
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3088,12 +3102,15 @@ command <code>pip3 install snmpsim</code>.</p>
 <h2 id="capturing-test-data">Capturing test data</h2>
 <details class="warning" open="open">
 <summary>If test data already exists</summary>
-<p>If test data already exists, but is for a different device/configuration with the same OS.<br />
-Then you should use the <code>--variant (-v)</code> option to
-specify a different variant of the OS,<br />
-this will be tested completely separate from other variants.<br />
-If there is only one variant, please do not specify one.</p>
 </details>
+<blockquote>
+<p>If test data already exists, but is for a different
+device/configuration with the same OS.
+Then you should use the <code>--variant (-v)</code> option to
+specify a different variant of the OS,
+this will be tested completely separate from other variants.
+If there is only one variant, please do not specify one.</p>
+</blockquote>
 <h3 id="1-collect-snmp-data">1. Collect SNMP data</h3>
 <p><code>./scripts/collect-snmp-data.php</code> is provided to make it easy to
 collect data for tests.  Running collect-snmp-data.php with the
@@ -3108,7 +3125,8 @@ database entries to json files. This step requires snmpsim, if you are
 having issues, the maintainers may help you generate it from the
 snmprec you created in the previous step.</p>
 <p>Generally, you will only need to collect data once.
-After you have the data you need in the snmprec file, you can just use save-test-data.php to update the database dump (json) after that.</p>
+After you have the data you need in the snmprec file, you can just use
+save-test-data.php to update the database dump (json) after that.</p>
 <h2 id="running-tests">Running tests</h2>
 <p><strong>Note:</strong> To run tests, ensure you have executed
 <code>./scripts/composer_wrapper.php install</code> from your LibreNMS root
@@ -3212,9 +3230,12 @@ must use a variant to store your test data (-v).</p>
 <li><a href="../Initial-Detection/">Add initial detection</a> for <code>example-os</code></li>
 <li>Run discovery to make sure it detects properly <code>./discovery.php -h 42</code></li>
 <li>Add any additional os items like version, hardware, features, or serial.</li>
-<li>If there is additional snmp data required, run <code>./scripts/collect-snmp-data.php -h 42</code></li>
-<li>Run <code>./scripts/save-test-data.php -o example-os</code> to update the dumped database data.</li>
-<li>Review data. If you modified the snmprec or code (don't modify json manually) run <code>./scripts/save-test-data.php -o example-os -m os</code></li>
+<li>If there is additional snmp data required, run
+   <code>./scripts/collect-snmp-data.php -h 42</code></li>
+<li>Run <code>./scripts/save-test-data.php -o example-os</code> to update the
+   dumped database data.</li>
+<li>Review data. If you modified the snmprec or code (don't modify json
+   manually) run <code>./scripts/save-test-data.php -o example-os -m os</code></li>
 <li>Run <code>lnms dev:check unit --db --snmpsim</code></li>
 <li>If the tests succeed submit a pull request</li>
 </ol>
@@ -3228,6 +3249,25 @@ must use a variant to store your test data (-v).</p>
 <li>Run <code>lnms dev:check unit --db --snmpsim</code></li>
 <li>If the tests succeed submit a pull request</li>
 </ol>
+<h2 id="json-application-test-writing-using-scriptsjson-app-toolphp">JSON Application Test Writing Using ./scripts/json-app-tool.php</h2>
+<ol>
+<li>First you will need a good example JSON output produced via SNMP
+   extend in question.</li>
+<li>Read the help via <code>./scripts/json-app-tool.php -h</code>.</li>
+<li>Generate the SNMPrec data via <code>./scripts/json-app-tool.php -a
+   appName -s &gt; ./tests/snmpsim/linux_appName-v1.snmprec</code>. If the
+   SNMP extend name OID different than the application name, then you
+   will need to pass  the -S flag for over riding that.</li>
+<li>Generate the test JSON data via <code>./scripts/json-app-tool.php -a
+   appName -t &gt; ./tests/data/linux_appName-v1.json</code>.</li>
+<li>Update the generated './tests/data/linux_appName-v1.json' making
+   sure that all the expected metrics are present. This assumes that
+   everything under .data in the JSON will be collapsed and used.</li>
+</ol>
+<p>During test runs if it does not appear to be detecting the app and it
+has a different app name and SNMP extend name OID, make sure that -S
+is set properly and that 'includes/discovery/applications.inc.php' has
+been updated.</p>
 
               
             </article>
