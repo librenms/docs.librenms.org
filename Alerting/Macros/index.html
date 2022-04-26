@@ -3264,7 +3264,9 @@ the set of results defined by the rule.</p>
 <h3 id="port-usage-in-percent-decimal">Port-Usage in Percent (Decimal)</h3>
 <p>Entity: <code>macros.port_usage_perc</code></p>
 <p>Description: Return port-usage (max value of in and out) in percent.</p>
-<p>Source: <code>((SELECT IF(ports.ifOutOctets_rate&gt;ports.ifInOctets_rate, ports.ifOutOctets_rate, ports.ifInOctets_rate)*8) / ports.ifSpeed)*100</code></p>
+<p>Source: <code>((SELECT IF(ports.ifOutOctets_rate&gt;ports.ifInOctets_rate,
+ports.ifOutOctets_rate, ports.ifInOctets_rate)*8) /
+ports.ifSpeed)*100</code></p>
 <h2 id="time">Time</h2>
 <h3 id="now-datetime">Now (Datetime)</h3>
 <p>Entity: <code>macros.now</code></p>

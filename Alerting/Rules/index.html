@@ -1312,15 +1312,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#video-on-how-the-alert-rules-work-in-librenms" class="md-nav__link">
-    Video on how the alert rules work in LibreNMS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#video-on-how-to-use-alert-rule-with-wildcards" class="md-nav__link">
-    Video on how to use alert rule with wildcards
+  <a href="#example-videos" class="md-nav__link">
+    Example Videos
   </a>
   
 </li>
@@ -2905,15 +2898,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#video-on-how-the-alert-rules-work-in-librenms" class="md-nav__link">
-    Video on how the alert rules work in LibreNMS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#video-on-how-to-use-alert-rule-with-wildcards" class="md-nav__link">
-    Video on how to use alert rule with wildcards
+  <a href="#example-videos" class="md-nav__link">
+    Example Videos
   </a>
   
 </li>
@@ -2982,10 +2968,11 @@
 <p>The GUI provides a simple way of creating rules.</p>
 <p>Creating more complicated rules which may include maths calculations
 and MySQL queries can be done using <a href="../Macros/">macros</a></p>
-<h4 id="video-on-how-the-alert-rules-work-in-librenms">Video on how the alert rules work in LibreNMS</h4>
-<p><a href="https://youtu.be/ryv0j8GEkhM">Alert Rules</a></p>
-<h4 id="video-on-how-to-use-alert-rule-with-wildcards">Video on how to use alert rule with wildcards</h4>
-<p><a href="https://youtu.be/eYYioFNcrAk">Alert Rules wildcard</a></p>
+<h2 id="example-videos">Example Videos</h2>
+<p>Video on how the alert rules work in LibreNMS using <a href="https://youtu.be/ryv0j8GEkhM">Alert
+Rules</a></p>
+<p>Video on how to use alert rule with <a href="https://youtu.be/eYYioFNcrAk">Alert Rules
+wildcard</a></p>
 <h2 id="syntax">Syntax</h2>
 <p>Rules must consist of at least 3 elements: An <strong>Entity</strong>, a <strong>Condition</strong> and a <strong>Value</strong>.
 Rules can contain braces and <strong>Glues</strong>.
@@ -3046,7 +3033,11 @@ must include the macro name into backticks. i.e. `macros.past_60m`</p>
 <p>An example of this would be an average rule for all CPUs over 10%</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="k">AVG</span><span class="p">(</span><span class="n">processors</span><span class="p">.</span><span class="n">processor_usage</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cpu_avg</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">devices</span><span class="p">,</span><span class="n">processors</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="n">device_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">devices</span><span class="p">.</span><span class="n">device_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">processors</span><span class="p">.</span><span class="n">device_id</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="n">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">devices</span><span class="p">.</span><span class="k">ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">processors</span><span class="p">.</span><span class="n">processor_usage</span><span class="p">)</span><span class="w">  </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="k">AVG</span><span class="p">(</span><span class="n">processors</span><span class="p">.</span><span class="n">processor_usage</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cpu_avg</span><span class="w"> </span><span class="k">FROM</span><span class="w"></span>
+<span class="n">devices</span><span class="p">,</span><span class="n">processors</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="n">device_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">devices</span><span class="p">.</span><span class="n">device_id</span><span class="w"></span>
+<span class="o">=</span><span class="w"> </span><span class="n">processors</span><span class="p">.</span><span class="n">device_id</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">devices</span><span class="p">.</span><span class="n">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">devices</span><span class="p">.</span><span class="k">ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">processors</span><span class="p">.</span><span class="n">processor_usage</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
 </code></pre></div>
 <blockquote>
 <p>The 10 would then contain the average CPU usage value, you can

@@ -3518,7 +3518,10 @@ least <code>read</code>-permissions on the entity that is to be alerted.</p>
 <h2 id="using-a-amqp-based-transport">Using a AMQP based Transport</h2>
 <p>You need to install an additional php module : <code>bcmath</code></p>
 <h2 id="alerta">Alerta</h2>
-<p>The <a href="https://alerta.io">alerta</a> monitoring system is a tool used to consolidate and de-duplicate alerts from multiple sources for quick ‘at-a-glance’ visualisation. With just one system you can monitor alerts from many other monitoring tools on a single screen.</p>
+<p>The <a href="https://alerta.io">alerta</a> monitoring system is a tool used to
+consolidate and de-duplicate alerts from multiple sources for quick
+‘at-a-glance’ visualisation. With just one system you can monitor
+alerts from many other monitoring tools on a single screen.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -3566,10 +3569,11 @@ entered as a new line.</p>
 To set a dynamic variable your label must start with extra_ then
 complete with the name of your label (only characters, figures and
 underscore are allowed here). The value must be the name of
-the variable you want to get (you can see all the variables in 
-Alerts-&gt;Notifications by clicking on the Details icon of your alert when it is pending).
-If the variable's name does not match with an existing value the 
-label's value will be the string you provided just as it was a fixed string.</p>
+the variable you want to get (you can see all the variables in
+Alerts-&gt;Notifications by clicking on the Details icon of your alert
+when it is pending). If the variable's name does not match with an
+existing value the label's value will be the string you provided just
+as it was a fixed string.</p>
 <p>Multiple Alertmanager URLs (comma separated) are supported. Each
 URL will be tried and the search will stop at the first success.</p>
 <p>Basic HTTP authentication with a username and a password is supported.
@@ -3606,15 +3610,24 @@ If you let those value blank, no authentication will be used.</p>
 <p>The API transport allows to reach any service provider using POST, PUT or GET URLs
 (Like SMS provider, etc). It can be used in multiple ways:</p>
 <ul>
-<li>The same text built from the Alert template is available in the variable
-<code>$msg</code>, which can then be sent as an option to the API. Be carefull that
-HTTP GET requests are usually limited in length.</li>
-<li>The API-Option fields can be directly built from the variables defined in
-<a href="../Templates/#syntax">Template-Syntax</a> but without the 'alert-&gt;' prefix.
-For instance, <code>$alert-&gt;uptime</code> is available as <code>$uptime</code> in the
-API transport</li>
-<li>The API-Headers allows you to add the headers that the api endpoint requires.</li>
-<li>The API-body allow sending data in the format required by the ApI endpoint.</li>
+<li>The same text built from the Alert template is available in the
+  variable</li>
+</ul>
+<p><code>$msg</code>, which can then be sent as an option to the API. Be carefull
+that HTTP GET requests are usually limited in length.</p>
+<ul>
+<li>
+<p>The API-Option fields can be directly built from the variables
+  defined in <a href="../Templates/#syntax">Template-Syntax</a> but without the
+  'alert-&gt;' prefix. For instance, <code>$alert-&gt;uptime</code> is available as
+  <code>$uptime</code> in the API transport</p>
+</li>
+<li>
+<p>The API-Headers allows you to add the headers that the api endpoint requires.</p>
+</li>
+<li>
+<p>The API-body allow sending data in the format required by the API endpoint.</p>
+</li>
 </ul>
 <p>A few variables commonly used :</p>
 <table>
@@ -3741,7 +3754,9 @@ the title and text of the alert to a screen in the Network Operation Center.</p>
 </tr>
 </tbody>
 </table>
-<p>The example below will use the API named component of my.example.com with id 1, body as json status value and headers send token authentication and content type required.</p>
+<p>The example below will use the API named component of my.example.com
+with id 1, body as json status value and headers send token
+authentication and content type required.</p>
 <table>
 <thead>
 <tr>
@@ -3799,7 +3814,7 @@ You need a token you can find on your personnal space.</p>
 </tr>
 <tr>
 <td>Options</td>
-<td>UserKey=USERKEY<br />Password=APIPASSWORD<br />Recipient=RECIPIENT<br />Originator=ORIGINATOR<br />MessageText={{ $msg }}</td>
+<td>UserKey=USERKEY<br />Password=APIPASSWORD<br />Recipient=RECIPIENT<br/> Originator=ORIGINATOR<br />MessageText={{ $msg }}</td>
 </tr>
 </tbody>
 </table>
@@ -3823,11 +3838,14 @@ website and setup the transport.</p>
 </tbody>
 </table>
 <h2 id="browser-push">Browser Push</h2>
-<p>Browser push notifications can send a notification to the user's device even when the browser is not open.
-This requires HTTPS, the PHP GMP extension, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API">Push API</a> support, 
-and permissions on each device to send alerts.</p>
-<p>Simply configure an alert transport and allow notification permission on the device(s) you
-wish to receive alerts on.  You may disable alerts on a browser on the user preferences page.</p>
+<p>Browser push notifications can send a notification to the user's
+device even when the browser is not open. This requires HTTPS, the PHP
+GMP extension, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API">Push
+API</a>
+support, and permissions on each device to send alerts.</p>
+<p>Simply configure an alert transport and allow notification permission
+on the device(s) you wish to receive alerts on.  You may disable
+alerts on a browser on the user preferences page.</p>
 <h2 id="canopsis">Canopsis</h2>
 <p>Canopsis is a hypervision tool. LibreNMS can send alerts to Canopsis
 which are then converted to canopsis events.</p>
@@ -4142,8 +4160,9 @@ As a small reminder, here is it's configuration directives including defaults:</
 The provided Auth_token belongs to an user, which is member of this room.
 The Message, sent to the matrix-room can be built from the variables defined in
 <a href="../Templates/#syntax">Template-Syntax</a> but without the 'alert-&gt;' prefix.
-See API-Transport. The variable <code>$msg</code> is contains the result of the Alert template.
-The Matrix-Server URL is cutted before the beginning of the <code>_matrix/client/r0/...</code> API-part.</p>
+See API-Transport. The variable <code>$msg</code> is contains the result of
+the Alert template.The Matrix-Server URL is cutted before the
+beginning of the <code>_matrix/client/r0/...</code> API-part.</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -4172,11 +4191,13 @@ The Matrix-Server URL is cutted before the beginning of the <code>_matrix/client
 </tbody>
 </table>
 <h2 id="microsoft-teams">Microsoft Teams</h2>
-<p>LibreNMS can send alerts to Microsoft Teams <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook">Incoming Webhooks</a> which are
-then posted to a specific channel. Microsoft recommends using
-<a href="https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-format#markdown-formatting-for-connector-cards">markdown</a> formatting for connector cards.
-Administrators can opt to <a href="https://messagecardplayground.azurewebsites.net/">compose</a>
-the <a href="https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference">MessageCard</a>
+<p>LibreNMS can send alerts to Microsoft Teams <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook">Incoming
+Webhooks</a>
+which are then posted to a specific channel. Microsoft recommends using
+<a href="https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-format#markdown-formatting-for-connector-cards">markdown</a>
+formatting for connector cards. Administrators can opt to
+<a href="https://messagecardplayground.azurewebsites.net/">compose</a> the
+<a href="https://docs.microsoft.com/en-us/outlook/actionable-messages/message-card-reference">MessageCard</a>
 themselves using JSON to get the full functionality.</p>
 <p><strong>Example:</strong></p>
 <table>
@@ -4588,7 +4609,7 @@ You need a token you can find on your personnal space.</p>
 </tr>
 <tr>
 <td>Options</td>
-<td>accessToken=<em>PUT_HERE_YOUR_TOKEN</em><br />numero=<em>PUT_HERE_DESTS_NUMBER_COMMA_SEPARATED</em><br />message={{ $msg }}</td>
+<td>accessToken=<em>PUT_HERE_YOUR_TOKEN</em><br/> numero=<em>PUT_HERE_DESTS_NUMBER_COMMA_SEPARATED</em><br />message={{ $msg }}</td>
 </tr>
 </tbody>
 </table>
@@ -4596,34 +4617,34 @@ You need a token you can find on your personnal space.</p>
 <p>LibreNMS can send alerts to a Splunk instance and provide all device
 and alert details.</p>
 <p>Example output:</p>
-<p><code>``
-Feb 21 15:21:52 nms  hostname="localhost", sysName="localhost", 
-sysDescr="", sysContact="", os="fortigate", type="firewall", ip="localhost", 
-hardware="FGT_50E", version="v5.6.9", serial="", features="", location="", 
-uptime="387", uptime_short=" 6m 27s", uptime_long=" 6 minutes 27 seconds", 
-description="", notes="", alert_notes="", device_id="0", rule_id="0", 
-id="0", proc="", status="1", status_reason="", ping_timestamp="", ping_loss="0", 
-ping_min="25.6", ping_max="26.8", ping_avg="26.3", 
-title="localhost recovered from  Device up/down  ", elapsed="14m 54s", uid="0", 
-alert_id="0", severity="critical", name="Device up/down", 
-timestamp="2020-02-21 15:21:33", state="0", device_device_id="0", 
-device_inserted="", device_hostname="localhost", device_sysName="localhost", 
-device_ip="localhost", device_overwrite_ip="", device_timeout="", device_retries="", 
-device_snmp_disable="0", device_bgpLocalAs="0", 
-device_sysObjectID="", device_sysDescr="", 
-device_sysContact="", device_version="v5.6.9", device_hardware="FGT_50E", 
-device_features="build1673", device_location_id="", device_os="fortigate", 
-device_status="1", device_status_reason="", device_ignore="0", device_disabled="0", 
-device_uptime="387", device_agent_uptime="0", device_last_polled="2020-02-21 15:21:33", 
-device_last_poll_attempted="", device_last_polled_timetaken="7.9", 
-device_last_discovered_timetaken="11.77", device_last_discovered="2020-02-21 13:16:42", 
-device_last_ping="2020-02-21 15:21:33", device_last_ping_timetaken="26.3", 
-device_purpose="", device_type="firewall", device_serial="FGT50EXXX", 
-device_icon="images/os/fortinet.svg", device_poller_group="0", 
-device_override_sysLocation="0", device_notes="", device_port_association_mode="1", 
-device_max_depth="0", device_disable_notify="0", device_location="", 
-device_vrf_lites="Array", device_lat="", device_lng="", - 
-sysObjectID =&gt; "";</code></p>
+<div class="highlight"><pre><span></span><code>Feb 21 15:21:52 nms  hostname=&quot;localhost&quot;, sysName=&quot;localhost&quot;, 
+sysDescr=&quot;&quot;, sysContact=&quot;&quot;, os=&quot;fortigate&quot;, type=&quot;firewall&quot;, ip=&quot;localhost&quot;, 
+hardware=&quot;FGT_50E&quot;, version=&quot;v5.6.9&quot;, serial=&quot;&quot;, features=&quot;&quot;, location=&quot;&quot;, 
+uptime=&quot;387&quot;, uptime_short=&quot; 6m 27s&quot;, uptime_long=&quot; 6 minutes 27 seconds&quot;, 
+description=&quot;&quot;, notes=&quot;&quot;, alert_notes=&quot;&quot;, device_id=&quot;0&quot;, rule_id=&quot;0&quot;, 
+id=&quot;0&quot;, proc=&quot;&quot;, status=&quot;1&quot;, status_reason=&quot;&quot;, ping_timestamp=&quot;&quot;, ping_loss=&quot;0&quot;, 
+ping_min=&quot;25.6&quot;, ping_max=&quot;26.8&quot;, ping_avg=&quot;26.3&quot;, 
+title=&quot;localhost recovered from  Device up/down  &quot;, elapsed=&quot;14m 54s&quot;, uid=&quot;0&quot;, 
+alert_id=&quot;0&quot;, severity=&quot;critical&quot;, name=&quot;Device up/down&quot;, 
+timestamp=&quot;2020-02-21 15:21:33&quot;, state=&quot;0&quot;, device_device_id=&quot;0&quot;, 
+device_inserted=&quot;&quot;, device_hostname=&quot;localhost&quot;, device_sysName=&quot;localhost&quot;, 
+device_ip=&quot;localhost&quot;, device_overwrite_ip=&quot;&quot;, device_timeout=&quot;&quot;, device_retries=&quot;&quot;, 
+device_snmp_disable=&quot;0&quot;, device_bgpLocalAs=&quot;0&quot;, 
+device_sysObjectID=&quot;&quot;, device_sysDescr=&quot;&quot;, 
+device_sysContact=&quot;&quot;, device_version=&quot;v5.6.9&quot;, device_hardware=&quot;FGT_50E&quot;, 
+device_features=&quot;build1673&quot;, device_location_id=&quot;&quot;, device_os=&quot;fortigate&quot;, 
+device_status=&quot;1&quot;, device_status_reason=&quot;&quot;, device_ignore=&quot;0&quot;, device_disabled=&quot;0&quot;, 
+device_uptime=&quot;387&quot;, device_agent_uptime=&quot;0&quot;, device_last_polled=&quot;2020-02-21 15:21:33&quot;, 
+device_last_poll_attempted=&quot;&quot;, device_last_polled_timetaken=&quot;7.9&quot;, 
+device_last_discovered_timetaken=&quot;11.77&quot;, device_last_discovered=&quot;2020-02-21 13:16:42&quot;, 
+device_last_ping=&quot;2020-02-21 15:21:33&quot;, device_last_ping_timetaken=&quot;26.3&quot;, 
+device_purpose=&quot;&quot;, device_type=&quot;firewall&quot;, device_serial=&quot;FGT50EXXX&quot;, 
+device_icon=&quot;images/os/fortinet.svg&quot;, device_poller_group=&quot;0&quot;, 
+device_override_sysLocation=&quot;0&quot;, device_notes=&quot;&quot;, device_port_association_mode=&quot;1&quot;, 
+device_max_depth=&quot;0&quot;, device_disable_notify=&quot;0&quot;, device_location=&quot;&quot;, 
+device_vrf_lites=&quot;Array&quot;, device_lat=&quot;&quot;, device_lng=&quot;&quot;, - 
+sysObjectID =&gt; &quot;&quot;; `
+</code></pre></div>
 <p>Each alert will be sent as a separate message.</p>
 <p><strong>Example:</strong></p>
 <table>
@@ -4772,7 +4793,10 @@ located at: <a href="https://www.twilio.com/docs/api?filter-product=sms">https:/
 </tbody>
 </table>
 <h2 id="ukfast-pss">UKFast PSS</h2>
-<p>UKFast PSS tickets can be raised from alerts using the UKFastPSS transport. This required an <a href="https://my.ukfast.co.uk/applications">API key</a> with PSS <code>write</code> permissions</p>
+<p>UKFast PSS tickets can be raised from alerts using the UKFastPSS
+transport. This required an <a href="https://my.ukfast.co.uk/applications">API
+key</a> with PSS <code>write</code>
+permissions</p>
 <p><strong>Example:</strong></p>
 <table>
 <thead>
@@ -4893,7 +4917,8 @@ connect to servicedesk</p>
 </tbody>
 </table>
 <h2 id="smsfeedback">SMSFeedback</h2>
-<p>SMSFeedback is a SAAS service, which can be used to deliver Alerts via API, using API url, Username &amp; Password.</p>
+<p>SMSFeedback is a SAAS service, which can be used to deliver Alerts via
+API, using API url, Username &amp; Password.</p>
 <p>They can be in international dialling format only.</p>
 <p><a href="https://www.smsfeedback.ru/smsapi/">SMSFeedback Api Docs</a></p>
 <p><strong>Example:</strong></p>

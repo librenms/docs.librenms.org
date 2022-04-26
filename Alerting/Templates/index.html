@@ -1352,7 +1352,8 @@
     Default Template
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Default Template">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#ports-utilization-template" class="md-nav__link">
@@ -1379,6 +1380,11 @@
   <a href="#memory-alert" class="md-nav__link">
     Memory Alert
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1434,12 +1440,18 @@
     Service Alert
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Service Alert">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#processor-alert-with-graph" class="md-nav__link">
     Processor Alert with Graph
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3032,7 +3044,8 @@
     Default Template
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Default Template">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#ports-utilization-template" class="md-nav__link">
@@ -3059,6 +3072,11 @@
   <a href="#memory-alert" class="md-nav__link">
     Memory Alert
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3114,12 +3132,18 @@
     Service Alert
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Service Alert">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#processor-alert-with-graph" class="md-nav__link">
     Processor Alert with Graph
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3303,7 +3327,7 @@ templates in the directory as needed.</p>
 </code></pre></div>
 <p>More info: <a href="https://laravel.com/docs/blade#extending-a-layout">https://laravel.com/docs/blade#extending-a-layout</a></p>
 <h2 id="examples">Examples</h2>
-<h4 id="default-template">Default Template</h4>
+<h3 id="default-template">Default Template</h3>
 <div class="highlight"><pre><span></span><code>{{ $alert-&gt;title }}
 Severity: {{ $alert-&gt;severity }}
 @if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
@@ -3428,7 +3452,14 @@ config.php. Allow_unauth_graphs_cidr is optional, but more secure.</p>
 $config[&#39;allow_unauth_graphs&#39;] = true;
 </code></pre></div>
 <h2 id="using-models-for-optional-data">Using models for optional data</h2>
-<p>If some value does not exist withing the <code>$faults[]</code>-array, you may query fields from the database using Laravel models. You may use models to query additional values and use them on the template by placing the model and the value to search for within the braces. For example, ISIS-alerts do have a <code>port_id</code> value associated with the alert but <code>ifName</code> is not directly accessible from the <code>$faults[]</code>-array. If the name of the port was needed, it's value could be queried using a template such as:</p>
+<p>If some value does not exist withing the <code>$faults[]</code>-array, you may
+query fields from the database using Laravel models. You may use
+models to query additional values and use them on the template by
+placing the model and the value to search for within the braces. For
+example, ISIS-alerts do have a <code>port_id</code> value associated with the
+alert but <code>ifName</code> is not directly accessible from the
+<code>$faults[]</code>-array. If the name of the port was needed, it's value
+could be queried using a template such as:</p>
 <div class="highlight"><pre><span></span><code>{{ $alert-&gt;title }}
 Severity: {{ $alert-&gt;severity }}
 @if ($alert-&gt;state == 0) Time elapsed: {{ $alert-&gt;elapsed }} @endif
@@ -3443,7 +3474,7 @@ Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @e
 @endforeach
 @endif
 </code></pre></div>
-<h4 id="service-alert">Service Alert</h4>
+<h3 id="service-alert">Service Alert</h3>
 <div class="highlight"><pre><span></span><code>&lt;div style=&quot;font-family:Helvetica;&quot;&gt;
 &lt;h2&gt;@if ($alert-&gt;state == 1) &lt;span style=&quot;color:red;&quot;&gt;{{ $alert-&gt;severity }} @endif
 @if ($alert-&gt;state == 2) &lt;span style=&quot;color:goldenrod;&quot;&gt;acknowledged @endif&lt;/span&gt;
@@ -3493,26 +3524,26 @@ to this rule to provide more information.</p>
 <li>Temperature</li>
 </ul>
 <h2 id="other-examples">Other Examples</h2>
-<h4 id="microsoft-teams-markdown">Microsoft Teams - Markdown</h4>
-<div class="highlight"><pre><span></span><code>[{{ $alert-&gt;title }}](https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/)  
-**Device name:** {{ $alert-&gt;sysName }}  
-**Severity:** {{ $alert-&gt;severity }}  
+<h3 id="microsoft-teams-markdown">Microsoft Teams - Markdown</h3>
+<div class="highlight"><pre><span></span><code>[{{ $alert-&gt;title }}](https://your.librenms.url/device/device={{ $alert-&gt;device_id }}/)
+**Device name:** {{ $alert-&gt;sysName }}
+**Severity:** {{ $alert-&gt;severity }}
 @if ($alert-&gt;state == 0)
-**Time elapsed:** {{ $alert-&gt;elapsed }}  
+**Time elapsed:** {{ $alert-&gt;elapsed }}
 @endif
-**Timestamp:** {{ $alert-&gt;timestamp }}  
-**Unique-ID:** {{ $alert-&gt;uid }}  
+**Timestamp:** {{ $alert-&gt;timestamp }}
+**Unique-ID:** {{ $alert-&gt;uid }}
 @if ($alert-&gt;name)
-**Rule:** {{ $alert-&gt;name }}  
+**Rule:** {{ $alert-&gt;name }}
 @else
-**Rule:** {{ $alert-&gt;rule }}  
+**Rule:** {{ $alert-&gt;rule }}
 @endif
 @if ($alert-&gt;faults)
-**Faults:**@foreach ($alert-&gt;faults as $key =&gt; $value) {{ $key }}: {{ $value[&#39;string&#39;] }}  
+**Faults:**@foreach ($alert-&gt;faults as $key =&gt; $value) {{ $key }}: {{ $value[&#39;string&#39;] }}
 @endforeach
 @endif
 </code></pre></div>
-<h4 id="microsoft-teams-json">Microsoft Teams - JSON</h4>
+<h3 id="microsoft-teams-json">Microsoft Teams - JSON</h3>
 <div class="highlight"><pre><span></span><code>{
     &quot;@context&quot;: &quot;https://schema.org/extensions&quot;,
     &quot;@type&quot;: &quot;MessageCard&quot;,
