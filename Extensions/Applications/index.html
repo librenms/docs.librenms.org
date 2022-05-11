@@ -7771,7 +7771,7 @@ echo &quot;extend zfs /etc/snmp/zfs-freebsd&quot; &gt;&gt; /etc/snmp/snmpd.conf
 <h4 id="linux">Linux</h4>
 <div class="highlight"><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/zfs-linux -O /etc/snmp/zfs-linux
 chmod +x /etc/snmp/zfs-linux
-echo &quot;extend zfs sudo /etc/snmp/zfs-linux&quot; &gt;&gt; /etc/snmp/snmpd.conf
+echo &quot;extend zfs /usr/bin/sudo /etc/snmp/zfs-linux&quot; &gt;&gt; /etc/snmp/snmpd.conf
 </code></pre></div>
 <p>Edit your sudo users (usually <code>visudo</code>) and add at the bottom:
 <div class="highlight"><pre><span></span><code>snmp ALL=(ALL) NOPASSWD: /etc/snmp/zfs-linux
