@@ -3373,8 +3373,8 @@ librenms.service</code></p>
 <h3 id="systemd-watchdog">systemd-watchdog</h3>
 <p>A systemd unit file can be found in <code>misc/librenms-watchdog.service</code>. To
 install run <code>cp /opt/librenms/misc/librenms-watchdog.service
-/etc/systemd/system/librenms.service &amp;&amp; systemctl enable --now
-librenms.service</code></p>
+/etc/systemd/system/librenms-watchdog.service &amp;&amp; systemctl enable --now
+librenms-watchdog.service</code></p>
 <p>This requires: python3-systemd (or python-systemd on older systems)
 or https://pypi.org/project/systemd-python/</p>
 <h3 id="os-specific-instructions">OS-Specific Instructions</h3>
