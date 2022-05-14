@@ -3103,7 +3103,7 @@ finally by defining the overriding value itself. LibreNMS does not
 check for the validity of these attributes but will deliver them to
 Oxidized as defined.</p>
 <p>Matching of hosts can be done using <code>hostname</code>, <code>sysname</code>, <code>os</code>,
-<code>location</code>, <code>sysDescr</code> or <code>hardware</code> and including either a 'match'
+<code>location</code>, <code>sysDescr</code>, <code>hardware</code>, <code>purpose</code> or <code>notes</code> and including either a 'match'
 key and value, or a 'regex' key and value. The order of matching is:</p>
 <ul>
 <li><code>hostname</code></li>
@@ -3113,6 +3113,8 @@ key and value, or a 'regex' key and value. The order of matching is:</p>
 <li><code>os</code></li>
 <li><code>location</code></li>
 <li><code>ip</code></li>
+<li><code>purpose</code></li>
+<li><code>notes</code></li>
 </ul>
 <p>To match on the device hostnames or sysNames that contain 'lon-sw' or
 if the location contains 'London' then you would set the following:</p>
@@ -3131,6 +3133,13 @@ lnms config:set oxidized.maps.group.location.+ <span class="s1">&#39;{&quot;rege
 </div>
 <p>Matching on OS requires system name of the OS. For example, "match": "RouterOS"
 will not work, while "match": "routeros" will.</p>
+<p>To match on a device purpose or device notes that contains 'lon-net' then you would set the following:</p>
+<div class="admonition setting">
+<p class="admonition-title">external/oxidized</p>
+<div class="highlight"><pre><span></span><code>lnms config:set oxidized.maps.group.purpose.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^lon-sw/&quot;, &quot;value&quot;: &quot;london-network&quot;}&#39;</span>
+lnms config:set oxidized.maps.group.notes.+ <span class="s1">&#39;{&quot;regex&quot;: &quot;/^lon-sw/&quot;, &quot;value&quot;: &quot;london-network&quot;}&#39;</span>
+</code></pre></div>
+</div>
 <p>To edit an existing map, you must use the index to override it.</p>
 <div class="admonition setting">
 <p class="admonition-title">external/oxidized</p>
