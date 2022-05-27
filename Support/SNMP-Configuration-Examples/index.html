@@ -2252,11 +2252,18 @@
         
           <li class="md-nav__item">
   <a href="#hpe-3par" class="md-nav__link">
-    HPE 3PAR
+    HPE / 3PAR
   </a>
   
-    <nav class="md-nav" aria-label="HPE 3PAR">
+    <nav class="md-nav" aria-label="HPE / 3PAR">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comware" class="md-nav__link">
+    Comware
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#inform-os-32x" class="md-nav__link">
@@ -3246,11 +3253,18 @@
         
           <li class="md-nav__item">
   <a href="#hpe-3par" class="md-nav__link">
-    HPE 3PAR
+    HPE / 3PAR
   </a>
   
-    <nav class="md-nav" aria-label="HPE 3PAR">
+    <nav class="md-nav" aria-label="HPE / 3PAR">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comware" class="md-nav__link">
+    Comware
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#inform-os-32x" class="md-nav__link">
@@ -3604,7 +3618,31 @@ snmp-server location &lt;YOUR-LOCATION&gt;
 <li>After rebooting the card (safe for connected load), configure Network, System and Access Control. Save config for each step.</li>
 <li>Configure SNMP. The device defaults to both SNMP v1 and v3 enabled, with default credentials. Disable what you do not need. SNMP v3 works, but uses MD5/DES. You may have to add another section to your SNMP credentials table in LibreNMS. Save.</li>
 </ol>
-<h3 id="hpe-3par">HPE 3PAR</h3>
+<h3 id="hpe-3par">HPE / 3PAR</h3>
+<h4 id="comware">Comware</h4>
+<p>SNMPv2c</p>
+<div class="highlight"><pre><span></span><code>snmp-agent community read &lt;YOUR-COMMUNITY&gt;
+snmp-agent sys-info contact &lt;YOUR-CONTACT&gt;
+snmp-agent sys-info location &lt;YOUR-LOCATION&gt;
+snmp-agent sys-info version all
+snmp-agent packet max-size 6000
+</code></pre></div>
+<blockquote>
+<p><code>packet max-size</code> is required for some walks to complete, but the path must support fragmentation.</p>
+</blockquote>
+<p>SNMPv3</p>
+<div class="highlight"><pre><span></span><code>snmp-agent mib-view excluded ExcludeAll snmp
+snmp-agent group v3 V3ROGroup privacy read-view ViewDefault write-view ExcludeAll
+snmp-agent usm-user v3 &lt;USER&gt; V3ROGroup simple authentication-mode sha &lt;AuthKey&gt; privacy-mode aes128 &lt;PrivacyKey&gt;
+snmp-agent sys-info contact &lt;YOUR-CONTACT&gt;
+snmp-agent sys-info location &lt;YOUR-LOCATION&gt;
+snmp-agent sys-info version v3
+undo snmp-agent sys-info version v1 v2c
+snmp-agent packet max-size 6000
+</code></pre></div>
+<blockquote>
+<p><code>packet max-size</code> is required for some walks to complete, but the path must support fragmentation.</p>
+</blockquote>
 <h4 id="inform-os-32x">Inform OS 3.2.x</h4>
 <ul>
 <li>Access the CLI</li>
