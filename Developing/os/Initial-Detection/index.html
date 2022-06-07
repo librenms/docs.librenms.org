@@ -3181,6 +3181,7 @@ more complex collection is required.</p>
 <li><code>&lt;field&gt;</code> specify an oid or list of oids to attempt to pull the data from, the first non-empty response will be used</li>
 <li><code>&lt;field&gt;_regex</code> parse the value out of the returned oid data, must use a named group</li>
 <li><code>&lt;field&gt;_template</code> combine multiple oid results together to create a final string value.  The result is trimmed.</li>
+<li><code>&lt;field&gt;_replace</code> An array of replacements ['find', 'replace'] or strings to remove</li>
 <li><code>hardware_mib</code> MIB used to translate sysObjectID to get hardware. hardware_regex can process the result.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">modules</span><span class="p">:</span><span class="w"></span>
