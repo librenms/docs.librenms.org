@@ -3818,11 +3818,10 @@ to timeout.</strong></p>
 <p>If you would like to do this on a per device basis then you can do so
 under Device -&gt; Edit -&gt; Misc -&gt; Disable ICMP Test? On</p>
 <h4 id="traceroute">traceroute</h4>
-<p>LibreNMS uses traceroute / traceroute6 to record debug information
+<p>LibreNMS uses traceroute to record debug information
 when a device is down due to icmp AND you have
 <code>lnms config:set debug.run_trace true</code> set.</p>
 <div class="highlight"><pre><span></span><code>lnms config:set traceroute /usr/bin/traceroute
-lnms config:set traceroute6 /usr/bin/traceroute6
 </code></pre></div>
 <h4 id="snmp">SNMP</h4>
 <div class="highlight"><pre><span></span><code>lnms config:set snmpwalk /usr/bin/snmpwalk
