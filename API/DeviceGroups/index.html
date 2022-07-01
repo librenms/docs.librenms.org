@@ -2960,11 +2960,15 @@ and the HTTP response code is <code>201</code>.</p>
 <p>Examples:</p>
 <p>Dynamic Example:</p>
 <div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
-  -d &#39;{&quot;name&quot;: &quot;New Device Group&quot;, \
-       &quot;desc&quot;: &quot;A very fancy dynamic group&quot;, \
-       &quot;type&quot;: &quot;dynamic&quot;,
-       &quot;rules&quot;: &quot;{\&quot;condition\&quot;:\&quot;AND\&quot;,\&quot;rules\&quot;:[{\&quot;id\&quot;:\&quot;access_points.name\&quot;,\&quot;field\&quot;:\&quot;access_points.name\&quot;,\&quot;type\&quot;:\&quot;string\&quot;,\&quot;input\&quot;:\&quot;text\&quot;,\&quot;operator\&quot;:\&quot;equal\&quot;,\&quot;value\&quot;:\&quot;accesspoint1\&quot;}],\&quot;valid\&quot;:true}&quot;}&#39; \
-  https://librenms.org/api/v0/devicegroups
+  -X POST https://librenms.org/api/v0/devicegroups \
+  --data-raw &#39;
+{
+ &quot;name&quot;: &quot;New Device Group&quot;, 
+ &quot;desc&quot;: &quot;A very fancy dynamic group&quot;,
+ &quot;type&quot;: &quot;dynamic&quot;, 
+ &quot;rules&quot;: &quot;{\&quot;condition\&quot;:\&quot;AND\&quot;,\&quot;rules\&quot;:[{\&quot;id\&quot;:\&quot;access_points.name\&quot;,\&quot;field\&quot;:\&quot;access_points.name\&quot;,\&quot;type\&quot;:\&quot;string\&quot;,\&quot;input\&quot;:\&quot;text\&quot;,\&quot;operator\&quot;:\&quot;equal\&quot;,\&quot;value\&quot;:\&quot;accesspoint1\&quot;}],\&quot;valid\&quot;:true}&quot;
+}
+&#39;
 </code></pre></div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
@@ -2975,9 +2979,8 @@ and the HTTP response code is <code>201</code>.</p>
 </code></pre></div>
 <p>Static Example:</p>
 <div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
-  -X POST \
-  -d &#39;{&quot;name&quot;:&quot;New Device Group&quot;,&quot;type&quot;:&quot;static&quot;,&quot;devices&quot;:[261,271]}&#39; \
-  https://librenms.org/api/v0/devicegroups
+  -X POST https://librenms.org/api/v0/devicegroups \
+  -d &#39;{&quot;name&quot;:&quot;New Device Group&quot;,&quot;type&quot;:&quot;static&quot;,&quot;devices&quot;:[261,271]}&#39;
 </code></pre></div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
