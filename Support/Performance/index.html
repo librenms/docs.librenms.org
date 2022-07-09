@@ -3160,13 +3160,13 @@ being sent then we will receive a response quicker. The defaults mean
 it will take at least 1 second for a response no matter how
 quick the icmp packet is returned.</p>
 <h2 id="optimise-poller-wrapper">Optimise poller-wrapper</h2>
-<p>The default 16 threads that <code>poller-wrapper.py</code> runs as isn't
-necessarily the optimal number. A general rule of thumb is 2 threads
-per core but we suggest that you play around with lowering /
-increasing the number until you get the optimal value. <strong>Note</strong> KEEP
-in MIND that this doesn't always help, it depends on your system and
-CPU. So be careful. This can be changed by going to the cron job for
-librenms. Usually in <code>/etc/cron.d/librenms</code> and changing the "16"</p>
+<p><code>poller-wrapper.py</code> defaults to using 16 threads, this isn't necessarily
+optimal. A general rule of thumb is 2 threads per core but we suggest 
+that you play around with lowering / increasing the number until you 
+get the optimal value. <strong>Note</strong> KEEP in MIND that this doesn't 
+always help, it depends on your system and CPU. So be careful. 
+This can be changed by going to the cron job for librenms. 
+Usually in <code>/etc/cron.d/librenms</code> and changing the "16"</p>
 <p><div class="highlight"><pre><span></span><code>*/5  *    * * *   librenms    /opt/librenms/cronic /opt/librenms/poller-wrapper.py 16
 </code></pre></div>
 Please also see <a href="../../Extensions/Dispatcher-Service/">Dispatcher Service</a></p>
@@ -3208,7 +3208,7 @@ has to be more than one second in polling time.</p>
 whatever web server you use:</p>
 <p>For Nginx (1.9.5 and above) change <code>listen 443 ssl;</code> to <code>listen 443
 ssl http2;</code> in the Virtualhost config.</p>
-<p>For Apache (2.4.17 an above) set <code>Protocols h2 http/1.1</code> in the Virtualhost config.</p>
+<p>For Apache (2.4.17 and above) set <code>Protocols h2 http/1.1</code> in the Virtualhost config.</p>
 <h2 id="php-opcache">PHP-opcache</h2>
 <p>A lot of performance can be gained from setting up <code>php-opcache</code> correctly.</p>
 <p><strong>Note: Memory based caching with PHP cli will increase memory usage and slow things down. File based caching is not as fast as memory based and is more likely to have stale cache issues.</strong></p>
