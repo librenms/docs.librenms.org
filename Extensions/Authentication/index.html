@@ -1019,6 +1019,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#selinux-configuration" class="md-nav__link">
+    SELinux configuration
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1056,6 +1063,13 @@
           <li class="md-nav__item">
   <a href="#ldap-server-redundancy" class="md-nav__link">
     LDAP server redundancy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selinux-configuration_1" class="md-nav__link">
+    SELinux configuration
   </a>
   
 </li>
@@ -3260,6 +3274,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#selinux-configuration" class="md-nav__link">
+    SELinux configuration
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3297,6 +3318,13 @@
           <li class="md-nav__item">
   <a href="#ldap-server-redundancy" class="md-nav__link">
     LDAP server redundancy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selinux-configuration_1" class="md-nav__link">
+    SELinux configuration
   </a>
   
 </li>
@@ -3647,6 +3675,10 @@ $config[&#39;auth_ad_group_filter&#39;] = &quot;(objectclass=group)&quot;;
 <p>This yields <code>(&amp;(objectclass=user)(sAMAccountName=$username))</code> for the
 user filter and <code>(&amp;(objectclass=group)(sAMAccountName=$group))</code> for
 the group filter.</p>
+<h3 id="selinux-configuration">SELinux configuration</h3>
+<p>On RHEL / CentOS / Fedora, in order for LibreNMS to reach Active Directory, you need to allow LDAP requests in SELinux:
+<div class="highlight"><pre><span></span><code>setsebool -P httpd_can_connect_ldap 1
+</code></pre></div></p>
 <h2 id="ldap-authentication">LDAP Authentication</h2>
 <p>Config option: <code>ldap</code></p>
 <p>Install <strong>php_ldap</strong> or <strong>php7.0-ldap</strong>, making sure to install the
@@ -3713,6 +3745,10 @@ following:</p>
     <span class="s1">&#39;{global_readonly_group}&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;level&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">],</span>
 <span class="p">];</span>
 </code></pre></div>
+<h3 id="selinux-configuration_1">SELinux configuration</h3>
+<p>On RHEL / CentOS / Fedora, in order for LibreNMS to reach LDAP, you need to allow LDAP requests in SELinux:
+<div class="highlight"><pre><span></span><code>setsebool -P httpd_can_connect_ldap 1
+</code></pre></div></p>
 <h2 id="radius-authentication">Radius Authentication</h2>
 <p>Please note that a mysql user is created for each user the logs in
 successfully. User level 1 is assigned to those accounts so you will
