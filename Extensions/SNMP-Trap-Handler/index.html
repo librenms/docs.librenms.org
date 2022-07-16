@@ -3086,6 +3086,26 @@ as well as BGP traps, use <code>-m IF-MIB:BGP4-MIB</code>. Multiple files can be
 <p>Add the following config to your snmptrapd.service after <code>ExecStart=/usr/sbin/snmptrapd -f -m ALL -M /opt/librenms/mibs</code></p>
 <div class="highlight"><pre><span></span><code>-tLf /var/log/snmptrap/traps.log
 </code></pre></div>
+<p>On SELinux, you need to configure SELinux for SNMPd to communicate to LibreNMS:</p>
+<div class="highlight"><pre><span></span><code>cat &gt; snmptrap.te &lt;&lt; EOF
+module snmptrap 1.0;
+
+require {
+        type httpd_sys_rw_content_t;
+        type snmpd_t;
+        class file { append getattr open read };
+        class capability dac_override;
+}
+
+#============= snmpd_t ==============
+
+allow snmpd_t httpd_sys_rw_content_t:file { append getattr open read };
+allow snmpd_t self:capability dac_override;
+EOF
+checkmodule -M -m -o snmptrap.mod snmptrap.te
+semodule_package -o snmptrap.pp -m snmptrap.mod
+semodule -i snmptrap.pp
+</code></pre></div>
 <p>After successfully configuring the service, reload service files, enable, and start the snmptrapd service:</p>
 <div class="highlight"><pre><span></span><code>sudo systemctl daemon-reload
 sudo systemctl enable snmptrapd
