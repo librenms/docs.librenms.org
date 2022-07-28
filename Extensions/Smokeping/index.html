@@ -3392,7 +3392,7 @@ Finally restart the smokeping service:</p>
 <h4 id="configure-selinux-to-allow-smokeping-to-write-in-librenms-directory-on-centos-rhel">Configure SELinux to allow smokeping to write in LibreNMS directory on Centos / RHEL</h4>
 <p>If you are using RRDCached with the -B switch and smokeping RRD's inside the LibreNMS RRD base directory, you can install this SELinux profile:</p>
 <div class="highlight"><pre><span></span><code>cat &gt; smokeping_librenms.te &lt;&lt; EOF
-odule smokeping_librenms 1.0;
+module smokeping_librenms 1.0;
 
 require {
 type httpd_t;
