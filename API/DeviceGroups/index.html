@@ -3044,18 +3044,48 @@ and the HTTP response code is <code>201</code>.</p>
 <p>Route: <code>/api/v0/devicesgroups/:name/maintenance</code></p>
 <p>Input (JSON):</p>
 <ul>
-<li>title: Some title for the Maintenance</li>
-<li>notes: Some description for the Maintenance</li>
-<li>start: Start time of Maintenance in format H:m</li>
-<li>duration: Duration of Maintenance in format H:m</li>
+<li><code>title</code>: <em>optional</em> - Some title for the Maintenance<br />
+  Will be replaced with device group name if omitted</li>
+<li><code>notes</code>: <em>optional</em> - Some description for the Maintenance</li>
+<li><code>start</code>: <em>optional</em> - start time of Maintenance in full format <code>Y-m-d H:i:00</code><br />
+  eg: 2022-08-01 22:45:00<br />
+  Current system time <code>now()</code> will be used if omitted</li>
+<li><code>duration</code>: <em>required</em> - Duration of Maintenance in format <code>H:i</code> / <code>Hrs:Mins</code><br />
+  eg: 02:00</li>
 </ul>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>curl -X POST -d &#39;{&quot;title&quot;:&quot;Device group Maintenance&quot;,&quot;notes&quot;:&quot;A 2 hour Maintenance triggered via API&quot;,&quot;start&quot;:&quot;04:30&quot;,&quot;duration&quot;:&quot;2:00&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/localhost/maintenance
+<p>Example with start time:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
+  -X POST https://librenms.org/api/v0/devicegroups/Cisco%20switches/maintenance/ \
+  --data-raw &#39;
+{
+ &quot;title&quot;:&quot;Device group Maintenance&quot;,
+  &quot;notes&quot;:&quot;A 2 hour Maintenance triggered via API with start time&quot;,
+  &quot;start&quot;:&quot;2022-08-01 08:00:00&quot;,
+  &quot;duration&quot;:&quot;2:00&quot;
+}
+&#39;
 </code></pre></div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device group Cisco switches (2) will begin maintenance mode at 5:00 for 2:00 h&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device group Cisco switches (2) will begin maintenance mode at 2022-08-01 22:45:00 for 2:00h&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Example with no start time:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
+  -X POST https://librenms.org/api/v0/devicegroups/Cisco%20switches/maintenance/ \
+  --data-raw &#39;
+{
+ &quot;title&quot;:&quot;Device group Maintenance&quot;,
+  &quot;notes&quot;:&quot;A 2 hour Maintenance triggered via API with no start time&quot;,
+  &quot;duration&quot;:&quot;2:00&quot;
+}
+&#39;
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device group Cisco switches (2) moved into maintenance mode for 2:00h&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 

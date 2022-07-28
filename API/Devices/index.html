@@ -4233,16 +4233,47 @@ as you wish and submit it back to edit components.</p>
 <p>Route: <code>/api/v0/devices/:hostname/maintenance</code></p>
 <p>Input (JSON):</p>
 <ul>
-<li>notes: Some description for the Maintenance</li>
-<li>duration: Duration of Maintenance in format H:m</li>
+<li><code>title</code>: <em>optional</em> -  Some title for the Maintenance<br />
+  Will be replaced with hostname if omitted</li>
+<li><code>notes</code>: <em>optional</em> -  Some description for the Maintenance<br />
+  Will also be added to device notes if user prefs "Add schedule notes to devices notes" is set</li>
+<li><code>start</code>: <em>optional</em> - start time of Maintenance in full format <code>Y-m-d H:i:00</code><br />
+  eg: 2022-08-01 22:45:00<br />
+  Current system time <code>now()</code> will be used if omitted</li>
+<li><code>duration</code>: <em>required</em> - Duration of Maintenance in format <code>H:i</code> / <code>Hrs:Mins</code><br />
+  eg: 02:00</li>
 </ul>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>curl -X POST -d &#39;{&quot;notes&quot;:&quot;A 2 hour Maintenance triggered via API&quot;,&quot;duration&quot;:&quot;2:00&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/localhost/maintenance
+<p>Example with start time:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
+  -X POST https://librenms.org/api/v0/devices/localhost/maintenance/ \
+  --data-raw &#39;
+ &quot;title&quot;:&quot;Device Maintenance&quot;,
+  &quot;notes&quot;:&quot;A 2 hour Maintenance triggered via API with start time&quot;,
+  &quot;start&quot;:&quot;2022-08-01 08:00:00&quot;,
+  &quot;duration&quot;:&quot;2:00&quot;
+}
+&#39;
 </code></pre></div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device localhost.localdomain (57) moved into maintenance mode for 2:00 h&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device localhost (1) will begin maintenance mode at 2022-08-01 22:45:00 for 2:00h&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Example with no start time:</p>
+<div class="highlight"><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
+  -X POST https://librenms.org/api/v0/devices/localhost/maintenance/ \
+  --data-raw &#39;
+ &quot;title&quot;:&quot;Device Maintenance&quot;,
+  &quot;notes&quot;:&quot;A 2 hour Maintenance triggered via API with no start time&quot;,
+  &quot;duration&quot;:&quot;2:00&quot;
+}
+&#39;
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device localhost (1) moved into maintenance mode for 2:00h&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h3 id="add_device"><code>add_device</code></h3>
