@@ -1967,6 +1967,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sagan" class="md-nav__link">
+    Sagan
+  </a>
+  
+    <nav class="md-nav" aria-label="Sagan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snmp-extend_50" class="md-nav__link">
+    SNMP Extend
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#suricata" class="md-nav__link">
     Suricata
   </a>
@@ -1975,7 +1995,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_50" class="md-nav__link">
+  <a href="#snmp-extend_51" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -2042,7 +2062,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_51" class="md-nav__link">
+  <a href="#snmp-extend_52" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -2062,7 +2082,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_52" class="md-nav__link">
+  <a href="#snmp-extend_53" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -2082,7 +2102,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_53" class="md-nav__link">
+  <a href="#snmp-extend_54" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -2102,7 +2122,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_54" class="md-nav__link">
+  <a href="#snmp-extend_55" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -5400,6 +5420,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sagan" class="md-nav__link">
+    Sagan
+  </a>
+  
+    <nav class="md-nav" aria-label="Sagan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snmp-extend_50" class="md-nav__link">
+    SNMP Extend
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#suricata" class="md-nav__link">
     Suricata
   </a>
@@ -5408,7 +5448,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_50" class="md-nav__link">
+  <a href="#snmp-extend_51" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -5475,7 +5515,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_51" class="md-nav__link">
+  <a href="#snmp-extend_52" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -5495,7 +5535,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_52" class="md-nav__link">
+  <a href="#snmp-extend_53" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -5515,7 +5555,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_53" class="md-nav__link">
+  <a href="#snmp-extend_54" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -5535,7 +5575,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#snmp-extend_54" class="md-nav__link">
+  <a href="#snmp-extend_55" class="md-nav__link">
     SNMP Extend
   </a>
   
@@ -7670,8 +7710,113 @@ Notice that this will use the default unix socket path. Modify the <code>unix_so
 </code></pre></div></p>
 </li>
 </ol>
-<h2 id="suricata">Suricata</h2>
+<h2 id="sagan">Sagan</h2>
+<p>For metrics the stats are migrated as below from the stats JSON.</p>
+<p><code>f_drop_percent</code> and <code>drop_percent</code> are computed based on the found data.</p>
+<table>
+<thead>
+<tr>
+<th>Instance Key</th>
+<th>Stats JSON Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uptime</td>
+<td>.stats.uptime</td>
+</tr>
+<tr>
+<td>total</td>
+<td>.stats.captured.total</td>
+</tr>
+<tr>
+<td>drop</td>
+<td>.stats.captured.drop</td>
+</tr>
+<tr>
+<td>ignore</td>
+<td>.stats.captured.ignore</td>
+</tr>
+<tr>
+<td>threshold</td>
+<td>.stats.captured.theshold</td>
+</tr>
+<tr>
+<td>after</td>
+<td>.stats.captured.after</td>
+</tr>
+<tr>
+<td>match</td>
+<td>.stats.captured.match</td>
+</tr>
+<tr>
+<td>bytes</td>
+<td>.stats.captured.bytes_total</td>
+</tr>
+<tr>
+<td>bytes_ignored</td>
+<td>.stats.captured.bytes_ignored</td>
+</tr>
+<tr>
+<td>max_bytes_log_line</td>
+<td>.stats.captured.max_bytes_log_line</td>
+</tr>
+<tr>
+<td>eps</td>
+<td>.stats.captured.eps</td>
+</tr>
+<tr>
+<td>f_total</td>
+<td>.stats.flow.total</td>
+</tr>
+<tr>
+<td>f_dropped</td>
+<td>.stats.flow.dropped</td>
+</tr>
+</tbody>
+</table>
+<p>Those keys are appended with the name of the instance running with <code>_</code>
+between the instance name and instance metric key. So <code>uptime</code> for
+<code>ids</code> would be <code>ids_uptime</code>.</p>
+<p>The default is named 'ids' unless otherwise specified via the extend.</p>
+<p>There is a special instance name of <code>.total</code> which is the total of all
+the instances. So if you want the total eps, the metric would be
+<code>.total_eps</code>. Also worth noting that the alert value is the highest
+one found among all the instances.</p>
 <h3 id="snmp-extend_50">SNMP Extend</h3>
+<ol>
+<li>
+<p>Install the extend.
+<div class="highlight"><pre><span></span><code>cpanm Sagan::Monitoring
+</code></pre></div></p>
+</li>
+<li>
+<p>Setup cron. Below is a example.
+<div class="highlight"><pre><span></span><code>*/5 * * * * /usr/local/bin/sagan_stat_check &gt; /dev/null
+</code></pre></div></p>
+</li>
+<li>
+<p>Configure snmpd.conf
+<div class="highlight"><pre><span></span><code>extend sagan-stats /usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin sagan_stat_check -c
+</code></pre></div></p>
+</li>
+<li>
+<p>Restart snmpd on your system.</p>
+</li>
+</ol>
+<p>You will want to make sure that sagan is setup to with the values set
+below for stats-json processor, for a single instance setup..</p>
+<div class="highlight"><pre><span></span><code>enabled: yes
+time: 300
+subtract_old_values: true
+filename: &quot;$LOG_PATH/stats.json&quot;
+</code></pre></div>
+<p>Any configuration of sagan_stat_check should be done in the cron
+setup. If the default does not work, check the docs for it at
+<a href="https://metacpan.org/dist/Sagan-Monitoring/view/bin/sagan_stat_check">MetaCPAN for
+sagan_stat_check</a></p>
+<h2 id="suricata">Suricata</h2>
+<h3 id="snmp-extend_51">SNMP Extend</h3>
 <ol>
 <li>
 <p>Install the extend.
@@ -7771,7 +7916,7 @@ Extend</code> heading top of page.</p>
 and copy the <code>unbound.sh</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h2 id="ups-nut">UPS-nut</h2>
 <p>A small shell script that exports nut ups status.</p>
-<h3 id="snmp-extend_51">SNMP Extend</h3>
+<h3 id="snmp-extend_52">SNMP Extend</h3>
 <ol>
 <li>
 <p>Copy the shell script, unbound, to the desired host
@@ -7801,7 +7946,7 @@ extend ups-nut /etc/snmp/ups-nut.sh ups2
 </code></pre></div></p>
 <h2 id="ups-apcups">UPS-apcups</h2>
 <p>A small shell script that exports apcacess ups status.</p>
-<h3 id="snmp-extend_52">SNMP Extend</h3>
+<h3 id="snmp-extend_53">SNMP Extend</h3>
 <ol>
 <li>
 <p>Copy the shell script, unbound, to the desired host
@@ -7831,7 +7976,7 @@ the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h2 id="voip-monitor">Voip-monitor</h2>
 <p>Shell script that reports cpu-load/memory/open-files files stats of Voip Monitor</p>
-<h3 id="snmp-extend_53">SNMP Extend</h3>
+<h3 id="snmp-extend_54">SNMP Extend</h3>
 <ol>
 <li>
 <p>Download the script onto the desired host
@@ -7850,7 +7995,7 @@ Extend</code> heading top of page.</p>
 </li>
 </ol>
 <h2 id="zfs">ZFS</h2>
-<h3 id="snmp-extend_54">SNMP Extend</h3>
+<h3 id="snmp-extend_55">SNMP Extend</h3>
 <p><code>zfs-linux</code> requires python3 &gt;=python3.5.</p>
 <p>The installation steps are:</p>
 <ol>
