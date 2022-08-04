@@ -3000,7 +3000,7 @@ combination of two or three of these.</p>
 <li>Passing data in via JSON, this will mainly be used when adding or
   updating information via the API, for instance adding a new device:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>curl -X POST -d &#39;{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}&#39;-H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices
+<div class="highlight"><pre><span></span><code>curl -X POST -d &#39;{&quot;hostname&quot;:&quot;localhost.localdomain&quot;,&quot;version&quot;:&quot;v1&quot;,&quot;community&quot;:&quot;public&quot;}&#39; -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/devices
 </code></pre></div>
 <h2 id="output">Output</h2>
 <p>Output from the API currently is via two output types:</p>
