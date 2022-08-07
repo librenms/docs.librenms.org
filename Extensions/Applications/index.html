@@ -1841,6 +1841,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#agent_12" class="md-nav__link">
+    Agent
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2015,7 +2022,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#agent_12" class="md-nav__link">
+  <a href="#agent_13" class="md-nav__link">
     Agent
   </a>
   
@@ -5294,6 +5301,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#agent_12" class="md-nav__link">
+    Agent
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5468,7 +5482,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#agent_12" class="md-nav__link">
+  <a href="#agent_13" class="md-nav__link">
     Agent
   </a>
   
@@ -7478,7 +7492,7 @@ the user snmpd is using with <code>ps aux | grep snmpd</code></p>
 </code></pre></div>
 <p>8: Restart snmpd on your Raspberry Pi and, if your Raspberry Pi is already present in LibreNMS, perform a manual rediscover.</p>
 <h2 id="redis">Redis</h2>
-<p>SNMP extend script to monitor your Redis Server</p>
+<p>Script to monitor your Redis Server</p>
 <h3 id="snmp-extend_44">SNMP Extend</h3>
 <ol>
 <li>
@@ -7497,6 +7511,9 @@ the user snmpd is using with <code>ps aux | grep snmpd</code></p>
 </code></pre></div></p>
 </li>
 </ol>
+<h3 id="agent_12">Agent</h3>
+<p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already
+and copy the <code>redis</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <h2 id="rrdcached">RRDCached</h2>
 <p>Install/Setup:
 For Install/Setup Local Librenms RRDCached: Please see <a href="../RRDCached/">RRDCached</a></p>
@@ -7859,7 +7876,7 @@ setup. If the default does not work, check the docs for it at
 <a href="https://metacpan.org/dist/Suricata-Monitoring/view/bin/suricata_stat_check">MetaCPAN for
 suricata_stat_check</a></p>
 <h2 id="tinydns-aka-djbdns">TinyDNS aka djbdns</h2>
-<h3 id="agent_12">Agent</h3>
+<h3 id="agent_13">Agent</h3>
 <p><a href="../Agent-Setup/">Install the agent</a> on this device if it isn't already
 and copy the <code>tinydns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p>
 <p><em>Note</em>: We assume that you use DJB's
