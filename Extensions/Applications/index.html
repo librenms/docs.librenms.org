@@ -6455,17 +6455,23 @@ Extend</code> heading top of page.</p>
 the page. If it is not, please follow the steps set out under <code>SNMP
 Extend</code> heading top of page.</p>
 <h2 id="mdadm">Mdadm</h2>
-<p>This shell script checks mdadm health and array data</p>
+<p>It allows you to checks mdadm health and array data</p>
+<p>This script require: jq</p>
 <h3 id="snmp-extend_19">SNMP Extend</h3>
 <ol>
 <li>
+<p>Install jq
+<div class="highlight"><pre><span></span><code>sudo apt install jq
+</code></pre></div></p>
+</li>
+<li>
 <p>Download the script onto the desired host.
-<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mdadm -O /etc/snmp/mdadm
+<div class="highlight"><pre><span></span><code>sudo wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/mdadm -O /etc/snmp/mdadm
 </code></pre></div></p>
 </li>
 <li>
 <p>Make the script executable
-<div class="highlight"><pre><span></span><code>chmod +x /etc/snmp/mdadm
+<div class="highlight"><pre><span></span><code>sudo chmod +x /etc/snmp/mdadm
 </code></pre></div></p>
 </li>
 <li>
@@ -6474,7 +6480,14 @@ Extend</code> heading top of page.</p>
 </code></pre></div></p>
 </li>
 <li>
-<p>Restart snmpd on your host</p>
+<p>Verify it is working by running
+<div class="highlight"><pre><span></span><code>sudo /etc/snmp/mdadm
+</code></pre></div></p>
+</li>
+<li>
+<p>Restart snmpd on your host
+<div class="highlight"><pre><span></span><code>sudo service snmpd restart
+</code></pre></div></p>
 </li>
 </ol>
 <p>The application should be auto-discovered as described at the
