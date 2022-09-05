@@ -31,7 +31,7 @@
 <span class=w>    </span><span class=nt>cisco-ace-loadbalancer</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class=w></span>
 </code></pre></div> <p><code>discovery_modules</code>: This is the list of discovery modules to either enable (1) or disable (0). Check <code>misc/config_definitions.json</code> to see which modules are enabled/disabled by default.</p> <div class=highlight><pre><span></span><code><span class=nt>discovery_modules</span><span class=p>:</span><span class=w></span>
 <span class=w>     </span><span class=nt>cisco-cef</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class=w></span>
-<span class=w>     </span><span class=nt>cisco-sla</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class=w></span>
+<span class=w>     </span><span class=nt>slas</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class=w></span>
 <span class=w>     </span><span class=nt>cisco-mac-accounting</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class=w></span>
 </code></pre></div> <h5 id=discovery-logic>Discovery Logic</h5> <p>YAML is converted to an array in PHP. Consider the following YAML:</p> <div class=highlight><pre><span></span><code><span class=nt>discovery</span><span class=p>:</span><span class=w></span>
 <span class=w>  </span><span class="p p-Indicator">-</span><span class=w> </span><span class=nt>sysObjectID</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">foo</span><span class=w></span>
