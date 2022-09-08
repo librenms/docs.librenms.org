@@ -193,7 +193,6 @@ lnms config:set enable_pseudowires <span class=nb>true</span> <span class=c1># E
 lnms config:set enable_vrfs <span class=nb>true</span> <span class=c1># Enable VRFs</span>
 </code></pre></div> <h2 id=port-extensions>Port extensions</h2> <p>Please refer to <a href=../../Extensions/Interface-Description-Parsing/ >Port-Description-Parser</a></p> <div class=highlight><pre><span></span><code>lnms config:set enable_ports_etherlike <span class=nb>false</span>
 lnms config:set enable_ports_junoseatmvp <span class=nb>false</span>
-lnms config:set enable_ports_adsl <span class=nb>true</span>
 lnms config:set enable_ports_poe <span class=nb>false</span>
 </code></pre></div> <p>Enable / disable additional port statistics.</p> <h2 id=port-group>Port Group</h2> <p>Assign a new discovered Port automatically to Port Group with this Port Group ID (0 means no Port Group assignment)</p> <div class=highlight><pre><span></span><code><span class=nx>lnms</span> <span class=nx>config</span><span class=o>:</span><span class=nx>set</span> <span class=nx>default_port_group</span> <span class=mi>0</span>
 </code></pre></div> <h2 id=external-integration>External integration</h2> <h3 id=rancid>Rancid</h3> <div class=highlight><pre><span></span><code>lnms config:set rancid_configs.+ /var/lib/rancid/network/configs/
