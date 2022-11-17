@@ -18,7 +18,7 @@
 <span class=w>        </span><span class=p>}</span><span class=w></span>
 <span class=w>    </span><span class=p>]</span><span class=w></span>
 <span class=p>}</span><span class=w></span>
-</code></pre></div> <h3 id=search_ports><code>search_ports</code></h3> <p>Search for ports matching the query.</p> <p>Route: <code>/api/v0/ports/search/:search</code></p> <ul> <li>search string to search in fields: ifAlias, ifDescr, and ifName</li> </ul> <p>Input:</p> <p>-</p> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/search/lo
+</code></pre></div> <h3 id=search_ports><code>search_ports</code></h3> <p>Search for ports matching the query.</p> <p>Route: <code>/api/v0/ports/search/:search</code></p> <ul> <li>search string to search in fields: ifAlias, ifDescr, and ifName</li> </ul> <p>Input:</p> <ul> <li>columns: Comma separated list of columns you want returned.</li> </ul> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/search/lo
 </code></pre></div> <p>Output:</p> <div class=highlight><pre><span></span><code><span class=p>{</span><span class=w></span>
 <span class=w>    </span><span class=nt>&quot;status&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;ok&quot;</span><span class=p>,</span><span class=w></span>
 <span class=w>    </span><span class=nt>&quot;ports&quot;</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=w></span>
@@ -42,7 +42,7 @@
 <span class=w>        </span><span class=p>}</span><span class=w></span>
 <span class=w>    </span><span class=p>]</span><span class=w></span>
 <span class=p>}</span><span class=w></span>
-</code></pre></div> <h3 id=search_ports-in-specific-column><code>search_ports in specific column</code></h3> <p>Specific search for ports matching the query.</p> <p>Route: <code>/api/v0/ports/search/:field/:search</code></p> <ul> <li>search string to search in field specified by field</li> </ul> <p>Input:</p> <p>-</p> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/search/ifName/lo
+</code></pre></div> <h3 id=search_ports-in-specific-column><code>search_ports in specific column</code></h3> <p>Specific search for ports matching the query.</p> <p>Route: <code>/api/v0/ports/search/:field/:search</code></p> <ul> <li>search string to search in field specified by field</li> </ul> <p>Input:</p> <ul> <li>columns: Comma separated list of columns you want returned.</li> </ul> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/ports/search/ifName/lo
 </code></pre></div> <p>Output:</p> <div class=highlight><pre><span></span><code><span class=p>{</span><span class=w></span>
 <span class=w>    </span><span class=nt>&quot;status&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;ok&quot;</span><span class=p>,</span><span class=w></span>
 <span class=w>    </span><span class=nt>&quot;ports&quot;</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=w></span>
