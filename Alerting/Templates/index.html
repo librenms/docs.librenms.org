@@ -109,7 +109,7 @@ Percent Utilized: {{ $value[&#39;mempool_perc&#39;] }}
 {{ $alert-&gt;hostname }}
 @endif
 </code></pre></div> <h4 id=traceroute-debugs>Traceroute debugs</h4> <div class=highlight><pre><span></span><code>@if ($alert-&gt;status == 0)
-    @if ($alert-&gt;status == &#39;icmp&#39;)
+    @if ($alert-&gt;status_reason == &#39;icmp&#39;)
         {{ $alert-&gt;debug[&#39;traceroute&#39;] }}
     @endif
 @endif
