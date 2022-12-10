@@ -51,10 +51,12 @@ zero_stats = A 0/1 boolean for if the stats file should be zeroed
     {&quot;fqdn&quot;: &quot;www.mydomain.com&quot;},
     {&quot;fqdn&quot;: &quot;some.otherdomain.org&quot;,
      &quot;port&quot;: 8443},
-    {&quot;fqdn&quot;: &quot;personal.domain.net&quot;}
+    {&quot;fqdn&quot;: &quot;personal.domain.net&quot;},
+    {&quot;fqdn&quot;: &quot;selfsignedcert_host.domain.com&quot;,
+     &quot;cert_location&quot;: &quot;/etc/pki/tls/certs/localhost.pem&quot;}
 ]
 }
-</code></pre></div> Key 'domains' contains a list of domains to check. Optional you can define a port. By default it checks on port 443.</p> <h3 id=snmp-extend_5>SNMP Extend</h3> <ol> <li> <p>Copy the shell script to the desired host. <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/certificate.py -O /etc/snmp/certificate.py
+</code></pre></div> a. (Required): Key 'domains' contains a list of domains to check. b. (Optional): You can define a port. By default it checks on port 443. c. (Optional): You may define a certificate location for self-signed certificates.</p> <h3 id=snmp-extend_5>SNMP Extend</h3> <ol> <li> <p>Copy the shell script to the desired host. <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/certificate.py -O /etc/snmp/certificate.py
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/certificate.py
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add: <div class=highlight><pre><span></span><code>extend certificate /etc/snmp/certificate.py
 </code></pre></div></p> </li> <li>Restart snmpd on your host</li> </ol> <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p> <h2 id=chip>C.H.I.P</h2> <p>C.H.I.P. is a $9 R8 based tiny computer ideal for small projects. Further details: <a href=https://getchip.com/pages/chip>https://getchip.com/pages/chip</a></p> <ol> <li> <p>Copy the shell script to the desired host. <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/chip.sh -O /etc/snmp/power-stat.sh
