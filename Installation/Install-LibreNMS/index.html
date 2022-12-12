@@ -17,8 +17,8 @@ dnf install bash-completion cronie fping git ImageMagick mariadb-server mtr net-
 </code></pre></div> </div> <div class=tabbed-block> <div class=highlight><pre><span></span><code>dnf -y install epel-release
 dnf -y install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf module reset php
-dnf module enable php:8.1
-dnf install bash-completion cronie fping git httpd ImageMagick mariadb-server mtr net-snmp net-snmp-utils nmap php-fpm php-cli php-common php-curl php-gd php-gmp php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd python3 python3-PyMySQL python3-redis python3-memcached python3-pip python3-systemd rrdtool unzip
+dnf module enable php:remi-8.1
+dnf install bash-completion cronie fping git httpd ImageMagick mariadb-server mtr net-snmp net-snmp-utils nmap php-fpm php-cli php-common php-curl php-gd php-gmp php-json php-mbstring php-process php-snmp php-xml php-zip php-mysqlnd python3 python3-PyMySQL python3-redis python3-memcached python3-pip python3-systemd rrdtool unzip gcc python3-devel
 </code></pre></div> </div> </div> </div> </div> <div class=tabbed-block> <div class="tabbed-set tabbed-alternate" data-tabs=5:1><input checked=checked id=__tabbed_5_1 name=__tabbed_5 type=radio><div class=tabbed-labels><label for=__tabbed_5_1>NGINX</label></div> <div class=tabbed-content> <div class=tabbed-block> <div class=highlight><pre><span></span><code>apt install apt-transport-https lsb-release ca-certificates wget
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 echo &quot;deb https://packages.sury.org/php/ $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/sury-php.list
