@@ -393,6 +393,26 @@ filename: &quot;$LOG_PATH/stats.json&quot;
     &quot;systemctl_cmd&quot;: &quot;/bin/systemctl&quot;,
     &quot;include_inactive_units&quot;: &quot;True&quot;
 }
+</code></pre></div></p> </li> <li> <p>(Optional) If you have SELinux in Enforcing mode, you must add a module so the script can access systemd state: <div class=highlight><pre><span></span><code>cat &lt;&lt; EOF &gt; snmpd_systemctl.te
+module snmpd_systemctl 1.0;
+
+require {
+        type snmpd_t;
+        type systemd_systemctl_exec_t;
+        type init_t;
+        class file { execute execute_no_trans map open read };
+        class unix_stream_socket connectto;
+        class system status;
+}
+
+#============= snmpd_t ==============
+allow snmpd_t init_t:system status;
+allow snmpd_t init_t:unix_stream_socket connectto;
+allow snmpd_t systemd_systemctl_exec_t:file { execute execute_no_trans map open read };
+EOF
+checkmodule -M -m -o snmpd_systemctl.mod snmpd_systemctl.te
+semodule_package -o snmpd_systemctl.pp -m snmpd_systemctl.mod
+semodule -i snmpd_systemctl.pp
 </code></pre></div></p> </li> <li> <p>Restart snmpd.</p> </li> </ol> <h2 id=tinydns-aka-djbdns>TinyDNS aka djbdns</h2> <h3 id=agent_13>Agent</h3> <p><a href=../Agent-Setup/ >Install the agent</a> on this device if it isn't already and copy the <code>tinydns</code> script to <code>/usr/lib/check_mk_agent/local/</code></p> <p><em>Note</em>: We assume that you use DJB's <a href=http://cr.yp.to/daemontools.html>Daemontools</a> to start/stop tinydns. And that your tinydns instance is located in <code>/service/dns</code>, adjust this path if necessary.</p> <ol> <li> <p>Replace your <em>log</em>'s <code>run</code> file, typically located in <code>/service/dns/log/run</code> with: <div class=highlight><pre><span></span><code><span class=ch>#!/bin/sh</span>
 <span class=nb>exec</span> setuidgid dnslog tinystats ./main/tinystats/ multilog t n3 s250000 ./main/
 </code></pre></div></p> </li> <li> <p>Create tinystats directory and chown: <div class=highlight><pre><span></span><code>mkdir /service/dns/log/main/tinystats
