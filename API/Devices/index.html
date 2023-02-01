@@ -547,7 +547,7 @@
 <span class=w>    </span><span class=p>],</span><span class=w></span>
 <span class=w>    </span><span class=nt>&quot;count&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>2</span><span class=w></span>
 <span class=p>}</span><span class=w></span>
-</code></pre></div></p> <h3 id=get_oxidized_config><code>get_oxidized_config</code></h3> <p>Returns a specific device's config from oxidized.</p> <p>Route: <code>api/v0/oxidized/config/:device_name</code></p> <ul> <li>device_name is the full dns name of the device used when adding the device to librenms.</li> </ul> <p>Input:</p> <p>-</p> <p>Example: <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/oxidized/config/router.corp.com
+</code></pre></div></p> <h3 id=get_oxidized_config><code>get_oxidized_config</code></h3> <p>Returns a specific device's config from oxidized.</p> <p>Route: <code>api/v0/oxidized/config/:hostname</code></p> <ul> <li>hostname is the Hostname or IP of the device used when adding the device to librenms.</li> </ul> <p>Input:</p> <p>-</p> <p>Example: <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/oxidized/config/router.corp.com
 </code></pre></div></p> <p>Output: <div class=highlight><pre><span></span><code><span class=p>{</span><span class=w></span>
 <span class=w>    </span><span class=nt>&quot;status&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;ok&quot;</span><span class=p>,</span><span class=w></span>
 <span class=w>    </span><span class=nt>&quot;config&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;DEVICE CONFIG HERE&quot;</span><span class=w></span>
