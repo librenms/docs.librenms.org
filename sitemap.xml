@@ -491,11 +491,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.librenms.org/Installation/Images/</loc>
-         <lastmod>2023-05-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.librenms.org/Installation/Install-LibreNMS/</loc>
          <lastmod>2023-05-09</lastmod>
          <changefreq>daily</changefreq>
