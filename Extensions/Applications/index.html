@@ -24,8 +24,8 @@ chmod +x /usr/local/bin/librenms_return_optimizer
 </code></pre></div></p> </li> <li> <p>Restart snmpd on your host</p> </li> </ol> <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p> <h2 id=backupninja>backupninja</h2> <p>A small shell script that reports status of last backupninja backup.</p> <h3 id=snmp-extend_3>SNMP Extend</h3> <ol> <li>Download the <a href=https://github.com/librenms/librenms-agent/blob/master/snmp/backupninja.py>backupninja script</a> to <code>/etc/snmp/backupninja.py</code> on your backuped server. <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/backupninja.py -O /etc/snmp/backupninja.py`
 </code></pre></div></li> <li> <p>Make the script executable: <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/backupninja.py
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add: <div class=highlight><pre><span></span><code>extend backupninja /etc/snmp/backupninja.py
-</code></pre></div></p> </li> <li> <p>Restart snmpd on your host</p> </li> </ol> <h2 id=bind9-aka-named>BIND9 aka named</h2> <ol> <li> <p>Create stats file with appropriate permissions: <div class=highlight><pre><span></span><code>~$ touch /var/cache/bind/stats
-~$ chown bind:bind /var/cache/bind/stats
+</code></pre></div></p> </li> <li> <p>Restart snmpd on your host</p> </li> </ol> <h2 id=bind9-aka-named>BIND9 aka named</h2> <ol> <li> <p>Create stats file with appropriate permissions: <div class=highlight><pre><span></span><code>touch /var/cache/bind/stats
+chown bind:bind /var/cache/bind/stats
 </code></pre></div> Change <code>user:group</code> to the user and group that's running bind/named.</p> </li> <li> <p>Bind/named configuration: <div class=highlight><pre><span></span><code>options {
     ...
     statistics-file &quot;/var/cache/bind/stats&quot;;
