@@ -24,6 +24,7 @@
 <span class=k>namespace</span> <span class=nx>LibreNMS\Snmptrap\Handlers</span><span class=p>;</span>
 
 <span class=k>use</span> <span class=nx>App\Models\Device</span><span class=p>;</span>
+<span class=k>use</span> <span class=nx>LibreNMS\Enum\Severity</span><span class=p>;</span>
 <span class=k>use</span> <span class=nx>LibreNMS\Interfaces\SnmptrapHandler</span><span class=p>;</span>
 <span class=k>use</span> <span class=nx>LibreNMS\Snmptrap\Trap</span><span class=p>;</span>
 
@@ -39,7 +40,7 @@
 <span class=sd>     */</span>
     <span class=k>public</span> <span class=k>function</span> <span class=nf>handle</span><span class=p>(</span><span class=nx>Device</span> <span class=nv>$device</span><span class=p>,</span> <span class=nx>Trap</span> <span class=nv>$trap</span><span class=p>)</span>
     <span class=p>{</span>
-        <span class=nv>$trap</span><span class=o>-&gt;</span><span class=na>log</span><span class=p>(</span><span class=s1>&#39;SNMP Trap: Device &#39;</span> <span class=o>.</span> <span class=nv>$device</span><span class=o>-&gt;</span><span class=na>displayName</span><span class=p>()</span> <span class=o>.</span> <span class=s1>&#39; cold booted&#39;</span><span class=p>,</span> <span class=nv>$device</span><span class=o>-&gt;</span><span class=na>device_id</span><span class=p>,</span> <span class=s1>&#39;reboot&#39;</span><span class=p>,</span> <span class=mi>4</span><span class=p>);</span>
+        <span class=nv>$trap</span><span class=o>-&gt;</span><span class=na>log</span><span class=p>(</span><span class=s1>&#39;SNMP Trap: Device &#39;</span> <span class=o>.</span> <span class=nv>$device</span><span class=o>-&gt;</span><span class=na>displayName</span><span class=p>()</span> <span class=o>.</span> <span class=s1>&#39; cold booted&#39;</span><span class=p>,</span> <span class=nv>$device</span><span class=o>-&gt;</span><span class=na>device_id</span><span class=p>,</span> <span class=s1>&#39;reboot&#39;</span><span class=p>,</span> <span class=nx>Severity</span><span class=o>::</span><span class=na>Warning</span><span class=p>);</span>
     <span class=p>}</span>
 <span class=p>}</span>
 </code></pre></div> <p>where number on the end means color of the eventlog:</p> <div class=highlight><pre><span></span><code>1 green
