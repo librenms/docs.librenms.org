@@ -43,11 +43,11 @@
         <span class=nv>$trap</span><span class=o>-&gt;</span><span class=na>log</span><span class=p>(</span><span class=s1>&#39;SNMP Trap: Device &#39;</span> <span class=o>.</span> <span class=nv>$device</span><span class=o>-&gt;</span><span class=na>displayName</span><span class=p>()</span> <span class=o>.</span> <span class=s1>&#39; cold booted&#39;</span><span class=p>,</span> <span class=nv>$device</span><span class=o>-&gt;</span><span class=na>device_id</span><span class=p>,</span> <span class=s1>&#39;reboot&#39;</span><span class=p>,</span> <span class=nx>Severity</span><span class=o>::</span><span class=na>Warning</span><span class=p>);</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div> <p>where number on the end means color of the eventlog:</p> <div class=highlight><pre><span></span><code>1 green
-2 cyan
-3 blue
-4 yellow
-5 red
+</code></pre></div> <p>where number on the end means color of the eventlog:</p> <div class=highlight><pre><span></span><code>Severity::Ok = green
+Severity::Info = cyan
+Severity::Notice = blue
+Severity::Warning = yellow
+Severity::Error = red
 </code></pre></div> <p>Register the mapping in the <code>config/snmptraps.php</code> file. Make sure to use the full trap OID and correct class.</p> <div class=highlight><pre><span></span><code><span class=s1>&#39;SNMPv2-MIB::coldStart&#39;</span> <span class=o>=&gt;</span> <span class=nx>\LibreNMS\Snmptrap\Handlers\ColdBoot</span><span class=o>::</span><span class=na>class</span><span class=p>,</span>
 </code></pre></div> <p>The handle function inside your new class will receive a LibreNMS/Snmptrap/Trap object containing the parsed trap. It is common to update the database and create event log entries within the handle function.</p> <h3 id=getting-information-from-the-trap>Getting information from the Trap</h3> <h4 id=source-information>Source information</h4> <div class=highlight><pre><span></span><code><span class=nv>$trap</span><span class=o>-&gt;</span><span class=na>getDevice</span><span class=p>();</span>   <span class=c1>// gets Device model for the device associated with this trap</span>
 <span class=nv>$trap</span><span class=o>-&gt;</span><span class=na>ip</span><span class=p>;</span>            <span class=c1>// gets source IP of this trap</span>
