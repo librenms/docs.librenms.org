@@ -47,7 +47,16 @@ lnms config:set oxidized.maps.ip.sysName.+ <span class=s1>&#39;{&quot;match&quot
   &lt;groupname&gt;:
     username: &lt;user&gt;
     password: &lt;password&gt;
-</code></pre></div> <h2 id=miscellaneous>Miscellaneous</h2> <p>If you have devices which you do not wish to appear in Oxidized then you can edit those devices in Device -&gt; Edit -&gt; Misc and enable "Exclude from Oxidized?"</p> <p>It's also possible to exclude certain device types and OS' from being output via the API.</p> <div class="admonition setting"> <p class=admonition-title>external/oxidized</p> <div class=highlight><pre><span></span><code>lnms config:set oxidized.ignore_types <span class=s1>&#39;[&quot;server&quot;, &quot;power&quot;]&#39;</span>
+</code></pre></div> <h2 id=miscellaneous>Miscellaneous</h2> <p>If you have devices which you do not wish to appear in Oxidized then you can edit those devices in Device -&gt; Edit -&gt; Misc and enable "Exclude from Oxidized?"</p> <p>The use of custom ssh and telnet ports can be set through device settings misc tab, and can be passed on to oxidized with the following <code>vars_map</code></p> <div class=highlight><pre><span></span><code>      source:
+        http:
+          map:
+            name: hostname
+            model: os
+            group: group
+          vars_map:
+            ssh_port: ssh_port
+            telnet_port: telnet_port
+</code></pre></div> <p>It's also possible to exclude certain device types and OS' from being output via the API.</p> <div class="admonition setting"> <p class=admonition-title>external/oxidized</p> <div class=highlight><pre><span></span><code>lnms config:set oxidized.ignore_types <span class=s1>&#39;[&quot;server&quot;, &quot;power&quot;]&#39;</span>
 lnms config:set oxidized.ignore_os <span class=s1>&#39;[&quot;linux&quot;, &quot;windows&quot;]&#39;</span>
 </code></pre></div> </div> <p>You can also ignore whole groups of devices</p> <div class="admonition setting"> <p class=admonition-title>external/oxidized</p> <div class=highlight><pre><span></span><code>lnms config:set oxidized.ignore_groups <span class=s1>&#39;[&quot;london-switches&quot;, &quot;default&quot;]&#39;</span>
 </code></pre></div> </div> <h2 id=trigger-configuration-backups>Trigger configuration backups</h2> <p>Using the Oxidized REST API and <a href=/Extensions/Syslog/#external-hooks>Syslog Hooks</a>, Oxidized can trigger configuration downloads whenever a configuration change event has been logged. An example script to do this is included in <code>./scripts/syslog-notify-oxidized.php</code>. Oxidized can spawn a new worker thread and perform the download immediately with the following configuration</p> <div class=highlight><pre><span></span><code>next_adds_job: <span class=nb>true</span>
