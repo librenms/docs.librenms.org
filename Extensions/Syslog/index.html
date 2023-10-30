@@ -12,7 +12,7 @@ destination d_librenms <span class=o>{</span>
 
 log <span class=o>{</span>
         source<span class=o>(</span>s_net<span class=o>)</span><span class=p>;</span>
-        source<span class=o>(</span>s_sys<span class=o>)</span><span class=p>;</span>
+        source<span class=o>(</span>s_src<span class=o>)</span><span class=p>;</span>
         destination<span class=o>(</span>d_librenms<span class=o>)</span><span class=p>;</span>
 <span class=o>}</span><span class=p>;</span>
 </code></pre></div> <p>Next start syslog-ng:</p> <div class=highlight><pre><span></span><code>service syslog-ng restart
