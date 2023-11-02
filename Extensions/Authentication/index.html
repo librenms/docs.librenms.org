@@ -48,6 +48,8 @@ lnms config:set auth_ldap_debug <span class=nb>false</span>
 lnms config:set auth_ldap_userdn <span class=nb>true</span>
 lnms config:set auth_ldap_userlist_filter <span class=nv>service</span><span class=o>=</span>informatique
 lnms config:set auth_ldap_wildcard_ou <span class=nb>false</span>
+lnms config:set auth_ldap_cacertfile /opt/librenms/ldap-ca-cert
+lnms config:set auth_ldap_ignorecert <span class=nb>false</span>
 </code></pre></div> </div> <h3 id=ldap-bind-user-optional>LDAP bind user (optional)</h3> <p>If your ldap server does not allow anonymous bind, it is highly suggested to create a bind user, otherwise "remember me", alerting users, and the API will not work.</p> <div class="admonition setting"> <p class=admonition-title>auth/ldap</p> <div class=highlight><pre><span></span><code>lnms config:set auth_ldap_binduser ldapbind
 lnms config:set auth_ldap_binddn <span class=s1>&#39;CN=John.Smith,CN=Users,DC=MyDomain,DC=com&#39;</span>
 lnms config:set auth_ldap_bindpassword password
