@@ -448,6 +448,8 @@ pkg install p5-JSON p5-MIME-Base64 smartmontools
 # Debian
 apt-get install cpanminus smartmontools
 cpanm MIME::Base64 JSON
+# CentOS
+dnf install smartmontools perl-JSON perl-MIME-Base64
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/smart
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file and add: <div class=highlight><pre><span></span><code>extend smart /etc/snmp/smart
 </code></pre></div></p> </li> <li> <p>You will also need to create the config file, which defaults to the same path as the script, but with .config appended. So if the script is located at /etc/snmp/smart, the config file will be <code>/etc/snmp/smart.config</code>. Alternatively you can also specific a config via <code>-c</code>.</p> </li> </ol> <p>Anything starting with a # is comment. The format for variables is $variable=$value. Empty lines are ignored. Spaces and tabes at either the start or end of a line are ignored. Any line with out a matched variable or # are treated as a disk.</p> <div class=highlight><pre><span></span><code>#This is a comment
