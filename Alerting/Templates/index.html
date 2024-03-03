@@ -171,8 +171,8 @@ Rule: @if ($alert-&gt;name) {{ $alert-&gt;name }} @else {{ $alert-&gt;rule }} @e
 @endforeach
 @if ($alert-&gt;faults) &lt;b&gt;Faults:&lt;/b&gt;&lt;br&gt;
 @foreach ($alert-&gt;faults as $key =&gt; $value)
-@signedGraphTag([&#39;device_id&#39; =&gt; $value[&#39;device_id&#39;], &#39;type&#39; =&gt; &#39;device_processor&#39;, &#39;width&#39; =&gt; 459, &#39;height&#39; =&gt; 213, &#39;from&#39; =&gt; time() - 259200])&lt;br&gt;
-https://server/graphs/id={{ $value[&#39;device_id&#39;] }}/type=device_processor/&lt;br&gt;
+@signedGraphTag([&#39;device&#39; =&gt; $value[&#39;device_id&#39;], &#39;type&#39; =&gt; &#39;device_processor&#39;, &#39;width&#39; =&gt; 459, &#39;height&#39; =&gt; 213, &#39;from&#39; =&gt; time() - 259200])&lt;br&gt;
+https://server/graphs/device={{ $value[&#39;device_id&#39;] }}/type=device_processor/&lt;br&gt;
 @endforeach
 Template: CPU alert &lt;br&gt;
 @endif
