@@ -684,7 +684,7 @@ extend ups-nut /etc/snmp/ups-nut.sh ups2
     }
 }
 </code></pre></div></li> </ol> </li> <li> <p>Restart snmpd.</p> </li> </ol> <h2 id=zfs>ZFS</h2> <h3 id=snmp-extend_68>SNMP Extend</h3> <p>1: Install the depends. <div class=highlight><pre><span></span><code>### FreeBSD
-pkg install p5-JSON p5-MIME-Base64 p5-Gzip-Faster
+pkg install p5-JSON p5-MIME-Base64 p5-Gzip-Faster p5-File-Slurp
 ### Debian
 apt-get install -y cpanminus zlib1g-dev
 cpanm Mime::Base64 JSON Gzip::Faster
