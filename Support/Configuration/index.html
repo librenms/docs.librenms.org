@@ -260,28 +260,31 @@ lnms<span class=w> </span>config:set<span class=w> </span>os.ios.bad_entity_sens
 </code></pre></div> <ul> <li>Filter all sensors matching regexp <code>'/PEM Iout/'</code>.</li> </ul> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>disabled_sensors_regex.+<span class=w> </span><span class=s1>&#39;/PEM Iout/&#39;</span>
 </code></pre></div> <ul> <li>Filter all 'current' sensors for Operating System 'vrp'.</li> </ul> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>os.vrp.disabled_sensors.current<span class=w> </span><span class=nb>true</span>
 </code></pre></div> <ul> <li>Filter all sensors matching regexp <code>'/PEM Iout/'</code> for Operating System iosxe.</li> </ul> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>os.iosxe.disabled_sensors_regex<span class=w> </span><span class=s1>&#39;/PEM Iout/&#39;</span>
-</code></pre></div> <h2 id=storage-configuration>Storage configuration</h2> <p>Mounted storage / mount points to ignore in discovery and polling.</p> <div class="admonition setting"> <p class=admonition-title>discovery/storage</p> </div> <p>```bash lnms config:set ignore_mount_removable true lnms config:set ignore_mount_network true lnms config:set ignore_mount_optical true</p> <div class=highlight><pre><span></span><code>lnms config:set ignore_mount.+ /kern
-lnms config:set ignore_mount.+ /mnt/cdrom
-lnms config:set ignore_mount.+ /proc
-lnms config:set ignore_mount.+ /dev
+</code></pre></div> <h2 id=storage-configuration>Storage configuration</h2> <p>Mounted storage / mount points to ignore in discovery and polling.</p> <div class="admonition setting"> <p class=admonition-title>discovery/storage</p> </div> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_removable<span class=w> </span><span class=nb>true</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_network<span class=w> </span><span class=nb>true</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_optical<span class=w> </span><span class=nb>true</span>
 
-lnms config:set ignore_mount_string.+ packages
-lnms config:set ignore_mount_string.+ devfs
-lnms config:set ignore_mount_string.+ procfs
-lnms config:set ignore_mount_string.+ UMA
-lnms config:set ignore_mount_string.+ MALLOC
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount.+<span class=w> </span>/kern
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount.+<span class=w> </span>/mnt/cdrom
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount.+<span class=w> </span>/proc
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount.+<span class=w> </span>/dev
 
-lnms config:set ignore_mount_regexp.+ &#39;/on: \/packages/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/on: \/dev/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/on: \/proc/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/on: \/junos^/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/on: \/junos\/dev/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/on: \/jail\/dev/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/^(dev|proc)fs/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/^\/dev\/md0/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/^\/var\/dhcpd\/dev,/&#39;
-lnms config:set ignore_mount_regexp.+ &#39;/UMA/&#39;
-```
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_string.+<span class=w> </span>packages
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_string.+<span class=w> </span>devfs
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_string.+<span class=w> </span>procfs
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_string.+<span class=w> </span>UMA
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_string.+<span class=w> </span>MALLOC
+
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/on: \/packages/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/on: \/dev/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/on: \/proc/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/on: \/junos^/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/on: \/junos\/dev/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/on: \/jail\/dev/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/^(dev|proc)fs/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/^\/dev\/md0/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/^\/var\/dhcpd\/dev,/&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>ignore_mount_regexp.+<span class=w> </span><span class=s1>&#39;/UMA/&#39;</span>
 </code></pre></div> <p>Custom storage warning percentage</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>storage_perc_warn<span class=w> </span><span class=m>60</span>
 </code></pre></div> <h2 id=irc-bot>IRC Bot</h2> <p>Please refer to <a href=../../Extensions/IRC-Bot/ >IRC Bot</a></p> <h2 id=authentication_1>Authentication</h2> <p>Please refer to <a href=../../Extensions/Authentication/ >Authentication</a></p> <h2 id=cleanup-options>Cleanup options</h2> <p>Please refer to <a href=../Cleanup-options/ >Cleanup Options</a></p> <h2 id=syslog-options>Syslog options</h2> <p>Please refer to <a href=../../Extensions/Syslog/ >Syslog</a></p> <h2 id=virtualization>Virtualization</h2> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>enable_libvirt<span class=w> </span><span class=nb>true</span>
 lnms<span class=w> </span>config:set<span class=w> </span>libvirt_protocols<span class=w> </span><span class=s1>&#39;[&quot;qemu+ssh&quot;,&quot;xen+ssh&quot;]&#39;</span>
