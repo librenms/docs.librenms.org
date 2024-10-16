@@ -276,22 +276,48 @@ semodule_package -o snmpd_nginx.pp -m snmpd_nginx.mod
 semodule -i snmpd_nginx.pp
 </code></pre></div></p> </li> <li> <p>Restart snmpd on your host</p> </li> </ol> <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p> <h3 id=agent_8>Agent</h3> <p><a href=../Agent-Setup/ >Install the agent</a> on this device if it isn't already and copy the <code>nginx</code> script to <code>/usr/lib/check_mk_agent/local/</code></p> <h2 id=nfs>NFS</h2> <p>Provides both NFS client and server support.</p> <p>Currently supported OSes are as below.</p> <ul> <li>FreeBSD</li> <li>Linux</li> </ul> <h3 id=snmpd-extend>SNMPd extend</h3> <ol> <li> <p>Download the extend. <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/nfs -O /etc/snmp/nfs
 </code></pre></div></p> </li> <li> <p>Make it executable. <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/nfs
+</code></pre></div></p> </li> <li> <p>Install the requirements. <div class=highlight><pre><span></span><code># debian
+apt-get install libfile-slurp-perl libjson-perl libmime-base64-perl
+
+# freebsd
+pkg install p5-File-Slurp p5-JSON p5-MIME-Base64
+
+# rhel / alma
+dnf install perl-File-Slurp perl-JSON perl-MIME-Base64
 </code></pre></div></p> </li> <li> <p>Add it to snmpd.conf. <div class=highlight><pre><span></span><code>extend nfs /usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin /etc/snmp/nfs
-</code></pre></div></p> </li> <li> <p>Restart snmpd on your host</p> </li> <li> <p>Either wait for it to be rediscovered, rediscover it, or enable it.</p> </li> </ol> <p>If using SELinux, the following is needed.</p> <ol> <li> <p><code>setsebool -P nis_enabled 1</code></p> </li> <li> <p>Make a file (snmp_nfs.te) with the following contents and install the policy with the command <code>semodule -i snmp_nfs.te</code>. <div class=highlight><pre><span></span><code>module snmp_nfs 1.0;
+</code></pre></div></p> </li> <li> <p>Restart snmpd on your host</p> </li> <li> <p>Either wait for it to be rediscovered, rediscover it, or enable it.</p> </li> </ol> <p>If using SELinux, the following is needed.</p> <ol> <li> <p><code>setsebool -P nis_enabled 1</code></p> </li> <li> <p>Make a file (snmp_nfs.te) with the following contents and install the policy with the command <code>semodule -i snmp_nfs.te</code>.</p> </li> </ol> <div class=highlight><pre><span></span><code>module local_snmp 1.0;
 
 require {
-        type mountd_port_t;
-        type snmpd_t;
-        type hi_reserved_port_t;
-        class tcp_socket { name_bind name_connect };
-        class udp_socket name_bind;
+    type snmpd_t;
+    type portmap_port_t;
+    type sysctl_rpc_t;
+    type device_t;
+    type mountd_port_t;
+    type hi_reserved_port_t;
+    class tcp_socket { name_bind name_connect };
+    class udp_socket name_bind;
+    class dir search;
+    class file { read getattr open };
+    class chr_file { open ioctl read write };
 }
 
-#============= snmpd_t ==============
+# Allow snmpd_t to connect to tcp_socket of type portmap_port_t
+allow snmpd_t portmap_port_t:tcp_socket name_connect;
 allow snmpd_t hi_reserved_port_t:tcp_socket name_bind;
 allow snmpd_t hi_reserved_port_t:udp_socket name_bind;
 allow snmpd_t mountd_port_t:tcp_socket name_connect;
-</code></pre></div></p> </li> </ol> <h2 id=linux-nfs-server>Linux NFS Server</h2> <p>Superseded by the generalized NFS support.</p> <p>Export the NFS stats from as server.</p> <h3 id=snmp-extend_29>SNMP Extend</h3> <ol> <li> <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add : <div class=highlight><pre><span></span><code>extend nfs-server /bin/cat /proc/net/rpc/nfsd
+
+# Allow snmpd_t to search directories and access files of type sysctl_rpc_t
+allow snmpd_t sysctl_rpc_t:dir search;
+allow snmpd_t sysctl_rpc_t:file { read getattr open };
+
+# Allow snmpd_t to perform open, ioctl, read, and write operations on chr_file of type device_t
+allow snmpd_t device_t:chr_file { open ioctl read write };
+
+# this policy allows : 
+# zfs extension (fixes root needs to run this)
+# nfs extension (fixes file not found error)
+</code></pre></div> <h2 id=linux-nfs-server>Linux NFS Server</h2> <p>Superseded by the generalized NFS support.</p> <p>Export the NFS stats from as server.</p> <h3 id=snmp-extend_29>SNMP Extend</h3> <ol> <li> <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add : <div class=highlight><pre><span></span><code>extend nfs-server /bin/cat /proc/net/rpc/nfsd
 </code></pre></div></p> <blockquote> <p>find out where cat is located using : <code>which cat</code></p> </blockquote> </li> <li> <p>reload snmpd service to activate the configuration</p> </li> </ol> <h2 id=ntp-client>NTP Client</h2> <p>A shell script that gets stats from ntp client.</p> <h3 id=snmp-extend_30>SNMP Extend</h3> <ol> <li> <p>Download the script onto the desired host. <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/ntp-client -O /etc/snmp/ntp-client
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/ntp-client
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add: <div class=highlight><pre><span></span><code>extend ntp-client /etc/snmp/ntp-client
