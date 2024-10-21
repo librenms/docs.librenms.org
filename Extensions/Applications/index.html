@@ -193,7 +193,24 @@ bar-access.log
 <span class=w>        </span><span class=nt>&quot;foo&quot;</span><span class=p>:</span><span class=s2>&quot;/var/log/www/foo-error.log&quot;</span>
 <span class=w>    </span><span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div> <h2 id=hv-monitor>HV Monitor</h2> <p>HV Monitor provides a generic way to monitor hypervisors. Currently CBSD+bhyve on FreeBSD and Libvirt+QEMU on Linux are support.</p> <p>For more information see HV::Monitor on <a href=https://github.com/VVelox/HV-Monitor>Github</a> or <a href=https://metacpan.org/dist/HV-Monitor>MetaCPAN</a>.</p> <h3 id=snmp-extend_18>SNMP Extend</h3> <ol> <li>Install the SNMP Extend.</li> </ol> <p>For Debian based systems this is as below.</p> <div class=highlight><pre><span></span><code>apt-get install zlib1g-dev cpanminus libjson-perl
+</code></pre></div> <ol> <li>(Optional) If you have SELinux in Enforcing mode, you must add a module so the script can open and read the httpd log files: <div class=highlight><pre><span></span><code>cat &lt;&lt; EOF &gt; snmpd_http_access_log_combined.te
+module snmp_http_access_log_combined 1.0;
+
+require {
+        type httpd_log_t;
+        type snmpd_t;
+        class file { open read };
+}
+
+#============= snmpd_t ==============
+
+allow snmpd_t httpd_log_t:file { open read };
+
+EOF
+checkmodule -M -m -o snmpd_http_access_log_combined.mod snmpd_http_access_log_combined.te
+semodule_package -o snmpd_http_access_log_combined.pp -m snmpd_http_access_log_combined.mod
+semodule -i snmpd_http_access_log_combined.pp
+</code></pre></div></li> </ol> <h2 id=hv-monitor>HV Monitor</h2> <p>HV Monitor provides a generic way to monitor hypervisors. Currently CBSD+bhyve on FreeBSD and Libvirt+QEMU on Linux are support.</p> <p>For more information see HV::Monitor on <a href=https://github.com/VVelox/HV-Monitor>Github</a> or <a href=https://metacpan.org/dist/HV-Monitor>MetaCPAN</a>.</p> <h3 id=snmp-extend_18>SNMP Extend</h3> <ol> <li>Install the SNMP Extend.</li> </ol> <p>For Debian based systems this is as below.</p> <div class=highlight><pre><span></span><code>apt-get install zlib1g-dev cpanminus libjson-perl
 cpanm HV::Monitor
 </code></pre></div> <p>And on FreeBSD as below.</p> <div class=highlight><pre><span></span><code>pkg install p5-App-cpanminus p5-JSON p5-MIME-Base64 p5-Gzip-Faster
 cpanm HV::Monitor
