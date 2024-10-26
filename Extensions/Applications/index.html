@@ -545,12 +545,18 @@ debug  8192 # Non-fatal errors
 </code></pre></div> <h3 id=snmp-extend_50>SNMP Extend</h3> <ol> <li> <p>Download the extend and make sure it is executable. <div class=highlight><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/privoxy -O /etc/snmp/privoxy
 chmod +x /etc/snmp/privoxy
 </code></pre></div></p> </li> <li> <p>Install the depdenencies. <div class=highlight><pre><span></span><code># FreeBSD
-pkg install p5-File-ReadBackwards p5-Time-Piece p5-JSON p5-IPC-Run3 p5-Gzip-Faster p5-MIME-Base64
+pkg install p5-JSON p5-MIME-Base64 p5-File-Slurp p5-File-ReadBackwards p5-IPC-Run3 p5-Time-Piece
+
 # Debian
-apt-get install cpanminus zlib1g
-cpanm File::ReadBackwards Time::Piece JSON IPC::Run3 MIME::Base64 Gzip::Faster
+apt-get install libjson-perl libmime-base64-perl libfile-slurp-perl libfile-readbackwards-perl libipc-run3-perl cpanminus
+cpanm Time::Piece
 </code></pre></div></p> </li> <li> <p>Add the extend to snmpd.conf and restart snmpd. <div class=highlight><pre><span></span><code>extend privoxy /etc/snmp/privoxy
-</code></pre></div></p> </li> </ol> <p>If your logfile is not at <code>/var/log/privoxy/logfile</code>, that may be changed via the <code>-f</code> option.</p> <p>If <code>privoxy-log-parser.pl</code> is not found in your standard <code>$PATH</code> setting, you may will need up call the extend via <code>/usr/bin/env</code> with a <code>$PATH</code> set to something that includes it.</p> <p>Once that is done, just wait for the server to be rediscovered or just enable it manually.</p> <h2 id=pwrstatd>Pwrstatd</h2> <p>Pwrstatd (commonly known as powerpanel) is an application/service available from CyberPower to monitor their PSUs over USB. It is currently capable of reading the status of only one PSU connected via USB at a time. The powerpanel software is available here: https://www.cyberpowersystems.com/products/software/power-panel-personal/</p> <h3 id=snmp-extend_51>SNMP Extend</h3> <ol> <li> <p>Copy the python script, pwrstatd.py, to the desired host <div class=highlight><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/pwrstatd.py -O /etc/snmp/pwrstatd.py
+</code></pre></div></p> </li> </ol> <p>If your logfile is not at <code>/var/log/privoxy/logfile</code>, that may be changed via the <code>-f</code> option.</p> <p>If <code>privoxy-log-parser.pl</code> is not found in your standard <code>$PATH</code> setting, you may will need up call the extend via <code>/usr/bin/env</code> with a <code>$PATH</code> set to something that includes it.</p> <p>Once that is done, just wait for the server to be rediscovered or just enable it manually.</p> <p>If you are having timeouts or there is privelege seperation issues, then it can be ran via cron like below. <code>-w</code> can be used to write it out and <code>-o</code> can be used to control where it is written to. See <code>--help</code> for more information.</p> <div class=highlight><pre><span></span><code># cron
+*/5 * * * * root /etc/snmp/privoxy -w &gt; /dev/null
+
+# snmpd.conf
+extend privoxy /bin/cat /var/cache/privoxy_extend.json.snmp
+</code></pre></div> <h2 id=pwrstatd>Pwrstatd</h2> <p>Pwrstatd (commonly known as powerpanel) is an application/service available from CyberPower to monitor their PSUs over USB. It is currently capable of reading the status of only one PSU connected via USB at a time. The powerpanel software is available here: https://www.cyberpowersystems.com/products/software/power-panel-personal/</p> <h3 id=snmp-extend_51>SNMP Extend</h3> <ol> <li> <p>Copy the python script, pwrstatd.py, to the desired host <div class=highlight><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/pwrstatd.py -O /etc/snmp/pwrstatd.py
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/pwrstatd.py
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file and add: <div class=highlight><pre><span></span><code>extend pwrstatd /etc/snmp/pwrstatd.py
 </code></pre></div></p> </li> <li> <p>(Optional) Create a /etc/snmp/pwrstatd.json file and specify the path to the pwrstat executable [the default path is /sbin/pwrstat]: <div class=highlight><pre><span></span><code>{
