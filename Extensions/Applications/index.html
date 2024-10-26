@@ -760,7 +760,12 @@ EOF
 checkmodule -M -m -o snmpd_ss.mod snmpd_ss.te
 semodule_package -o snmpd_ss.pp -m snmpd_ss.mod
 semodule -i snmpd_ss.pp
-</code></pre></div></p> </li> <li> <p>Restart snmpd.</p> </li> </ol> <h2 id=suricata>Suricata</h2> <h3 id=snmp-extend_65>SNMP Extend</h3> <ol> <li> <p>Install the extend. <div class=highlight><pre><span></span><code>cpanm Suricata::Monitoring
+</code></pre></div></p> </li> <li> <p>Restart snmpd.</p> </li> </ol> <h2 id=suricata>Suricata</h2> <h3 id=snmp-extend_65>SNMP Extend</h3> <ol> <li> <p>Install the extend. <div class=highlight><pre><span></span><code># FreeBSD
+pkg install p5-JSON p5-File-Path p5-File-Slurp p5-Time-Piece p5-MIME-Base64 p5-Hash-Flatten p5-Carp p5-App-cpanminus
+cpanm Suricata::Monitoring
+# Debian
+apt-get install libjson-perl libfile-path-perl libfile-slurp-perl libmime-base64-perl cpanminus
+cpanm Suricata::Monitoring
 </code></pre></div></p> </li> <li> <p>Setup cron. Below is a example. <div class=highlight><pre><span></span><code>*/5 * * * * /usr/local/bin/suricata_stat_check &gt; /dev/null
 </code></pre></div></p> </li> <li> <p>Configure snmpd.conf <div class=highlight><pre><span></span><code>extend suricata-stats /usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin suricata_stat_check -c
 </code></pre></div></p> </li> </ol> <p>Or if you want to use try compressing the return via Base64+GZIP...</p> <div class=highlight><pre><span></span><code>extend suricata-stats /usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin suricata_stat_check -c -b
