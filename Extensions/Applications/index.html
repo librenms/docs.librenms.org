@@ -232,8 +232,8 @@ chmod +x /etc/snmp/logsize
 </code></pre></div> <ol> <li>Install the requirements.</li> </ol> <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-File-Find-Rule p5-JSON p5-TOML p5-Time-Piece p5-MIME-Base64 p5-File-Slurp p5-Statistics-Lite
 # Debian
-apt-get install cpanminus
-cpanm File::Find::Rule JSON TOML Time::Piece MIME::Base64 File::Slurp Statistics::Lite
+apt-get install cpanminus libjson-perl libmime-base64-perl libfile-slurp-perl libtoml-perl libfile-find-rule-perl libstatistics-lite-perl
+cpanm Time::Piece
 </code></pre></div> <ol> <li>Configure the config at <code>/usr/local/etc/logsize.conf</code>. You can find the documentation for the config file in the extend. Below is a small example.</li> </ol> <div class=highlight><pre><span></span><code># monitor log sizes of logs directly udner /var/log
 [sets.var_log]
 dir=&quot;/var/log/&quot;
