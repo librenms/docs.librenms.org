@@ -632,8 +632,7 @@ hide_monitoring_account = With this Boolean you can hide the Account which you
 </code></pre></div></p> </li> <li> <p>Install the depends. <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-JSON p5-MIME-Base64 smartmontools
 # Debian
-apt-get install cpanminus smartmontools
-cpanm MIME::Base64 JSON
+apt-get install smartmontools libjson-perl libmime-base64-perl
 # CentOS
 dnf install smartmontools perl-JSON perl-MIME-Base64
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/smart
