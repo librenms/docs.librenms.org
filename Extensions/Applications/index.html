@@ -262,8 +262,10 @@ extend logsize /bin/cat /var/cache/logsize_extend/extend_return
     &quot;pkg_system&quot;: &quot;rpm&quot;,
     &quot;pkg_tool_cmd&quot;: &quot;/bin/rpmconf&quot;,
 }
-</code></pre></div></li> </ol> </li> <li> <p>Restart snmpd.</p> </li> </ol> <h2 id=linux-softnet-stat>Linux Softnet Stat</h2> <h3 id=snmp-extend_23>SNMP Extend</h3> <p>1: Install the depends, which on a Debian based system would be as below. <div class=highlight><pre><span></span><code>apt-get install -y cpanminus zlib1g-dev
-cpanm File::Slurp MIME::Base64 JSON Gzip::Faster
+</code></pre></div></li> </ol> </li> <li> <p>Restart snmpd.</p> </li> </ol> <h2 id=linux-softnet-stat>Linux Softnet Stat</h2> <h3 id=snmp-extend_23>SNMP Extend</h3> <p>1: Install the depends, which on a Debian based system would be as below. <div class=highlight><pre><span></span><code># Debian
+apt-get install -y libfile-slurp-perl libmime-base64-perl libjson-perl
+# generic cpanm
+cpanm JSON File::Slurp MIME::Base64
 </code></pre></div></p> <ol> <li> <p>Download the script into the desired host. <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/linux_softnet_stat -O /etc/snmp/linux_softnet_stat
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/linux_softnet_stat
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add: <div class=highlight><pre><span></span><code>extend linux_softnet_stat /etc/snmp/linux_softnet_stat -b
