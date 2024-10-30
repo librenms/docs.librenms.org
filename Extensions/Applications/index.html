@@ -210,17 +210,33 @@ EOF
 checkmodule -M -m -o snmpd_http_access_log_combined.mod snmpd_http_access_log_combined.te
 semodule_package -o snmpd_http_access_log_combined.pp -m snmpd_http_access_log_combined.mod
 semodule -i snmpd_http_access_log_combined.pp
-</code></pre></div></li> </ol> <h2 id=hv-monitor>HV Monitor</h2> <p>HV Monitor provides a generic way to monitor hypervisors. Currently CBSD+bhyve on FreeBSD and Libvirt+QEMU on Linux are support.</p> <p>For more information see HV::Monitor on <a href=https://github.com/VVelox/HV-Monitor>Github</a> or <a href=https://metacpan.org/dist/HV-Monitor>MetaCPAN</a>.</p> <h3 id=snmp-extend_18>SNMP Extend</h3> <ol> <li>Install the SNMP Extend.</li> </ol> <p>For Debian based systems this is as below.</p> <div class=highlight><pre><span></span><code>apt-get install libjson-perl libmime-base64-perl cpanminus
+</code></pre></div></li> </ol> <h2 id=hv-monitor>HV Monitor</h2> <p>HV Monitor provides a generic way to monitor hypervisors. Currently CBSD+bhyve on FreeBSD and Libvirt+QEMU on Linux are support.</p> <p>For more information see HV::Monitor on <a href=https://github.com/VVelox/HV-Monitor>Github</a> or <a href=https://metacpan.org/dist/HV-Monitor>MetaCPAN</a>.</p> <h3 id=snmp-extend_18>SNMP Extend</h3> <ol> <li>Install the SNMP Extend.</li> </ol> <p>For Debian based systems this is as below.</p> <div class=highlight><pre><span></span><code># Debian
+apt-get install libjson-perl libmime-base64-perl cpanminus
 cpanm HV::Monitor
-</code></pre></div> <p>And on FreeBSD as below.</p> <div class=highlight><pre><span></span><code>pkg install p5-App-cpanminus p5-JSON p5-MIME-Base64 p5-Module-List
+
+# FreeBSD
+pkg install p5-App-cpanminus p5-JSON p5-MIME-Base64 p5-Module-List
 cpanm HV::Monitor
+
+# Generic
+cpanm JSON MIME::Base64 Module::List
 </code></pre></div> <ol> <li>Set it up to be be ran by cron by root. Yes, you can directly call this script from SNMPD, but be aware, especially with Libvirt, there is a very real possibility of the snmpget timing out, especially if a VM is spinning up/down as virsh domstats can block for a few seconds or so then.</li> </ol> <div class=highlight><pre><span></span><code>*/5 * * * * /usr/local/bin/hv_monitor &gt; /var/cache/hv_monitor.json -c 2&gt; /dev/null
 </code></pre></div> <ol> <li>Setup snmpd.conf as below.</li> </ol> <div class=highlight><pre><span></span><code>extend hv-monitor /bin/cat
 /var/cache/hv_monitor.json
 </code></pre></div> <ol> <li> <p>Restart SNMPD.</p> </li> <li> <p>Either wait for it to be re-discovered or manually enable it.</p> </li> </ol> <h2 id=icecast>Icecast</h2> <p>Shell script that reports load average/memory/open-files stats of Icecast</p> <h3 id=snmp-extend_19>SNMP Extend</h3> <ol> <li> <p>Copy the shell script, icecast-stats.sh, to the desired host (the host must be added to LibreNMS devices) <div class=highlight><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/icecast-stats.sh -O /etc/snmp/icecast-stats.sh
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/icecast-stats.sh
 </code></pre></div></p> </li> <li> <p>Verify it is working by running <code>/etc/snmp/icecast-stats.sh</code></p> </li> <li> <p>Edit your snmpd.conf file (usually <code>/etc/snmp/icecast-stats.sh</code>) and add: <div class=highlight><pre><span></span><code>extend icecast /etc/snmp/icecast-stats.sh
-</code></pre></div></p> </li> </ol> <h2 id=isc-dhcp-stats>ISC DHCP Stats</h2> <p>A small python3 script that reports current DHCP leases stats and pool usage of ISC DHCP Server.</p> <p>Also you have to install the dhcpd-pools and the required Perl modules. Under Ubuntu/Debian just run <code>apt install cpanminus ; cpanm Net::ISC::DHCPd::Leases Mime::Base64 File::Slurp</code> or under FreeBSD <code>pkg install p5-JSON p5-MIME-Base64 p5-App-cpanminus p5-File-Slurp ; cpanm Net::ISC::DHCPd::Leases</code>.</p> <h3 id=snmp-extend_20>SNMP Extend</h3> <ol> <li> <p>Copy the shell script to the desired host. <div class=highlight><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp -O /etc/snmp/dhcp
+</code></pre></div></p> </li> </ol> <h2 id=isc-dhcp-stats>ISC DHCP Stats</h2> <p>A small python3 script that reports current DHCP leases stats and pool usage of ISC DHCP Server.</p> <p>Also you have to install the dhcpd-pools and the required Perl modules.</p> <div class=highlight><pre><span></span><code># Debian
+apt install cpanminus libmime-base64-perl libfile-slurp-perl
+cpanm Net::ISC::DHCPd::Leases
+
+# FreeBSD
+pkg install p5-JSON p5-MIME-Base64 p5-App-cpanminus p5-File-Slurp
+cpanm Net::ISC::DHCPd::Leases
+
+# Generic
+cpanm Net::ISC::DHCPd::Leases MIME::Base64 File::Slurp
+</code></pre></div> <h3 id=snmp-extend_20>SNMP Extend</h3> <ol> <li> <p>Copy the shell script to the desired host. <div class=highlight><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/dhcp -O /etc/snmp/dhcp
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/dhcp
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add: <div class=highlight><pre><span></span><code># without using cron
 extend dhcpstats /etc/snmp/dhcp -Z
@@ -231,9 +247,13 @@ extend dhcpstats /bin/cat /var/cache/dhcp_extend
 chmod +x /etc/snmp/logsize
 </code></pre></div> <ol> <li>Install the requirements.</li> </ol> <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-File-Find-Rule p5-JSON p5-TOML p5-Time-Piece p5-MIME-Base64 p5-File-Slurp p5-Statistics-Lite
+
 # Debian
 apt-get install cpanminus libjson-perl libmime-base64-perl libfile-slurp-perl libtoml-perl libfile-find-rule-perl libstatistics-lite-perl
 cpanm Time::Piece
+
+# Generic
+cpanm File::Find::Rule JSON TOML Time::Piece MIME::Base64 File::Slurp Statistics::Lite Time::Piece
 </code></pre></div> <ol> <li>Configure the config at <code>/usr/local/etc/logsize.conf</code>. You can find the documentation for the config file in the extend. Below is a small example.</li> </ol> <div class=highlight><pre><span></span><code># monitor log sizes of logs directly udner /var/log
 [sets.var_log]
 dir=&quot;/var/log/&quot;
@@ -264,7 +284,8 @@ extend logsize /bin/cat /var/cache/logsize_extend/extend_return
 }
 </code></pre></div></li> </ol> </li> <li> <p>Restart snmpd.</p> </li> </ol> <h2 id=linux-softnet-stat>Linux Softnet Stat</h2> <h3 id=snmp-extend_23>SNMP Extend</h3> <p>1: Install the depends, which on a Debian based system would be as below. <div class=highlight><pre><span></span><code># Debian
 apt-get install -y libfile-slurp-perl libmime-base64-perl libjson-perl
-# generic cpanm
+
+# Generic
 cpanm JSON File::Slurp MIME::Base64
 </code></pre></div></p> <ol> <li> <p>Download the script into the desired host. <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/linux_softnet_stat -O /etc/snmp/linux_softnet_stat
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/linux_softnet_stat
@@ -400,9 +421,11 @@ allow snmpd_t device_t:chr_file { open ioctl read write };
 </code></pre></div></p> </li> <li> <p>Make it executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/opensearch
 </code></pre></div></p> </li> <li> <p>Install the required Perl dependencies. <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-JSON p5-File-Slurp p5-MIME-Base64 p5-LWP-Protocol-https
+
 # Debian/Ubuntu
 apt-get install libjson-perl libfile-slurp-perl liblwp-protocol-https-perl libmime-base64-perl
-# cpanm
+
+# Generic
 cpanm JSON Libwww File::Slurp LWP::Protocol::HTTPS MIME::Base64
 </code></pre></div></p> </li> <li> <p>Update your snmpd.conf. <div class=highlight><pre><span></span><code>extend opensearch /bin/cat /var/cache/opensearch.json.snmp
 </code></pre></div></p> </li> <li> <p>Update root crontab with. This is required as it will this will likely time out otherwise. Use <code>*/1</code> if you want to have the most recent stats when polled or to <code>*/5</code> if you just want at exactly a 5 minute interval. <div class=highlight><pre><span></span><code>*/5 * * * * /etc/snmp/opensearch -w -q
@@ -415,6 +438,9 @@ cpanm JSON Libwww File::Slurp LWP::Protocol::HTTPS MIME::Base64
 </code></pre></div></p> </li> <li> <p>Verify it is working by running <code>/etc/snmp/opensips-stats.sh</code></p> </li> <li> <p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add: <div class=highlight><pre><span></span><code>extend opensips /etc/snmp/opensips-stats.sh
 </code></pre></div></p> </li> </ol> <h2 id=os-level-virtualization-monitoring>OS Level Virtualization Monitoring</h2> <table> <thead> <tr> <th>OS</th> <th>Supported</th> </tr> </thead> <tbody> <tr> <td>FreeBSD</td> <td>jails</td> </tr> <tr> <td>Linux</td> <td>cgroups v2(Docker, Podman included)</td> </tr> </tbody> </table> <h3 id=snmp-extend_38>SNMP Extend</h3> <ol> <li>Install the depends...</li> </ol> <div class=highlight><pre><span></span><code><span class=c1># Debian</span>
 apt-get<span class=w> </span>install<span class=w> </span>libjson-perl<span class=w> </span>libclone-perl<span class=w> </span>libmime-base64-perl<span class=w> </span>libfile-slurp-perl<span class=w> </span>libio-interface-perl<span class=w> </span>cpanminus
+
+<span class=c1># Generic</span>
+cpanm<span class=w> </span>JSON<span class=w> </span>Clone<span class=w> </span>Mime::Base64<span class=w> </span>File::Slurp<span class=w> </span>IO::Interface
 </code></pre></div> <ol> <li>Install...</li> </ol> <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-OSLV-Monitor
 
@@ -554,6 +580,9 @@ pkg install p5-JSON p5-MIME-Base64 p5-File-Slurp p5-File-ReadBackwards p5-IPC-Ru
 # Debian
 apt-get install libjson-perl libmime-base64-perl libfile-slurp-perl libfile-readbackwards-perl libipc-run3-perl cpanminus
 cpanm Time::Piece
+
+# Generic
+cpanm Time::Piece JSON MIME::Base64 File::Slurp File::ReadBackwards IPC::Run3
 </code></pre></div></p> </li> <li> <p>Add the extend to snmpd.conf and restart snmpd. <div class=highlight><pre><span></span><code>extend privoxy /etc/snmp/privoxy
 </code></pre></div></p> </li> </ol> <p>If your logfile is not at <code>/var/log/privoxy/logfile</code>, that may be changed via the <code>-f</code> option.</p> <p>If <code>privoxy-log-parser.pl</code> is not found in your standard <code>$PATH</code> setting, you may will need up call the extend via <code>/usr/bin/env</code> with a <code>$PATH</code> set to something that includes it.</p> <p>Once that is done, just wait for the server to be rediscovered or just enable it manually.</p> <p>If you are having timeouts or there is privelege seperation issues, then it can be ran via cron like below. <code>-w</code> can be used to write it out and <code>-o</code> can be used to control where it is written to. See <code>--help</code> for more information.</p> <div class=highlight><pre><span></span><code># cron
 */5 * * * * root /etc/snmp/privoxy -w &gt; /dev/null
@@ -667,8 +696,12 @@ useSN = If set to 1, it will use the disks SN for reporting instead of the devic
 </code></pre></div> <p>For more information on Sneck, check it out at <a href=https://metacpan.org/dist/Monitoring-Sneck>MetaCPAN</a> or <a href=https://github.com/VVelox/Monitoring-Sneck>Github</a>.</p> <p>For poking systems using Sneck, also check out boop_snoot if one wants to query those systems via the CLI. Docs on it at <a href=https://metacpan.org/dist/Monitoring-Sneck-Boop_Snoot>MetaCPAN</a> and <a href=https://github.com/VVelox/Monitoring-Sneck-Boop_Snoot>Github</a>.</p> <h3 id=snmp-extend_61>SNMP Extend</h3> <ol> <li>Install the extend.</li> </ol> <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-JSON p5-File-Slurp p5-MIME-Base64 p5-App-cpanminus
 cpanm Monitoring::Sneck
+
 # Debian based systems
 apt-get install cpanminus libjson-perl libfile-slurp-perl libmime-base64-perl
+cpanm Monitoring::Sneck
+
+# Generic
 cpanm Monitoring::Sneck
 </code></pre></div> <ol> <li> <p>Configure any of the checks you want to run in <code>/usr/local/etc/sneck.conf</code>. You con find it documented <a href=https://metacpan.org/pod/Monitoring::Sneck#CONFIG-FORMAT>here</a>.</p> </li> <li> <p>Set it up in cron. This will mean you don't need to wait for all the checks to complete when polled via SNMP, which for like SMART or other long running checks will mean it timing out. Also means it does not need called via sudo as well.</p> </li> </ol> <div class=highlight><pre><span></span><code>*/5 * * * * /usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin /usr/local/bin/sneck -u 2&gt; /dev/null &gt; /dev/null
 </code></pre></div> <ol> <li>Set it up in the snmpd config and restart snmpd. The <code>-c</code> flag will tell read it to read from cache instead of rerunning the checks.</li> </ol> <div class=highlight><pre><span></span><code>extend sneck /usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin /usr/local/bin/sneck -c
@@ -687,6 +720,9 @@ cpanm Sagan::Monitoring
 
 # Debian
 apt-get install libjson-perl libfile-readbackwards-perl libfile-slurp-perl libmime-base64-perl cpanminus
+cpanm Sagan::Monitoring
+
+# Generic
 cpanm Sagan::Monitoring
 </code></pre></div></p> </li> <li> <p>Setup cron. Below is a example. <div class=highlight><pre><span></span><code>*/5 * * * * /usr/local/bin/sagan_stat_check &gt; /dev/null
 </code></pre></div></p> </li> <li> <p>Configure snmpd.conf <div class=highlight><pre><span></span><code>extend sagan-stats /usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin sagan_stat_check -c
@@ -778,8 +814,12 @@ semodule -i snmpd_ss.pp
 </code></pre></div></p> </li> <li> <p>Restart snmpd.</p> </li> </ol> <h2 id=suricata>Suricata</h2> <h3 id=snmp-extend_65>SNMP Extend</h3> <ol> <li> <p>Install the extend. <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-JSON p5-File-Path p5-File-Slurp p5-Time-Piece p5-MIME-Base64 p5-Hash-Flatten p5-Carp p5-App-cpanminus
 cpanm Suricata::Monitoring
+
 # Debian
 apt-get install libjson-perl libfile-path-perl libfile-slurp-perl libmime-base64-perl cpanminus
+cpanm Suricata::Monitoring
+
+# Generic
 cpanm Suricata::Monitoring
 </code></pre></div></p> </li> <li> <p>Setup cron. Below is a example. <div class=highlight><pre><span></span><code>*/5 * * * * /usr/local/bin/suricata_stat_check &gt; /dev/null
 </code></pre></div></p> </li> <li> <p>Configure snmpd.conf <div class=highlight><pre><span></span><code>extend suricata-stats /usr/bin/env PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin suricata_stat_check -c
@@ -842,15 +882,22 @@ extend ups-nut /etc/snmp/ups-nut.sh ups2
 </code></pre></div></p> </li> </ol> <h2 id=wireguard>Wireguard</h2> <p>The Wireguard application polls the Wireguard service and scrapes all client statistics for all interfaces configured as Wireguard interfaces.</p> <h3 id=snmp-extend_70>SNMP Extend</h3> <ol> <li> <p>Copy the python script, wireguard.py, to the desired host <div class=highlight><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/wireguard.pl -O /etc/snmp/wireguard.pl
 </code></pre></div></p> </li> <li> <p>Install the depends. <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-JSON p5-File-Slurp p5-MIME-Base64
+
 # Debian
 apt-get install libjson-perl libmime-base64-perl libfile-slurp-perl
+
+# Generic
+cpanm JSON MIME::Base64 File::Slurp
 </code></pre></div></p> </li> <li> <p>Make the script executable <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/wireguard.pl
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file and add: <div class=highlight><pre><span></span><code>extend wireguard /etc/snmp/wireguard.pl
-</code></pre></div></p> </li> <li> <p>Create the optional config file, <code>/usr/local/etc/wireguard_extend.json</code>.</p> </li> </ol> <table> <thead> <tr> <th>key</th> <th>default</th> <th>description</th> </tr> </thead> <tbody> <tr> <td>include_pubkey</td> <td>0</td> <td>Include the pubkey with the return.</td> </tr> <tr> <td>use_short_hostname</td> <td>1</td> <td>If the hostname should be shortened to just the first part.</td> </tr> <tr> <td>public_key_to_arbitrary_name</td> <td>{}</td> <td>A hash of pubkeys to name mappings.</td> </tr> <tr> <td>pubkey_resolvers</td> <td><see below></td> <td>Resolvers to use for the pubkeys.</td> </tr> </tbody> </table> <p>The default for <code>pubkey_resolvers</code> is <code>config,endpoint_if_first_allowed_is_subnet_use_hosts,endpoint_if_first_allowed_is_subnet_use_ip,first_allowed_use_hosts,first_allowed_use_ip</code>.</p> <table> <thead> <tr> <th>resolver</th> <th>description</th> </tr> </thead> <tbody> <tr> <td>config</td> <td>Use the mappings from <code>.public_key_to_arbitrary_name</code> .</td> </tr> <tr> <td>endpoint_if_first_allowed_is_subnet_use_hosts</td> <td>If the first allowed IP is a subnet, see if a matching IP can be found in hosts for the endpoint.</td> </tr> <tr> <td>endpoint_if_first_allowed_is_subnet_use_getent</td> <td>If the first allowed IP is a subnet, see if a hit can be found for the endpoint IP via getent hosts.</td> </tr> <tr> <td>endpoint_if_first_allowed_is_subnet_use_ip</td> <td>If the first allowed IP is a subnet, use the endpoint IP for the name.</td> </tr> <tr> <td>first_allowed_use_hosts</td> <td>See if a match can be found in hosts for the first allowed IP.</td> </tr> <tr> <td>first_allowed_use_getent</td> <td>Use getent hosts to see try to fetch a match for the first allowed IP.</td> </tr> <tr> <td>first_allowed_use_ip</td> <td>Use the first allowed IP as the name.</td> </tr> </tbody> </table> <ol> <li>Restart snmpd.</li> </ol> <h2 id=zfs>ZFS</h2> <h3 id=snmp-extend_71>SNMP Extend</h3> <p>1: Install the depends. <div class=highlight><pre><span></span><code>### FreeBSD
+</code></pre></div></p> </li> <li> <p>Create the optional config file, <code>/usr/local/etc/wireguard_extend.json</code>.</p> </li> </ol> <table> <thead> <tr> <th>key</th> <th>default</th> <th>description</th> </tr> </thead> <tbody> <tr> <td>include_pubkey</td> <td>0</td> <td>Include the pubkey with the return.</td> </tr> <tr> <td>use_short_hostname</td> <td>1</td> <td>If the hostname should be shortened to just the first part.</td> </tr> <tr> <td>public_key_to_arbitrary_name</td> <td>{}</td> <td>A hash of pubkeys to name mappings.</td> </tr> <tr> <td>pubkey_resolvers</td> <td><see below></td> <td>Resolvers to use for the pubkeys.</td> </tr> </tbody> </table> <p>The default for <code>pubkey_resolvers</code> is <code>config,endpoint_if_first_allowed_is_subnet_use_hosts,endpoint_if_first_allowed_is_subnet_use_ip,first_allowed_use_hosts,first_allowed_use_ip</code>.</p> <table> <thead> <tr> <th>resolver</th> <th>description</th> </tr> </thead> <tbody> <tr> <td>config</td> <td>Use the mappings from <code>.public_key_to_arbitrary_name</code> .</td> </tr> <tr> <td>endpoint_if_first_allowed_is_subnet_use_hosts</td> <td>If the first allowed IP is a subnet, see if a matching IP can be found in hosts for the endpoint.</td> </tr> <tr> <td>endpoint_if_first_allowed_is_subnet_use_getent</td> <td>If the first allowed IP is a subnet, see if a hit can be found for the endpoint IP via getent hosts.</td> </tr> <tr> <td>endpoint_if_first_allowed_is_subnet_use_ip</td> <td>If the first allowed IP is a subnet, use the endpoint IP for the name.</td> </tr> <tr> <td>first_allowed_use_hosts</td> <td>See if a match can be found in hosts for the first allowed IP.</td> </tr> <tr> <td>first_allowed_use_getent</td> <td>Use getent hosts to see try to fetch a match for the first allowed IP.</td> </tr> <tr> <td>first_allowed_use_ip</td> <td>Use the first allowed IP as the name.</td> </tr> </tbody> </table> <ol> <li>Restart snmpd.</li> </ol> <h2 id=zfs>ZFS</h2> <h3 id=snmp-extend_71>SNMP Extend</h3> <p>1: Install the depends. <div class=highlight><pre><span></span><code># FreeBSD
 pkg install p5-JSON p5-MIME-Base64 p5-File-Slurp
 
-### Debian
+# Debian
 apt-get install -y libjson-perl libmime-base64-perl libfile-slurp-perl
+
+# Generic
+cpanm JSON MIME::Base64 File::Slurp
 </code></pre></div></p> <p>2: Fetch the script in question and make it executable. <div class=highlight><pre><span></span><code>wget https://github.com/librenms/librenms-agent/raw/master/snmp/zfs -O /etc/snmp/zfs
 chmod +x /etc/snmp/zfs
 </code></pre></div></p> <p>3: Add the following to snmpd.conf and restart snmpd. If <code>-s</code>, passed as a arg, status is returned for display. <div class=highlight><pre><span></span><code>extend zfs /etc/snmp/zfs -b
