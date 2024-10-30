@@ -413,12 +413,14 @@ cpanm JSON Libwww File::Slurp LWP::Protocol::HTTPS MIME::Base64
 </code></pre></div></p> </li> <li> <p>Restart snmpd.</p> </li> </ol> <p>The application should be auto-discovered as described at the top of the page. If it is not, please follow the steps set out under <code>SNMP Extend</code> heading top of page.</p> <h2 id=opensips>Opensips</h2> <p>Script that reports load-average/memory/open-files stats of Opensips</p> <h3 id=snmp-extend_37>SNMP Extend</h3> <ol> <li> <p>Download the script onto the desired host <div class=highlight><pre><span></span><code>wget https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/opensips-stats.sh -O /etc/snmp/opensips-stats.sh
 </code></pre></div></p> </li> <li> <p>Make the script executable: <div class=highlight><pre><span></span><code>chmod +x /etc/snmp/opensips-stats.sh
 </code></pre></div></p> </li> <li> <p>Verify it is working by running <code>/etc/snmp/opensips-stats.sh</code></p> </li> <li> <p>Edit your snmpd.conf file (usually <code>/etc/snmp/snmpd.conf</code>) and add: <div class=highlight><pre><span></span><code>extend opensips /etc/snmp/opensips-stats.sh
-</code></pre></div></p> </li> </ol> <h2 id=os-level-virtualization-monitoring>OS Level Virtualization Monitoring</h2> <table> <thead> <tr> <th>OS</th> <th>Supported</th> </tr> </thead> <tbody> <tr> <td>FreeBSD</td> <td>jails</td> </tr> <tr> <td>Linux</td> <td>cgroups v2(Docker, Podman included)</td> </tr> </tbody> </table> <h3 id=snmp-extend_38>SNMP Extend</h3> <ol> <li>Install the depends...</li> </ol> <div class=highlight><pre><span></span><code><span class=c1># FreeBSD</span>
-pkg<span class=w> </span>install<span class=w> </span>p5-JSON<span class=w> </span>p5-Mime-Base64<span class=w> </span>p5-Clone<span class=w> </span>p5-File-Slurp<span class=w> </span>p5-IO-Interface<span class=w> </span>p5-App-cpanminus
-
-<span class=c1># Debian</span>
+</code></pre></div></p> </li> </ol> <h2 id=os-level-virtualization-monitoring>OS Level Virtualization Monitoring</h2> <table> <thead> <tr> <th>OS</th> <th>Supported</th> </tr> </thead> <tbody> <tr> <td>FreeBSD</td> <td>jails</td> </tr> <tr> <td>Linux</td> <td>cgroups v2(Docker, Podman included)</td> </tr> </tbody> </table> <h3 id=snmp-extend_38>SNMP Extend</h3> <ol> <li>Install the depends...</li> </ol> <div class=highlight><pre><span></span><code><span class=c1># Debian</span>
 apt-get<span class=w> </span>install<span class=w> </span>libjson-perl<span class=w> </span>libclone-perl<span class=w> </span>libmime-base64-perl<span class=w> </span>libfile-slurp-perl<span class=w> </span>libio-interface-perl<span class=w> </span>cpanminus
-</code></pre></div> <ol> <li> <p>Install... <code>cpanm OSLV::Monitor</code></p> </li> <li> <p>Setup cron.</p> </li> </ol> <div class=highlight><pre><span></span><code> */5 * * * * /usr/local/bin/oslv_monitor -q &gt; /dev/null 2&gt; /dev/null
+</code></pre></div> <ol> <li>Install...</li> </ol> <div class=highlight><pre><span></span><code># FreeBSD
+pkg install p5-OSLV-Monitor
+
+# Debian / Generic
+cpanm OSLV::Monitor
+</code></pre></div> <ol> <li>Setup cron.</li> </ol> <div class=highlight><pre><span></span><code> */5 * * * * /usr/local/bin/oslv_monitor -q &gt; /dev/null 2&gt; /dev/null
 </code></pre></div> <ol> <li>Setup snmpd.</li> </ol> <div class=highlight><pre><span></span><code>extend oslv_monitor /bin/cat /var/cache/oslv_monitor/snmp
 </code></pre></div> <p>Wait for it to be rediscovered by LibreNMS.</p> <p>An optional config file may be specified via -f or placed at <code>/usr/local/etc/oslv_monitor.json</code>.</p> <p>The following keys are used in the JSON config file.</p> <div class=highlight><pre><span></span><code>- include :: An array of regular expressions to include.
     Default :: [&quot;^.*$&quot;]
