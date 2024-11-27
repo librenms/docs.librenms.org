@@ -254,6 +254,7 @@ semanage fcontext -a -t httpd_sys_rw_content_t &#39;/opt/librenms/(rrd|storage)(
 semanage fcontext -a -t httpd_log_t &quot;/opt/librenms/logs(/.*)?&quot;
 semanage fcontext -a -t httpd_cache_t &#39;/opt/librenms/cache(/.*)?&#39;
 semanage fcontext -a -t bin_t &#39;/opt/librenms/librenms-service.py&#39;
+semanage fcontext -a -t httpd_cache_t &#39;/opt/librenms/cache(/.*)?&#39;
 restorecon -RFvv /opt/librenms
 setsebool -P httpd_can_sendmail=1
 setsebool -P httpd_execmem 1
