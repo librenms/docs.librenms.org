@@ -495,6 +495,8 @@ Linux: cgroups
 pkg<span class=w> </span>install<span class=w> </span>p5-File-Slurp<span class=w> </span>p5-JSON<span class=w> </span>p5-String-ShellQuote<span class=w> </span>p5-MIME-Base64
 <span class=c1># Debian</span>
 apt-get<span class=w> </span>install<span class=w> </span>libfile-slurp-perl<span class=w> </span>libjson-perl<span class=w> </span>libstring-shellquote-perl<span class=w> </span>libmime-base64-perl
+<span class=c1># Fedora</span>
+dnf<span class=w> </span>install<span class=w> </span>perl-JSON<span class=w> </span>perl-File-Slurp<span class=w> </span>perl-String-ShellQuote
 </code></pre></div></p> </li> <li> <p>Edit your snmpd.conf file (usually /etc/snmp/snmpd.conf) and add: <div class=highlight><pre><span></span><code>extend phpfpmsp /etc/snmp/php-fpm
 </code></pre></div></p> </li> <li> <p>Create the config file <code>/usr/local/etc/php-fpm_extend.json</code>. Alternate locations may be specified using the the <code>-f</code> switch. Akin to like below. For more information, see <code>/etc/snmp/php-fpm --help</code>. <div class=highlight><pre><span></span><code><span class=p>{</span>
 <span class=nt>&quot;pools&quot;</span><span class=p>:{</span>
