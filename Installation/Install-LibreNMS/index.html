@@ -278,7 +278,7 @@ semodule -i http_fping.pp
 firewall-cmd --permanent --zone public --add-service http --add-service https
 </code></pre></div> </div> <div class=tabbed-block> <p>Firewall not enabled by default</p> </div> </div> </div> <h2 id=enable-lnms-command-completion>Enable lnms command completion</h2> <p>This feature grants you the opportunity to use tab for completion on lnms commands as you would for normal linux commands.</p> <div class=highlight><pre><span></span><code>ln -s /opt/librenms/lnms /usr/bin/lnms
 cp /opt/librenms/misc/lnms-completion.bash /etc/bash_completion.d/
-</code></pre></div> <h2 id=configure-snmpd>Configure snmpd</h2> <div class=highlight><pre><span></span><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
+</code></pre></div> <p><code>lnms config</code> is the preferred method for <a href=../../Support/Configuration/ >Configuration</a></p> <h2 id=configure-snmpd>Configure snmpd</h2> <div class=highlight><pre><span></span><code>cp /opt/librenms/snmpd.conf.example /etc/snmp/snmpd.conf
 </code></pre></div> <div class=highlight><pre><span></span><code>vi /etc/snmp/snmpd.conf
 </code></pre></div> <p>Edit the text which says <code>RANDOMSTRINGGOESHERE</code> and set your own community string.</p> <div class=highlight><pre><span></span><code>curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
 chmod +x /usr/bin/distro

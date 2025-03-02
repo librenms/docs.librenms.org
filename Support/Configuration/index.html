@@ -66,7 +66,16 @@ lnms<span class=w> </span>config:get<span class=w> </span>snmp.community
 <span class=w>  </span><span class=o>[</span>
 <span class=w>      </span><span class=s2>&quot;public&quot;</span>
 <span class=w>  </span><span class=o>]</span>
-</code></pre></div> <h2 id=pre-load-configuration>Pre-load configuration</h2> <p>This feature is primarily for docker images and other automation. When installing LibreNMS for the first time with a new database you can place yaml key value files in <code>database/seeders/config</code> to pre-populate the config database.</p> <p>Example snmp.yaml <div class=highlight><pre><span></span><code><span class=nt>snmp.community</span><span class=p>:</span>
+</code></pre></div> <p>Multi-line configuration items above can be collapsed in to a single line using <code>| jq -c</code> to assist with set commands, for example: <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:get<span class=w> </span>snmp.community<span class=w> </span><span class=p>|</span><span class=w> </span>jq<span class=w> </span>-c
+<span class=o>[</span><span class=s2>&quot;public&quot;</span>,<span class=s2>&quot;testing&quot;</span><span class=o>]</span>
+</code></pre></div></p> <p>Alernatively, if leaving multi-line items exactly as returned by <code>lnms config:get</code> for easier reading, you can use the following format: <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>snmp.community<span class=w> </span><span class=se>\</span>
+<span class=s1>&#39;</span>
+<span class=s1>[</span>
+<span class=s1>    &quot;public&quot;,</span>
+<span class=s1>    &quot;testing&quot;</span>
+<span class=s1>]</span>
+<span class=s1>&#39;</span>
+</code></pre></div></p> <h2 id=pre-load-configuration>Pre-load configuration</h2> <p>This feature is primarily for docker images and other automation. When installing LibreNMS for the first time with a new database you can place yaml key value files in <code>database/seeders/config</code> to pre-populate the config database.</p> <p>Example snmp.yaml <div class=highlight><pre><span></span><code><span class=nt>snmp.community</span><span class=p>:</span>
 <span class=w>    </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
 <span class=w>    </span><span class="p p-Indicator">-</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">private</span>
 <span class=nt>snmp.max_repeaters</span><span class=p>:</span><span class=w> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
