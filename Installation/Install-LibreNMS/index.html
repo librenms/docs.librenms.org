@@ -31,8 +31,8 @@ git clone https://github.com/librenms/librenms.git
 chmod 771 /opt/librenms
 setfacl -d -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
 setfacl -R -m g::rwx /opt/librenms/rrd /opt/librenms/logs /opt/librenms/bootstrap/cache/ /opt/librenms/storage/
-</code></pre></div> <h2 id=install-php-dependencies>Install PHP dependencies</h2> <p><div class=highlight><pre><span></span><code>su - librenms
-./scripts/composer_wrapper.php install --no-dev
+</code></pre></div> <h2 id=install-php-dependencies>Install PHP dependencies</h2> <p>Change to the LibreNMS user: <div class=highlight><pre><span></span><code>su - librenms
+</code></pre></div></p> <p>Then run the composer wrapper script and exit back to the root user: <div class=highlight><pre><span></span><code>./scripts/composer_wrapper.php install --no-dev
 exit
 </code></pre></div> Sometimes when there is a proxy used to gain internet access, the above script may fail. The workaround is to install the <code>composer</code> package manually. For a global installation: <div class=highlight><pre><span></span><code>wget https://getcomposer.org/composer-stable.phar
 mv composer-stable.phar /usr/bin/composer
