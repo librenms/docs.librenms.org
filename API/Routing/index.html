@@ -104,7 +104,9 @@ curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/rou
 <span class=w>    </span><span class=p>],</span>
 <span class=w>    </span><span class=nt>&quot;count&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>100</span>
 <span class=p>}</span>
-</code></pre></div> <h3 id=list_ip_addresses><code>list_ip_addresses</code></h3> <p>List all IPv4 and IPv6 addresses.</p> <p>Route: <code>/api/v0/resources/ip/addresses</code></p> <p>Input:</p> <p>-</p> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/ip/addresses
+</code></pre></div> <h3 id=list_ip_addresses><code>list_ip_addresses</code></h3> <p>List all IPv4 and IPv6 or only version specific addresses.</p> <p>Route: <code>/api/v0/resources/ip/addresses/:address_family</code></p> <p>Input:</p> <ul> <li>address_family: optional ipv4 or ipv6 for ip version specific list.</li> </ul> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/ip/addresses
+curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/ip/addresses/ipv4
+curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/ip/addresses/ipv6
 </code></pre></div> <p>Output:</p> <div class=highlight><pre><span></span><code><span class=p>{</span>
 <span class=w>    </span><span class=nt>&quot;status&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;ok&quot;</span><span class=p>,</span>
 <span class=w>    </span><span class=nt>&quot;ip_addresses&quot;</span><span class=p>:</span><span class=w> </span><span class=p>[</span>
@@ -135,7 +137,9 @@ curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/rou
 <span class=w>    </span><span class=p>],</span>
 <span class=w>    </span><span class=nt>&quot;count&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>1</span>
 <span class=p>}</span>
-</code></pre></div> <h3 id=list_ip_networks><code>list_ip_networks</code></h3> <p>List all IPv4 and IPv6 networks.</p> <p>Route: <code>/api/v0/resources/ip/networks</code></p> <p>Input:</p> <p>-</p> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/ip/networks
+</code></pre></div> <h3 id=list_ip_networks><code>list_ip_networks</code></h3> <p>List all IPv4 and IPv6 or only version specific networks.</p> <p>Route: <code>/api/v0/resources/ip/networks/:address_family</code></p> <p>Input:</p> <ul> <li>address_family: optional ipv4 or ipv6 for ip version specific list.</li> </ul> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/ip/networks
+curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/ip/networks/ipv4
+curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://librenms.org/api/v0/resources/ip/networks/ipv6
 </code></pre></div> <p>Output:</p> <div class=highlight><pre><span></span><code><span class=p>{</span>
 <span class=w>    </span><span class=nt>&quot;status&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;ok&quot;</span><span class=p>,</span>
 <span class=w>    </span><span class=nt>&quot;ip_networks&quot;</span><span class=p>:</span><span class=w> </span><span class=p>[</span>
