@@ -32,7 +32,7 @@ $config[&#39;graph_types&#39;][&#39;device&#39;][&#39;pulse_sessions&#39;] = [&#
     <span class=p>);</span>
 
     <span class=nv>$tags</span> <span class=o>=</span> <span class=nb>compact</span><span class=p>(</span><span class=s1>&#39;rrd_def&#39;</span><span class=p>);</span>
-    <span class=nx>data_update</span><span class=p>(</span><span class=nv>$device</span><span class=p>,</span> <span class=s1>&#39;pulse_users&#39;</span><span class=p>,</span> <span class=nv>$tags</span><span class=p>,</span> <span class=nv>$fields</span><span class=p>);</span>
+    <span class=nx>app</span><span class=p>(</span><span class=s1>&#39;Datastore&#39;</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>put</span><span class=p>(</span><span class=nv>$device</span><span class=p>,</span> <span class=s1>&#39;pulse_users&#39;</span><span class=p>,</span> <span class=nv>$tags</span><span class=p>,</span> <span class=nv>$fields</span><span class=p>);</span>
     <span class=nv>$os</span><span class=o>-&gt;</span><span class=na>enableGraph</span><span class=p>(</span><span class=s1>&#39;pulse_users&#39;</span><span class=p>);</span>
 <span class=p>}</span>
 
@@ -46,7 +46,7 @@ $config[&#39;graph_types&#39;][&#39;device&#39;][&#39;pulse_sessions&#39;] = [&#
     <span class=p>);</span>
 
     <span class=nv>$tags</span> <span class=o>=</span> <span class=nb>compact</span><span class=p>(</span><span class=s1>&#39;rrd_def&#39;</span><span class=p>);</span>
-    <span class=nx>data_update</span><span class=p>(</span><span class=nv>$device</span><span class=p>,</span> <span class=s1>&#39;pulse_sessions&#39;</span><span class=p>,</span> <span class=nv>$tags</span><span class=p>,</span> <span class=nv>$fields</span><span class=p>);</span>
+    <span class=nx>app</span><span class=p>(</span><span class=s1>&#39;Datastore&#39;</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>put</span><span class=p>(</span><span class=nv>$device</span><span class=p>,</span> <span class=s1>&#39;pulse_sessions&#39;</span><span class=p>,</span> <span class=nv>$tags</span><span class=p>,</span> <span class=nv>$fields</span><span class=p>);</span>
     <span class=nv>$os</span><span class=o>-&gt;</span><span class=na>enableGraph</span><span class=p>(</span><span class=s1>&#39;pulse_sessions&#39;</span><span class=p>);</span>
 <span class=p>}</span>
 </code></pre></div> <h4 id=displaying>Displaying</h4> <p>The specific graphs are not displayed automatically so we need to write the following PHP code:</p> <p><strong>Pulse Users</strong></p> <div class=highlight><pre><span></span><code>includes/html/graphs/device/pulse_users.inc.php
