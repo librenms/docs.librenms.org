@@ -186,6 +186,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.librenms.org/Alerting/Transports/GLPI/</loc>
+         <lastmod>2025-04-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.librenms.org/Alerting/Transports/Gitlab/</loc>
          <lastmod>2025-04-23</lastmod>
          <changefreq>daily</changefreq>
