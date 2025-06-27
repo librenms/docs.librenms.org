@@ -917,6 +917,10 @@
          <lastmod>2025-06-27</lastmod>
     </url>
     <url>
+         <loc>https://docs.librenms.org/Extensions/metrics/Kafka/</loc>
+         <lastmod>2025-06-27</lastmod>
+    </url>
+    <url>
          <loc>https://docs.librenms.org/Extensions/metrics/OpenTSDB/</loc>
          <lastmod>2025-06-27</lastmod>
     </url>
