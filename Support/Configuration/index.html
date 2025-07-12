@@ -67,7 +67,7 @@ lnms<span class=w> </span>config:get<span class=w> </span>snmp.community
 <span class=w>  </span><span class=o>]</span>
 </code></pre></div> <p>Multi-line configuration items above can be collapsed in to a single line using <code>| jq -c</code> to assist with set commands, for example:</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:get<span class=w> </span>snmp.community<span class=w> </span><span class=p>|</span><span class=w> </span>jq<span class=w> </span>-c
 <span class=o>[</span><span class=s2>&quot;public&quot;</span>,<span class=s2>&quot;testing&quot;</span><span class=o>]</span>
-</code></pre></div> <p>Alernatively, if leaving multi-line items exactly as returned by <code>lnms config:get</code> for easier reading, you can use the following format: <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>snmp.community<span class=w> </span><span class=se>\</span>
+</code></pre></div> <p>Alternatively, if leaving multi-line items exactly as returned by <code>lnms config:get</code> for easier reading, you can use the following format: <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>snmp.community<span class=w> </span><span class=se>\</span>
 <span class=s1>&#39;</span>
 <span class=s1>[</span>
 <span class=s1>    &quot;public&quot;,</span>
