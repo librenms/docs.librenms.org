@@ -43,7 +43,7 @@
 <span class=w>    </span><span class=p>],</span>
 <span class=w>    </span><span class=nt>&quot;count&quot;</span><span class=p>:</span><span class=w> </span><span class=mi>1</span>
 <span class=p>}</span>
-</code></pre></div> <h3 id=maintenance_location><code>maintenance_location</code></h3> <p>Set a location into maintenance mode.</p> <p>Route: <code>/api/v0/locations/:location/maintenance</code></p> <ul> <li>location: name or id of the location to set</li> </ul> <p>Input (JSON):</p> <ul> <li><code>title</code>: <em>optional</em> - Some title for the Maintenance Will be replaced with location name if omitted</li> <li><code>notes</code>: <em>optional</em> - Some description for the Maintenance Will also be added to location notes if user prefs "Add schedule notes to locations notes" is set</li> <li><code>start</code>: <em>optional</em> - start time of Maintenance in full format <code>Y-m-d H:i:00</code> eg: 2022-08-01 22:45:00 Current system time <code>now()</code> will be used if omitted</li> <li><code>duration</code>: <em>required</em> - Duration of Maintenance in format <code>H:i</code> / <code>Hrs:Mins</code> eg: 02:00</li> </ul> <p>Example with start time:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
+</code></pre></div> <h3 id=maintenance_location><code>maintenance_location</code></h3> <p>Set a location into maintenance mode.</p> <p>Route: <code>/api/v0/locations/:location/maintenance</code></p> <ul> <li>location: name or id of the location to set</li> </ul> <p>Input (JSON):</p> <ul> <li><code>title</code>: <em>optional</em> - Some title for the Maintenance Will be replaced with location name if omitted</li> <li><code>behavior</code>: <em>optional</em> - id of maintenance behavior desired Defaults to alert.scheduled_maintenance_default_behavior if omitted</li> <li><code>notes</code>: <em>optional</em> - Some description for the Maintenance Will also be added to location notes if user prefs "Add schedule notes to locations notes" is set</li> <li><code>start</code>: <em>optional</em> - start time of Maintenance in full format <code>Y-m-d H:i:00</code> eg: 2022-08-01 22:45:00 Current system time <code>now()</code> will be used if omitted</li> <li><code>duration</code>: <em>required</em> - Duration of Maintenance in format <code>H:i</code> / <code>Hrs:Mins</code> eg: 02:00</li> </ul> <p>Example with start time:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
   -X POST https://librenms.org/api/v0/locations/Mcewen/maintenance/ \
   --data-raw &#39;
 {
@@ -57,13 +57,14 @@
 <span class=w>    </span><span class=nt>&quot;status&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;ok&quot;</span><span class=p>,</span>
 <span class=w>    </span><span class=nt>&quot;message&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;Location Mcewen (37101) will begin maintenance mode at 2022-08-01 22:45:00 for 2:00h&quot;</span>
 <span class=p>}</span>
-</code></pre></div> <p>Example with no start time and using location id:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
+</code></pre></div> <p>Example with no start time and using location id with "run alerts" behavior:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; \
   -X POST https://librenms.org/api/v0/locations/37101/maintenance/ \
   --data-raw &#39;
 {
   &quot;title&quot;:&quot;Location Mcewen Maintenance&quot;,
   &quot;notes&quot;:&quot;A 2 hour Maintenance triggered via API with no start time&quot;,
-  &quot;duration&quot;:&quot;2:00&quot;
+  &quot;duration&quot;:&quot;2:00&quot;,
+  &quot;behavior&quot;: 3
 }
 &#39;
 </code></pre></div> <p>Output:</p> <div class=highlight><pre><span></span><code><span class=p>{</span>
