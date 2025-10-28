@@ -210,7 +210,7 @@ Previous Write Errors: {{ $alert-&gt;applications[&#39;zfs&#39;][0][write_errors
 <span class=o>@</span><span class=k>endforeach</span>
 <span class=o>@</span><span class=k>endif</span>
 </code></pre></div> <h3 id=microsoft-teams-json>Microsoft Teams - JSON</h3> <div class=highlight><pre><span></span><code><span class=p>{</span>
-    <span class=s2>&quot;@context&quot;</span><span class=o>:</span> <span class=s2>&quot;https://schema.org/extensions&quot;</span><span class=p>,</span>
+    <span class=s2>&quot;@@context&quot;</span><span class=o>:</span> <span class=s2>&quot;https://schema.org/extensions&quot;</span><span class=p>,</span>
     <span class=s2>&quot;@type&quot;</span><span class=o>:</span> <span class=s2>&quot;MessageCard&quot;</span><span class=p>,</span>
     <span class=s2>&quot;title&quot;</span><span class=o>:</span> <span class=s2>&quot;{{ </span><span class=si>$alert-&gt;title</span><span class=s2> }}&quot;</span><span class=p>,</span>
 <span class=o>@</span><span class=k>if</span> <span class=p>(</span><span class=nv>$alert</span><span class=o>-&gt;</span><span class=na>state</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span>
