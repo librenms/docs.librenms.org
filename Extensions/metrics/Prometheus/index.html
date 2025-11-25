@@ -4,6 +4,7 @@ lnms<span class=w> </span>config:set<span class=w> </span>prometheus.job<span cl
 lnms<span class=w> </span>config:set<span class=w> </span>prometheus.prefix<span class=w> </span><span class=s1>&#39;librenms&#39;</span>
 </code></pre></div> </div> <p>If your pushgateway uses basic authentication, configure the following:</p> <div class="admonition setting"> <p class=admonition-title>poller/prometheus</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>prometheus.user<span class=w> </span>username
 lnms<span class=w> </span>config:set<span class=w> </span>prometheus.password<span class=w> </span>password
+</code></pre></div> </div> <p>Additional settings</p> <div class="admonition setting"> <p class=admonition-title>poller/prometheus</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>prometheus.attach_sysname<span class=w> </span><span class=nb>true</span>
 </code></pre></div> </div> <h2 id=prefix>Prefix</h2> <p>Setting the 'prefix' option will cause all metric names to begin with the configured value.</p> <p>For instance without setting this option metric names will be something like this:</p> <div class=highlight><pre><span></span><code>OUTUCASTPKTS
 ifOutUcastPkts_rate
 INOCTETS
