@@ -106,8 +106,6 @@ lnms<span class=w> </span>config:set<span class=w> </span>nmap<span class=w> </s
 lnms<span class=w> </span>config:set<span class=w> </span>nagios_plugins<span class=w> </span>/usr/lib/nagios/plugins
 lnms<span class=w> </span>config:set<span class=w> </span>ipmitool<span class=w> </span>/usr/bin/ipmitool
 lnms<span class=w> </span>config:set<span class=w> </span>virsh<span class=w> </span>/usr/bin/virsh
-lnms<span class=w> </span>config:set<span class=w> </span>dot<span class=w> </span>/usr/bin/dot
-lnms<span class=w> </span>config:set<span class=w> </span>sfdp<span class=w> </span>/usr/bin/sfdp
 </code></pre></div> </div> <h2 id=authentication>Authentication</h2> <p>Generic Authentication settings.</p> <p>Password minimum length for auth that allows user creation</p> <div class="admonition setting"> <p class=admonition-title>auth/general</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>password.min_length<span class=w> </span><span class=m>8</span>
 </code></pre></div> </div> <h2 id=proxy-support>Proxy support</h2> <p>For alerting and the callback functionality, we support the use of an http proxy setting. These can be any one of the following:</p> <div class="admonition setting"> <p class=admonition-title>system/proxy</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>callback_proxy<span class=w> </span>proxy.domain.com
 lnms<span class=w> </span>config:set<span class=w> </span>http_proxy<span class=w> </span>proxy.domain.com
