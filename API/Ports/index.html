@@ -18,7 +18,7 @@
 <span class=w>        </span><span class=p>}</span>
 <span class=w>    </span><span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div> <h3 id=search_ports><code>search_ports</code></h3> <p>Search for ports matching the query.</p> <p>Route: <code>/api/v0/ports/search/:search</code></p> <ul> <li>search string to search in fields: ifAlias, ifDescr, and ifName</li> </ul> <p>Input:</p> <ul> <li>columns: Comma separated list of columns you want returned.</li> </ul> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://foo.example/api/v0/ports/search/lo
+</code></pre></div> <h3 id=search_ports><code>search_ports</code></h3> <p>Search for ports matching the query.</p> <p>Route: <code>/api/v0/ports/search/:field/:search</code></p> <ul> <li>field: comma separated list of field(s) to search</li> <li>search: string to search in fields</li> </ul> <p>Input:</p> <ul> <li>columns: Comma separated list of columns you want returned.</li> </ul> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://foo.example/api/v0/ports/search/ifAlias,ifDescr,ifName/lo
 </code></pre></div> <p>Output:</p> <div class=highlight><pre><span></span><code><span class=p>{</span>
 <span class=w>    </span><span class=nt>&quot;status&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;ok&quot;</span><span class=p>,</span>
 <span class=w>    </span><span class=nt>&quot;ports&quot;</span><span class=p>:</span><span class=w> </span><span class=p>[</span>
