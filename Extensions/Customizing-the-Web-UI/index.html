@@ -2,7 +2,7 @@
     &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-hover=&quot;dropdown&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;fa fa-star fa-fw fa-lg fa-nav-icons hidden-md&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
         &lt;span class=&quot;hidden-sm&quot;&gt;Custom Menu&lt;/span&gt;&lt;/a&gt;
     &lt;ul class=&quot;dropdown-menu&quot;&gt;
-        @admin
+        @can(&#39;weathermap.manage&#39;)
             &lt;li&gt;&lt;a href=&quot;plugins/Weathermap/output/history/index.html&quot;&gt;&lt;i class=&quot;fa fa-film fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Weathermap Animation&lt;/a&gt;&lt;/li&gt;
             &lt;li role=&quot;presentation&quot; class=&quot;divider&quot;&gt;&lt;/li&gt;
             &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-database fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 1&lt;/a&gt;&lt;/li&gt;
@@ -13,7 +13,7 @@
             &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-truck fa-fw fa-lg&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; Item 63&lt;/a&gt;&lt;/li&gt;
         @else
             &lt;li&gt;&lt;a href=&quot;#&quot;&gt;You need admin rights to see this&lt;/a&gt;&lt;/li&gt;
-        @endadmin
+        @endcan
     &lt;/ul&gt;
 &lt;/li&gt;
 </code></pre></div> <h2 id=custom-device-menu-action>Custom device menu action</h2> <p>You can add custom external links in the menu on the device page.</p> <p>This feature allows you to easily link applications to related systems, as shown in the example of Open-audIT.</p> <p>The url value is parsed by the <a href=https://laravel.com/docs/blade>Laravel Blade</a> templating engine. You can access device variables such as <code>$device-&gt;hostname</code>, <code>$device-&gt;sysName</code> and use full PHP.</p> <div class="admonition setting"> <p class=admonition-title>settings/webui/device</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>html.device.links.+<span class=w> </span><span class=s1>&#39;{&quot;url&quot;: &quot;http://atssrv/open-audit/index/devices/{{ $device-&gt;sysName }}&quot;, &quot;title&quot;: &quot;Open-AudIT&quot;}&#39;</span>
