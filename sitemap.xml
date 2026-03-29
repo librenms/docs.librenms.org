@@ -245,6 +245,10 @@
          <lastmod>2026-03-29</lastmod>
     </url>
     <url>
+         <loc>https://docs.librenms.org/Alerting/Transports/PagerTree/</loc>
+         <lastmod>2026-03-29</lastmod>
+    </url>
+    <url>
          <loc>https://docs.librenms.org/Alerting/Transports/Philips-Hue/</loc>
          <lastmod>2026-03-29</lastmod>
     </url>
