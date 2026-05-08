@@ -12,9 +12,10 @@ descr Cust: Example Customer [10Mbit] (T1 Telco Y CCID129031) {EXAMP0001}
 # eth2: Peering: Peering Exchange
 </code></pre></div> <h2 id=customisation>Customisation</h2> <p>The following config options can be set to enable more custom types:</p> <div class="admonition setting"> <p class=admonition-title>webui/port-descr</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>customers_descr.+<span class=w> </span><span class=s1>&#39;cust&#39;</span>
 lnms<span class=w> </span>config:set<span class=w> </span>transit_descr.+<span class=w> </span><span class=s1>&#39;transit&#39;</span>
-lnms<span class=w> </span>config:set<span class=w> </span>peering_descr.+<span class=w> </span><span class=s1>&#39;peering&#39;</span><span class=s2>&quot;;&#39;</span>
-<span class=s2>lnms config:set core_descr.+ &#39;core&#39;</span>
-<span class=s2>lnms config:set custom_descr.+ &#39;something_made_up&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>peering_descr.+<span class=w> </span><span class=s1>&#39;peering&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>core_descr.+<span class=w> </span><span class=s1>&#39;core&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>custom_descr.+<span class=w> </span><span class=s1>&#39;ptp&#39;</span>
+lnms<span class=w> </span>config:set<span class=w> </span>custom_descr.+<span class=w> </span><span class=s1>&#39;anything&#39;</span>
 </code></pre></div> </div> <h2 id=custom-interface-parser>Custom interface parser</h2> <p>It's also possible to write your own parser, the existing one is: includes/port-descr-parser.inc.php</p> <p>Once you've created your own then you can enable it with:</p> <div class="admonition setting"> <p class=admonition-title>webui/port-descr</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>port_descr_parser<span class=w> </span>includes/custom/my-port-descr-parser.inc.php
 </code></pre></div> </div> <p>Here is an example of a very simple file that parses type and descr. <div class=highlight><pre><span></span><code><span class=o>&lt;?</span><span class=nx>php</span>
 
