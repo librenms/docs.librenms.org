@@ -104,7 +104,7 @@
 <span class=w>        </span><span class=p>}</span>
 <span class=w>    </span><span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div> <h3 id=list_available_health_graphs><code>list_available_health_graphs</code></h3> <p>This function allows to do three things:</p> <ul> <li>Get a list of overall health graphs available.</li> <li>Get a list of health graphs based on provided class.</li> <li>Get the health sensors information based on ID.</li> </ul> <p>Route: <code>/api/v0/devices/:hostname/health(/:type)(/:sensor_id)</code></p> <ul> <li>hostname can be either the device hostname or id</li> <li>type (optional) is health type / sensor class</li> <li>sensor_id (optional) is the sensor id to retrieve specific information.</li> </ul> <p>Input:</p> <p>-</p> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://foo.example/api/v0/devices/localhost/health
+</code></pre></div> <h3 id=list_available_health_graphs><code>list_available_health_graphs</code></h3> <p>This function allows to do three things:</p> <ul> <li>Get a list of overall health graphs available.</li> <li>Get a list of health graphs based on provided class.</li> <li>Get the health sensors information based on ID.</li> </ul> <p>Route: <code>/api/v0/devices/:hostname/health(/:type)(/:sensor_id)</code></p> <ul> <li>hostname can be either the device hostname or id</li> <li>type (optional) is health type / sensor class</li> <li>sensor_id (optional) is the sensor id to retrieve specific information.</li> </ul> <p><code>type</code> may be a sensor class (e.g. <code>device_voltage</code>) or one of the special classes <code>device_processor</code>, <code>device_storage</code> and <code>device_mempool</code>, which are stored in their own tables rather than the <code>sensors</code> table. The <code>device_</code> prefix is optional, so <code>processor</code> and <code>device_processor</code> are equivalent.</p> <p>Input:</p> <p>-</p> <p>Example:</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://foo.example/api/v0/devices/localhost/health
 </code></pre></div> <p>Output:</p> <div class=highlight><pre><span></span><code>{
     &quot;status&quot;: &quot;ok&quot;,
     &quot;message&quot;: &quot;&quot;,
@@ -165,6 +165,18 @@
             &quot;entPhysicalIndex_measured&quot;: null,
             &quot;lastupdate&quot;: &quot;2017-01-13 13:50:26&quot;,
             &quot;sensor_prev&quot;: &quot;1&quot;
+        }
+    ]
+}
+</code></pre></div> <p>Example (processor list):</p> <div class=highlight><pre><span></span><code>curl -H &#39;X-Auth-Token: YOURAPITOKENHERE&#39; https://foo.example/api/v0/devices/localhost/health/processor
+</code></pre></div> <p>Output:</p> <div class=highlight><pre><span></span><code>{
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;message&quot;: &quot;&quot;,
+    &quot;count&quot;: 1,
+    &quot;graphs&quot;: [
+        {
+            &quot;sensor_id&quot;: &quot;1&quot;,
+            &quot;desc&quot;: &quot;Processor&quot;
         }
     ]
 }
