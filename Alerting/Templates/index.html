@@ -118,7 +118,7 @@ Alert String: {{ $alert-&gt;applications[&#39;sneck&#39;][0][&#39;data&#39;][&#3
 <span class=p>{{</span> <span class=nv>$alert</span><span class=o>-&gt;</span><span class=na>hostname</span> <span class=p>}}</span>
 <span class=o>@</span><span class=k>endif</span>
 </code></pre></div> <h4 id=traceroute-debugs>Traceroute debugs</h4> <div class=highlight><pre><span></span><code><span class=o>@</span><span class=k>if</span> <span class=p>(</span><span class=nv>$alert</span><span class=o>-&gt;</span><span class=na>status</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
-    <span class=o>@</span><span class=k>if</span> <span class=p>(</span><span class=nv>$alert</span><span class=o>-&gt;</span><span class=na>status_reason</span> <span class=o>==</span> <span class=s1>&#39;icmp&#39;</span><span class=p>)</span>
+    <span class=o>@</span><span class=k>if</span> <span class=p>(</span><span class=nb>str_contains</span><span class=p>((</span><span class=nx>string</span><span class=p>)</span> <span class=nv>$alert</span><span class=o>-&gt;</span><span class=na>status_reason</span><span class=p>,</span> <span class=s1>&#39;icmp&#39;</span><span class=p>))</span>
         <span class=p>{{</span> <span class=nv>$alert</span><span class=o>-&gt;</span><span class=na>debug</span><span class=p>[</span><span class=s1>&#39;traceroute&#39;</span><span class=p>]</span> <span class=p>}}</span>
     <span class=o>@</span><span class=k>endif</span>
 <span class=o>@</span><span class=k>endif</span>
