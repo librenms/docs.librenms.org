@@ -165,6 +165,10 @@
          <lastmod>2026-07-01</lastmod>
     </url>
     <url>
+         <loc>https://docs.librenms.org/Alerting/Transports/Flowtriq/</loc>
+         <lastmod>2026-07-01</lastmod>
+    </url>
+    <url>
          <loc>https://docs.librenms.org/Alerting/Transports/GLPI/</loc>
          <lastmod>2026-07-01</lastmod>
     </url>
