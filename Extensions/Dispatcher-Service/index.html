@@ -4,7 +4,7 @@
 </code></pre></div> <hr> <h2 id=configuration>Configuration</h2> <p>The dispatcher can be configured through:</p> <ul> <li>The <strong>Web UI</strong></li> <li><strong>Configuration defaults</strong></li> </ul> <blockquote> <p>Note: Settings are not applied until you restart the service.</p> </blockquote> <h3 id=web-ui>Web UI</h3> <p>In the Web UI, go to <strong>Settings &gt; Poller &gt; Settings</strong> to manage node configurations. Nodes appear automatically after running for a few minutes.</p> <h3 id=configuration-defaults>Configuration Defaults</h3> <div class="admonition setting"> <p class=admonition-title>poller/dispatcherservice</p> <div class=highlight><pre><span></span><code>lnms<span class=w> </span>config:set<span class=w> </span>service_poller_workers<span class=w> </span><span class=m>24</span>
 lnms<span class=w> </span>config:set<span class=w> </span>service_services_workers<span class=w> </span><span class=m>8</span>
 lnms<span class=w> </span>config:set<span class=w> </span>service_discovery_workers<span class=w> </span><span class=m>16</span>
-lnms<span class=w> </span>config:set<span class=w> </span>service_poller_frequency<span class=w> </span><span class=m>300</span>
+lnms<span class=w> </span>config:set<span class=w> </span>service_poller_frequency<span class=w> </span>null
 lnms<span class=w> </span>config:set<span class=w> </span>service_services_frequency<span class=w> </span><span class=m>300</span>
 lnms<span class=w> </span>config:set<span class=w> </span>service_discovery_frequency<span class=w> </span><span class=m>21600</span>
 lnms<span class=w> </span>config:set<span class=w> </span>service_billing_frequency<span class=w> </span><span class=m>300</span>
