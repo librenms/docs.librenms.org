@@ -107,7 +107,7 @@ output {
             url =&gt; &quot;https://sink.librenms.org/api/v0/syslogsink/    # replace with your librenms host
             format =&gt; &quot;json_batch&quot;                                  # put multiple syslogs in on HTTP message
                 retry_failed =&gt; false                               # if true, logstash is blocking if the API is unavailable, be careful! 
-                headers =&gt; [&quot;X-Auth-Token&quot;,&quot;xxxxxxxLibreNMSApiToken]
+                headers =&gt; [&quot;Authorization&quot;,&quot;Bearer xxxxxxxLibreNMSApiToken&quot;]
 
                 # optional if your mapping is not already done before or does not match. &quot;msg&quot; and &quot;host&quot; is mandatory. 
                 # you might also use out the clone {} function to duplicate your log stream and a dedicated log filtering/mapping etc.
@@ -123,7 +123,7 @@ output {
                 # }
         }
 }
-</code></pre></div></p> <p>Sample test data: <div class=highlight><pre><span></span><code>curl -L -X POST &#39;https://sink.librenms.org/api/v0/syslogsink/&#39; -H &#39;X-Auth-Token: xxxxxxxLibreNMSApiToken&#39; --data-raw &#39;[   
+</code></pre></div></p> <p>Sample test data: <div class=highlight><pre><span></span><code>curl -L -X POST &#39;https://sink.librenms.org/api/v0/syslogsink/&#39; -H &#39;Authorization: Bearer xxxxxxxLibreNMSApiToken&#39; --data-raw &#39;[   
     {
         &quot;msg&quot;: &quot;kernel: minimum Message&quot;,
         &quot;host&quot;: &quot;mydevice.fqdn.com&quot;
