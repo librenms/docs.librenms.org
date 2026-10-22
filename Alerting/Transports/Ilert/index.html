@@ -7,7 +7,7 @@
 <span class=w>            </span><span class=nt>&quot;text&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;{{ $alert-&gt;hostname }}&quot;</span>
 <span class=w>        </span><span class=p>},</span>
 <span class=w>        </span><span class=p>{</span>
-<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;{{ route(&#39;device&#39;, [&#39;device&#39; =&gt; $alert-&gt;device_id ?? 1, &#39;tab&#39; =&gt; &#39;alerts&#39;]) }}&quot;</span><span class=p>,</span>
+<span class=w>            </span><span class=nt>&quot;href&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;{{ route(&#39;device.faults&#39;, $alert-&gt;device_id ?? 1) }}&quot;</span><span class=p>,</span>
 <span class=w>            </span><span class=nt>&quot;text&quot;</span><span class=p>:</span><span class=w> </span><span class=s2>&quot;{{ $alert-&gt;hostname }} - Alerts&quot;</span>
 <span class=w>        </span><span class=p>}</span>
 <span class=w>    </span><span class=p>],</span>
@@ -29,7 +29,7 @@
             &quot;text&quot;: &quot;{{ $alert-&gt;hostname }}&quot;
         },
         {
-            &quot;href&quot;: &quot;{{ route(&#39;device&#39;, [&#39;device&#39; =&gt; $alert-&gt;device_id ?? 1, &#39;tab&#39; =&gt; &#39;alerts&#39;]) }}&quot;,
+            &quot;href&quot;: &quot;{{ route(&#39;device.faults&#39;, $alert-&gt;device_id ?? 1) }}&quot;,
             &quot;text&quot;: &quot;{{ $alert-&gt;hostname }} - Alerts&quot;
         }
     ],
