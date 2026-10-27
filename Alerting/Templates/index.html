@@ -326,7 +326,7 @@ Previous Write Errors: {{ $alert-&gt;applications[&#39;zfs&#39;][0][write_errors
     <span class=p>};</span>
 <span class=o>@</span><span class=nx>endphp</span>
 <span class=p>{</span>
-    <span class=s2>&quot;type&quot;</span><span class=o>:</span> <span class=s2>&quot;message&quot;</span>
+    <span class=s2>&quot;type&quot;</span><span class=o>:</span> <span class=s2>&quot;message&quot;</span><span class=p>,</span>
     <span class=s2>&quot;attachments&quot;</span><span class=o>:</span> <span class=p>[</span>
         <span class=p>{</span>
             <span class=s2>&quot;contentType&quot;</span><span class=o>:</span> <span class=s2>&quot;application/vnd.microsoft.card.adaptive&quot;</span><span class=p>,</span>
@@ -356,8 +356,11 @@ Previous Write Errors: {{ $alert-&gt;applications[&#39;zfs&#39;][0][write_errors
                         <span class=s2>&quot;type&quot;</span><span class=o>:</span>  <span class=s2>&quot;TextBlock&quot;</span><span class=p>,</span>
                         <span class=s2>&quot;text&quot;</span><span class=o>:</span>  <span class=s2>&quot;**📌 State:** @switch (</span><span class=si>$alert-&gt;state</span><span class=s2>)</span>
 <span class=s2>                            @case (0) OK ✅ @break</span>
-<span class=s2>                            @case (1) Warning ⚠️ @break</span>
-<span class=s2>                            @case (2) Critical ❌ @break</span>
+<span class=s2>                            @case (1) Active ❌ @break</span>
+<span class=s2>                            @case (2) Acknowledged @break</span>
+<span class=s2>                            @case (3) Worse @break</span>
+<span class=s2>                            @case (4) Better @break</span>
+<span class=s2>                            @case (5) Changed @break</span>
 <span class=s2>                            @default Unknown @endswitch&quot;</span><span class=p>,</span>
                         <span class=s2>&quot;wrap&quot;</span><span class=o>:</span>  <span class=k>true</span><span class=p>,</span>
                         <span class=s2>&quot;color&quot;</span><span class=o>:</span>  <span class=s2>&quot;{{ </span><span class=si>$state_color</span><span class=s2> }}&quot;</span><span class=p>,</span>
@@ -450,7 +453,7 @@ Previous Write Errors: {{ $alert-&gt;applications[&#39;zfs&#39;][0][write_errors
                         <span class=s2>&quot;type&quot;</span><span class=o>:</span>  <span class=s2>&quot;Action.OpenUrl&quot;</span><span class=p>,</span>
                         <span class=s2>&quot;title&quot;</span><span class=o>:</span>  <span class=s2>&quot;View Alert&quot;</span><span class=p>,</span>
                         <span class=s2>&quot;style&quot;</span><span class=o>:</span> <span class=s2>&quot;positive&quot;</span><span class=p>,</span>
-                        <span class=s2>&quot;url&quot;</span><span class=o>:</span>  <span class=s2>&quot;https://librenms.server.utsc.utoronto.ca/device/{{ </span><span class=si>$alert-&gt;device_id</span><span class=s2> }}/faults&quot;</span>
+                        <span class=s2>&quot;url&quot;</span><span class=o>:</span>  <span class=s2>&quot;https://my.librenms.install/device/{{ </span><span class=si>$alert-&gt;device_id</span><span class=s2> }}/faults&quot;</span>
                     <span class=p>}</span>
                 <span class=p>]</span>
                 <span class=p>}</span>
