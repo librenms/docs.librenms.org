@@ -142,18 +142,18 @@
         <span class=p>}</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div> <p>The program first loops through the index value of each port. On an Adva device, the port names are Ethernet 1-1-1-1, 1-1-1-2, and so on. The MIB indexes them as oid.1.1.1.1, oid.1.1.1.2, and so on.</p> <p>The program then finds the table of the port and tests the connector type for the value 'fiber'. The full code holds other port tables. This example leaves them out. Copper media give no optical reading. The discovery therefore skips a port without the fiber media type.</p> <p>The next two lines build the OIDs of the optical receive value and the optical transmit value. They use the <code>$index</code> of the port. The program then gets the current receive value and the current transmit value, that is <code>$currentRx</code> and <code>$currentTx</code>. It tests both values against 0. Some SFPs do not collect digital optical monitoring (DOM) data. On an Adva device without DOM, both values are 0. 0 is a valid optical power value, but two values of 0 with DOM are very improbable. Without DOM, the program stops the discovery of that port. Other vendors handle optics without DOM in a different way. Read the MIBs of your vendor.</p> <p>The program then sets <code>$entPhysicalIndex</code> and <code>$entPhysicalIndex_measured</code>. Here, <code>$entPhysicalIndex</code> takes the value of <code>CM-FACILITY-MIB::cmEthernetTrafficPortIfIndex</code>. The sensor then belongs to the port. The sensor graphs then also appear on the page of that port, and not only on the Health page.</p> <p>The program then reads the description of the port from the database. This description becomes the title of the graph in the web interface.</p> <p>The program then calls <code>discover_sensor()</code> with the collected information. The <code>null</code> values are the low limit, the low warning limit, the high limit, and the high warning limit. The Adva MIB does not hold these values.</p> <p>To test the code, run the discovery manually with <code>lnms device:discover $device_id -m sensors</code>. The flag <code>-v</code> shows the calls of the discovery. The flag <code>-d</code> shows the debug output. The output under <code>#### Load disco module sensors ####</code> holds a list of the sensor types. A <code>+</code> means a new sensor. A <code>-</code> means a removed sensor. A <code>.</code> means no change. No character means no discovery of that sensor. The bottom of the output holds the changes to the database and to the RRD files.</p> <div class=highlight><pre><span></span><code>[librenms@nms-test ~]$ lnms device:discover 2 -m sensors
+</code></pre></div> <p>The program first loops through the index value of each port. On an Adva device, the port names are Ethernet 1-1-1-1, 1-1-1-2, and so on. The MIB indexes them as oid.1.1.1.1, oid.1.1.1.2, and so on.</p> <p>The program then finds the table of the port and tests the connector type for the value 'fiber'. The full code holds other port tables. This example leaves them out. Copper media give no optical reading. The discovery therefore skips a port without the fiber media type.</p> <p>The next two lines build the OIDs of the optical receive value and the optical transmit value. They use the <code>$index</code> of the port. The program then gets the current receive value and the current transmit value, that is <code>$currentRx</code> and <code>$currentTx</code>. It tests both values against 0. Some SFPs do not collect digital optical monitoring (DOM) data. On an Adva device without DOM, both values are 0. 0 is a valid optical power value, but two values of 0 with DOM are very improbable. Without DOM, the program stops the discovery of that port. Other vendors handle optics without DOM in a different way. Read the MIBs of your vendor.</p> <p>The program then sets <code>$entPhysicalIndex</code> and <code>$entPhysicalIndex_measured</code>. Here, <code>$entPhysicalIndex</code> takes the value of <code>CM-FACILITY-MIB::cmEthernetTrafficPortIfIndex</code>. The sensor then belongs to the port. The sensor graphs then also appear on the page of that port, and not only on the Health page.</p> <p>The program then reads the description of the port from the database. This description becomes the title of the graph in the web interface.</p> <p>The program then calls <code>discover_sensor()</code> with the collected information. The <code>null</code> values are the low limit, the low warning limit, the high limit, and the high warning limit. The Adva MIB does not hold these values.</p> <p>To test the code, run the discovery manually with <code>lnms device:discover $device_id -m sensors</code>. The flag <code>-vv</code> shows the debug output. The flag <code>-vvv</code> shows the unredacted debug output. </p> <p>The output under <code>#### Load discovery module sensors ####</code> holds a list of the sensor types. A <code>+</code> means a new sensor. A <code>-</code> means a removed sensor. A <code>.</code> means no change. No character means no discovery of that sensor. The bottom of the output holds the changes to the database and to the RRD files.</p> <div class=highlight><pre><span></span><code>[librenms@nms-test ~]$ lnms device:discover -v 2 -m sensors
 LibreNMS Discovery
 164.113.194.250 2 adva_fsp150
 
-#### Load disco module core ####
+#### Load discovery module core ####
 
 &gt;&gt; Runtime for discovery module &#39;core&#39;: 0.0240 seconds with 66536 bytes
 &gt;&gt; SNMP: [2/0.06s] MySQL: [3/0.00s] RRD: [0/0.00s]
 #### Unload disco module core ####
 
 
-#### Load disco module sensors ####
+#### Load discovery module sensors ####
 Pre-cache adva_fsp150:
  ENTITY-SENSOR: Caching OIDs: entPhysicalDescr entPhysicalName entPhySensorType entPhySensorScale entPhySensorPrecision entPhySensorValue entPhySensorOperStatus
 Airflow:
@@ -189,7 +189,7 @@ Signal_loss:
 
 &gt;&gt; Runtime for discovery module &#39;sensors&#39;: 3.9340 seconds with 190024 bytes
 &gt;&gt; SNMP: [16/3.89s] MySQL: [36/0.03s] RRD: [0/0.00s]
-#### Unload disco module sensors ####
+#### Unload discovery module sensors ####
 
 Discovered in 5.521 seconds
 
